@@ -36,6 +36,7 @@ export default function Home() {
             <li className="bg-blue-100 p-2 rounded-lg">Sabah Muaythai Expo, Rookie Challenge 2025: 7th-8th June 2025, PLN Taman Delima, Penampang</li>
             <li className="bg-blue-100 p-2 rounded-lg">𝗠𝘂𝗮𝘆𝘁𝗵𝗮𝗶 𝗦𝘂𝗸𝗮𝗻 𝗧𝗲𝗺𝗽𝘂𝗿 𝗞𝗲𝗯𝗮𝗻𝗴𝘀𝗮𝗮𝗻 (𝗣𝗿𝗮 𝗦𝘂𝗸𝗺𝗮): 24th-27th July 2025, Axiata Stadium, Bukit Jalil</li>
             <li className="bg-blue-100 p-2 rounded-lg">VW Fighting Championship: 22nd-24th August 2025, Kompleks Sukan Sandakan</li>
+            <li className="bg-blue-100 p-2 rounded-lg">Sabah Games (SAGA) Muaythai: 11th-17th October 2025, Tawau, Sabah</li>
           </ul>
         </div>
 
