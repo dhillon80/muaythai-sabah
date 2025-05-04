@@ -25,7 +25,7 @@ export default function Home() {
           />
         </div>
 
-        <h1 className="text-4xl font-bold text-blue-500">Welcome to Muaythai Sabah!</h1>
+        <h1 className="text-4xl font-bold text-blue-500">Welcome to Muaythai Sabah Sites!</h1>
         <p className="mt-4 text-lg">Coming soon: Muaythai events, fighter stats, and more!</p>
 
         {/* Upcoming Events Section */}
