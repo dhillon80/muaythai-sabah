@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 
 export default function Home() {
@@ -42,7 +44,3 @@ export default function Home() {
 }
 import Link from 'next/link';
 
-// Inside your Home component JSX
-<Link href="/fighter-profile">
-  <a className="mt-8 text-blue-500 text-xl">Create Fighter Profile</a>
-</Link>
