@@ -8,6 +8,18 @@ export default function Home() {
     <div className="flex items-center justify-center min-h-screen bg-gray-200">
       <div className="text-center p-8 bg-white rounded-lg shadow-lg max-w-4xl w-full">
 
+        {/* 🖼️ Logo Section */}
+        <div className="flex justify-center items-center mb-6">
+          <Image 
+            src="/pmnslogo.png"            {/* Use the logo image */}
+            alt="Muaythai Sabah Logo"     
+            width={100}                    {/* Adjust the size of the logo */}
+            height={100}
+            className="rounded-full mr-4"  {/* Rounded corners */}
+          />
+          <h1 className="text-4xl font-bold text-blue-500">Welcome to Muaythai Sabah Sites!</h1>
+        </div>
+
         {/* 🖼️ Image Section */}
         <div className="flex justify-center flex-wrap gap-4 mb-6">
           <Image 
@@ -26,7 +38,6 @@ export default function Home() {
           />
         </div>
 
-        <h1 className="text-4xl font-bold text-blue-500">Welcome to Muaythai Sabah Sites!</h1>
         <p className="mt-4 text-lg">Coming soon: Muaythai events, fighter stats, and more!</p>
 
         {/* 🗓️ Upcoming Events */}
