@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function EventPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="text-center p-8 bg-white rounded-lg shadow-lg text-black">
+      <div className="text-center p-8 bg-white rounded-lg shadow-lg text-black overflow-x-auto">
 
         <h1 className="text-4xl font-bold text-black">Upcoming Muaythai Events</h1>
         <p className="mt-4 text-lg">Register for our exciting events!</p>
@@ -14,11 +14,11 @@ export default function EventPage() {
 
           <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Cultural and Heritage Challenge 2025</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">Wai Kru and MaiMuay: 24th–25th May 2025, PLN, Taman Delima, Penampang</p>
+            <p className="text-lg text-black mb-4">Wai Kru and MaiMuay: 24th–25th May 2025, PLN, Taman Delima, Penampang</p>
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeWj1ZsSscIt9lv7jsWoarlR1h4w9uyNUUrPPdl6ylH1M1i0w/viewform?embedded=true"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefemmZ2L7WPpt437g4kXberrSEWHXoG2i3XIlda_mNuO_AqA/viewform"
               target="_blank"
-              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg mt-4 inline-block"
+              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg inline-block"
             >
               Register Now
             </Link>
@@ -28,9 +28,9 @@ export default function EventPage() {
           <div className="bg-blue-600 p-4 rounded-lg mb-6">
             <p className="text-lg text-black">7th–8th June 2025, PLN, Taman Delima, Penampang</p>
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeWj1ZsSscIt9lv7jsWoarlR1h4w9uyNUUrPPdl6ylH1M1i0w/viewform?embedded=true"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeWj1ZsSscIt9lv7jsWoarlR1h4w9uyNUUrPPdl6ylH1M1i0w/viewform"
               target="_blank"
-              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg mt-4 inline-block"
+              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg inline-block"
             >
               Register Now
             </Link>
