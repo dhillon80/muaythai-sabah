@@ -36,7 +36,7 @@ export default function Home() {
             className="rounded-md"
           />
           <Image 
-            src="/permas1.png"
+            src="/PERMAS1.png"
             alt="Permas Poster"
             width={280}
             height={180}
