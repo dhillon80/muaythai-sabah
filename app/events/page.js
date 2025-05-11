@@ -51,9 +51,9 @@ export default function EventPage() {
             <p className="text-lg text-black">August 2025 (Tentative), Venue: TBA</p>
           </div>
 
-          <h2 className="text-2xl font-semibold text-black">Arena Fight</h2>
+          <h2 className="text-2xl font-semibold text-black">JUANG FIGHT: CONQUER THE ARENA</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">September 2025 (Tentative), Venue: TBA</p>
+            <p className="text-lg text-black">6th–7th September 2025, Dewan Sri Putatan</p>
           </div>
 
           <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>

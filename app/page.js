@@ -35,6 +35,13 @@ export default function Home() {
             height={180}
             className="rounded-md"
           />
+          <Image 
+            src="/permas1.png"
+            alt="Permas Poster"
+            width={280}
+            height={180}
+            className="rounded-md"
+          />
         </div>
 
         {/* Main Title */}
