@@ -42,6 +42,13 @@ export default function Home() {
             height={180}
             className="rounded-md"
           />
+          <Image 
+            src="/jurulatih.png"
+            alt="Muaythai Coaching Course Poster"
+            width={280}
+            height={180}
+            className="rounded-md"
+          />
         </div>
 
         {/* Main Title */}
@@ -59,6 +66,17 @@ export default function Home() {
             Click Here for Upcoming Event in Sabah
           </Link>
         </div>
+
+          {/* Coaching Button */}
+        <div className="mt-4">
+          <Link 
+            href="/coaching"
+            className="text-white bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 inline-block"
+          >
+            For Muaythai Course Click Here
+          </Link>
+        </div>
+
       </div>
     </div>
   );
