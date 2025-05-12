@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* Right Affiliate Section */}
       <div className="ml-6 mt-6 p-4 bg-white rounded-lg shadow-lg h-fit w-72">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">Affiliate & Transfer MSN</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">Affiliate</h2>
 
         {[
           { name: "MSN Sabah", link: "https://msn.sabah.gov.my/" },
