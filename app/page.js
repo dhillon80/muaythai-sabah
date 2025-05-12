@@ -19,6 +19,32 @@ export default function Home() {
           />
         </div>
 
+        {/* Top Navigation Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          <Link 
+            href="/directory"
+            className="text-white bg-green-600 px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200 inline-block"
+          >
+            Directory Gym
+          </Link>
+
+          <Link 
+            href="/contact"
+            className="text-white bg-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-700 transition duration-200 inline-block"
+          >
+            Contact Us
+          </Link>
+
+          <a 
+            href="https://msn.sabah.gov.my/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 transition duration-200 inline-block"
+          >
+            Visit MSN Sabah
+          </a>
+        </div>
+
         {/* Banner Images */}
         <div className="flex justify-center flex-wrap gap-4 mb-6">
           <Image 
@@ -67,7 +93,7 @@ export default function Home() {
           </Link>
         </div>
 
-          {/* Coaching Button */}
+        {/* Coaching Button */}
         <div className="mt-4">
           <Link 
             href="/coaching"
