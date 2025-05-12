@@ -5,7 +5,9 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 font-sans">
+    <div className="flex justify-center min-h-screen bg-gray-100 font-sans p-4">
+      
+      {/* Left Main Section */}
       <div className="text-center p-6 sm:p-8 bg-white rounded-lg shadow-lg max-w-4xl w-full text-black">
 
         {/* Logo */}
@@ -47,34 +49,10 @@ export default function Home() {
 
         {/* Banner Images */}
         <div className="flex justify-center flex-wrap gap-4 mb-6">
-          <Image 
-            src="/muaythai1.jpeg"
-            alt="Muaythai Action 1"
-            width={280}
-            height={180}
-            className="rounded-md"
-          />
-          <Image 
-            src="/muaythai2.jpeg"
-            alt="Muaythai Action 2"
-            width={280}
-            height={180}
-            className="rounded-md"
-          />
-          <Image 
-            src="/PERMAS1.png"
-            alt="Permas Poster"
-            width={280}
-            height={180}
-            className="rounded-md"
-          />
-          <Image 
-            src="/jurulatih.png"
-            alt="Muaythai Coaching Course Poster"
-            width={280}
-            height={180}
-            className="rounded-md"
-          />
+          <Image src="/muaythai1.jpeg" alt="Muaythai Action 1" width={280} height={180} className="rounded-md" />
+          <Image src="/muaythai2.jpeg" alt="Muaythai Action 2" width={280} height={180} className="rounded-md" />
+          <Image src="/PERMAS1.png" alt="Permas Poster" width={280} height={180} className="rounded-md" />
+          <Image src="/jurulatih.png" alt="Muaythai Coaching Course Poster" width={280} height={180} className="rounded-md" />
         </div>
 
         {/* Main Title */}
@@ -83,7 +61,7 @@ export default function Home() {
           Coming soon: Muaythai events, Athletes stats, and more!
         </p>
 
-        {/* Button to Event Page */}
+        {/* Event Page Button */}
         <div className="mt-8">
           <Link 
             href="/events"
@@ -102,7 +80,32 @@ export default function Home() {
             For Muaythai Course Click Here
           </Link>
         </div>
+      </div>
 
+      {/* Right Affiliate Section */}
+      <div className="ml-6 mt-6 p-4 bg-white rounded-lg shadow-lg h-fit w-72">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">Affiliate & Transfer MSN</h2>
+
+        {[
+          { name: "MSN Sabah", link: "https://msn.sabah.gov.my/" },
+          { name: "Muaythai Malaysia", link: "https://web.facebook.com/profile.php?id=100014468267100" },
+          { name: "PMD Kota Kinabalu", link: "https://web.facebook.com/profile.php?id=61574047034042" },
+          { name: "PMD Penampang", link: "https://web.facebook.com/profile.php?id=61575733400300" },
+          { name: "PMD Kudat", link: "https://web.facebook.com/awpmartialart" },
+          { name: "PMD Kota Marudu", link: "https://web.facebook.com/profile.php?id=100090767634972" },
+          { name: "PMD Keningau", link: "https://web.facebook.com/PMDKeningau" },
+          { name: "PMD Sandakan", link: "https://web.facebook.com/profile.php?id=100068362053398" }
+        ].map((item, index) => (
+          <a
+            key={index}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-blue-600 text-white text-center px-4 py-2 rounded mb-2 hover:bg-blue-700 transition"
+          >
+            {item.name}
+          </a>
+        ))}
       </div>
     </div>
   );
