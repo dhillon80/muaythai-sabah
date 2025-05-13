@@ -1,5 +1,3 @@
-"use client";
-
 import Image from 'next/image';
 
 export default function Home() {
@@ -34,15 +32,34 @@ export default function Home() {
           <ul className="mt-4 space-y-2">
             <li className="bg-blue-100 p-2 rounded-lg">Sabah Muaythai Cultural and Heritage Challenge 2025 (Wai Kru and MaiMuay): 24th-25th May 2025, PLN, Taman Delima, Penampang</li>
             <li className="bg-blue-100 p-2 rounded-lg">Sabah Muaythai Expo, Rookie Challenge 2025: 7th-8th June 2025, PLN Taman Delima, Penampang</li>
-            <li className="bg-blue-100 p-2 rounded-lg">𝗠𝘂𝗮𝘆𝘁𝗵𝗮𝗶 𝗦𝘂𝗸𝗮𝗻 𝗧𝗲𝗺𝗽𝘂𝗿 𝗞𝗲𝗯𝗮𝗻𝗴𝘀𝗮𝗮𝗻 (𝗣𝗿𝗮 𝗦𝘂𝗸𝗺𝗮): 24th-27th July 2025, Axiata Stadium, Bukit Jalil</li>
             <li className="bg-blue-100 p-2 rounded-lg">VW Fighting Championship: 22nd-24th August 2025, Kompleks Sukan Sandakan</li>
-            <li className="bg-blue-100 p-2 rounded-lg">Sabah Games (SAGA) Muaythai: 11th-17th October 2025, Tawau, Sabah</li>
           </ul>
+        </div>
+
+        {/* Event Form Section */}
+        <div className="flex flex-col md:flex-row gap-8 p-4 mt-8">
+          {/* Event Info */}
+          <div className="md:w-1/2">
+            <h2 className="text-2xl font-bold text-blue-600 mb-4">Sabah Muaythai Heritage and Cultural Challenge</h2>
+            <p className="text-gray-700">24–25 Mei 2025<br />PLN, Taman Delima, Penampang</p>
+          </div>
+
+          {/* Google Form */}
+          <div className="md:w-1/2">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSefemmZ2L7WPpt437g4kXberrSEWHXoG2i3XIlda_mNuO_AqA/viewform?embedded=true"
+              width="100%"
+              height="1000"
+              frameBorder="0"
+              marginHeight="0"
+              marginWidth="0"
+            >
+              Loading…
+            </iframe>
+          </div>
         </div>
 
       </div>
     </div>
   );
 }
-import Link from 'next/link';
-
