@@ -10,6 +10,7 @@ export default function Newsletter() {
         <p className="mb-6 text-gray-700">Cerita, gambar dan kemas kini tentang acara-acara Muaythai Sabah.</p>
 
         <div className="space-y-4">
+          {/* 📸 Past Event */}
           <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
             <h2 className="text-xl font-semibold">📸 Kejohanan Sabah Muaythai Open 2025</h2>
             <p className="text-sm text-gray-600">Dewan Masyarakat Kota Belud</p>
@@ -19,12 +20,34 @@ export default function Newsletter() {
             <Link href="/newsletter/kejohanan-Sabah Muaythai Open 2025" className="text-blue-500 mt-2 inline-block">Baca lanjut &rarr;</Link>
           </div>
 
-          {/* Post lain akan ditambah di sini */}
-
+          {/* 🚀 Upcoming Events */}
           <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
             <h2 className="text-xl font-semibold">🚀 Upcoming Events</h2>
             <p className="text-sm text-gray-600">Don’t miss out on these upcoming Muaythai events!</p>
             <Link href="/events" className="text-blue-500 mt-2 inline-block">Click Here for Upcoming Events &rarr;</Link>
+          </div>
+
+          {/* 🥊 Fighter Profiles */}
+          <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
+            <h2 className="text-xl font-semibold">🥊 Fighter Profiles</h2>
+            <p className="text-sm text-gray-600">Lihat senarai atlet Muaythai Sabah yang telah berdaftar.</p>
+            <Link href="/fighter-profile" className="text-blue-500 mt-2 inline-block">
+              View All Fighters &rarr;
+            </Link>
+          </div>
+
+          {/* 📝 Athlete Registration */}
+          <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
+            <h2 className="text-xl font-semibold">📝 Daftar Sebagai Atlet</h2>
+            <p className="text-sm text-gray-600">Isi borang rasmi untuk mendaftar sebagai atlet Muaythai Sabah.</p>
+            <a
+              href="https://forms.gle/igXyXBkf31FYirov7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 mt-2 inline-block"
+            >
+              Click here to register &rarr;
+            </a>
           </div>
         </div>
       </div>

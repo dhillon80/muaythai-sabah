@@ -13,14 +13,14 @@ export default function Directory() {
         {/* Directory Listings */}
         <div className="space-y-6 mb-8">
 
-          {/* 1. Revolution Combat Muaythai Gym - Kota Kinabalu/Penampang */}
+          {/* 1. Revolution Combat Muaythai Gym - Kota Kinabalu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Revolution Combat Muaythai Gym (PLN Sabah) - Kota Kinabalu</h2>
             <p className="text-gray-600">Dewan Terbuka, Taman Delima Penampang</p>
             <p className="text-gray-600">Contact Number: <strong>0168013530</strong></p>
             <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Dhillon Tahing</strong></p>
             <Link href="https://web.facebook.com/Revolutioncombatgym" target="_blank" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
-            <Link href="https://maps.app.goo.gl/AwNoY3tdm7gP3MCH9" target="_blank" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">View on Google Maps</Link>
+            <Link href="https://maps.app.goo.gl/AwNoY3tdm7gP3MCH9" target="_blank" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
           {/* 2. D’Sha Muayfit Tawau */}
@@ -57,7 +57,7 @@ export default function Directory() {
             <p className="text-gray-600">Contact Number: <strong>010-2120870</strong></p>
             <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Neo</strong></p>
             <Link href="https://www.facebook.com/awpmartialart" target="_blank" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
-            <Link href="https://maps.app.goo.gl/gRR1xhiAcQYUHZr16" target="_blank" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">View on Google Maps</Link>
+            <Link href="https://maps.app.goo.gl/gRR1xhiAcQYUHZr16" target="_blank" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
           {/* 6. Garagas Fight Team - Keningau */}
@@ -76,6 +76,16 @@ export default function Directory() {
             <p className="text-gray-600">Contact Number (Call): <strong>016-3238507</strong></p>
             <p className="text-gray-600 mb-3">WhatsApp: <strong>017-8115808</strong></p>
             <Link href="https://web.facebook.com/Rajanakmuaykk" target="_blank" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
+          </div>
+
+          {/* 8. 66 Denakan Muaythai Gym - Putatan */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">66 Denakan Muaythai Gym - Putatan</h2>
+            <p className="text-gray-600">Lot 36-1, First Floor, Block D, Seri Putatan Commercial Centre, Jalan Pasir Putih, Putatan, 88200 Kota Kinabalu, Sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>0133111808</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Appy</strong></p>
+            <Link href="https://www.tiktok.com/@my_brothers66" target="_blank" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">Visit TikTok Page</Link>
+            <Link href="https://maps.apple.com/?address=88200%20Kota%20Kinabalu,%20Sabah,%20Malaysia&auid=6097815412148545768&ll=5.918426,116.060878&lsp=7618&q=88200&t=m" target="_blank" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Apple Maps</Link>
           </div>
 
         </div>

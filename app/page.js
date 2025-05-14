@@ -5,26 +5,29 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100 font-sans">
-
-      {/* Navigation Bar */}
+      
+      {/* Navbar */}
       <header className="bg-blue-900 text-white">
-        <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="ml-2 text-xl font-bold">Muaythai Sabah</span>
-          </div>
+        <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center" aria-label="Main navigation">
+          <div className="text-xl font-bold">Muaythai Sabah</div>
           <ul className="hidden sm:flex gap-6">
             <li>
-              <Link href="/directory" className="hover:text-yellow-400 transition duration-200">
+              <Link href="/directory" className="hover:text-yellow-400 transition">
                 Directory
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-yellow-400 transition duration-200">
+              <Link href="/contact" className="hover:text-yellow-400 transition">
                 Contact Us
               </Link>
             </li>
             <li>
-              <a href="https://msn.sabah.gov.my/" target="_blank" className="hover:text-yellow-400 transition duration-200">
+              <a
+                href="https://msn.sabah.gov.my/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-400 transition"
+              >
                 Visit MSN Sabah
               </a>
             </li>
@@ -32,7 +35,7 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Hero Section with Animation */}
+      {/* Hero Section */}
       <section className="bg-blue-900 text-white text-center py-20 px-6">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 animate__animated animate__fadeIn animate__delay-1s">
           Welcome to Muaythai Sabah
@@ -40,123 +43,85 @@ export default function Home() {
         <p className="text-lg sm:text-xl mb-6 animate__animated animate__fadeIn animate__delay-1s">
           Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah
         </p>
+
         <Link href="/fighter-profile">
-          <span className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-4">
+          <span className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6">
             Lihat Profil Atlet
           </span>
         </Link>
 
-        {/* Navigation Buttons inside Hero */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-          <Link
-            href="/directory"
-            className="text-white bg-green-600 px-6 py-3 rounded-lg hover:bg-green-700 transition duration-200 inline-block"
-          >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/directory" className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
             Directory Gym
           </Link>
-
-          <Link
-            href="/contact"
-            className="text-white bg-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-700 transition duration-200 inline-block"
-          >
+          <Link href="/contact" className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">
             Contact Us
           </Link>
-
           <a
             href="https://msn.sabah.gov.my/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 transition duration-200 inline-block"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition"
           >
             Visit MSN Sabah
           </a>
         </div>
       </section>
 
-      {/* Main Content Section (Event Image Grid) */}
-      <main className="flex-grow p-6 sm:p-12">
+      {/* Event Section */}
+      <main className="flex-grow px-6 sm:px-12 py-12">
         <h2 className="text-3xl font-semibold mb-6">Our Latest Events</h2>
-
-        {/* Event Images (Grid of 4 Images) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {/* Image 1 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/muaythai1.jpeg"
-              alt="Muaythai Event"
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">Muaythai Championship 2025</h3>
-              <p className="text-gray-600">Come and watch the best fighters in Sabah.</p>
-              <Link href="/events" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                Learn More
-              </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: "Muaythai Championship 2025",
+              desc: "Come and watch the best fighters in Sabah.",
+              img: "/muaythai1.jpeg",
+              href: "/events",
+            },
+            {
+              title: "Muaythai Training Course",
+              desc: "Enhance your skills with expert coaches.",
+              img: "/muaythai2.jpeg",
+              href: "/coaching",
+            },
+            {
+              title: "Permas Fight Night",
+              desc: "Join us for the Permas fight night event.",
+              img: "/PERMAS1.png",
+              href: "/events",
+            },
+            {
+              title: "Muaythai Coaching Course",
+              desc: "Become a certified coach and train the next generation.",
+              img: "/jurulatih.png",
+              href: "/coaching",
+            },
+          ].map((item, i) => (
+            <div key={i} className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-48 object-cover"
+                width={600}
+                height={400}
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+                <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                  Learn More
+                </Link>
+              </div>
             </div>
-          </div>
-
-          {/* Image 2 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/muaythai2.jpeg"
-              alt="Muaythai Training"
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">Muaythai Training Course</h3>
-              <p className="text-gray-600">Enhance your skills with expert coaches.</p>
-              <Link href="/coaching" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                Learn More
-              </Link>
-            </div>
-          </div>
-
-          {/* Image 3 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/PERMAS1.png"
-              alt="Event Poster"
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">Permas Fight Night</h3>
-              <p className="text-gray-600">Join us for the Permas fight night event.</p>
-              <Link href="/events" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                Learn More
-              </Link>
-            </div>
-          </div>
-
-          {/* Image 4 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/jurulatih.png"
-              alt="Coaching Course"
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">Muaythai Coaching Course</h3>
-              <p className="text-gray-600">Become a certified coach and train the next generation.</p>
-              <Link href="/coaching" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                Learn More
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </main>
 
-      {/* Affiliate Section */}
-      <section className="bg-white py-8 px-6 sm:px-12 mb-12">
+      {/* Affiliates Section */}
+      <section className="bg-white py-12 px-6 sm:px-12">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Our Affiliates</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { name: "MSN Sabah", link: "https://msn.sabah.gov.my/" },
             { name: "Muaythai Malaysia", link: "https://web.facebook.com/profile.php?id=100014468267100" },
@@ -165,33 +130,43 @@ export default function Home() {
             { name: "PMD Kudat", link: "https://web.facebook.com/awpmartialart" },
             { name: "PMD Kota Marudu", link: "https://web.facebook.com/profile.php?id=100090767634972" },
             { name: "PMD Keningau", link: "https://web.facebook.com/PMDKeningau" },
-            { name: "PMD Sandakan", link: "https://web.facebook.com/profile.php?id=100068362053398" }
-          ].map((item, index) => (
+            { name: "PMD Sandakan", link: "https://web.facebook.com/profile.php?id=100068362053398" },
+          ].map((affiliate, index) => (
             <a
               key={index}
-              href={item.link}
+              href={affiliate.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-blue-600 text-white text-center px-4 py-2 rounded mb-2 hover:bg-blue-700 transition"
+              className="block bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700 transition"
             >
-              {item.name}
+              {affiliate.name}
             </a>
           ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-6 mt-12">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <footer className="bg-gray-900 text-white py-6 mt-auto">
+        <div className="max-w-7xl mx-auto text-center px-6">
           <p className="text-sm">&copy; 2025 Muaythai Sabah | All Rights Reserved.</p>
-          <div className="mt-4">
-            <a href="https://web.facebook.com/MuaythaiSabah" target="_blank" className="text-white mx-2 hover:opacity-80">
+          <div className="mt-4 flex justify-center space-x-4">
+            <a
+              href="https://web.facebook.com/MuaythaiSabah"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80"
+            >
               Facebook
             </a>
-            <a href="/contact" className="text-white mx-2 hover:opacity-80">
+            <a href="/contact" className="hover:opacity-80">
               Twitter
             </a>
-            <a href="https://www.youtube.com/@dhillontahing9878" target="_blank" className="text-white mx-2 hover:opacity-80">
+            <a
+              href="https://www.youtube.com/@dhillontahing9878"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80"
+            >
               YouTube
             </a>
           </div>
