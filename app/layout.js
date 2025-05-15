@@ -1,44 +1,56 @@
-// layout.jsx
+'use client';
+
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
+import { useState } from "react";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-export const metadata = {
-  title: "Muaythai Sabah",
-  description: "Informasi Kejohanan dan pembangunan Muaythai di Sabah",
-};
-
 export default function RootLayout({ children }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-800`}>
+        
         {/* NAVBAR */}
-        <nav className="bg-blue-700 p-4 shadow-md sticky top-0 z-50">
-          <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <div className="text-white font-extrabold text-2xl tracking-wide">
-              <Link href="/" className="hover:text-yellow-300 transition">Muaythai Sabah</Link>
+        <header className="bg-blue-800 sticky top-0 z-50 shadow-lg">
+          <div className="container mx-auto flex items-center justify-between px-4 py-3">
+            {/* Remove logo here */}
+            <Link href="/" className="text-white text-2xl font-extrabold tracking-wider hover:text-yellow-300 transition">
+              Muaythai Sabah
+            </Link>
+            <div className="md:hidden">
+              <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
+                ☰
+              </button>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 text-white mt-2 md:mt-0 text-sm font-medium">
+            <nav className={`md:flex md:items-center gap-6 text-white text-sm font-medium ${menuOpen ? 'block mt-4' : 'hidden md:block'}`}>
               <Link href="/" className="hover:text-yellow-300 transition">Home</Link>
               <Link href="/newsletter" className="hover:text-yellow-300 transition">Newsletter</Link>
               <Link href="/fighter-profile" className="hover:text-yellow-300 transition">Fighter Profiles</Link>
               <Link href="/events" className="hover:text-yellow-300 transition">Events</Link>
               <Link href="/coaching" className="hover:text-yellow-300 transition">Coaching</Link>
-            </div>
+            </nav>
           </div>
-        </nav>
+        </header>
 
         {/* MAIN CONTENT */}
-        <main className="container mx-auto px-4 py-10">
+        <main className="container mx-auto px-4 py-12">
           {children}
         </main>
 
         {/* FOOTER */}
-        <footer className="bg-blue-800 text-white text-center py-6 mt-12 text-sm">
-          <p>&copy; 2025 Muaythai Sabah. Powered by Dhillon Tahing</p>
+        <footer className="bg-blue-900 text-white text-sm py-8">
+          <div className="container mx-auto text-center space-y-2">
+            <p>&copy; 2025 Muaythai Sabah. Powered by lonchai</p>
+            <p className="italic font-semibold">
+              inspire the uninspired<br />
+              strength in skills, power in mindset
+            </p>
+          </div>
         </footer>
       </body>
     </html>

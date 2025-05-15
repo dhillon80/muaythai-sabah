@@ -41,7 +41,7 @@ export default function Home() {
           Welcome to Muaythai Sabah
         </h1>
         <p className="text-lg sm:text-xl mb-6 animate__animated animate__fadeIn animate__delay-1s">
-          Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah
+          The Official Platform for Muaythai Championships, Athletes, and Development in Sabah
         </p>
 
         <Link href="/fighter-profile">
