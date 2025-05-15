@@ -64,13 +64,13 @@ export default function Home() {
           <div className="text-xl font-bold">Muaythai Sabah</div>
           <ul className="hidden sm:flex gap-6">
             <li>
-              <Link href="/directory" legacyBehavior>
-                <a className="hover:text-yellow-400 transition">Directory</a>
+              <Link href="/directory" className="hover:text-yellow-400 transition">
+                Directory
               </Link>
             </li>
             <li>
-              <Link href="/contact" legacyBehavior>
-                <a className="hover:text-yellow-400 transition">Contact Us</a>
+              <Link href="/contact" className="hover:text-yellow-400 transition">
+                Contact Us
               </Link>
             </li>
             <li>
@@ -93,26 +93,20 @@ export default function Home() {
           Welcome to Muaythai Sabah
         </h1>
         <p className="text-lg sm:text-xl mb-6">
-          The Official Platform for Muaythai Championships, Athletes, and
+          The Platform for Muaythai Championships, Athletes, and
           Development in Sabah
         </p>
 
-        <Link href="/fighter-profile" legacyBehavior>
-          <a className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6">
-            Athletes Profiles
-          </a>
+        <Link href="/fighter-profile" className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6">
+          Athletes Profiles
         </Link>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-          <Link href="/directory" legacyBehavior>
-            <a className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
-              Directory Gym
-            </a>
+          <Link href="/directory" className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
+            Directory Gym
           </Link>
-          <Link href="/contact" legacyBehavior>
-            <a className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">
-              Contact Us
-            </a>
+          <Link href="/contact" className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">
+            Contact Us
           </Link>
           <a
             href="https://msn.sabah.gov.my/"
@@ -127,7 +121,7 @@ export default function Home() {
 
       {/* Event Section */}
       <main className="flex-grow px-6 sm:px-12 py-12">
-        <h2 className="text-3xl font-semibold mb-6">Our Latest Events</h2>
+        <h2 className="text-3xl font-semibold mb-6">Upcoming Events And Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {events.map((item, index) => (
             <div
@@ -163,10 +157,8 @@ export default function Home() {
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
-                <Link href={item.href} legacyBehavior>
-                  <a className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                    Learn More
-                  </a>
+                <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                  Learn More
                 </Link>
               </div>
             </div>
@@ -176,7 +168,7 @@ export default function Home() {
 
       {/* Affiliates Section */}
       <section className="bg-white py-12 px-6 sm:px-12">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Our Affiliates</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Affiliates</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {affiliates.map((affiliate, index) => (
             <a
