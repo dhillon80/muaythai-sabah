@@ -3,6 +3,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
 import { useState } from "react";
+import Head from 'next/head'; // <-- Import Head for meta tags
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -13,12 +14,16 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Google Site Verification Meta Tag */}
+        <meta name="google-site-verification" content="Il-U-lJ-AZ-pQJ1AA8guvofCf-jTDCtBbw5PHlIdZcU" />
+        <title>Muaythai Sabah</title>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-800`}>
         
         {/* NAVBAR */}
         <header className="bg-blue-800 sticky top-0 z-50 shadow-lg">
           <div className="container mx-auto flex items-center justify-between px-4 py-3">
-            {/* Remove logo here */}
             <Link href="/" className="text-white text-2xl font-extrabold tracking-wider hover:text-yellow-300 transition">
               Muaythai Sabah
             </Link>
