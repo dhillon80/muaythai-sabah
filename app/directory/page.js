@@ -33,7 +33,17 @@ export default function Directory() {
             <Link href="https://maps.apple.com/?address=88200%20Kota%20Kinabalu,%20Sabah,%20Malaysia&auid=6097815412148545768&ll=5.918426,116.060878&lsp=7618&q=88200&t=m" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Apple Maps</Link>
           </div>
 
-          {/* 3. Awp Muay Thai Training Centre - Kudat */}
+          {/* 3. AWP Martial Art Academy - Kota Marudu */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">AWP Martial Art Academy (PLN Bahagian PBU) - Kota Marudu</h2>
+            <p className="text-gray-600">Lot 19, 1st Floor, Cosmopoint, Jalan Langkon - Tandek, P.O.Box 206, 89108 Kota Marudu Sabah</p>
+            <p className="text-gray-600">Contact Person: <strong>Coach Wan 018-2254356</strong> | <strong>Coach Addy 011-52599024</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Wan 018-2254356</strong></p>
+            <Link href="https://www.facebook.com/awpmartialart" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
+            <Link href="https://g.co/kgs/a78JkEk" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
+          </div>
+
+          {/* 4. Awp Muay Thai Training Centre - Kudat */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Awp Muay Thai Training Centre - Kudat</h2>
             <p className="text-gray-600">801, 1st Floor, Jln Okk Haji Abdul Ghani, 89050 Kudat, Sabah</p>
@@ -43,7 +53,7 @@ export default function Directory() {
             <Link href="https://maps.app.goo.gl/gRR1xhiAcQYUHZr16" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 4. CS5Fitness Gym - Penampang */}
+          {/* 5. CS5Fitness Gym - Penampang */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">CS5Fitness Gym - Penampang</h2>
             <p className="text-gray-600">S1-3 Tropicana Commercial Centre, Lot 2nd Floor, Jalan Pintas Penampang, 88200 Penampang</p>
@@ -52,7 +62,7 @@ export default function Directory() {
             <Link href="https://www.facebook.com/share/15PnhtUh6C/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 5. D&apos;Sha Muayfit Tawau */}
+          {/* 6. D&apos;Sha Muayfit Tawau */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">D&apos;Sha Muayfit Tawau</h2>
             <p className="text-gray-600">Jalan Sin Onn, Lorong Jelita 1, No. 1007, 91000 Tawau, Sabah</p>
@@ -61,7 +71,7 @@ export default function Directory() {
             <Link href="https://web.facebook.com/DShaMuaythaiTawau" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 6. Garagas Fight Team - Keningau */}
+          {/* 7. Garagas Fight Team - Keningau */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Garagas Fight Team - Keningau</h2>
             <p className="text-gray-600">Lot D8, 2nd Floor Keningau Plaza, 89000 Keningau, Sabah</p>
@@ -70,7 +80,7 @@ export default function Directory() {
             <Link href="https://www.facebook.com/TEAMGARAGAS" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 7. M1 Monster Muaythai & Fitness Academy - Kota Kinabalu */}
+          {/* 8. M1 Monster Muaythai & Fitness Academy - Kota Kinabalu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">M1 Monster Muaythai & Fitness Academy - Kota Kinabalu</h2>
             <p className="text-gray-600">TINGKAT 2, LOT 4, WISMA KKM, BATU 5 (SAME BUILDING WITH MR DIY LIKAS), 88450 KOTA KINABALU, SABAH</p>
@@ -78,7 +88,7 @@ export default function Directory() {
             <Link href="https://maps.app.goo.gl/Khf6zgu5ZKS9KuCa7" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 8. M2 Monster Muaythai & Fitness Academy - Penampang */}
+          {/* 9. M2 Monster Muaythai & Fitness Academy - Penampang */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">M2 Monster Muaythai & Fitness Academy - Penampang</h2>
             <p className="text-gray-600">LOT 23, 3RD FLOOR, TAMAN VICTORY SHOPHOUSE (TOWERING PENAMPANG), JALAN PENAMPANG, 88300 KOTA KINABALU, SABAH</p>
@@ -86,7 +96,7 @@ export default function Directory() {
             <Link href="https://maps.app.goo.gl/S6NjjFkuHQKVDTMv7?g_st=awb" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 9. Persatuan Muaythai Daerah Lahad Datu */}
+          {/* 10. Persatuan Muaythai Daerah Lahad Datu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Persatuan Muaythai Daerah Lahad Datu</h2>
             <p className="text-gray-600">Innovation Martial Arts Academy, Fajar Centre, MDLD 3275, Lot 10, 1st Floor, 91100 Lahad Datu, Sabah</p>
@@ -95,7 +105,7 @@ export default function Directory() {
             <Link href="https://web.facebook.com/profile.php?id=100082994329166" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 10. RNM FIGHT CLUB - Inanam */}
+          {/* 11. RNM FIGHT CLUB - Inanam */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">RNM FIGHT CLUB (RNMFC) - Inanam</h2>
             <p className="text-gray-600">LOT 17, 1ST FLOOR, TAIPAN 28, BLOCK C, JALAN TAIPAN 28, INANAM, 88450 KOTA KINABALU, SABAH</p>
@@ -110,7 +120,7 @@ export default function Directory() {
             </div>
           </div>
 
-          {/* 11. Tavangkaz Muayfit - Penampang */}
+          {/* 12. Tavangkaz Muayfit - Penampang */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Tavangkaz Muayfit - Penampang</h2>
             <p className="text-gray-600">Bilik aerobic, Kompleks Sukan Penampang, 89507 Penampang, Sabah</p>
