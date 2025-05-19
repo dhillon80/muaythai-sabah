@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const events = [
     {
       title: "Sabah Muaythai Expo- Rookie Challenge 2025",
@@ -61,15 +64,30 @@ export default function Home() {
       {/* Navbar */}
       <header className="bg-blue-900 text-white">
         <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center">
-          <div className="text-xl font-bold">Muaythai Sabah</div>
+          <div className="flex items-center gap-3">
+            <img
+              src="/pmnslogo.png"
+              alt="Logo"
+              className="h-10 w-10 object-contain"
+            />
+            <div className="text-xl font-bold">Muaythai Sabah</div>
+          </div>
+
+          {/* Desktop Menu */}
           <ul className="hidden sm:flex gap-6">
             <li>
-              <Link href="/directory" className="hover:text-yellow-400 transition">
+              <Link
+                href="/directory"
+                className="hover:text-yellow-400 transition"
+              >
                 Directory
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-yellow-400 transition">
+              <Link
+                href="/contact"
+                className="hover:text-yellow-400 transition"
+              >
                 Contact Us
               </Link>
             </li>
@@ -84,28 +102,116 @@ export default function Home() {
               </a>
             </li>
           </ul>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="sm:hidden focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {menuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </nav>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="sm:hidden bg-blue-800 px-4 py-2 flex flex-col gap-2">
+            <Link
+              href="/directory"
+              className="block hover:text-yellow-400 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Directory
+            </Link>
+            <Link
+              href="/contact"
+              className="block hover:text-yellow-400 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+            <a
+              href="https://msn.sabah.gov.my/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:text-yellow-400 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Visit MSN Sabah
+            </a>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section className="bg-blue-900 text-white text-center py-20 px-6">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-          Welcome to Muaythai Sabah
-        </h1>
-        <p className="text-lg sm:text-xl mb-6">
-          The Platform for Muaythai Championships, Athletes, and
-          Development in Sabah
+      <section
+        className="relative text-center py-20 px-6"
+        style={{
+          backgroundColor: "white",
+          backgroundImage:
+            `radial-gradient(circle at 30% 30%, rgba(0, 56, 168, 0.05) 15%, transparent 40%),` +
+            `radial-gradient(circle at 70% 70%, rgba(252, 209, 22, 0.05) 15%, transparent 40%)`,
+        }}
+      >
+        {/* Sabah flag overlay - subtle circle patterns with blue and yellow */}
+        <div className="absolute inset-0 pointer-events-none"></div>
+
+        <div className="flex justify-center items-center gap-6 mb-4">
+          {/* Flashing bigger logo */}
+          <img
+            src="/pmnslogo.png"
+            alt="Muaythai Sabah Logo"
+            className="h-24 w-24 object-contain animate-flash"
+          />
+          <h1 className="text-5xl font-bold text-blue-900">
+            Welcome to Muaythai Sabah
+          </h1>
+        </div>
+        <p className="text-lg sm:text-xl mb-6 text-gray-800">
+          The Platform for Muaythai Championships, Athletes, and Development in
+          Sabah
         </p>
 
-        <Link href="/fighter-profile" className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6">
+        <Link
+          href="/fighter-profile"
+          className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6"
+        >
           Athletes Profiles
         </Link>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-          <Link href="/directory" className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
+          <Link
+            href="/directory"
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
+          >
             Directory Gym
           </Link>
-          <Link href="/contact" className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">
+          <Link
+            href="/contact"
+            className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition"
+          >
             Contact Us
           </Link>
           <a
@@ -117,11 +223,16 @@ export default function Home() {
             Visit MSN Sabah
           </a>
         </div>
+
+        {/* Audio for music autoplay */}
+        <audio src="/muaythai-theme.mp3" autoPlay loop controls style={{ marginTop: "20px" }} />
       </section>
 
       {/* Event Section */}
       <main className="flex-grow px-6 sm:px-12 py-12">
-        <h2 className="text-3xl font-semibold mb-6">Upcoming Events And Courses</h2>
+        <h2 className="text-3xl font-semibold mb-6">
+          Upcoming Events And Courses
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {events.map((item, index) => (
             <div
@@ -157,7 +268,10 @@ export default function Home() {
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
-                <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                <Link
+                  href={item.href}
+                  className="text-blue-600 hover:text-blue-800 mt-2 inline-block"
+                >
                   Learn More
                 </Link>
               </div>
@@ -176,7 +290,7 @@ export default function Home() {
               href={affiliate.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-blue-600 text-white text-center px-4 py-2 rounded hover:bg-blue-700 transition"
+              className="block bg-gray-100 hover:bg-gray-200 p-4 rounded shadow text-center font-semibold text-blue-900 transition"
             >
               {affiliate.name}
             </a>
@@ -211,6 +325,23 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <style jsx>{`
+        /* Flashing animation for bigger logo */
+        @keyframes flash {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+
+        .animate-flash {
+          animation: flash 2s infinite;
+        }
+      `}</style>
     </div>
   );
 }
