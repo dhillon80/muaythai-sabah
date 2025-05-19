@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content="Il-U-lJ-AZ-pQJ1AA8guvofCf-jTDCtBbw5PHlIdZcU" />
         <title>Muaythai Sabah</title>
 
-        {/* Google Analytics Tracking */}
+        {/* Google Analytics Tracking - Fixed Inline Script Error */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5E894XC1WK" />
-        <Script strategy="afterInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
