@@ -80,7 +80,40 @@ export default function Directory() {
             <Link href="https://www.facebook.com/TEAMGARAGAS" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 8. M1 Monster Muaythai & Fitness Academy - Kota Kinabalu */}
+          {/* 8. KALAI BROTHERS - Sandakan */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">KALAI BROTHERS - Sandakan</h2>
+            <p className="text-gray-600">Lot 68 ONE AVENUE 9, SHOP/OFFICE, BANDAR UTAMA SANDAKAN LOT 68, TINGKAT 1, 90000, SANDAKAN SABAH</p>
+            <p className="text-gray-600">Contact Number: <strong>0183447020</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Erwandy bin kalai</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://web.facebook.com/profile.php?id=61563325377912" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://www.tiktok.com/@kalaibrothers_official24" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
+            </div>
+          </div>
+
+          {/* 9. Kelab Revolution Muaythai Kota Marudu */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Kelab Revolution Muaythai Kota Marudu - Kota Marudu</h2>
+            <p className="text-gray-600">Owen Jorge Sports, KM 1.3 Jalan Lotong, Peti surat 108, 89108 Kota Marudu, Sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>0192588268 (coach mex)</strong>, <strong>0199255280 (coach fazli)</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach mex</strong></p>
+            <Link href="https://g.co/kgs/Xpw33kz" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">View Location</Link>
+          </div>
+
+          {/* 10. KENINGAU MMA - Keningau */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">KENINGAU MMA - Keningau</h2>
+            <p className="text-gray-600">Lot 1, 2nd Floor Bandar Baru Keningau 89000 Sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>016-5096887</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Mat</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/KeningauMMA?mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="www.tiktok.com/@keningau.mma" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
+            </div>
+          </div>
+
+          {/* 11. M1 Monster Muaythai & Fitness Academy - Kota Kinabalu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">M1 Monster Muaythai & Fitness Academy - Kota Kinabalu</h2>
             <p className="text-gray-600">TINGKAT 2, LOT 4, WISMA KKM, BATU 5 (SAME BUILDING WITH MR DIY LIKAS), 88450 KOTA KINABALU, SABAH</p>
@@ -88,7 +121,7 @@ export default function Directory() {
             <Link href="https://maps.app.goo.gl/Khf6zgu5ZKS9KuCa7" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 9. M2 Monster Muaythai & Fitness Academy - Penampang */}
+          {/* 12. M2 Monster Muaythai & Fitness Academy - Penampang */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">M2 Monster Muaythai & Fitness Academy - Penampang</h2>
             <p className="text-gray-600">LOT 23, 3RD FLOOR, TAMAN VICTORY SHOPHOUSE (TOWERING PENAMPANG), JALAN PENAMPANG, 88300 KOTA KINABALU, SABAH</p>
@@ -96,7 +129,27 @@ export default function Directory() {
             <Link href="https://maps.app.goo.gl/S6NjjFkuHQKVDTMv7?g_st=awb" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 10. Persatuan Muaythai Daerah Lahad Datu */}
+          {/* 13. Naga Kinabalu II - Kinarut */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Naga Kinabalu II - Kinarut</h2>
+            <p className="text-gray-600">Kem brigade Dan batalion 16 PGA(PDRM), kinarut sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>01161170745 / 0128188958</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Muslee Tuah</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/share/1JLPNoiYaQ/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://g.co/kgs/hWHkhns" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Google Maps</Link>
+            </div>
+          </div>
+
+          {/* 14. NAK MUAY RANAU GYM - Ranau */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">NAK MUAY RANAU GYM - Ranau</h2>
+            <p className="text-gray-600">Kelab Belia dan Sukan Jln Ranau - Tambunan, Pekan Ranau, 89308, Ranau, Sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>017-8698094 (Coach Lala)</strong>, <strong>014-3860605 (Coach Rikki)</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Lala & Coach Rikki</strong></p>
+          </div>
+
+          {/* 15. Persatuan Muaythai Daerah Lahad Datu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Persatuan Muaythai Daerah Lahad Datu</h2>
             <p className="text-gray-600">Innovation Martial Arts Academy, Fajar Centre, MDLD 3275, Lot 10, 1st Floor, 91100 Lahad Datu, Sabah</p>
@@ -105,7 +158,7 @@ export default function Directory() {
             <Link href="https://web.facebook.com/profile.php?id=100082994329166" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Visit Facebook Page</Link>
           </div>
 
-          {/* 11. RNM FIGHT CLUB - Inanam */}
+          {/* 16. RNM FIGHT CLUB - Inanam */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">RNM FIGHT CLUB (RNMFC) - Inanam</h2>
             <p className="text-gray-600">LOT 17, 1ST FLOOR, TAIPAN 28, BLOCK C, JALAN TAIPAN 28, INANAM, 88450 KOTA KINABALU, SABAH</p>
@@ -120,7 +173,20 @@ export default function Directory() {
             </div>
           </div>
 
-          {/* 12. Tavangkaz Muayfit - Penampang */}
+          {/* 17. Team Karabaw Sipitang - Sipitang */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Team Karabaw Sipitang - Sipitang</h2>
+            <p className="text-gray-600">Tingkat 2, Bangunan Tadika Chung Hwa Sipitang</p>
+            <p className="text-gray-600">Contact Number: <strong>016 820 1797</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Hafizul Hakim Abdul Majid</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/share/16AyGBAnPN/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://www.tiktok.com/@teamkarabawspg?_t=ZS-8wTxROwrPYw&_r=1" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
+              <Link href="https://maps.app.goo.gl/A2p3hRVWuoeYKwRm9" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Location</Link>
+            </div>
+          </div>
+
+          {/* 18. Tavangkaz Muayfit - Penampang */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Tavangkaz Muayfit - Penampang</h2>
             <p className="text-gray-600">Bilik aerobic, Kompleks Sukan Penampang, 89507 Penampang, Sabah</p>
@@ -130,7 +196,7 @@ export default function Directory() {
             <Link href="https://www.google.com/maps/place/Kompleks+Sukan+Penampang" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
-          {/* 13. Venomous Combat & Muay Art Gym - Sandakan */}
+          {/* 19. Venomous Combat & Muay Art Gym - Sandakan */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">Venomous Combat & Muay Art Gym - Sandakan</h2>
             <p className="text-gray-600">LOT 2149C INDAH JAYA, TAMAN INDAH JAYA BATU 4, JALAN LINTAS SELATAN, 90000 SANDAKAN, SABAH</p>
@@ -138,7 +204,7 @@ export default function Directory() {
             <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Mardiana</strong></p>
           </div>
 
-          {/* 14. XMUAY FITNESS - Kota Kinabalu */}
+          {/* 20. XMUAY FITNESS - Kota Kinabalu */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-2">XMUAY FITNESS - Kota Kinabalu</h2>
             <p className="text-gray-600">Lot D1-Level 2, Aeropod Commercial Square, Jalan Aeropod Off Jalan Kepayan, 88200 Kota Kinabalu, Sabah</p>
@@ -148,30 +214,6 @@ export default function Directory() {
               <Link href="https://www.facebook.com/share/1ZC8T5DQYM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
               <Link href="https://www.google.com/search?q=xmuay+fitness&ie=UTF-8&oe=UTF-8&hl=en-my&client=safari#ebo=0" target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">Google Search</Link>
               <Link href="https://waze.com/ul/hw949c4bp3" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Waze Location</Link>
-            </div>
-          </div>
-
-          {/* 15. KALAI BROTHERS - Sandakan */}
-          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">KALAI BROTHERS - Sandakan</h2>
-            <p className="text-gray-600">Lot 68 ONE AVENUE 9, SHOP/OFFICE, BANDAR UTAMA SANDAKAN LOT 68, TINGKAT 1, 90000, SANDAKAN SABAH</p>
-            <p className="text-gray-600">Contact Number: <strong>0183447020</strong></p>
-            <p className="text-gray-600 mb-3">Head Coach: <strong>Erwandy bin kalai</strong></p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Link href="https://www.facebook.com/KalaiBrothersOfficial" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
-              <Link href="https://www.tiktok.com/@kalaibrothers_official" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
-            </div>
-          </div>
-
-          {/* 16. Naga Kinabalu II - Kinarut */}
-          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Naga Kinabalu II - Kinarut</h2>
-            <p className="text-gray-600">Kem brigade Dan batalion 16 PGA(PDRM), kinarut sabah</p>
-            <p className="text-gray-600">Contact Number: <strong>01161170745 / 0128188958</strong></p>
-            <p className="text-gray-600 mb-3">Head Coach: <strong>Muslee Tuah</strong></p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Link href="https://www.facebook.com/share/1JLPNoiYaQ/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
-              <Link href="https://g.co/kgs/hWHkhns" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Google Maps</Link>
             </div>
           </div>
 
