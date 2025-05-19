@@ -130,6 +130,51 @@ export default function Directory() {
             <Link href="https://www.google.com/maps/place/Kompleks+Sukan+Penampang" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Google Maps</Link>
           </div>
 
+          {/* 13. Venomous Combat & Muay Art Gym - Sandakan */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Venomous Combat & Muay Art Gym - Sandakan</h2>
+            <p className="text-gray-600">LOT 2149C INDAH JAYA, TAMAN INDAH JAYA BATU 4, JALAN LINTAS SELATAN, 90000 SANDAKAN, SABAH</p>
+            <p className="text-gray-600">Contact Number: <strong>014 2166 008</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Mardiana</strong></p>
+          </div>
+
+          {/* 14. XMUAY FITNESS - Kota Kinabalu */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">XMUAY FITNESS - Kota Kinabalu</h2>
+            <p className="text-gray-600">Lot D1-Level 2, Aeropod Commercial Square, Jalan Aeropod Off Jalan Kepayan, 88200 Kota Kinabalu, Sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>0178667724</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Nadea Leong</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/share/1ZC8T5DQYM/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://www.google.com/search?q=xmuay+fitness&ie=UTF-8&oe=UTF-8&hl=en-my&client=safari#ebo=0" target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">Google Search</Link>
+              <Link href="https://waze.com/ul/hw949c4bp3" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Waze Location</Link>
+            </div>
+          </div>
+
+          {/* 15. KALAI BROTHERS - Sandakan */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">KALAI BROTHERS - Sandakan</h2>
+            <p className="text-gray-600">Lot 68 ONE AVENUE 9, SHOP/OFFICE, BANDAR UTAMA SANDAKAN LOT 68, TINGKAT 1, 90000, SANDAKAN SABAH</p>
+            <p className="text-gray-600">Contact Number: <strong>0183447020</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Erwandy bin kalai</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/KalaiBrothersOfficial" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://www.tiktok.com/@kalaibrothers_official" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
+            </div>
+          </div>
+
+          {/* 16. Naga Kinabalu II - Kinarut */}
+          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2">Naga Kinabalu II - Kinarut</h2>
+            <p className="text-gray-600">Kem brigade Dan batalion 16 PGA(PDRM), kinarut sabah</p>
+            <p className="text-gray-600">Contact Number: <strong>01161170745 / 0128188958</strong></p>
+            <p className="text-gray-600 mb-3">Head Coach: <strong>Muslee Tuah</strong></p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link href="https://www.facebook.com/share/1JLPNoiYaQ/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
+              <Link href="https://g.co/kgs/hWHkhns" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Google Maps</Link>
+            </div>
+          </div>
+
         </div>
 
         {/* Back Button */}
