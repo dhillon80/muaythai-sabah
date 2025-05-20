@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -71,7 +70,7 @@ export default function Home() {
       <header className="bg-blue-900 text-white">
         <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <Image src="/pmnslogo.png" alt="Logo" width={40} height={40} className="h-10 w-10 object-contain" />
+            <img src="/pmnslogo.png" alt="Logo" className="h-10 w-10 object-contain" />
             <div className="text-xl font-bold">Muaythai Sabah</div>
           </div>
           <ul className="hidden sm:flex gap-6">
@@ -106,7 +105,7 @@ export default function Home() {
           `radial-gradient(circle at 70% 70%, rgba(252, 209, 22, 0.05) 15%, transparent 40%)`,
       }}>
         <div className="flex justify-center mb-6">
-          <Image src="/pmnslogo.png" alt="Muaythai Sabah Logo" width={160} height={160} priority className="h-40 w-40 object-contain animate-flash" />
+          <img src="/pmnslogo.png" alt="Muaythai Sabah Logo" className="h-40 w-40 object-contain animate-flash" />
         </div>
 
         <h1 className="text-5xl font-bold text-blue-900 mb-4">Welcome to Muaythai Sabah</h1>
@@ -140,7 +139,7 @@ export default function Home() {
           {events.map((item, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <a href={item.title === "Muaythai Coaching Course" ? "https://www.muaythaisbh.my/coaching" : "https://muaythaisbh.my/events"} target="_blank" rel="noopener noreferrer">
-                <Image src={item.img} alt={item.title} width={400} height={250} className="w-full h-[250px] object-contain" />
+                <img src={item.img} alt={item.title} className="w-full h-[250px] object-contain" />
               </a>
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
