@@ -131,7 +131,7 @@ export default function Directory() {
 
           {/* 8. D'Sha Muayfit Tawau */}
           <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">D'Sha Muayfit Tawau</h2>
+            <h2 className="text-xl font-semibold mb-2">D&apos;Sha Muayfit Tawau</h2>
             <p className="text-gray-600">Jalan Sin Onn, Lorong Jelita 1, No. 1007, 91000 Tawau, Sabah</p>
             <p className="text-gray-600">Contact Number: <strong>0165525785</strong></p>
             <p className="text-gray-600 mb-3">Head Coach: <strong>Coach Sharon Andrea Gerald</strong></p>
