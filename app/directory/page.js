@@ -33,24 +33,49 @@ export default function Directory() {
             <Link href="https://maps.apple.com/?address=88200%20Kota%20Kinabalu,%20Sabah,%20Malaysia&auid=6097815412148545768&ll=5.918426,116.060878&lsp=7618&q=88200&t=m" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 mt-2 rounded hover:bg-green-700">View on Apple Maps</Link>
           </div>
 
-          {/* 3. TAMBUAKAR MUAYTHAI CLUB PAPAR */}
-          <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Tambuakar Muaythai Club-Papar</h2>
-            <p className="text-gray-600">8-1, 1st Floor, Pusat Komersil Baru, 89600, Bandar Papar, Papar, Sabah</p>
-            <p className="text-gray-600">
-              Contact Numbers: 
-              <strong> 0198008093 (C.Zai)</strong>, 
-              <strong> 01133031515 (C.Jerry)</strong>, 
-              <strong> 0145509972 (C.Ash)</strong>, 
-              <strong> 0168282814 (Terrie)</strong>
-            </p>
-            <p className="text-gray-600 mb-3">Head Coach: <strong>Rozaimy Ahad</strong></p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Link href="https://www.facebook.com/share/1JL6ax6rDG/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Facebook Page</Link>
-              <Link href="https://www.tiktok.com/@tmc202002?_t=ZS-8wVAcQUHLnz&_r=1" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">TikTok</Link>
-              <Link href="https://maps.app.goo.gl/avCZJsnyLoTVA4kZA?g_st=ac" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Location</Link>
-            </div>
-          </div>
+         {/* 3. TAMBUAKAR MUAYTHAI CLUB PAPAR */}
+<div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
+  <h2 className="text-xl font-semibold mb-2">Tambuakar Muaythai Club - Papar</h2>
+  <p className="text-gray-600">
+    8-1, 1st Floor, Pusat Komersil Baru, 89600, Bandar Papar, Papar, Sabah
+  </p>
+  <p className="text-gray-600">
+    Contact Numbers: 
+    <strong> 0198008093 (C.Zai)</strong>, 
+    <strong> 01133031515 (C.Jerry)</strong>, 
+    <strong> 0145509972 (C.Ash)</strong>, 
+    <strong> 0168282814 (Terrie)</strong>
+  </p>
+  <p className="text-gray-600 mb-3">
+    Head Coach: <strong>Rozaimy Ahad</strong>
+  </p>
+  <div className="flex flex-col sm:flex-row gap-2">
+    <Link
+      href="https://www.facebook.com/share/1JL6ax6rDG/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+    >
+      Facebook Page
+    </Link>
+    <Link
+      href="https://www.tiktok.com/@tmc202002?_t=ZS-8wVAcQUHLnz&_r=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700"
+    >
+      TikTok
+    </Link>
+    <Link
+      href="https://maps.app.goo.gl/avCZJsnyLoTVA4kZA?g_st=ac"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+    >
+      Location
+    </Link>
+  </div>
+</div>
 
           {/* 4. Stallone Fitness Gym */}
 <div className="flex flex-col items-center justify-between p-6 bg-gray-200 rounded-lg shadow-md">
