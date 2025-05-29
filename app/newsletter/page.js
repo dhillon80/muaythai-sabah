@@ -9,7 +9,19 @@ export default function Newsletter() {
         <h1 className="text-3xl font-bold text-blue-600 mb-4">Muaythai Sabah Newsletter</h1>
         <p className="mb-6 text-gray-700">Cerita, gambar dan kemas kini tentang acara-acara Muaythai Sabah.</p>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
+          {/* 📰 Featured Story */}
+          <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
+            <h2 className="text-xl font-semibold text-yellow-800">📰 Sabah Muaythai Cultural and Heritage Challenge 2025</h2>
+            <p className="text-sm text-gray-600">24–25 May 2025 · Revolution Combat Gym, Kota Kinabalu</p>
+            <p className="mt-2 text-gray-800">
+              Lebih 40 atlet muda menyertai acara warisan budaya Muaythai pertama di Malaysia yang menampilkan persembahan Wai Kru & Mai Muay...
+            </p>
+            <Link href="/newsletter/sabah-muaythai-cultural-heritage-2025" className="text-blue-500 mt-2 inline-block">
+              Baca cerita penuh &rarr;
+            </Link>
+          </div>
+
           {/* 📸 Past Event */}
           <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
             <h2 className="text-xl font-semibold">📸 Kejohanan Sabah Muaythai Open 2025</h2>
@@ -17,14 +29,18 @@ export default function Newsletter() {
             <p className="mt-2 text-gray-800">
               Acara ini menyaksikan lebih 300 penyertaan dari seluruh Sabah dengan semangat juang yang tinggi...
             </p>
-            <Link href="/newsletter/kejohanan-Sabah Muaythai Open 2025" className="text-blue-500 mt-2 inline-block">Baca lanjut &rarr;</Link>
+            <Link href="/newsletter/kejohanan-Sabah Muaythai Open 2025" className="text-blue-500 mt-2 inline-block">
+              Baca lanjut &rarr;
+            </Link>
           </div>
 
           {/* 🚀 Upcoming Events */}
           <div className="border border-gray-300 p-4 rounded-lg bg-gray-50">
             <h2 className="text-xl font-semibold">🚀 Upcoming Events</h2>
             <p className="text-sm text-gray-600">Don’t miss out on these upcoming Muaythai events!</p>
-            <Link href="/events" className="text-blue-500 mt-2 inline-block">Click Here for Upcoming Events &rarr;</Link>
+            <Link href="/events" className="text-blue-500 mt-2 inline-block">
+              Click Here for Upcoming Events &rarr;
+            </Link>
           </div>
 
           {/* 🥊 Fighter Profiles */}
