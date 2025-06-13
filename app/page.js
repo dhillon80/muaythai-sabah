@@ -45,7 +45,7 @@ export default function Home() {
     {
       title: "Muaythai Coaching Course",
       desc: "Become a certified coach and train the next generation.",
-      img: "/jurulatih.png",
+      img: "/postponed.jpeg",
       href: "/coaching",
     },
   ];

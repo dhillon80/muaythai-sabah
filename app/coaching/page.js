@@ -16,7 +16,7 @@ export default function CoachingPage() {
         {/* Poster Image */}
         <div className="flex justify-center mb-6">
           <Image 
-            src="/jurulatih.png" 
+            src="/postponed.jpeg" 
             alt="Kursus Asas Kejurulatihan Muaythai 2025 Poster" 
             width={600}
             height={400}
@@ -29,7 +29,7 @@ export default function CoachingPage() {
 
           <div className="bg-blue-600 p-4 rounded-lg text-black">
             <h2 className="text-2xl font-semibold">Details of the Course</h2>
-            <p>Date: 21st–22nd June 2025</p>
+            <p>Date: 21st–22nd June 2025 postponed to 5-6 July 2025</p>
             <p>Venue: ARENA BELIA, JALAN KEPAYAN KOTA KINABALU</p>
             <p>Yuran: RM150 per person</p>
             <p>Lunch will be provided</p>
