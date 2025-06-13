@@ -26,6 +26,13 @@ export default function EventPage() {
             <p className="text-lg text-black mt-10">7th–8th June 2025, PLN, Taman Delima, Penampang</p>
           </div>
 
+          {/* Ranau Fight Championship 2025 - HAPPENING NOW */}
+          <h2 className="text-2xl font-semibold text-black">Ranau Fighting Championship 2025</h2>
+          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
+            <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">HAPPENING NOW</span>
+            <p className="text-lg text-black mt-10">Date: 13–14 June 2025, Venue: Padang Bandaran Ranau</p>
+          </div>
+
           {/* Young Guns Rising - POSTPONED TO A LATER DATE */}
           <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Young Guns Rising</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
