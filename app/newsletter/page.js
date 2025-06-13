@@ -1,6 +1,7 @@
 "use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Newsletter() {
   return (
@@ -10,7 +11,31 @@ export default function Newsletter() {
         <p className="mb-6 text-gray-700">Cerita, gambar dan kemas kini tentang acara-acara Muaythai Sabah.</p>
 
         <div className="space-y-6">
-          {/* 📰 Featured Story */}
+          {/* 📰 Featured Story - Rookie Challenge */}
+          <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
+            <h2 className="text-xl font-semibold text-yellow-800">📰 Sabah Muaythai Expo: Rookie Challenge 2025</h2>
+            <p className="text-sm text-gray-600">7–8 June 2025 · PLN, Taman Delima, Penampang</p>
+
+            {/* Header Image */}
+            <div className="w-full max-w-3xl mx-auto mt-4">
+              <Image
+                src="/rookiechallenge.jpeg"
+                alt="Sabah Muaythai Expo: Rookie Challenge 2025"
+                width={800}
+                height={450}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+
+            <p className="mt-2 text-gray-800">
+              139 first-time athletes from all over Sabah stepped into the ring for their debut competitive experience...
+            </p>
+            <Link href="/newsletter/sabah-muaythai-expo-rookie-challenge-2025" className="text-blue-500 mt-2 inline-block">
+              Baca cerita penuh &rarr;
+            </Link>
+          </div>
+
+          {/* 📰 Featured Story - Cultural and Heritage Challenge */}
           <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
             <h2 className="text-xl font-semibold text-yellow-800">📰 Sabah Muaythai Cultural and Heritage Challenge 2025</h2>
             <p className="text-sm text-gray-600">24–25 May 2025 · Revolution Combat Gym, Kota Kinabalu</p>
@@ -29,7 +54,7 @@ export default function Newsletter() {
             <p className="mt-2 text-gray-800">
               Acara ini menyaksikan lebih 300 penyertaan dari seluruh Sabah dengan semangat juang yang tinggi...
             </p>
-            <Link href="/newsletter/kejohanan-Sabah Muaythai Open 2025" className="text-blue-500 mt-2 inline-block">
+            <Link href="/newsletter/kejohanan-Sabah-Muaythai-Open-2025" className="text-blue-500 mt-2 inline-block">
               Baca lanjut &rarr;
             </Link>
           </div>
