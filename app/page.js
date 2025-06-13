@@ -42,7 +42,7 @@ export default function Home() {
         <a href='https://web.facebook.com/profile.php?id=100069723810642' target='_blank' class='text-blue-600 hover:text-blue-800'>
         Persatuan Muaythai Daerah Ranau</a>.
       `,
-      img: "/ranaufighting.jpeg",
+      img: "/Ranaufighting.jpeg",
       href: "/events",
       ribbon: "HAPPENING NOW",
     },
