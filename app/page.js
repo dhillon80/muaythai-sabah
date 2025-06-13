@@ -25,22 +25,26 @@ export default function Home() {
 
   const events = [
     {
-      title: "Sabah Muaythai Expo- Rookie Challenge 2025",
-      desc: "Sabah’s rising fighters take their first step into the spotlight!.",
-      img: "/muaythai1.jpeg",
-      href: "/events",
-    },
-    {
-      title: "Sabah Muaythai Cultural and Heritage Challenge 2025",
-      desc: "Wai Kru. Mai Muay. The Legacy Begins.",
-      img: "/muaythai2.jpeg",
-      href: "/events",
-    },
-    {
       title: "Juang Fight Night",
-      desc: "Conquer The Arena!.",
+      desc: "Conquer The Arena!",
       img: "/PERMAS1.png",
       href: "/events",
+    },
+    {
+      title: "Ranau Fighting Championship 2025",
+      desc: `
+        <strong>Ranau Fighting Championship 2025</strong><br>
+        In conjunction with Pesta Orang Ranau.<br>
+        <strong>Date:</strong> 13–14 June 2025<br>
+        <strong>Venue:</strong> Padang Bandaran Pekan Ranau.<br>
+        <strong>For more information, contact:</strong> Coach LALA at +60 17-869 8094.<br>
+        Come and witness exclusive Muaysport fights LIVE, especially brought to you by 
+        <a href='https://web.facebook.com/profile.php?id=100069723810642' target='_blank' class='text-blue-600 hover:text-blue-800'>
+        Persatuan Muaythai Daerah Ranau</a>.
+      `,
+      img: "/ranaufighting.jpeg",
+      href: "/events",
+      ribbon: "HAPPENING NOW",
     },
     {
       title: "Muaythai Coaching Course",
@@ -78,32 +82,11 @@ export default function Home() {
             <li><Link href="/contact" className="hover:text-yellow-400 transition">Contact Us</Link></li>
             <li><a href="https://msn.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">Majlis Sukan Negeri Sabah</a></li>
           </ul>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="sm:hidden focus:outline-none" aria-label="Toggle menu">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
         </nav>
-
-        {menuOpen && (
-          <div className="sm:hidden bg-blue-800 px-4 py-2 flex flex-col gap-2">
-            <Link href="/directory" className="hover:text-yellow-400 transition">Directory</Link>
-            <Link href="/contact" className="hover:text-yellow-400 transition">Contact Us</Link>
-            <a href="https://msn.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">Majlis Sukan Negeri Sabah</a>
-          </div>
-        )}
       </header>
 
       {/* Hero */}
-      <section className="relative text-center py-20 px-6 bg-white" style={{
-        backgroundImage:
-          `radial-gradient(circle at 30% 30%, rgba(0, 56, 168, 0.05) 15%, transparent 40%),` +
-          `radial-gradient(circle at 70% 70%, rgba(252, 209, 22, 0.05) 15%, transparent 40%)`,
-      }}>
+      <section className="relative text-center py-20 px-6 bg-white">
         <div className="flex justify-center mb-6">
           <img src="/pmnslogo.png" alt="Muaythai Sabah Logo" className="h-40 w-40 object-contain animate-flash" />
         </div>
@@ -112,16 +95,6 @@ export default function Home() {
         <p className="text-lg sm:text-xl mb-6 text-gray-800">
           The Platform for Muaythai Championships, Athletes, and Development in Sabah
         </p>
-
-        <Link href="/fighter-profile" className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-6">
-          Athletes Profiles
-        </Link>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-          <Link href="/directory" className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Directory Gym</Link>
-          <Link href="/contact" className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition">Contact Us</Link>
-          <a href="https://msn.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">Visit MSN Sabah</a>
-        </div>
 
         <div className="mt-6">
           <button onClick={toggleMute} className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
@@ -134,16 +107,19 @@ export default function Home() {
 
       {/* Events */}
       <main className="flex-grow px-6 sm:px-12 py-12">
-        <h2 className="text-3xl font-semibold mb-6">Upcoming Events And Courses</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 className="text-3xl font-semibold mb-6 text-center">Upcoming Events And Courses</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-center">
           {events.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <a href={item.title === "Muaythai Coaching Course" ? "https://www.muaythaisbh.my/coaching" : "https://muaythaisbh.my/events"} target="_blank" rel="noopener noreferrer">
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden mx-auto relative">
+              {item.ribbon && (
+                <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">{item.ribbon}</span>
+              )}
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
                 <img src={item.img} alt={item.title} className="w-full h-[250px] object-contain" />
               </a>
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
                 <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Learn More</Link>
               </div>
             </div>
@@ -162,28 +138,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-6 mt-auto">
-        <div className="max-w-7xl mx-auto text-center px-6">
-          <p className="text-sm">&copy; 2025 Muaythai Sabah | All Rights Reserved.</p>
-          <div className="mt-4 flex justify-center space-x-4">
-            <a href="https://web.facebook.com/MuaythaiSabah" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">Facebook</a>
-            <a href="/contact" className="hover:opacity-80">Twitter</a>
-            <a href="https://www.youtube.com/@dhillontahing9878" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">YouTube</a>
-          </div>
-        </div>
-      </footer>
-
-      <style jsx>{`
-        @keyframes flash {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-        .animate-flash {
-          animation: flash 2s infinite;
-        }
-      `}</style>
     </div>
   );
 }
