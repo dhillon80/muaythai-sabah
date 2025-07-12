@@ -26,14 +26,14 @@ export default function EventPage() {
             <p className="text-lg text-black mt-10">7th–8th June 2025, PLN, Taman Delima, Penampang</p>
           </div>
 
-          {/* Ranau Fight Championship 2025 - HAPPENING NOW */}
+          {/* Ranau Fight Championship 2025 - DONE */}
           <h2 className="text-2xl font-semibold text-black">Ranau Fighting Championship 2025</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">HAPPENING NOW</span>
+            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
             <p className="text-lg text-black mt-10">Date: 13–14 June 2025, Venue: Padang Bandaran Ranau</p>
           </div>
 
-          {/* Young Guns Rising - POSTPONED TO A LATER DATE */}
+          {/* Young Guns Rising - POSTPONED */}
           <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Young Guns Rising</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
             <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">POSTPONED TO A LATER DATE</span>
@@ -46,29 +46,39 @@ export default function EventPage() {
             <p className="text-lg text-black">24th–27th July 2025, Axiata Stadium, Bukit Jalil</p>
           </div>
 
-          {/* Updated D1 Championship with Ribbon */}
+          {/* Updated D1 Championship with Registration OPEN */}
           <h2 className="text-2xl font-semibold text-black">D1 Championship, The Arena Has Risen</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-yellow-500 text-white text-center py-2">REGISTRATION WILL OPEN SOON FOR MUAYSPORT EDITION</span>
+            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">REGISTRATION FOR MUAYSPORT NOW OPEN</span>
             <p className="text-lg text-black mt-10">8–10 August 2025, Monstera Hall, Kepayan (Tentative)</p>
+            <Link
+              href="https://forms.gle/Xtm7ohrZ5rZjpuRs8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Register Here
+            </Link>
           </div>
 
-          {/* VW Fighting Championship (Moved Below D1) */}
+          {/* VW Fighting Championship */}
           <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6">
             <p className="text-lg text-black">22nd–24th August 2025, Kompleks Sukan Sandakan</p>
           </div>
 
-          {/* Juang Fight (Moved Below VW) */}
+          {/* Juang Fight */}
           <h2 className="text-2xl font-semibold text-black">JUANG FIGHT: CONQUER THE ARENA</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6">
             <p className="text-lg text-black">6th–7th September 2025, Dewan Sri Putatan</p>
           </div>
 
+          {/* Sabah Games */}
           <h2 className="text-2xl font-semibold text-black">Sabah Games (SAGA) Muaythai</h2>
           <div className="bg-blue-600 p-4 rounded-lg">
             <p className="text-lg text-black">11th–17th October 2025, Tawau, Sabah</p>
           </div>
+
         </div>
 
       </div>

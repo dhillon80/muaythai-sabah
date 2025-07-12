@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
@@ -32,21 +32,17 @@ export default function Home() {
     {
       title: "D1 Championship 2025",
       video: "https://www.youtube.com/embed/JwJufFOT-I4?si=fQUuTcyrG34oMBPT",
-      ribbon: "COMING TO YOU SOON",
-      caption: "The Arena Has Risen, Coming to you in AUGUST 2025 D1 Championship, The Arena Has Risen",
-      link: "https://www.muaythaisbh.my/events",
+      ribbon: "REGISTRATION NOW OPEN",
+      caption:
+        "The Arena Has Risen!\nDate: 9–10 August 2025\nVenue: Monstera Hall, Kepayan\nMuaysport Edition Registration Now Open!",
+      href: "/events",
     },
     {
       title: "IFMA Asian Championship 2025",
       img: "/ifma.jpg",
-      caption: `3 athletes and 1 coach from Sabah have been selected to represent Malaysia to IFMA Asian Championship 2025 in Thai Nguyen, Vietnam:\n\nAthletes:\n1. Angie Yan Jia Chi (Wai Kru Female Solo)\n2. Asyraf Danial (Wai Kru Male Solo)\n3. Eva Anastasia (48kg Female Combat)\n\nHead Coach: Dhillon Tahing\nWill lead the Malaysia team for this Asian Gold Mission.`,
+      caption: `3 athletes and 1 coach from Sabah have been selected to represent Malaysia at the IFMA Asian Championship 2025 in Thai Nguyen, Vietnam:\n\nAthletes:\n1. Angie Yan Jia Chi (Wai Kru Female Solo)\n2. Asyraf Danial (Wai Kru Male Solo)\n3. Eva Anastasia (48kg Female Combat)\n\nHead Coach: Dhillon Tahing`,
     },
-    {
-      title: "Muaythai Coaching Course",
-      desc: "Become a certified coach and train the next generation.",
-      img: "/postponed.jpeg",
-      href: "/coaching",
-    },
+    // Kursus Kejurulatihan info is removed ✔️
   ];
 
   const affiliates = [
@@ -112,7 +108,7 @@ export default function Home() {
           {events.map((item, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden relative">
               {item.ribbon && (
-                <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">{item.ribbon}</span>
+                <span className="absolute top-0 left-0 w-full bg-green-600 text-white text-center py-2">{item.ribbon}</span>
               )}
               {item.video ? (
                 <div className="aspect-video">
@@ -132,13 +128,9 @@ export default function Home() {
               )}
               <div className="p-4 text-center whitespace-pre-line">
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                {item.caption ? (
-                  <p className="text-gray-700">{item.caption}</p>
-                ) : (
-                  <p className="text-gray-600">{item.desc}</p>
-                )}
-                {item.href && !item.video && (
-                  <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Learn More</Link>
+                <p className="text-gray-700">{item.caption || item.desc}</p>
+                {item.href && (
+                  <Link href={item.href} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Register Now</Link>
                 )}
               </div>
             </div>
