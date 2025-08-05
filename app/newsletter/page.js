@@ -14,7 +14,34 @@ export default function Newsletter() {
 
         <div className="space-y-6">
 
-          {/* 📰 Coaching Course 2025 */}
+          {/* 📰 National Championship 2025 */}
+          <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
+            <h2 className="text-xl font-semibold text-yellow-800">
+              📰 Sabah Juara Keseluruhan Kejohanan Muaythai Kebangsaan 2025
+            </h2>
+            <p className="text-sm text-gray-600">28 July 2025 · Stadium Juara, Bukit Kiara</p>
+            <div className="w-full max-w-3xl mx-auto mt-4">
+              <Image
+                src="/kebangsaan.jpeg"
+                alt="Kejohanan Muaythai Kebangsaan 2025"
+                width={800}
+                height={450}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="mt-2 text-gray-800">
+              Muaythai Sabah mengukuhkan dominasi dengan 24 emas, 10 perak dan 25 gangsa,
+              mengekalkan gelaran Juara Keseluruhan tiga tahun berturut-turut!
+            </p>
+            <Link
+              href="/newsletter/national-championship-2025"
+              className="text-blue-500 mt-2 inline-block"
+            >
+              Baca cerita penuh &rarr;
+            </Link>
+          </div>
+
+          {/* 📰 Muaythai Basic Coaching Course 2025 */}
           <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
             <h2 className="text-xl font-semibold text-yellow-800">
               📰 Muaythai Basic Coaching Course 2025
