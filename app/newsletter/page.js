@@ -14,6 +14,40 @@ export default function Newsletter() {
 
         <div className="space-y-6">
 
+          {/* 📰 D1 Championship 2025 */}
+          <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
+            <h2 className="text-xl font-semibold text-yellow-800">
+              📰 D1 Championship 2025: Sabah’s Crew Behind the Glory
+            </h2>
+            <p className="text-sm text-gray-600">10 August 2025 · Kota Kinabalu, Sabah</p>
+            <div className="w-full max-w-3xl mx-auto mt-4">
+              <Image
+                src="/d1championship.jpeg"
+                alt="D1 Championship 2025"
+                width={800}
+                height={450}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <p className="mt-2 text-gray-800">
+              The D1 Championship 2025 was more than just an electrifying showcase of Muaythai
+              talent—it was a celebration of teamwork, discipline, and community spirit. Sabah’s
+              dedicated crew made it all possible, from planning and logistics to athlete support and
+              cultural performances.
+            </p>
+            <p className="mt-2 text-gray-800">
+              With every punch, kick, and Wai Kru ritual, the event reflected the strength of unity
+              and the passion of those working tirelessly behind the scenes. Their hard work ensured
+              that the championship ran smoothly and left a lasting impact on both athletes and fans.
+            </p>
+            <Link
+              href="/newsletter/D1Championship"
+              className="text-blue-500 mt-2 inline-block"
+            >
+              Baca cerita penuh &rarr;
+            </Link>
+          </div>
+
           {/* 📰 National Championship 2025 */}
           <div className="border border-yellow-300 p-4 rounded-lg bg-yellow-50">
             <h2 className="text-xl font-semibold text-yellow-800">
