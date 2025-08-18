@@ -67,7 +67,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 justify-center">
           {/* VW Fighting Championship */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
-            <img src="/vwchampionship.jpeg" alt="VW Fighting Championship 2025" className="w-full h-[250px] object-cover" />
+            <img src="/vwchampionship.jpeg" alt="VW Fighting Championship 2025" className="w-full h-auto object-contain" />
             <div className="p-4 text-center whitespace-pre-line">
               <h3 className="text-xl font-semibold mb-2">VW Fighting Championship 2025</h3>
               <p className="text-gray-700">Date: 23-24 August 2025<br />Venue: Kompleks Sukan Sandakan</p>
@@ -79,7 +79,7 @@ export default function Home() {
 
           {/* 1st ASEAN Muaythai Team and Youth Championship */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
-            <img src="/asean.jpeg" alt="1st ASEAN Muaythai Championship 2025" className="w-full h-[250px] object-cover" />
+            <img src="/asean.jpeg" alt="1st ASEAN Muaythai Championship 2025" className="w-full h-auto object-contain" />
             <div className="p-4 text-center whitespace-pre-line">
               <h3 className="text-xl font-semibold mb-2">1st ASEAN Muaythai Team and Youth Championship 2025</h3>
               <p className="text-gray-700">Date: 28-31 August 2025<br />Venue: Paradigm Mall, Selangor</p>
