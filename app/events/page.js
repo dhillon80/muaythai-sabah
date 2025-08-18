@@ -40,19 +40,27 @@ export default function EventPage() {
             <p className="text-lg text-black mt-10">28th–29th June 2025, PLN, Taman Delima, Penampang</p>
           </div>
 
-          {/* Other Events */}
-          <h2 className="text-2xl font-semibold text-black">𝗠𝘂𝗮𝘆𝘁𝗵𝗮𝗶 𝗦𝘂𝗸𝗮𝗻 𝗧𝗲𝗺𝗽𝘂𝗿 𝗞𝗲𝗯𝗮𝗻𝗴𝘀𝗮𝗮𝗻</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">24th–27th July 2025, Axiata Stadium, Bukit Jalil</p>
+          {/* Kejohanan Tempur Kebangsaan - DONE */}
+          <h2 className="text-2xl font-semibold text-black">Kejohanan Tempur Kebangsaan</h2>
+          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
+            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
+            <p className="text-lg text-black mt-10">Date: 24th–27th July 2025, Axiata Stadium, Bukit Jalil</p>
           </div>
 
-          {/* Updated D1 Championship with Registration OPEN */}
+          {/* D1 Championship - DONE */}
           <h2 className="text-2xl font-semibold text-black">D1 Championship, The Arena Has Risen</h2>
           <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">REGISTRATION FOR MUAYSPORT NOW OPEN</span>
+            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
             <p className="text-lg text-black mt-10">8–10 August 2025, Monstera Hall, Kepayan (Tentative)</p>
+          </div>
+
+          {/* VW Fighting Championship with Registration Link */}
+          <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>
+          <div className="bg-blue-600 p-4 rounded-lg mb-6">
+            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">REGISTRATION FOR MUAYSPORT NOW OPEN</span>
+            <p className="text-lg text-black mt-10">22nd–24th August 2025, Kompleks Sukan Sandakan</p>
             <Link
-              href="https://forms.gle/Xtm7ohrZ5rZjpuRs8"
+              href="https://forms.gle/BM42vaiKh8n1owf39"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
@@ -61,16 +69,11 @@ export default function EventPage() {
             </Link>
           </div>
 
-          {/* VW Fighting Championship */}
-          <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">22nd–24th August 2025, Kompleks Sukan Sandakan</p>
-          </div>
-
-          {/* Juang Fight */}
+          {/* Juang Fight - POSTPONED */}
           <h2 className="text-2xl font-semibold text-black">JUANG FIGHT: CONQUER THE ARENA</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">6th–7th September 2025, Dewan Sri Putatan</p>
+          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
+            <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">POSTPONED TO A LATER DATE</span>
+            <p className="text-lg text-black mt-10">6th–7th September 2025, Dewan Sri Putatan</p>
           </div>
 
           {/* Sabah Games */}
