@@ -4,86 +4,109 @@ import Link from 'next/link';
 export default function EventPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="text-center p-8 bg-white rounded-lg shadow-lg text-black overflow-x-auto">
+      <div className="text-center p-8 bg-white rounded-lg shadow-lg text-black overflow-x-auto w-full max-w-4xl">
 
-        <h1 className="text-4xl font-bold text-black">Upcoming Muaythai Events</h1>
-        <p className="mt-4 text-lg">Register for our exciting events!</p>
+        <h1 className="text-4xl font-bold text-black">Upcoming Events for 2026</h1>
+        <p className="mt-4 text-lg">Mark your calendars for an exciting year of Muaythai!</p>
 
         {/* Event List */}
-        <div className="mt-8">
+        <div className="mt-8 space-y-8">
 
-          {/* Cultural and Heritage Challenge - DONE */}
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Cultural and Heritage Challenge 2025</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
-            <p className="text-lg text-black mt-10">Wai Kru and MaiMuay: 24th–25th May 2025, PLN, Taman Delima, Penampang</p>
+          {/* 1. Young Guns U17 - POSTPONED */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo - The Young Guns U17</h2>
+            <div className="bg-blue-600 p-4 rounded-lg mt-2 relative">
+              <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2 rounded-t-lg">POSTPONED TO A LATER DATE</span>
+              {/* Added mt-10 to push text down below the red banner */}
+              <p className="text-lg text-white font-medium mt-10">
+                Date: Feb 2026 <br />
+                Venue: Kota Kinabalu
+              </p>
+            </div>
           </div>
 
-          {/* Rookie Challenge - DONE */}
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Rookie Challenge 2025</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
-            <p className="text-lg text-black mt-10">7th–8th June 2025, PLN, Taman Delima, Penampang</p>
+          {/* 2. Cultural and Heritage */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo - Cultural and Heritage 2026</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: April 2026 <br />
+                Venue: Kota Kinabalu
+              </p>
+            </div>
           </div>
 
-          {/* Ranau Fight Championship 2025 - DONE */}
-          <h2 className="text-2xl font-semibold text-black">Ranau Fighting Championship 2025</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
-            <p className="text-lg text-black mt-10">Date: 13–14 June 2025, Venue: Padang Bandaran Ranau</p>
+          {/* 3. Ladies Fight */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo - Ladies Fight (All Ladies Tournament)</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: May 2026 <br />
+                Venue: Kota Kinabalu
+              </p>
+            </div>
           </div>
 
-          {/* Young Guns Rising - POSTPONED */}
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Young Guns Rising</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">POSTPONED TO A LATER DATE</span>
-            <p className="text-lg text-black mt-10">28th–29th June 2025, PLN, Taman Delima, Penampang</p>
+          {/* 4. IFMA Senior World Championship */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">IFMA Senior World Championship Malaysia</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: May 2026 <br />
+                Venue: Kuala Lumpur
+              </p>
+            </div>
           </div>
 
-          {/* Kejohanan Tempur Kebangsaan - DONE */}
-          <h2 className="text-2xl font-semibold text-black">Kejohanan Tempur Kebangsaan</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
-            <p className="text-lg text-black mt-10">Date: 24th–27th July 2025, Axiata Stadium, Bukit Jalil</p>
+          {/* 5. Rookie Challenge Vol 2 */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo - The Rookie Challenge Vol 2 2026</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: June 2026 <br />
+                Venue: Kota Kinabalu
+              </p>
+            </div>
           </div>
 
-          {/* D1 Championship - DONE */}
-          <h2 className="text-2xl font-semibold text-black">D1 Championship, The Arena Has Risen</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">DONE</span>
-            <p className="text-lg text-black mt-10">8–10 August 2025, Monstera Hall, Kepayan (Tentative)</p>
+          {/* 6. Kejohanan Muaythai Kebangsaan */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Kejohanan Muaythai Kebangsaan 2026</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: July 2026 <br />
+                Venue: Kuala Lumpur
+              </p>
+            </div>
           </div>
 
-          {/* VW Fighting Championship with Registration Link */}
-          <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <span className="absolute top-0 left-0 w-full bg-green-500 text-white text-center py-2">REGISTRATION FOR MUAYSPORT NOW OPEN</span>
-            <p className="text-lg text-black mt-10">22nd–24th August 2025, Kompleks Sukan Sandakan</p>
-            <Link
-              href="https://forms.gle/BM42vaiKh8n1owf39"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
-            >
-              Register Here
-            </Link>
+          {/* 7. SUKMA Selangor */}
+          <div>
+            <h2 className="text-2xl font-semibold text-black">Sukan Malaysia (SUKMA) Selangor</h2>
+            <div className="bg-blue-600 p-6 rounded-lg mt-2">
+              <p className="text-lg text-white font-medium">
+                Date: August 2026 <br />
+                Venue: Selangor
+              </p>
+            </div>
           </div>
 
-          {/* Juang Fight - POSTPONED */}
-          <h2 className="text-2xl font-semibold text-black">JUANG FIGHT: CONQUER THE ARENA</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6 relative">
-            <span className="absolute top-0 left-0 w-full bg-red-500 text-white text-center py-2">POSTPONED TO A LATER DATE</span>
-            <p className="text-lg text-black mt-10">6th–7th September 2025, Dewan Sri Putatan</p>
-          </div>
-
-          {/* Sabah Games */}
-          <h2 className="text-2xl font-semibold text-black">Sabah Games (SAGA) Muaythai</h2>
-          <div className="bg-blue-600 p-4 rounded-lg">
-            <p className="text-lg text-black">11th–17th October 2025, Tawau, Sabah</p>
+          {/* --- COMING SOON SECTION --- */}
+          <div className="border-t-4 border-yellow-500 pt-8 mt-12">
+            <h2 className="text-3xl font-bold text-gray-800 uppercase">Upcoming Events - Will Update Soon</h2>
+            <div className="bg-gray-800 p-6 rounded-lg mt-4 text-white">
+              <ul className="space-y-4 text-xl">
+                <li className="flex items-center justify-center gap-2">
+                  <span className="text-yellow-400">★</span> DEBUT MONTHLY PRO FIGHT EVENT
+                </li>
+                <li className="flex items-center justify-center gap-2">
+                  <span className="text-yellow-400">★</span> DEBUT MONTHLY AMATEUR FIGHT EVENT
+                </li>
+              </ul>
+            </div>
           </div>
 
         </div>
-
       </div>
     </div>
   );
