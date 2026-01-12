@@ -19,20 +19,133 @@ export default function Newsletter() {
 
       <div className="max-w-4xl mx-auto space-y-10">
 
-        {/* 🆕 NEW STORY: Sabah Games XI 2025 (SAGA) */}
+        {/* 🆕 NEWEST STORY: SUKMA Selection 2026 */}
         <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl border-l-4 border-l-yellow-500">
           <div className="mb-2">
              <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
-               Latest Feature · Tawau, Sabah
+               Latest Feature · Jan 2026 · Penampang
              </span>
           </div>
           <h2 className="text-3xl font-black text-white mb-4">
+            🥊 SUKMA Selangor 2026: Sabah Muaythai Selection Concludes Successfully
+          </h2>
+          
+          <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
+            <Image
+              src="/sukma2025.jpeg" 
+              alt="SUKMA Sabah Selection"
+              width={800}
+              height={450}
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
+            <p>
+              The Sabah Muaythai selection trials for SUKMA Selangor 2026 concluded successfully following a two-day evaluation held on 3–4 January 2026. The closed-door selection brought together Sabah’s top emerging talents.
+            </p>
+          </div>
+          
+          <div className="mt-8 pt-6 border-t border-slate-800">
+            <Link
+              href="/newsletter/sukma-selection" 
+              className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
+            >
+              Baca cerita penuh <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* 🆕 SEA Games 2025 */}
+        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl">
+          <div className="mb-2">
+             <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
+               Late 2025 · International
+             </span>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            🥇 Sabah Shines at the SEA Games: Celebrating Our Muaythai Athletes
+          </h2>
+          
+          <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
+            <Image
+              src="/seagames.jpeg" 
+              alt="SEA Games Sabah Athletes"
+              width={800}
+              height={450}
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div className="space-y-4 text-gray-300 leading-relaxed">
+            <p>
+              Sabah once again made its mark on the international stage as Yan Jia Chi (Gold), Eva Anastasia (Silver), and Asyraf Danial (Bronze) delivered outstanding performances for Malaysia.
+            </p>
+          </div>
+          
+          <div className="mt-6 pt-6 border-t border-slate-800">
+            <Link
+              href="/newsletter/seagames-2025" 
+              className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
+            >
+              Baca cerita penuh <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* 🆕 Asian Youth Games Bahrain */}
+        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl">
+          <div className="mb-2">
+             <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
+               Late 2025 · Bahrain
+             </span>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            🌏 Asian Youth Games Bahrain: Sabah Athletes Deliver Medals
+          </h2>
+          
+          <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
+            <Image
+              src="/aygbahrain.jpeg" 
+              alt="Asian Youth Games Bahrain"
+              width={800}
+              height={450}
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div className="space-y-4 text-gray-300 leading-relaxed">
+            <p>
+              Sabah’s young Muaythai athletes emerged as key medal contributors on the international stage, with strong performances in Wai Kru and MaiMuay disciplines.
+            </p>
+          </div>
+          
+          <div className="mt-6 pt-6 border-t border-slate-800">
+            <Link
+              href="/newsletter/ayg-bahrain-2025" 
+              className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
+            >
+              Baca cerita penuh <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* 📄 Sabah Games XI 2025 (SAGA) */}
+        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl">
+          <div className="mb-2">
+             <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
+               2025 · Tawau, Sabah
+             </span>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-4">
             🥊 Sabah Games XI 2025: Muaythai Finals Light Up Tawau
           </h2>
           
           <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
-            {/* Make sure saga2025.jpg is inside your public folder */}
             <Image
               src="/saga2025.jpg" 
               alt="SAGA 2025 Muaythai Finals"
@@ -42,30 +155,13 @@ export default function Newsletter() {
             />
           </div>
           
-          <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
+          <div className="space-y-4 text-gray-300 leading-relaxed">
             <p>
-              The Sabah Games XI (SAGA 2025) concluded with an electrifying display of Muaythai excellence in Tawau, Sabah, highlighting the sport’s continued growth and rising standards across the state. Held at Dewan SJK (C) Yuk Chin, the finals brought together Sabah’s top young athletes in a showcase of skill, discipline, and competitive spirit.
-            </p>
-            
-            <div className="bg-slate-950/50 p-6 rounded-xl border border-white/5 my-6">
-              <h3 className="text-white font-bold mb-3 uppercase text-sm tracking-wider">Event Highlights</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-400 text-base">
-                <li><strong className="text-white">Participation:</strong> Strong turnout from districts across Sabah with male and female divisions.</li>
-                <li><strong className="text-white">High Level Competition:</strong> 28 finalists advanced to the medal rounds.</li>
-                <li><strong className="text-white">Home Ground Glory:</strong> Tawau athletes impressed spectators with technical depth and tactical awareness.</li>
-              </ul>
-            </div>
-
-            <p>
-              More than a medal contest, the event reflected Sabah’s commitment to developing Muaythai as a high-performance sport rooted in cultural heritage. In addition to competitive bouts, the event featured <strong>Maimuay and Wai Kru</strong> performances, emphasizing the sport&apos;s ceremonial foundations.
-            </p>
-
-            <p className="italic text-gray-500 text-base border-l-2 border-yellow-500 pl-4">
-              &quot;The Muaythai finals at Sabah Games XI 2025 were a celebration of competitive excellence, cultural heritage, and community pride.&quot;
+              The Sabah Games XI (SAGA 2025) concluded with an electrifying display of Muaythai excellence in Tawau, Sabah, highlighting the sport’s continued growth and rising standards across the state.
             </p>
           </div>
           
-          <div className="mt-8 pt-6 border-t border-slate-800">
+          <div className="mt-6 pt-6 border-t border-slate-800">
             <Link
               href="/newsletter/saga-2025" 
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
@@ -97,15 +193,7 @@ export default function Newsletter() {
           
           <div className="space-y-4 text-gray-300 leading-relaxed">
             <p>
-              The D1 Championship 2025 was more than just an electrifying showcase of Muaythai
-              talent—it was a celebration of teamwork, discipline, and community spirit. Sabah’s
-              dedicated crew made it all possible, from planning and logistics to athlete support and
-              cultural performances.
-            </p>
-            <p>
-              With every punch, kick, and Wai Kru ritual, the event reflected the strength of unity
-              and the passion of those working tirelessly behind the scenes. Their hard work ensured
-              that the championship ran smoothly and left a lasting impact on both athletes and fans.
+              The D1 Championship 2025 was a celebration of teamwork, discipline, and community spirit. Sabah’s dedicated crew made it all possible.
             </p>
           </div>
           
@@ -306,7 +394,7 @@ export default function Newsletter() {
           <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
             <Image
-              src="/culturalheritage.jpeg"
+              src="/everyone.jpg"
               alt="Sabah Muaythai Cultural & Heritage Challenge 2025"
               width={800}
               height={450}
