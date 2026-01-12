@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function FightersPage() {
   const [filter, setFilter] = useState("All");
@@ -32,10 +31,8 @@ export default function FightersPage() {
       height: "162 CM",
       age: "20",
       gender: "Male",
-      // 👇 Updated to Pro Record
-      record: "0W - 2L",
-      // 👇 Updated Category
-      category: "Pro",
+      record: "14W - 6L",
+      category: "Pro", // Updated to Pro
       nationality: "Sabah",
       image: "/efron.jpeg", 
     },
@@ -46,7 +43,8 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "51 KG",
       height: "166 CM",
-      age: "19",
+      // 👇 Updated Age
+      age: "20",
       gender: "Male",
       record: "3W - 2L - 0D",
       category: "Pro",
@@ -60,7 +58,8 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "54 KG",
       height: "168 CM",
-      age: "21",
+      // 👇 Updated Age
+      age: "22",
       gender: "Male",
       record: "0W - 1L", 
       category: "Pro",
@@ -74,7 +73,8 @@ export default function FightersPage() {
       coach: "Kenny Jafili",
       weight: "60 KG",
       height: "173 CM",
-      age: "23",
+      // 👇 Updated Age
+      age: "24",
       gender: "Male",
       record: "3W - 1L - 0D",
       category: "Pro",
@@ -88,7 +88,8 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "51 KG",
       height: "N/A", 
-      age: "22",
+      // 👇 Updated Age
+      age: "24",
       gender: "Male",
       record: "4W - 2L - 0D",
       category: "Pro",
@@ -159,7 +160,7 @@ function FighterCard({ data }) {
       
       {/* 1. FIGHTER IMAGE (Full Height) */}
       <div className="relative h-[450px] w-full bg-slate-800">
-        {/* We use standard img tag here for simplicity with dynamic paths */}
+        {/* Standard img tag for simplicity */}
         <img 
           src={data.image} 
           alt={data.name} 
