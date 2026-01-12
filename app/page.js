@@ -122,7 +122,7 @@ export default function Home() {
       <footer className="bg-blue-900 text-white text-center p-4 mt-4">
         <div className="flex justify-center gap-6">
           <a href="https://facebook.com/muaythaisabah" target="_blank" className="hover:text-yellow-300">Facebook</a>
-          <a href="https://www.youtube.com/@dhillontahing9878" target="_blank" className="hover:text-yellow-300">YouTube</a>
+          <a href="https://www.youtube.com/@muaythaisabah" target="_blank" className="hover:text-yellow-300">YouTube</a>
           <a href="https://twitter.com/muaythaisabah" target="_blank" className="hover:text-yellow-300">Twitter</a>
         </div>
         <div className="mt-2 text-sm">© 2025 Muaythai Sabah. All rights reserved.</div>
