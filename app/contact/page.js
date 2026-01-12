@@ -40,7 +40,7 @@ export default function ContactUs() {
             <h2 className="text-xl font-semibold mb-2">YouTube Channel</h2>
             <div>
               <Link 
-                href="https://www.youtube.com/@dhillontahing9878"
+                href="https://www.youtube.com/@muaythaisabah"
                 target="_blank"
                 className="text-white bg-red-600 px-6 py-3 rounded-lg hover:bg-red-700 transition duration-200 inline-block"
               >

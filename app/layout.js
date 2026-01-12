@@ -91,7 +91,7 @@ export default function RootLayout({ children }) {
             </p>
             <div className="space-x-4">
               <Link href="https://facebook.com/muaythaisabah" className="text-white hover:text-yellow-300">Facebook</Link>
-              <Link href="https://www.youtube.com/@dhillontahing9878" className="text-white hover:text-yellow-300">YouTube</Link>
+              <Link href="https://www.youtube.com/@muaythaisabah" className="text-white hover:text-yellow-300">YouTube</Link>
               <Link href="https://twitter.com/muaythaisabah" className="text-white hover:text-yellow-300">Twitter</Link>
             </div>
           </div>
