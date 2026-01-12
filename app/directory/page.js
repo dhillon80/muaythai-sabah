@@ -8,10 +8,11 @@ export default function Directory() {
       
       <div className="max-w-7xl mx-auto">
 
-        {/* Page Title */}
-        <div className="text-center mb-10 pt-8">
+        {/* --- PAGE TITLE (Fixed Spacing) --- */}
+        {/* Changed 'pt-8' to 'pt-32' to push it down away from the Navbar */}
+        <div className="text-center mb-10 pt-32">
           <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
-            Muaythai Sabah <span className="text-yellow-500">Directory</span>
+            Muaythai <span className="text-yellow-500">Directory</span>
           </h1>
           <p className="text-gray-400 text-lg">
             Find a certified Muaythai gym near you.
@@ -84,7 +85,20 @@ export default function Directory() {
             ]}
           />
 
-          {/* 4. CS5Fitness Gym */}
+          {/* 4. Borneo Aura Serumpun (NEW ENTRY) */}
+          <GymCard 
+            name="Borneo Aura Serumpun"
+            location="Lahad Datu"
+            address="Tmn Amanjaya"
+            phone="010-283 2082 (Coach Zen)"
+            coach="Mohd Zaini"
+            links={[
+              { label: "Facebook Page", url: "https://www.facebook.com/search/top?q=Borneo+Aura", color: "blue" },
+              { label: "Google Maps", url: "https://maps.app.goo.gl/THTX3DaStKt61UXS8?g_st=aw", color: "green" }
+            ]}
+          />
+
+          {/* 5. CS5Fitness Gym */}
           <GymCard 
             name="CS5Fitness Gym"
             location="Penampang"
@@ -96,7 +110,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 5. D'Sha Muayfit */}
+          {/* 6. D'Sha Muayfit */}
           <GymCard 
             name="D'Sha Muayfit Tawau"
             location="Tawau"
@@ -108,7 +122,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 6. Garagas Fight Team */}
+          {/* 7. Garagas Fight Team */}
           <GymCard 
             name="Garagas Fight Team"
             location="Keningau"
@@ -120,7 +134,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 7. Kalai Brothers */}
+          {/* 8. Kalai Brothers */}
           <GymCard 
             name="Kalai Brothers"
             location="Sandakan"
@@ -133,7 +147,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 8. Karabaw Tamparuli */}
+          {/* 9. Karabaw Tamparuli */}
           <GymCard 
             name="Karabaw Tamparuli"
             location="Tamparuli"
@@ -148,7 +162,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 9. Kelab Revolution Kota Marudu */}
+          {/* 10. Kelab Revolution Kota Marudu */}
           <GymCard 
             name="Kelab Revolution Muaythai"
             location="Kota Marudu"
@@ -160,7 +174,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 10. Keningau MMA */}
+          {/* 11. Keningau MMA */}
           <GymCard 
             name="Keningau MMA"
             location="Keningau"
@@ -173,7 +187,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 11. M1 Monster */}
+          {/* 12. M1 Monster */}
           <GymCard 
             name="M1 Monster Muaythai Academy"
             location="Kota Kinabalu"
@@ -186,7 +200,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 12. M2 Monster */}
+          {/* 13. M2 Monster */}
           <GymCard 
             name="M2 Monster Muaythai Academy"
             location="Penampang"
@@ -199,7 +213,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 13. Naga Kinabalu II */}
+          {/* 14. Naga Kinabalu II */}
           <GymCard 
             name="Naga Kinabalu II"
             location="Kinarut"
@@ -212,7 +226,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 14. Nak Muay Ranau */}
+          {/* 15. Nak Muay Ranau */}
           <GymCard 
             name="Nak Muay Ranau Gym"
             location="Ranau"
@@ -222,7 +236,7 @@ export default function Directory() {
             links={[]}
           />
 
-          {/* 15. Persatuan Muaythai Lahad Datu */}
+          {/* 16. Persatuan Muaythai Lahad Datu */}
           <GymCard 
             name="Persatuan Muaythai Lahad Datu"
             location="Lahad Datu"
@@ -234,7 +248,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 16. RNM Fight Club */}
+          {/* 17. RNM Fight Club */}
           <GymCard 
             name="RNM Fight Club (RNMFC)"
             location="Inanam"
@@ -248,7 +262,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 17. SFG - Bundu Tuhan */}
+          {/* 18. SFG - Bundu Tuhan */}
           <GymCard 
             name="SFG - Bundu Tuhan"
             location="Kundasang"
@@ -258,7 +272,7 @@ export default function Directory() {
             links={[]}
           />
 
-          {/* 18. Stallone Fitness Gym */}
+          {/* 19. Stallone Fitness Gym */}
           <GymCard 
             name="Stallone Fitness Gym"
             location="Kota Belud"
@@ -272,7 +286,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 19. Tambuakar Muaythai Club */}
+          {/* 20. Tambuakar Muaythai Club */}
           <GymCard 
             name="Tambuakar Muaythai Club"
             location="Papar"
@@ -285,7 +299,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 20. Tavangkaz Muayfit */}
+          {/* 21. Tavangkaz Muayfit */}
           <GymCard 
             name="Tavangkaz Muayfit"
             location="Penampang"
@@ -298,7 +312,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 21. Team Karabaw Sipitang */}
+          {/* 22. Team Karabaw Sipitang */}
           <GymCard 
             name="Team Karabaw Sipitang"
             location="Sipitang"
@@ -311,7 +325,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 22. Uppercross Muaythai */}
+          {/* 23. Uppercross Muaythai */}
           <GymCard 
             name="Uppercross Muaythai and Fitness"
             location="Sandakan"
@@ -325,7 +339,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 23. Venomous Combat */}
+          {/* 24. Venomous Combat */}
           <GymCard 
             name="Venomous Combat & Muay Art"
             location="Sandakan"
@@ -335,7 +349,7 @@ export default function Directory() {
             links={[]}
           />
 
-          {/* 24. XMUAY Fitness */}
+          {/* 25. XMUAY Fitness */}
           <GymCard 
             name="XMUAY FITNESS"
             location="Kota Kinabalu"

@@ -8,8 +8,9 @@ export default function EventPage() {
       
       <div className="max-w-4xl mx-auto">
 
-        {/* Header Section */}
-        <div className="text-center mb-12 pt-8">
+        {/* --- HEADER SECTION (Fixed Spacing) --- */}
+        {/* Changed 'pt-8' to 'pt-32' to push it down away from the Navbar */}
+        <div className="text-center mb-12 pt-32">
           <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
             Upcoming Events <span className="text-yellow-500">2026</span>
           </h1>

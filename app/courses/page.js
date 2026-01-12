@@ -9,8 +9,9 @@ export default function CoachingPage() {
       
       <div className="max-w-5xl mx-auto">
 
-        {/* Header Section */}
-        <div className="text-center mb-10 pt-8">
+        {/* --- HEADER SECTION (Fixed Spacing) --- */}
+        {/* Changed 'pt-8' to 'pt-32' to push it down away from the Navbar */}
+        <div className="text-center mb-10 pt-32">
           <p className="text-yellow-500 font-bold uppercase tracking-widest mb-2">
             Pentauliahan Kebangsaan & Antarabangsa (IFMA/WMC)
           </p>
@@ -142,7 +143,7 @@ export default function CoachingPage() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="sticky top-8 space-y-4">
+            <div className="sticky top-20 space-y-4"> {/* Adjusted top-8 to top-20 to clear fixed headers if needed */}
               <Link 
                 href="https://forms.gle/7BqeCwvy41jptrPA9" 
                 target="_blank"

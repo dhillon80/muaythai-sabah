@@ -49,52 +49,33 @@ export default function Home() {
   return (
     <div className="flex flex-col font-sans text-gray-200 overflow-x-hidden">
       
-      {/* --- CSS ANIMATIONS --- */}
       <style jsx>{`
-        @keyframes fade-in-up {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slow-zoom {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-          100% { transform: scale(1); }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 1s ease-out forwards;
-        }
-        .animate-slow-zoom {
-          animation: slow-zoom 20s infinite alternate ease-in-out;
-        }
+        @keyframes fade-in-up { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes slow-zoom { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
+        .animate-slow-zoom { animation: slow-zoom 20s infinite alternate ease-in-out; }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
       `}</style>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative text-center py-20 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center">
+      {/* 👇 FIXED: Changed 'py-20' to 'pt-40 pb-20'. This pushes the logo down safely. */}
+      <section className="relative text-center pt-40 pb-20 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center">
         
         {/* Background Layer */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img 
-            src="/muaythai.jpeg" 
-            alt="Muaythai Ring Background" 
-            className="w-full h-full object-cover opacity-40 animate-slow-zoom" 
-          />
+          <img src="/muaythai.jpeg" alt="Muaythai Ring" className="w-full h-full object-cover opacity-40 animate-slow-zoom" />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950"></div>
         </div>
 
         {/* Content Layer */}
         <div className={`relative z-10 flex flex-col items-center max-w-6xl mx-auto w-full transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
           
-          {/* Logo with Glow */}
+          {/* Logo */}
           <div className="mb-6 relative group animate-fade-in-up">
             <div className="absolute inset-0 bg-yellow-500 blur-[80px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-700"></div>
-            <img 
-              src="/pmnslogo.png" 
-              alt="Muaythai Sabah Logo" 
-              className="relative h-40 w-40 md:h-56 md:w-56 object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" 
-            />
+            <img src="/pmnslogo.png" alt="Logo" className="relative h-40 w-40 md:h-56 md:w-56 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
           </div>
           
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-lg animate-fade-in-up delay-100">
@@ -105,173 +86,97 @@ export default function Home() {
             The Official Platform for Championships, Athletes, and Development in Sabah.
           </p>
 
-          {/* --- INTERACTIVE CARDS --- */}
+          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-12 animate-fade-in-up delay-300">
-            
-            {/* 1. Newsletter */}
-            <Link href="/newsletter" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)] flex flex-col items-center cursor-pointer">
-              <div className="bg-yellow-500/10 p-4 rounded-full mb-4 group-hover:bg-yellow-500 group-hover:text-black transition-colors">
-                <span className="text-3xl">📰</span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">Newsletter</h3>
-              <p className="text-xs text-yellow-400 font-bold uppercase tracking-widest">Latest Updates</p>
+            <Link href="/newsletter" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-8 rounded-2xl hover:-translate-y-2 transition-all flex flex-col items-center">
+              <span className="text-3xl mb-4">📰</span>
+              <h3 className="text-xl font-bold text-white">Newsletter</h3>
+              <p className="text-xs text-yellow-400 font-bold uppercase tracking-widest mt-1">Latest Updates</p>
             </Link>
-
-            {/* 2. Coaching */}
-            <Link href="/courses" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] flex flex-col items-center cursor-pointer">
-              <div className="bg-green-500/10 p-4 rounded-full mb-4 group-hover:bg-green-500 group-hover:text-black transition-colors">
-                <span className="text-3xl">🎓</span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">Coaching</h3>
-              <p className="text-xs text-green-400 font-bold uppercase tracking-widest">Register 2026</p>
+            <Link href="/courses" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-8 rounded-2xl hover:-translate-y-2 transition-all flex flex-col items-center">
+              <span className="text-3xl mb-4">🎓</span>
+              <h3 className="text-xl font-bold text-white">Coaching</h3>
+              <p className="text-xs text-green-400 font-bold uppercase tracking-widest mt-1">Register 2026</p>
             </Link>
-
-            {/* 3. Events */}
-            <Link href="/events" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-red-500 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] flex flex-col items-center cursor-pointer">
-              <div className="bg-red-500/10 p-4 rounded-full mb-4 group-hover:bg-red-500 group-hover:text-black transition-colors">
-                <span className="text-3xl">🥊</span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-1">Events</h3>
-              <p className="text-xs text-red-400 font-bold uppercase tracking-widest">2026 Calendar</p>
+            <Link href="/events" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-red-500 p-8 rounded-2xl hover:-translate-y-2 transition-all flex flex-col items-center">
+              <span className="text-3xl mb-4">🥊</span>
+              <h3 className="text-xl font-bold text-white">Events</h3>
+              <p className="text-xs text-red-400 font-bold uppercase tracking-widest mt-1">2026 Calendar</p>
             </Link>
-
           </div>
 
-          {/* Audio Controls */}
+          {/* Audio */}
           <div className="flex gap-4 animate-fade-in-up delay-300">
-            <button 
-              onClick={toggleMute} 
-              className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-6 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium flex items-center gap-2"
-            >
+            <button onClick={toggleMute} className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-6 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">
               {isMuted ? "🔇 Unmute Sound" : "🔊 Mute Sound"}
             </button>
             {!isPlaying && (
-              <button 
-                onClick={playMusic} 
-                className="bg-red-600/90 backdrop-blur-md text-white px-6 py-2 rounded-full hover:bg-red-600 shadow-lg shadow-red-900/40 transition-all text-sm font-bold flex items-center gap-2 animate-pulse"
-              >
+              <button onClick={playMusic} className="bg-red-600/90 backdrop-blur-md text-white px-6 py-2 rounded-full hover:bg-red-600 shadow-lg animate-pulse text-sm font-bold">
                 ▶ Play Anthem
               </button>
             )}
           </div>
-
         </div>
-        
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* --- UPCOMING EVENTS & SOP SECTION --- */}
+      {/* --- EVENTS & SOP --- */}
       <section className="px-4 sm:px-12 py-20 bg-slate-950 relative border-t border-slate-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-yellow-500 font-bold tracking-widest uppercase mb-2 block">Mark Your Dates</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase">
-              2026 Season
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercase">2026 Season</h2>
           </div>
-          
-          {/* Calendar Card */}
-          <div className="max-w-3xl mx-auto bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm shadow-2xl transform transition hover:scale-[1.01] duration-500 text-center mb-12">
-            <div className="text-6xl mb-6 animate-bounce">🗓️</div>
+          <div className="max-w-3xl mx-auto bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm text-center mb-12">
+            <div className="text-6xl mb-6">🗓️</div>
             <h3 className="text-2xl font-bold text-white mb-4">Official Calendar Released</h3>
-            <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed">
-              We have updated the tentative dates for the 2026 season. <br/>
-              Check out the confirmed, postponed, and upcoming tournaments.
-            </p>
-            <Link href="/events" className="inline-block bg-white text-slate-950 px-8 py-4 rounded-full font-black text-lg hover:bg-yellow-400 transition-colors shadow-lg shadow-white/10">
+            <p className="text-lg text-gray-300 mb-8">We have updated the tentative dates for the 2026 season.</p>
+            <Link href="/events" className="inline-block bg-white text-slate-950 px-8 py-4 rounded-full font-black text-lg hover:bg-yellow-400 transition-colors">
               View Full Calendar →
             </Link>
           </div>
-
-          {/* ⚠️ IMPORTANT SOP NOTICE (Bilingual) */}
-          <div className="bg-red-900/20 border border-red-500/50 rounded-3xl p-8 backdrop-blur-sm text-left shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+          
+          {/* SOP Notice */}
+          <div className="bg-red-900/20 border border-red-500/50 rounded-3xl p-8 backdrop-blur-sm">
             <div className="flex items-center gap-4 mb-6 border-b border-red-500/30 pb-4">
-              <span className="text-4xl animate-pulse">⚠️</span>
+              <span className="text-4xl">⚠️</span>
               <div>
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase leading-tight">
-                  Makluman Penting SOP (Mulai 2026)
-                </h3>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase">Makluman Penting SOP</h3>
                 <p className="text-red-400 text-sm font-bold uppercase">Important SOP Notice (Effective 2026)</p>
               </div>
             </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Malay Version */}
-              <div className="space-y-4">
-                <div className="inline-block bg-red-600/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
-                  BAHASA MELAYU
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
-                    <strong className="text-white block mb-1 text-lg">Jurulatih Berlesen Sahaja</strong>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK (ISN/AKK) untuk membuat pengesahan rasmi bahawa atlet adalah cergas dan layak bertanding.
-                    </p>
-                  </div>
-                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
-                    <strong className="text-white block mb-1 text-lg">Syarat Atlet Baharu & Influencer</strong>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Diwajibkan menjalani latihan di gym yang mempunyai jurulatih berlesen SPKK mulai tahun 2026 sebelum dibenarkan bertanding.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* English Version */}
-              <div className="space-y-4">
-                <div className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
-                  ENGLISH
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
-                    <strong className="text-white block mb-1 text-lg">Licensed Coaches Only</strong>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Muaythai tournaments only allow SPKK (ISN/AKK) licensed coaches to officially certify that athletes are fit and eligible to compete.
-                    </p>
-                  </div>
-                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
-                    <strong className="text-white block mb-1 text-lg">New Athletes & Influencers</strong>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      Mandatory training at a gym with an SPKK licensed coach is required starting 2026 before being allowed to compete.
-                    </p>
-                  </div>
-                </div>
-              </div>
+               <div className="space-y-4">
+                 <div className="inline-block bg-red-600/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-2">BAHASA MELAYU</div>
+                 <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
+                    <strong className="text-white block mb-1">Jurulatih Berlesen Sahaja</strong>
+                    <p className="text-gray-300 text-sm">Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK.</p>
+                 </div>
+               </div>
+               <div className="space-y-4">
+                 <div className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full mb-2">ENGLISH</div>
+                 <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
+                    <strong className="text-white block mb-1">Licensed Coaches Only</strong>
+                    <p className="text-gray-300 text-sm">Tournaments only allow SPKK licensed coaches to certify athletes.</p>
+                 </div>
+               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* --- AFFILIATES GRID --- */}
+      {/* --- AFFILIATES --- */}
       <section className="py-20 px-6 sm:px-12 bg-slate-900 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-bold mb-12 text-center text-gray-400 uppercase tracking-widest">
-            Official Affiliates & Partners
-          </h2>
-          
+          <h2 className="text-xl font-bold mb-12 text-center text-gray-400 uppercase tracking-widest">Official Affiliates & Partners</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {affiliates.map((affiliate, index) => (
-              <a 
-                key={index}
-                href={affiliate.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`
-                  group relative flex items-center justify-center p-6 text-center rounded-xl 
-                  bg-slate-800/40 border border-slate-700 backdrop-blur-sm transition-all duration-300
-                  hover:-translate-y-1 hover:bg-slate-800 hover:text-white shadow-lg ${affiliate.color}
-                `}
-              >
-                <span className="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors">
-                  {affiliate.name}
-                </span>
+              <a key={index} href={affiliate.url} target="_blank" rel="noopener noreferrer" className={`group relative flex items-center justify-center p-6 text-center rounded-xl bg-slate-800/40 border border-slate-700 hover:-translate-y-1 hover:bg-slate-800 transition-all ${affiliate.color}`}>
+                <span className="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors">{affiliate.name}</span>
               </a>
             ))}
           </div>
         </div>
       </section>
-
     </div>
   );
 }
