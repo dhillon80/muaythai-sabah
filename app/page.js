@@ -9,18 +9,9 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  // --- ⬇️ UPDATE YOUR EVENTS HERE ⬇️ ---
-  // Leave this empty [] if you want to show the "Tentative Calendar" message below.
-  const events = [
-     // Example:
-     // { 
-     //   title: "Sabah State Championship 2026", 
-     //   date: "March 2026", 
-     //   details: "The biggest state selection...", 
-     //   link: "/events", 
-     //   image: "https://your-image-url.com" 
-     // }
-  ];
+  // --- ⬇️ EVENTS DATA ⬇️ ---
+  // Currently empty to show the "Calendar Update" message below.
+  const events = [];
   // -------------------------------------
 
   const toggleMute = () => {
@@ -41,69 +32,91 @@ export default function Home() {
     <div className="flex flex-col font-sans text-gray-200">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative text-center py-24 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center items-center">
+      <section className="relative text-center py-20 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center">
         
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop" 
-            alt="Muaythai Background" 
-            className="w-full h-full object-cover opacity-30" 
+            src="/muaythai.jpeg" 
+            alt="Muaythai Ring Background" 
+            className="w-full h-full object-cover opacity-40" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950"></div>
+          {/* Gradient Overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950"></div>
         </div>
 
         {/* Content Layer */}
-        <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center max-w-6xl mx-auto w-full">
           
           {/* Logo */}
-          <div className="mb-8 relative group">
+          <div className="mb-6 relative group">
             <div className="absolute inset-0 bg-yellow-500 blur-[60px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-700"></div>
             <img 
               src="/pmnslogo.png" 
               alt="Muaythai Sabah Logo" 
-              className="relative h-48 w-48 md:h-60 md:w-60 object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" 
+              className="relative h-40 w-40 md:h-56 md:w-56 object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" 
             />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-lg">
             Muaythai <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Sabah</span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-gray-200 font-light mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-2xl text-gray-300 font-light mb-12 max-w-2xl leading-relaxed">
             The Official Platform for Championships, Athletes, and Development in Sabah.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/events" className="bg-yellow-500 text-slate-950 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition shadow-lg shadow-yellow-500/20">
-              Explore Events
-            </Link>
+          {/* --- NEW QUICK ACCESS CARDS --- */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mb-12">
             
-            <div className="flex gap-2">
-              <button 
-                onClick={toggleMute} 
-                className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-5 py-3 rounded-full hover:bg-white/20 transition-all text-sm font-medium"
-              >
-                {isMuted ? "🔇" : "🔊"}
-              </button>
-              {!isPlaying && (
-                <button 
-                  onClick={playMusic} 
-                  className="bg-red-600/90 backdrop-blur-md text-white px-6 py-3 rounded-full hover:bg-red-600 shadow-lg shadow-red-900/40 transition-all text-sm font-bold flex items-center gap-2"
-                >
-                  ▶ Music
-                </button>
-              )}
-            </div>
+            {/* 1. Newsletter Button */}
+            <Link href="/newsletter" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] flex flex-col items-center">
+              <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">📰</span>
+              <h3 className="text-xl font-bold text-white mb-1">Newsletter</h3>
+              <p className="text-sm text-yellow-400 font-semibold uppercase tracking-wider">Check New Updates</p>
+            </Link>
+
+            {/* 2. Coaching Course Button */}
+            <Link href="/courses" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] flex flex-col items-center">
+              <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">🎓</span>
+              <h3 className="text-xl font-bold text-white mb-1">Coaching Course</h3>
+              <p className="text-sm text-green-400 font-semibold uppercase tracking-wider">Register Now 2026</p>
+            </Link>
+
+            {/* 3. Event Information Button */}
+            <Link href="/events" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-red-500 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] flex flex-col items-center">
+              <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">🥊</span>
+              <h3 className="text-xl font-bold text-white mb-1">Event Info</h3>
+              <p className="text-sm text-red-400 font-semibold uppercase tracking-wider">View 2026 Calendar</p>
+            </Link>
+
           </div>
+
+          {/* Audio Controls */}
+          <div className="flex gap-4">
+            <button 
+              onClick={toggleMute} 
+              className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-5 py-3 rounded-full hover:bg-white/20 transition-all text-sm font-medium"
+            >
+              {isMuted ? "🔇 Unmute" : "🔊 Mute"}
+            </button>
+            {!isPlaying && (
+              <button 
+                onClick={playMusic} 
+                className="bg-red-600/90 backdrop-blur-md text-white px-6 py-3 rounded-full hover:bg-red-600 shadow-lg shadow-red-900/40 transition-all text-sm font-bold flex items-center gap-2"
+              >
+                ▶ Play Anthem
+              </button>
+            )}
+          </div>
+
         </div>
         
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* --- UPCOMING EVENTS SECTION --- */}
-      <section className="flex-grow px-4 sm:px-12 py-16 bg-slate-950 relative">
+      {/* --- UPCOMING EVENTS SECTION (Empty State) --- */}
+      <section className="px-4 sm:px-12 py-16 bg-slate-950 relative border-t border-slate-900">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-[2px] w-12 bg-yellow-500"></div>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white tracking-widest uppercase">
@@ -112,40 +125,18 @@ export default function Home() {
           <div className="h-[2px] w-12 bg-yellow-500"></div>
         </div>
         
-        {events.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center max-w-5xl mx-auto">
-            {events.map((event, index) => (
-              <div key={index} className="group bg-slate-900 border border-slate-800 hover:border-yellow-500/50 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <div className="relative h-64 overflow-hidden">
-                    <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
-                </div>
-                <div className="p-8 relative">
-                  <span className="text-yellow-500 text-sm font-bold tracking-wider mb-2 block">{event.date}</span>
-                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-400 transition-colors">{event.title}</h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">{event.details}</p>
-                  <Link href={event.link} className="inline-flex items-center text-white font-semibold hover:text-yellow-400 transition-colors">
-                    View Details <span className="ml-2 text-xl">→</span>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          /* --- UPDATED EMPTY STATE --- */
-          <div className="max-w-3xl mx-auto text-center py-20 px-8 bg-slate-900/50 border border-slate-800 rounded-3xl backdrop-blur-sm shadow-2xl">
-            <div className="text-6xl mb-6 animate-bounce">🗓️</div>
-            <h3 className="text-2xl font-bold text-white mb-4">2026 Calendar Update</h3>
-            <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed">
-              Our tentative tournament calendar is already up.<br/>
-              Follow our social media for the latest announcements.
-            </p>
-            {/* NEW BUTTON ADDED HERE */}
-            <Link href="/events" className="inline-block bg-yellow-500 text-slate-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition shadow-lg shadow-yellow-500/20">
-              View Calendar
-            </Link>
-          </div>
-        )}
+        {/* --- UPDATED EMPTY STATE --- */}
+        <div className="max-w-3xl mx-auto text-center py-16 px-8 bg-slate-900/50 border border-slate-800 rounded-3xl backdrop-blur-sm shadow-2xl">
+          <div className="text-6xl mb-6 animate-bounce">🗓️</div>
+          <h3 className="text-2xl font-bold text-white mb-4">2026 Calendar Update</h3>
+          <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed">
+            Our tentative tournament calendar is now available.<br/>
+            Check out the latest confirmed and postponed dates.
+          </p>
+          <Link href="/events" className="inline-block bg-yellow-500 text-slate-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition shadow-lg shadow-yellow-500/20">
+            View Full Calendar
+          </Link>
+        </div>
       </section>
 
       {/* --- AFFILIATES SECTION --- */}
