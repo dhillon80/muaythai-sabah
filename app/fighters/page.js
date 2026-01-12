@@ -6,39 +6,65 @@ import Link from 'next/link';
 export default function FightersPage() {
   const [filter, setFilter] = useState("All");
 
-  // --- ⬇️ EDIT YOUR FIGHTERS HERE ⬇️ ---
+  // --- ⬇️ REAL FIGHTER ROSTER ⬇️ ---
   const fighters = [
     {
-      name: "Dhillon Tahing",
-      nickname: "The Tank",
-      team: "Revolution Combat",
-      weight: "57 KG",
+      name: "Areen Khan Shahzam",
+      nickname: "King Dede",
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
+      weight: "49 KG",
+      height: "159 CM",
+      age: "24",
+      gender: "Male",
+      record: "3W - 3L - 0D",
       category: "Pro",
-      titles: ["SUKMA Gold", "State Champ"],
+      nationality: "Sabah",
+      // 👇 Updated to .jpg (Specific for Areen)
+      image: "/areen.jpg", 
     },
     {
-      name: "Sample Fighter 2",
-      nickname: "Lightning",
-      team: "Karabaw Tamparuli",
-      weight: "63.5 KG",
-      category: "Amateur",
-      titles: ["Borneo Open Silver"],
-    },
-    {
-      name: "Sample Fighter 3",
-      nickname: "The Eagle",
-      team: "66 Denakan",
+      name: "Shah Aryan B. Shahzam",
+      nickname: "The Killer Prince",
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
       weight: "51 KG",
+      height: "N/A", 
+      age: "24",
+      gender: "Male",
+      record: "4W - 2L - 0D",
       category: "Pro",
-      titles: ["National Selection"],
+      nationality: "Sabah",
+      // 👇 Others remain .jpeg
+      image: "/shah.jpeg", 
     },
     {
-      name: "Sample Fighter 4",
-      nickname: "Viper",
-      team: "Team Karabaw",
-      weight: "48 KG",
-      category: "Amateur",
-      titles: [],
+      name: "Irick Richard Teo",
+      nickname: "", 
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
+      weight: "54 KG",
+      height: "168 CM",
+      age: "22",
+      gender: "Male",
+      record: "0W - 1L", 
+      category: "Pro",
+      nationality: "Malaysia",
+      image: "/irick.jpeg", 
+    },
+    {
+      name: "Iman Madley",
+      nickname: "Payakchai",
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
+      weight: "51 KG",
+      height: "166 CM",
+      age: "20",
+      gender: "Male",
+      record: "3W - 2L - 0D",
+      category: "Pro",
+      nationality: "Sabah",
+      image: "/iman.jpeg", 
     },
   ];
 
@@ -49,8 +75,7 @@ export default function FightersPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-gray-100 font-sans">
       
-      {/* --- HERO HEADER (Updated Spacing) --- */}
-      {/* Changed 'py-16' to 'pt-32 pb-12'. This pushes text down away from the Navbar */}
+      {/* HEADER */}
       <div className="relative bg-slate-900 pt-32 pb-12 text-center border-b border-white/10">
         <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-2">
           Sabah <span className="text-yellow-500">Athletes</span>
@@ -60,7 +85,7 @@ export default function FightersPage() {
         </p>
       </div>
 
-      {/* --- FILTER BAR --- */}
+      {/* FILTER */}
       <div className="sticky top-16 z-40 bg-slate-950/95 backdrop-blur-sm border-b border-white/10 py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-center gap-4">
           {["All", "Pro", "Amateur"].map((cat) => (
@@ -79,23 +104,16 @@ export default function FightersPage() {
         </div>
       </div>
 
-      {/* --- FIGHTER GRID --- */}
+      {/* GRID */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredFighters.map((fighter, index) => (
             <FighterCard key={index} data={fighter} />
           ))}
         </div>
-        
-        {/* Empty State */}
-        {filteredFighters.length === 0 && (
-          <div className="text-center py-20 text-gray-500">
-            <p className="text-xl">No fighters found in this category.</p>
-          </div>
-        )}
       </div>
 
-      {/* Back Button */}
+      {/* BACK BUTTON */}
       <div className="text-center pb-10">
         <Link href="/" className="text-gray-500 hover:text-white transition flex items-center justify-center gap-2">
           <span>←</span> Back to Home
@@ -105,49 +123,92 @@ export default function FightersPage() {
   );
 }
 
-// --- CARD COMPONENT ---
+// --- 🏆 PROFESSIONAL CARD DESIGN ---
 function FighterCard({ data }) {
   return (
-    <div className="group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-yellow-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+    <div className="group relative bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-yellow-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)]">
       
-      {/* 1. Image Area */}
-      <div className="relative aspect-[3/4] bg-gradient-to-b from-slate-800 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-slate-700 opacity-20 group-hover:opacity-10 transition-opacity">
-          <svg className="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43L20.57 12L17 15.57L8.43 7L12 3.43L10.57 2L9.14 3.43L7.71 2L5.57 4.14L4.14 2.71L2.71 4.14L4.14 5.57L2 7.71L3.43 9.14L2 10.57L3.43 12L7 8.43L15.57 17L12 20.57L13.43 22L14.86 20.57L16.29 22L18.43 19.86L19.86 21.29L21.29 19.86L19.86 18.43L22 16.29L20.57 14.86Z" /></svg>
+      {/* 1. FIGHTER IMAGE (Full Height) */}
+      <div className="relative h-[450px] w-full bg-slate-800">
+        {/* If image exists, show it. If not, show a placeholder icon */}
+        <img 
+          src={data.image} 
+          alt={data.name} 
+          onError={(e) => {
+            e.target.onerror = null; 
+            e.target.style.display = 'none'; // Hide broken image
+            e.target.nextSibling.style.display = 'flex'; // Show placeholder
+          }}
+          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+        />
+        
+        {/* Fallback Placeholder (Hidden by default, shows if image breaks) */}
+        <div className="hidden absolute inset-0 w-full h-full bg-slate-800 flex-col items-center justify-center text-slate-700">
+           <span className="text-4xl">🥊</span>
+           <span className="text-xs mt-2 uppercase font-bold">No Image</span>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
-        <div className="absolute top-3 right-3">
-          <span className={`text-xs font-bold px-2 py-1 rounded uppercase tracking-wider ${
-            data.category === 'Pro' ? 'bg-yellow-500 text-black' : 'bg-slate-700 text-white'
+
+        {/* PRO BADGE (Top Right) */}
+        <div className="absolute top-4 right-4 z-20">
+          <span className={`text-xs font-black px-3 py-1 rounded-md uppercase tracking-widest shadow-lg ${
+            data.category === 'Pro' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
           }`}>
             {data.category}
           </span>
         </div>
+
+        {/* 2. DARK GRADIENT OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pt-20"></div>
+
+        {/* 3. INFO CONTAINER */}
+        <div className="absolute bottom-0 left-0 w-full p-6 z-20">
+          
+          {/* TEAM */}
+          <div className="flex items-center gap-2 mb-2 opacity-80">
+            <span className="h-1 w-6 bg-yellow-500 rounded-full"></span>
+            <span className="text-xs font-bold text-gray-300 uppercase tracking-wider truncate">
+              {data.team}
+            </span>
+          </div>
+
+          {/* NAME & NICKNAME */}
+          <div className="mb-4">
+             {data.nickname && (
+               <p className="text-yellow-500 text-sm font-black italic uppercase tracking-wider mb-1">
+                 "{data.nickname}"
+               </p>
+             )}
+             <h3 className="text-2xl font-black text-white uppercase leading-none">
+               {data.name}
+             </h3>
+          </div>
+
+          {/* STATS GRID */}
+          <div className="grid grid-cols-3 gap-2 border-t border-white/20 pt-4 text-center">
+            
+            {/* Stat 1: Record */}
+            <div>
+               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Record</p>
+               <p className="text-white font-bold text-sm">{data.record}</p>
+            </div>
+
+            {/* Stat 2: Weight */}
+            <div className="border-l border-white/10">
+               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Weight</p>
+               <p className="text-white font-bold text-sm">{data.weight}</p>
+            </div>
+
+            {/* Stat 3: Age */}
+            <div className="border-l border-white/10">
+               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Age</p>
+               <p className="text-white font-bold text-sm">{data.age}</p>
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
-      {/* 2. Content Area */}
-      <div className="absolute bottom-0 left-0 w-full p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -translate-y-2 group-hover:translate-y-0">
-          {data.nickname ? `"${data.nickname}"` : ""}
-        </p>
-        <h3 className="text-xl font-black text-white uppercase leading-none mb-1">
-          {data.name}
-        </h3>
-        <div className="flex items-center gap-2 text-xs text-gray-300 mb-2">
-          <span className="truncate max-w-[60%]">{data.team}</span>
-          <span className="w-1 h-1 bg-gray-500 rounded-full"></span>
-          <span>{data.weight}</span>
-        </div>
-        <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-          <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1">
-            {data.titles.map((title, i) => (
-              <span key={i} className="text-[10px] bg-slate-800 text-gray-400 px-2 py-0.5 rounded border border-slate-700">
-                🏆 {title}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
