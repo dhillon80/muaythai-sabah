@@ -8,6 +8,14 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
+  // --- ⬇️ UPDATE YOUR EVENTS HERE ⬇️ ---
+  // Leave this list empty [] to show "Stay Tuned".
+  // To add an event, add an object like: { title: "Name", date: "Date", image: "/img.jpg", link: "#" }
+  const events = [
+    // Currently empty (VW and ASEAN removed)
+  ];
+  // -------------------------------------
+
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
@@ -61,32 +69,32 @@ export default function Home() {
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* Upcoming Events */}
+      {/* Upcoming Events (Recoded) */}
       <main className="flex-grow px-6 sm:px-12 py-12">
         <h2 className="text-3xl font-semibold mb-6 text-center">Featured Events</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 justify-center">
-          {/* VW Fighting Championship */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
-            <img src="/vwchampionship.jpeg" alt="VW Fighting Championship 2025" className="w-full h-auto object-contain" />
-            <div className="p-4 text-center whitespace-pre-line">
-              <h3 className="text-xl font-semibold mb-2">VW Fighting Championship 2025</h3>
-              <p className="text-gray-700">Date: 23-24 August 2025<br />Venue: Kompleks Sukan Sandakan</p>
-              <p className="text-gray-700">Entrance Fee: Yes<br />Contact: +60 11-1604 3075 (Tu Sin Yee)</p>
-              <Link href="https://www.muaythaisbh.my/events" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Learn More</Link><br />
-              <Link href="https://forms.gle/S4mqeZNoDKUYhEhr5" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Register Now</Link>
-            </div>
+        
+        {events.length > 0 ? (
+          /* This section automatically runs if you have events in the list above */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 justify-center">
+            {events.map((event, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden relative">
+                <img src={event.image} alt={event.title} className="w-full h-auto object-contain" />
+                <div className="p-4 text-center whitespace-pre-line">
+                  <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
+                  <p className="text-gray-700">{event.details}</p>
+                  <Link href={event.link} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                    Learn More
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* 1st ASEAN Muaythai Team and Youth Championship */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden relative">
-            <img src="/asean.jpeg" alt="1st ASEAN Muaythai Championship 2025" className="w-full h-auto object-contain" />
-            <div className="p-4 text-center whitespace-pre-line">
-              <h3 className="text-xl font-semibold mb-2">1st ASEAN Muaythai Team and Youth Championship 2025</h3>
-              <p className="text-gray-700">Date: 28-31 August 2025<br />Venue: Paradigm Mall, Selangor</p>
-              <Link href="https://web.facebook.com/muaythai.malaysia" className="text-blue-600 hover:text-blue-800 mt-2 inline-block">Learn More</Link>
-            </div>
+        ) : (
+          /* This section shows when there are NO events */
+          <div className="text-center py-10 bg-white rounded-lg shadow-sm">
+            <p className="text-xl text-gray-500">Stay tuned! More exciting events are coming soon.</p>
           </div>
-        </div>
+        )}
       </main>
 
       {/* Affiliates */}
