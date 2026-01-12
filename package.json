@@ -11,7 +11,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "mongodb": "^6.16.0",
-    "next": "^15.3.2",
+    "next": "15.3.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tabletop": "^1.6.3"
