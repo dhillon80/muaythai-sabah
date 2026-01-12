@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Link from 'next/link';
+import Image from 'next/image'; // Importing Next.js Image component for better performance
 
 export default function FightersPage() {
   const [filter, setFilter] = useState("All");
 
-  // --- ⬇️ REAL FIGHTER ROSTER ⬇️ ---
+  // --- ⬇️ REAL FIGHTER ROSTER (Alphabetical Order) ⬇️ ---
   const fighters = [
     {
       name: "Areen Khan Shahzam",
@@ -20,37 +21,21 @@ export default function FightersPage() {
       record: "3W - 3L - 0D",
       category: "Pro",
       nationality: "Sabah",
-      // 👇 Updated to .jpg (Specific for Areen)
       image: "/areen.jpg", 
     },
     {
-      name: "Shah Aryan B. Shahzam",
-      nickname: "The Killer Prince",
-      team: "Revolution Combat Gym",
-      coach: "Dhillon Tahing",
-      weight: "51 KG",
-      height: "N/A", 
-      age: "24",
+      name: "Efron Jaidin",
+      nickname: "",
+      team: "AWP Martial Art Academy",
+      coach: "Addyana June Adangku",
+      weight: "57-60 KG",
+      height: "162 CM",
+      age: "20",
       gender: "Male",
-      record: "4W - 2L - 0D",
-      category: "Pro",
+      record: "14W - 6L",
+      category: "Amateur",
       nationality: "Sabah",
-      // 👇 Others remain .jpeg
-      image: "/shah.jpeg", 
-    },
-    {
-      name: "Irick Richard Teo",
-      nickname: "", 
-      team: "Revolution Combat Gym",
-      coach: "Dhillon Tahing",
-      weight: "54 KG",
-      height: "168 CM",
-      age: "22",
-      gender: "Male",
-      record: "0W - 1L", 
-      category: "Pro",
-      nationality: "Malaysia",
-      image: "/irick.jpeg", 
+      image: "/efron.jpeg", 
     },
     {
       name: "Iman Madley",
@@ -59,12 +44,54 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "51 KG",
       height: "166 CM",
-      age: "20",
+      age: "19",
       gender: "Male",
       record: "3W - 2L - 0D",
       category: "Pro",
       nationality: "Sabah",
       image: "/iman.jpeg", 
+    },
+    {
+      name: "Irick Richard Teo",
+      nickname: "", 
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
+      weight: "54 KG",
+      height: "168 CM",
+      age: "21",
+      gender: "Male",
+      record: "0W - 1L", 
+      category: "Pro",
+      nationality: "Malaysia",
+      image: "/irick.jpeg", 
+    },
+    {
+      name: "Kallens Barthez Jafili",
+      nickname: "Showtime",
+      team: "Team Karabaw Tamparuli",
+      coach: "Kenny Jafili",
+      weight: "60 KG",
+      height: "173 CM",
+      age: "23",
+      gender: "Male",
+      record: "3W - 1L - 0D",
+      category: "Pro",
+      nationality: "Sabah",
+      image: "/kallens.jpeg", 
+    },
+    {
+      name: "Shah Aryan B. Shahzam",
+      nickname: "The Killer Prince",
+      team: "Revolution Combat Gym",
+      coach: "Dhillon Tahing",
+      weight: "51 KG",
+      height: "N/A", 
+      age: "22",
+      gender: "Male",
+      record: "4W - 2L - 0D",
+      category: "Pro",
+      nationality: "Sabah",
+      image: "/shah.jpeg", 
     },
   ];
 
@@ -130,7 +157,8 @@ function FighterCard({ data }) {
       
       {/* 1. FIGHTER IMAGE (Full Height) */}
       <div className="relative h-[450px] w-full bg-slate-800">
-        {/* If image exists, show it. If not, show a placeholder icon */}
+        {/* We use standard img tag here for simplicity with dynamic paths, 
+            but in production Next.js Image component is often preferred if domains are configured */}
         <img 
           src={data.image} 
           alt={data.name} 
