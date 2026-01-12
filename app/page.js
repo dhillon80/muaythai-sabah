@@ -160,18 +160,21 @@ export default function Home() {
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* --- UPCOMING EVENTS SECTION (Empty State) --- */}
+      {/* --- UPCOMING EVENTS & SOP SECTION --- */}
       <section className="px-4 sm:px-12 py-20 bg-slate-950 relative border-t border-slate-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="text-yellow-500 font-bold tracking-widest uppercase mb-2 block">Mark Your Dates</span>
-          <h2 className="text-3xl md:text-5xl font-black text-white uppercase mb-10">
-            2026 Season
-          </h2>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-yellow-500 font-bold tracking-widest uppercase mb-2 block">Mark Your Dates</span>
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercase">
+              2026 Season
+            </h2>
+          </div>
           
-          <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm shadow-2xl transform transition hover:scale-[1.02] duration-500">
+          {/* Calendar Card */}
+          <div className="max-w-3xl mx-auto bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm shadow-2xl transform transition hover:scale-[1.01] duration-500 text-center mb-12">
             <div className="text-6xl mb-6 animate-bounce">🗓️</div>
             <h3 className="text-2xl font-bold text-white mb-4">Official Calendar Released</h3>
-            <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed">
               We have updated the tentative dates for the 2026 season. <br/>
               Check out the confirmed, postponed, and upcoming tournaments.
             </p>
@@ -179,10 +182,68 @@ export default function Home() {
               View Full Calendar →
             </Link>
           </div>
+
+          {/* ⚠️ IMPORTANT SOP NOTICE (Bilingual) */}
+          <div className="bg-red-900/20 border border-red-500/50 rounded-3xl p-8 backdrop-blur-sm text-left shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+            <div className="flex items-center gap-4 mb-6 border-b border-red-500/30 pb-4">
+              <span className="text-4xl animate-pulse">⚠️</span>
+              <div>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase leading-tight">
+                  Makluman Penting SOP (Mulai 2026)
+                </h3>
+                <p className="text-red-400 text-sm font-bold uppercase">Important SOP Notice (Effective 2026)</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Malay Version */}
+              <div className="space-y-4">
+                <div className="inline-block bg-red-600/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                  BAHASA MELAYU
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
+                    <strong className="text-white block mb-1 text-lg">Jurulatih Berlesen Sahaja</strong>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK (ISN/AKK) untuk membuat pengesahan rasmi bahawa atlet adalah cergas dan layak bertanding.
+                    </p>
+                  </div>
+                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
+                    <strong className="text-white block mb-1 text-lg">Syarat Atlet Baharu & Influencer</strong>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Diwajibkan menjalani latihan di gym yang mempunyai jurulatih berlesen SPKK mulai tahun 2026 sebelum dibenarkan bertanding.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* English Version */}
+              <div className="space-y-4">
+                <div className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                  ENGLISH
+                </div>
+                <div className="space-y-4">
+                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
+                    <strong className="text-white block mb-1 text-lg">Licensed Coaches Only</strong>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Muaythai tournaments only allow SPKK (ISN/AKK) licensed coaches to officially certify that athletes are fit and eligible to compete.
+                    </p>
+                  </div>
+                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
+                    <strong className="text-white block mb-1 text-lg">New Athletes & Influencers</strong>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      Mandatory training at a gym with an SPKK licensed coach is required starting 2026 before being allowed to compete.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* --- REPLACED: CLEAN & ORGANIZED AFFILIATES GRID --- */}
+      {/* --- AFFILIATES GRID --- */}
       <section className="py-20 px-6 sm:px-12 bg-slate-900 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-xl font-bold mb-12 text-center text-gray-400 uppercase tracking-widest">
