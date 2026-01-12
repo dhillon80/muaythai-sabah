@@ -10,9 +10,16 @@ export default function Home() {
   const audioRef = useRef(null);
 
   // --- ⬇️ UPDATE YOUR EVENTS HERE ⬇️ ---
-  // Leave this list empty [] to show "Stay Tuned".
+  // Leave this empty [] if you want to show the "Tentative Calendar" message below.
   const events = [
-    // Currently empty
+     // Example:
+     // { 
+     //   title: "Sabah State Championship 2026", 
+     //   date: "March 2026", 
+     //   details: "The biggest state selection...", 
+     //   link: "/events", 
+     //   image: "https://your-image-url.com" 
+     // }
   ];
   // -------------------------------------
 
@@ -31,102 +38,152 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100 font-sans">
-      {/* Navbar */}
-      <header className="bg-blue-900 text-white">
-        <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img src="/pmnslogo.png" alt="Logo" className="h-10 w-10 object-contain" />
-            <div className="text-xl font-bold">Muaythai Sabah</div>
-          </div>
-          <ul className="hidden sm:flex gap-6">
-            <li><Link href="/directory" className="hover:text-yellow-400 transition">Directory</Link></li>
-            <li><Link href="/contact" className="hover:text-yellow-400 transition">Contact Us</Link></li>
-            <li><a href="https://msn.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">Majlis Sukan Negeri Sabah</a></li>
-          </ul>
-        </nav>
-      </header>
+    <div className="flex flex-col font-sans text-gray-200">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative text-center py-24 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center items-center">
+        
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop" 
+            alt="Muaythai Background" 
+            className="w-full h-full object-cover opacity-30" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950"></div>
+        </div>
 
-      {/* Hero */}
-      <section className="relative text-center py-20 px-6 bg-white">
-        <div className="flex justify-center mb-6">
-          <img src="/pmnslogo.png" alt="Muaythai Sabah Logo" className="h-40 w-40 object-contain animate-flash" />
+        {/* Content Layer */}
+        <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
+          
+          {/* Logo */}
+          <div className="mb-8 relative group">
+            <div className="absolute inset-0 bg-yellow-500 blur-[60px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-700"></div>
+            <img 
+              src="/pmnslogo.png" 
+              alt="Muaythai Sabah Logo" 
+              className="relative h-48 w-48 md:h-60 md:w-60 object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500" 
+            />
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase drop-shadow-lg">
+            Muaythai <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">Sabah</span>
+          </h1>
+          
+          <p className="text-lg md:text-2xl text-gray-200 font-light mb-10 max-w-2xl leading-relaxed">
+            The Official Platform for Championships, Athletes, and Development in Sabah.
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/events" className="bg-yellow-500 text-slate-950 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition shadow-lg shadow-yellow-500/20">
+              Explore Events
+            </Link>
+            
+            <div className="flex gap-2">
+              <button 
+                onClick={toggleMute} 
+                className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-5 py-3 rounded-full hover:bg-white/20 transition-all text-sm font-medium"
+              >
+                {isMuted ? "🔇" : "🔊"}
+              </button>
+              {!isPlaying && (
+                <button 
+                  onClick={playMusic} 
+                  className="bg-red-600/90 backdrop-blur-md text-white px-6 py-3 rounded-full hover:bg-red-600 shadow-lg shadow-red-900/40 transition-all text-sm font-bold flex items-center gap-2"
+                >
+                  ▶ Music
+                </button>
+              )}
+            </div>
+          </div>
         </div>
-        <h1 className="text-5xl font-bold text-blue-900 mb-4">Welcome to Muaythai Sabah</h1>
-        <p className="text-lg sm:text-xl mb-6 text-gray-800">
-          The Platform for Muaythai Championships, Athletes, and Development in Sabah
-        </p>
-        <div className="space-x-2 mt-6">
-          <button onClick={toggleMute} className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition">
-            {isMuted ? "Unmute" : "Mute"} Music
-          </button>
-          {!isPlaying && (
-            <button onClick={playMusic} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-600 transition">
-              Play Music
-            </button>
-          )}
-        </div>
+        
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* Upcoming Events (Recoded) */}
-      <main className="flex-grow px-6 sm:px-12 py-12">
-        <h2 className="text-3xl font-semibold mb-6 text-center">Featured Events</h2>
+      {/* --- UPCOMING EVENTS SECTION --- */}
+      <section className="flex-grow px-4 sm:px-12 py-16 bg-slate-950 relative">
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="h-[2px] w-12 bg-yellow-500"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white tracking-widest uppercase">
+            2026 Season
+          </h2>
+          <div className="h-[2px] w-12 bg-yellow-500"></div>
+        </div>
         
         {events.length > 0 ? (
-          /* This section automatically runs if you have events in the list above */
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 justify-center max-w-5xl mx-auto">
             {events.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden relative">
-                <img src={event.image} alt={event.title} className="w-full h-auto object-contain" />
-                <div className="p-4 text-center whitespace-pre-line">
-                  <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-                  <p className="text-gray-700">{event.details}</p>
-                  <Link href={event.link} className="text-blue-600 hover:text-blue-800 mt-2 inline-block">
-                    Learn More
+              <div key={index} className="group bg-slate-900 border border-slate-800 hover:border-yellow-500/50 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div className="relative h-64 overflow-hidden">
+                    <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                </div>
+                <div className="p-8 relative">
+                  <span className="text-yellow-500 text-sm font-bold tracking-wider mb-2 block">{event.date}</span>
+                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-400 transition-colors">{event.title}</h3>
+                  <p className="text-gray-400 mb-6 leading-relaxed">{event.details}</p>
+                  <Link href={event.link} className="inline-flex items-center text-white font-semibold hover:text-yellow-400 transition-colors">
+                    View Details <span className="ml-2 text-xl">→</span>
                   </Link>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          /* This section shows when there are NO events */
-          <div className="text-center py-10 bg-white rounded-lg shadow-sm">
-            <p className="text-xl text-gray-500">Stay tuned! More exciting events are coming soon.</p>
+          /* --- UPDATED EMPTY STATE --- */
+          <div className="max-w-3xl mx-auto text-center py-20 px-8 bg-slate-900/50 border border-slate-800 rounded-3xl backdrop-blur-sm shadow-2xl">
+            <div className="text-6xl mb-6 animate-bounce">🗓️</div>
+            <h3 className="text-2xl font-bold text-white mb-4">2026 Calendar Update</h3>
+            <p className="text-lg text-gray-300 font-light mb-8 leading-relaxed">
+              Our tentative tournament calendar is already up.<br/>
+              Follow our social media for the latest announcements.
+            </p>
+            {/* NEW BUTTON ADDED HERE */}
+            <Link href="/events" className="inline-block bg-yellow-500 text-slate-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-400 hover:scale-105 transition shadow-lg shadow-yellow-500/20">
+              View Calendar
+            </Link>
           </div>
         )}
-      </main>
+      </section>
 
-      {/* Affiliates */}
-      <section className="bg-white py-12 px-6 sm:px-12">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Affiliates</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <a href="https://kbs.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-red-600 hover:brightness-110">Kementerian Belia dan Sukan Sabah</a>
-          <a href="https://www.facebook.com/groups/pjssabah/?locale=ms_MY" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-blue-600 hover:brightness-110">Pesuruhjaya Sukan Rantau Sabah</a>
-          <a href="https://msn.sabah.gov.my/" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-green-600 hover:brightness-110">Majlis Sukan Negeri Sabah</a>
-          <a href="https://www.sabah.gov.my/ls/" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-yellow-600 hover:brightness-110">Lembaga Sukan Negeri Sabah</a>
-          <a href="https://web.facebook.com/profile.php?id=100014468267100" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-purple-600 hover:brightness-110">Muaythai Malaysia</a>
-          <a href="https://www.ifmalive.com/" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-lime-600 hover:brightness-110">International Federation of Muaythai Association (IFMA)</a>
-          <a href="https://web.facebook.com/profile.php?id=61574047034042" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-pink-600 hover:brightness-110">PMD Kota Kinabalu</a>
-          <a href="https://web.facebook.com/profile.php?id=61575733400300" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-indigo-600 hover:brightness-110">PMD Penampang</a>
-          <a href="https://web.facebook.com/awpmartialart" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-teal-600 hover:brightness-110">PMD Kudat</a>
-          <a href="https://web.facebook.com/profile.php?id=100090767634972" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-orange-600 hover:brightness-110">PMD Kota Marudu</a>
-          <a href="https://web.facebook.com/PMDKeningau" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-rose-600 hover:brightness-110">PMD Keningau</a>
-          <a href="https://web.facebook.com/profile.php?id=100068362053398" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-cyan-600 hover:brightness-110">PMD Sandakan</a>
-          <a href="https://web.facebook.com/profile.php?id=100069723810642" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-sky-600 hover:brightness-110">PMD Ranau</a>
-          <a href="https://web.facebook.com/profile.php?id=100082994329166" target="_blank" rel="noopener noreferrer" className="block text-white px-4 py-3 rounded shadow text-center font-semibold transition bg-amber-600 hover:brightness-110">PMD Lahad Datu</a>
+      {/* --- AFFILIATES SECTION --- */}
+      <section className="py-20 px-6 sm:px-12 bg-slate-900/50 border-t border-white/5">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-center text-gray-300 uppercase tracking-widest">
+          Official Affiliates
+        </h2>
+        
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          {[
+            { name: "KBS Sabah", url: "https://kbs.sabah.gov.my/", color: "hover:border-red-500 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)]" },
+            { name: "Pesuruhjaya Sukan", url: "https://www.facebook.com/groups/pjssabah/?locale=ms_MY", color: "hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]" },
+            { name: "MSN Sabah", url: "https://msn.sabah.gov.my/", color: "hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]" },
+            { name: "Lembaga Sukan", url: "https://www.sabah.gov.my/ls/", color: "hover:border-yellow-500 hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]" },
+            { name: "Muaythai Malaysia", url: "https://web.facebook.com/profile.php?id=100014468267100", color: "hover:border-purple-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]" },
+            { name: "IFMA", url: "https://www.ifmalive.com/", color: "hover:border-lime-500 hover:shadow-[0_0_20px_rgba(132,204,22,0.3)]" },
+            { name: "PMD Kota Kinabalu", url: "https://web.facebook.com/profile.php?id=61574047034042", color: "hover:border-pink-500 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)]" },
+            { name: "PMD Penampang", url: "https://web.facebook.com/profile.php?id=61575733400300", color: "hover:border-indigo-500 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]" },
+            { name: "PMD Kudat", url: "https://web.facebook.com/awpmartialart", color: "hover:border-teal-500 hover:shadow-[0_0_20px_rgba(20,184,166,0.3)]" },
+            { name: "PMD Kota Marudu", url: "https://web.facebook.com/profile.php?id=100090767634972", color: "hover:border-orange-500 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]" },
+            { name: "PMD Keningau", url: "https://web.facebook.com/PMDKeningau", color: "hover:border-rose-500 hover:shadow-[0_0_20px_rgba(244,63,94,0.3)]" },
+            { name: "PMD Sandakan", url: "https://web.facebook.com/profile.php?id=100068362053398", color: "hover:border-cyan-500 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]" },
+            { name: "PMD Ranau", url: "https://web.facebook.com/profile.php?id=100069723810642", color: "hover:border-sky-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]" },
+            { name: "PMD Lahad Datu", url: "https://web.facebook.com/profile.php?id=100082994329166", color: "hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]" },
+          ].map((affiliate, index) => (
+            <a 
+              key={index}
+              href={affiliate.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`block bg-slate-800/40 backdrop-blur-sm border border-slate-700 text-gray-400 p-5 rounded-xl text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-1 hover:text-white hover:bg-slate-800 shadow-lg ${affiliate.color}`}
+            >
+              {affiliate.name}
+            </a>
+          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-blue-900 text-white text-center p-4 mt-4">
-        <div className="flex justify-center gap-6">
-          <a href="https://facebook.com/muaythaisabah" target="_blank" className="hover:text-yellow-300">Facebook</a>
-          <a href="https://www.youtube.com/@muaythaisabah" target="_blank" className="hover:text-yellow-300">YouTube</a>
-          <a href="https://twitter.com/muaythaisabah" target="_blank" className="hover:text-yellow-300">Twitter</a>
-        </div>
-        <div className="mt-2 text-sm">© 2025 Muaythai Sabah. All rights reserved.</div>
-      </footer>
     </div>
   );
 }

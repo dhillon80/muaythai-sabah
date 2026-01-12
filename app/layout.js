@@ -3,9 +3,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from 'next/link';
 import { useState } from "react";
-import Head from 'next/head';
 import Script from 'next/script';
-import "./globals.css";  // Ensure this is linked correctly!
+import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -34,68 +33,85 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-gray-800 flex flex-col min-h-screen`}>
+      
+      {/* BODY: Changed to Dark Mode (slate-950) with light text */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-gray-200 flex flex-col min-h-screen`}>
         
-        {/* NAVBAR */}
-        <header className="bg-blue-900 sticky top-0 z-50 shadow-md">
+        {/* NAVBAR: Added Glassmorphism (backdrop-blur) */}
+        <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="text-white text-3xl font-extrabold tracking-wider hover:text-yellow-300 transition">
+            
+            {/* Logo */}
+            <Link href="/" className="text-white text-2xl md:text-3xl font-extrabold tracking-wider hover:text-yellow-400 transition uppercase">
               Muaythai Sabah
             </Link>
 
             {/* Mobile menu button */}
             <button 
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-white p-3 focus:outline-none focus:ring-2 focus:ring-yellow-300 rounded-md"
+              className="md:hidden text-white p-2 focus:outline-none rounded-md border border-white/20"
               aria-label="Main menu"
               aria-expanded={menuOpen}
             >
               {menuOpen ? '✕' : '☰'}
             </button>
 
-            {/* Combined Desktop and Mobile Navigation */}
-            <nav className={`md:flex items-center space-x-8 ${menuOpen ? "block" : "hidden"} md:block`}>
-              {/* Main navigation */}
-              <div className="flex space-x-8">
-                <Link href="/" className="text-white hover:text-yellow-300 transition text-lg font-medium">Home</Link>
-                <Link href="/newsletter" className="text-white hover:text-yellow-300 transition text-lg font-medium">Newsletter</Link>
-                <Link href="/events" className="text-white hover:text-yellow-300 transition text-lg font-medium">Events</Link>
-                <Link href="/courses" className="text-white hover:text-yellow-300 transition text-lg font-medium">Courses</Link>
-                <Link href="/directory" className="text-white hover:text-yellow-300 transition text-lg font-medium">Directory</Link>
-                <Link href="/contact" className="text-white hover:text-yellow-300 transition text-lg font-medium">Contact Us</Link>
-                <Link href="https://msn.sabah.gov.my/" target="_blank" className="text-white hover:text-yellow-300 transition text-lg font-medium">MSNS</Link>
-              </div>
+            {/* Navigation Links */}
+            <nav className={`${menuOpen ? "absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 p-6 flex flex-col space-y-4" : "hidden"} md:static md:flex md:items-center md:space-y-0 md:space-x-8 md:bg-transparent md:p-0`}>
+              {['Home', 'Newsletter', 'Events', 'Courses', 'Directory', 'Contact Us'].map((item) => (
+                 <Link 
+                   key={item}
+                   href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} 
+                   className="text-gray-300 hover:text-yellow-400 transition text-base font-semibold tracking-wide"
+                   onClick={() => setMenuOpen(false)} // Close menu on click (mobile)
+                 >
+                   {item}
+                 </Link>
+              ))}
+              <Link href="https://msn.sabah.gov.my/" target="_blank" className="text-yellow-400 hover:text-yellow-300 transition text-base font-semibold tracking-wide">
+                MSNS
+              </Link>
             </nav>
           </div>
         </header>
 
-        {/* HERO SECTION */}
-        <section className="bg-blue-900 text-white text-center py-16">
-          <h1 className="text-5xl font-extrabold mb-4">Welcome to Muaythai Sabah</h1>
-          <p className="text-lg sm:text-xl mb-6">The Platform for Muaythai Championships, Athletes, and Development in Sabah</p>
-          <Link href="/events" className="bg-yellow-400 text-black py-2 px-6 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition">Explore Events</Link>
+        {/* HERO SECTION: Updated with Modern Gradient */}
+        {/* Note: Added mt-20 to account for the fixed navbar */}
+        <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white text-center py-24 mt-16 px-4">
+          <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 mix-blend-overlay"></div> {/* Optional Texture placeholder */}
+          <div className="relative z-10 container mx-auto">
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+              WELCOME TO <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">MUAYTHAI SABAH</span>
+            </h1>
+            <p className="text-lg md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto font-light">
+              The Platform for Muaythai Championships, Athletes, and Development in Sabah
+            </p>
+            <Link href="/events" className="inline-block bg-yellow-500 text-slate-900 py-3 px-8 rounded-full text-lg font-bold hover:bg-yellow-400 hover:scale-105 transition transform shadow-lg shadow-yellow-500/20">
+              Explore 2026 Events
+            </Link>
+          </div>
         </section>
 
         {/* MAIN CONTENT */}
-        <main className="flex-grow container mx-auto px-6 py-8 md:py-12">
+        <main className="flex-grow container mx-auto px-6 py-12">
           {children}
         </main>
 
         {/* FOOTER */}
-        <footer className="bg-blue-900 text-white text-sm py-8">
-          <div className="container mx-auto text-center space-y-2">
-            <p>&copy; 2025 Muaythai Sabah. Powered by lonchai</p>
-            <p className="italic font-semibold">
-              inspire the uninspired<br />
-              strength in skills, power in mindset
+        <footer className="bg-slate-900 border-t border-white/10 text-gray-400 text-sm py-10">
+          <div className="container mx-auto text-center space-y-4">
+            <p>&copy; 2026 Muaythai Sabah. Powered by lonchai</p>
+            <p className="italic font-medium text-gray-500">
+              "Inspire the uninspired. Strength in skills, power in mindset."
             </p>
-            <div className="space-x-4">
-              <Link href="https://facebook.com/muaythaisabah" className="text-white hover:text-yellow-300">Facebook</Link>
-              <Link href="https://www.youtube.com/@muaythaisabah" className="text-white hover:text-yellow-300">YouTube</Link>
-              <Link href="https://twitter.com/muaythaisabah" className="text-white hover:text-yellow-300">Twitter</Link>
+            <div className="flex justify-center space-x-6 mt-4">
+              <Link href="https://facebook.com/muaythaisabah" className="text-gray-400 hover:text-blue-500 transition">Facebook</Link>
+              <Link href="https://www.youtube.com/@muaythaisabah" className="text-gray-400 hover:text-red-500 transition">YouTube</Link>
+              <Link href="https://twitter.com/muaythaisabah" className="text-gray-400 hover:text-sky-400 transition">Twitter</Link>
             </div>
           </div>
         </footer>
+
       </body>
     </html>
   );
