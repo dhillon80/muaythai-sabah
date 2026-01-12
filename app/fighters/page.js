@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from 'next/link';
-import Image from 'next/image'; // Importing Next.js Image component for better performance
+import Image from 'next/image';
 
 export default function FightersPage() {
   const [filter, setFilter] = useState("All");
@@ -32,8 +32,10 @@ export default function FightersPage() {
       height: "162 CM",
       age: "20",
       gender: "Male",
-      record: "14W - 6L",
-      category: "Amateur",
+      // 👇 Updated to Pro Record
+      record: "0W - 2L",
+      // 👇 Updated Category
+      category: "Pro",
       nationality: "Sabah",
       image: "/efron.jpeg", 
     },
@@ -157,8 +159,7 @@ function FighterCard({ data }) {
       
       {/* 1. FIGHTER IMAGE (Full Height) */}
       <div className="relative h-[450px] w-full bg-slate-800">
-        {/* We use standard img tag here for simplicity with dynamic paths, 
-            but in production Next.js Image component is often preferred if domains are configured */}
+        {/* We use standard img tag here for simplicity with dynamic paths */}
         <img 
           src={data.image} 
           alt={data.name} 
