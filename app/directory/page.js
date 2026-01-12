@@ -9,7 +9,7 @@ export default function Directory() {
       <div className="max-w-7xl mx-auto">
 
         {/* Page Title */}
-        <div className="text-center mb-12 pt-8">
+        <div className="text-center mb-10 pt-8">
           <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
             Muaythai Sabah <span className="text-yellow-500">Directory</span>
           </h1>
@@ -18,24 +18,34 @@ export default function Directory() {
           </p>
         </div>
 
-        {/* 📂 DIRECTORY GRID */}
-        {/* Revolution Combat is placed 1st, others are alphabetical */}
+        {/* 🏆 FEATURED GYM (CENTERED TOP) */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-lg relative">
+             {/* Crown/Star Icon for Highlight */}
+             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-slate-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg z-10">
+                Main Training Centre
+             </div>
+             
+             <GymCard 
+              name="Revolution Combat Muaythai Gym (PLN Sabah)"
+              location="Kota Kinabalu"
+              address="Dewan Terbuka, Taman Delima Penampang"
+              phone="016-801 3530"
+              email="revolutioncombatgym@gmail.com"
+              coach="Dhillon Tahing"
+              isFeatured={true} // Special styling prop
+              links={[
+                { label: "Facebook", url: "https://web.facebook.com/Revolutioncombatgym", color: "blue" },
+                { label: "Google Maps", url: "https://goo.gl/maps/xyz", color: "green" }
+              ]}
+            />
+          </div>
+        </div>
+
+        {/* 📂 DIRECTORY GRID (Rest of the Gyms) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
 
-          {/* 1. Revolution Combat (Pinned Top) */}
-          <GymCard 
-            name="Revolution Combat Muaythai Gym (PLN Sabah)"
-            location="Kota Kinabalu"
-            address="Dewan Terbuka, Taman Delima Penampang"
-            phone="016-801 3530"
-            coach="Dhillon Tahing"
-            links={[
-              { label: "Facebook", url: "https://web.facebook.com/Revolutioncombatgym", color: "blue" },
-              { label: "Google Maps", url: "https://goo.gl/maps/xyz", color: "green" }
-            ]}
-          />
-
-          {/* 2. 66 Denakan */}
+          {/* 1. 66 Denakan */}
           <GymCard 
             name="66 Denakan Muaythai Gym"
             location="Putatan"
@@ -48,7 +58,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 3. AWP Kota Marudu */}
+          {/* 2. AWP Kota Marudu */}
           <GymCard 
             name="AWP Martial Art Academy (PLN PBU)"
             location="Kota Marudu"
@@ -61,7 +71,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 4. AWP Kudat */}
+          {/* 3. AWP Kudat */}
           <GymCard 
             name="AWP Muay Thai Training Centre"
             location="Kudat"
@@ -74,7 +84,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 5. CS5Fitness Gym */}
+          {/* 4. CS5Fitness Gym */}
           <GymCard 
             name="CS5Fitness Gym"
             location="Penampang"
@@ -86,7 +96,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 6. D'Sha Muayfit */}
+          {/* 5. D'Sha Muayfit */}
           <GymCard 
             name="D'Sha Muayfit Tawau"
             location="Tawau"
@@ -98,7 +108,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 7. Garagas Fight Team */}
+          {/* 6. Garagas Fight Team */}
           <GymCard 
             name="Garagas Fight Team"
             location="Keningau"
@@ -110,7 +120,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 8. Kalai Brothers */}
+          {/* 7. Kalai Brothers */}
           <GymCard 
             name="Kalai Brothers"
             location="Sandakan"
@@ -123,7 +133,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 9. Karabaw Tamparuli (NEW ENTRY) */}
+          {/* 8. Karabaw Tamparuli */}
           <GymCard 
             name="Karabaw Tamparuli"
             location="Tamparuli"
@@ -138,7 +148,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 10. Kelab Revolution Kota Marudu */}
+          {/* 9. Kelab Revolution Kota Marudu */}
           <GymCard 
             name="Kelab Revolution Muaythai"
             location="Kota Marudu"
@@ -150,7 +160,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 11. Keningau MMA */}
+          {/* 10. Keningau MMA */}
           <GymCard 
             name="Keningau MMA"
             location="Keningau"
@@ -163,33 +173,33 @@ export default function Directory() {
             ]}
           />
 
-          {/* 12. M1 Monster */}
+          {/* 11. M1 Monster */}
           <GymCard 
-            name="M1 Monster Muaythai & Fitness"
+            name="M1 Monster Muaythai Academy"
             location="Kota Kinabalu"
             address="Tingkat 2, Lot 4, Wisma KKM, Batu 5 (Likas)"
-            phone="-"
-            coach="-"
+            phone="011-6693 0969"
+            coach="Coach Frey / Coach Cath"
             links={[
               { label: "Facebook", url: "https://www.facebook.com/M1MonsterMTFA", color: "blue" },
               { label: "Google Maps", url: "#", color: "green" }
             ]}
           />
 
-          {/* 13. M2 Monster */}
+          {/* 12. M2 Monster */}
           <GymCard 
-            name="M2 Monster Muaythai & Fitness"
+            name="M2 Monster Muaythai Academy"
             location="Penampang"
             address="Lot 23, 3rd Floor, Taman Victory Shophouse (Towering)"
-            phone="-"
-            coach="-"
+            phone="011-6131 0669"
+            coach="Coach Frey / Coach Hariff"
             links={[
               { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61575416794247", color: "blue" },
               { label: "Google Maps", url: "#", color: "green" }
             ]}
           />
 
-          {/* 14. Naga Kinabalu II */}
+          {/* 13. Naga Kinabalu II */}
           <GymCard 
             name="Naga Kinabalu II"
             location="Kinarut"
@@ -202,7 +212,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 15. Nak Muay Ranau */}
+          {/* 14. Nak Muay Ranau */}
           <GymCard 
             name="Nak Muay Ranau Gym"
             location="Ranau"
@@ -212,7 +222,7 @@ export default function Directory() {
             links={[]}
           />
 
-          {/* 16. Persatuan Muaythai Lahad Datu */}
+          {/* 15. Persatuan Muaythai Lahad Datu */}
           <GymCard 
             name="Persatuan Muaythai Lahad Datu"
             location="Lahad Datu"
@@ -224,7 +234,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 17. RNM Fight Club */}
+          {/* 16. RNM Fight Club */}
           <GymCard 
             name="RNM Fight Club (RNMFC)"
             location="Inanam"
@@ -238,7 +248,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 18. SFG - Bundu Tuhan */}
+          {/* 17. SFG - Bundu Tuhan */}
           <GymCard 
             name="SFG - Bundu Tuhan"
             location="Kundasang"
@@ -248,7 +258,7 @@ export default function Directory() {
             links={[]}
           />
 
-          {/* 19. Stallone Fitness Gym */}
+          {/* 18. Stallone Fitness Gym */}
           <GymCard 
             name="Stallone Fitness Gym"
             location="Kota Belud"
@@ -262,7 +272,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 20. Tambuakar Muaythai Club */}
+          {/* 19. Tambuakar Muaythai Club */}
           <GymCard 
             name="Tambuakar Muaythai Club"
             location="Papar"
@@ -275,7 +285,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 21. Tavangkaz Muayfit */}
+          {/* 20. Tavangkaz Muayfit */}
           <GymCard 
             name="Tavangkaz Muayfit"
             location="Penampang"
@@ -288,7 +298,7 @@ export default function Directory() {
             ]}
           />
 
-          {/* 22. Team Karabaw Sipitang */}
+          {/* 21. Team Karabaw Sipitang */}
           <GymCard 
             name="Team Karabaw Sipitang"
             location="Sipitang"
@@ -298,6 +308,20 @@ export default function Directory() {
             links={[
               { label: "Facebook", url: "https://www.facebook.com/share/16AyGBAnPN/", color: "blue" },
               { label: "TikTok", url: "https://www.tiktok.com/@teamkarabawspg", color: "pink" }
+            ]}
+          />
+
+          {/* 22. Uppercross Muaythai */}
+          <GymCard 
+            name="Uppercross Muaythai and Fitness"
+            location="Sandakan"
+            address="Taman Vista Shoplot, S4, 1st Floor"
+            phone="011-1604 3075"
+            coach="Tu Sin Yee"
+            links={[
+              { label: "Facebook", url: "https://www.facebook.com/search/top?q=uppercross%20muaythai%20fitness", color: "blue" },
+              { label: "Instagram", url: "https://www.instagram.com/uppercross_sdk", color: "purple" },
+              { label: "TikTok", url: "https://www.tiktok.com/@uppercross", color: "pink" }
             ]}
           />
 
@@ -339,7 +363,7 @@ export default function Directory() {
 }
 
 // Reusable Component for Gym Cards
-function GymCard({ name, location, address, phone, coach, links }) {
+function GymCard({ name, location, address, phone, email, coach, links, isFeatured = false }) {
   const getButtonColor = (color) => {
     switch (color) {
       case 'blue': return 'bg-blue-600 hover:bg-blue-700';
@@ -352,10 +376,20 @@ function GymCard({ name, location, address, phone, coach, links }) {
   };
 
   return (
-    <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-600 transition duration-300 flex flex-col h-full shadow-lg">
+    <div className={`
+      relative flex flex-col h-full shadow-lg transition duration-300
+      ${isFeatured 
+        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-yellow-500 rounded-2xl p-8 shadow-[0_0_40px_rgba(234,179,8,0.2)] scale-100 md:scale-105' 
+        : 'bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-600'
+      }
+    `}>
       <div className="mb-4">
-        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{location}</span>
-        <h2 className="text-xl font-bold text-white mt-1 leading-tight">{name}</h2>
+        <span className={`text-xs font-bold uppercase tracking-wider ${isFeatured ? 'text-yellow-400' : 'text-slate-400'}`}>
+          {location}
+        </span>
+        <h2 className={`font-bold mt-1 leading-tight ${isFeatured ? 'text-3xl text-white' : 'text-xl text-white'}`}>
+          {name}
+        </h2>
       </div>
       
       <div className="space-y-3 text-sm text-gray-400 mb-6 flex-grow">
@@ -365,6 +399,14 @@ function GymCard({ name, location, address, phone, coach, links }) {
         <p className="flex items-center gap-2">
           <span>📞</span> <span className="text-gray-300">{phone}</span>
         </p>
+        
+        {/* Email Field - Only shows if email exists */}
+        {email && (
+          <p className="flex items-center gap-2">
+            <span>📧</span> <a href={`mailto:${email}`} className="text-gray-300 hover:text-white transition break-all">{email}</a>
+          </p>
+        )}
+
         <p className="flex items-center gap-2">
           <span>🥋</span> <span className="text-gray-300">{coach}</span>
         </p>
