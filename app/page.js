@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useRef } from "react";
@@ -10,9 +11,8 @@ export default function Home() {
 
   // --- ⬇️ UPDATE YOUR EVENTS HERE ⬇️ ---
   // Leave this list empty [] to show "Stay Tuned".
-  // To add an event, add an object like: { title: "Name", date: "Date", image: "/img.jpg", link: "#" }
   const events = [
-    // Currently empty (VW and ASEAN removed)
+    // Currently empty
   ];
   // -------------------------------------
 
