@@ -31,8 +31,9 @@ export default function FightersPage() {
       height: "162 CM",
       age: "20",
       gender: "Male",
-      record: "14W - 6L",
-      category: "Pro", // Updated to Pro
+      // 👇 Updated Record
+      record: "0W - 2L - 0D",
+      category: "Pro",
       nationality: "Sabah",
       image: "/efron.jpeg", 
     },
@@ -43,7 +44,6 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "51 KG",
       height: "166 CM",
-      // 👇 Updated Age
       age: "20",
       gender: "Male",
       record: "3W - 2L - 0D",
@@ -58,7 +58,6 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "54 KG",
       height: "168 CM",
-      // 👇 Updated Age
       age: "22",
       gender: "Male",
       record: "0W - 1L", 
@@ -73,13 +72,27 @@ export default function FightersPage() {
       coach: "Kenny Jafili",
       weight: "60 KG",
       height: "173 CM",
-      // 👇 Updated Age
       age: "24",
       gender: "Male",
       record: "3W - 1L - 0D",
       category: "Pro",
       nationality: "Sabah",
       image: "/kallens.jpeg", 
+    },
+    // 👇 NEW FIGHTER ADDED HERE
+    {
+      name: "Mohammad Hasbullah Sanmin",
+      nickname: "D. Garagas",
+      team: "Garagas Fight Team",
+      coach: "", 
+      weight: "55-57 KG",
+      height: "162 CM",
+      age: "32",
+      gender: "Male",
+      record: "14W - 4L - 0D",
+      category: "Pro",
+      nationality: "Sabah",
+      image: "/hasbullah.jpeg", // ⚠️ Save photo as 'hasbullah.jpeg'
     },
     {
       name: "Shah Aryan B. Shahzam",
@@ -88,7 +101,6 @@ export default function FightersPage() {
       coach: "Dhillon Tahing",
       weight: "51 KG",
       height: "N/A", 
-      // 👇 Updated Age
       age: "24",
       gender: "Male",
       record: "4W - 2L - 0D",
