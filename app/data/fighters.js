@@ -1,4 +1,5 @@
 export const fighters = [
+  // --- PRO FIGHTERS ---
   {
     id: "areen-khan",
     name: "Areen Khan Shahzam",
@@ -135,14 +136,67 @@ export const fighters = [
     image: "/shah.jpeg",
     bio: "The Killer Prince is one of the most promising prospects in Sabah, with a winning record and a hunger for championship gold."
   },
-  // 👇 NEW AMATEUR FIGHTERS
+  {
+    id: "jasper-lee",
+    name: "Jasper Lee",
+    nickname: "", 
+    team: "Uppercross Muay Thai Club",
+    coach: "Sin Yee",
+    managerContact: "601116043075", 
+    weight: "54 KG",
+    height: "168 CM",
+    age: "19", 
+    gender: "Male",
+    record: "1W - 0L - 0D", 
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/jasper.jpeg", 
+    bio: "Fighting out of Sandakan, Jasper Lee represents Uppercross Muay Thai Club. Competing in the 54kg division, he has transitioned to the professional circuit with a balanced record of experience."
+  },
+  {
+    id: "johnathan-chung",
+    name: "Johnathan Chung",
+    nickname: "",
+    team: "Uppercross Muay Thai Club",
+    coach: "Sin Yee", 
+    managerContact: "601116043075", 
+    weight: "54 KG",
+    height: "165 CM",
+    age: "21", 
+    gender: "Male",
+    record: "1W - 0L - 0D", 
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/johnathan.jpeg", 
+    bio: "Johnathan Chung is a promising talent from Uppercross Muay Thai Club in Sandakan. With a strong winning record of 6-2, he is making his mark in the 54kg professional division."
+  },
+  {
+    id: "tu-sim-bee",
+    name: "Tu Sim Bee",
+    nickname: "", 
+    team: "Uppercross Muay Thai Club",
+    coach: "Sin Yee",
+    managerContact: "601116043075", 
+    weight: "43-46 KG",
+    height: "155 CM",
+    age: "34", 
+    gender: "Female",
+    record: "3W - 3L - 0D", 
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/tusimbee.jpeg", 
+    video: "/tusimbee.mp4", // 📹 VIDEO ENABLED
+    bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division. She holds a professional record of 3 Wins and 3 Losses, with a total combat experience of 12 fights."
+  },
+
+  // --- AMATEUR FIGHTERS ---
   {
     id: "johanizamsyah-johanis",
     name: "Johanizamsyah Bin Johanis",
     nickname: "The Phantom",
     team: "Xmuayfitness",
-    coach: "Coach Song", // ✅ Updated Coach
-    managerContact: "60142827907", // ✅ Updated Number
+    coach: "Coach Song", 
+    managerContact: "60142827907", 
     weight: "67-73 KG",
     height: "170 CM",
     age: "18",
@@ -158,8 +212,8 @@ export const fighters = [
     name: "Johanitasyah Binti Johanis",
     nickname: "TasyahJohns",
     team: "Xmuayfitness",
-    coach: "Coach Song", // ✅ Updated Coach
-    managerContact: "60142827907", // ✅ Updated Number
+    coach: "Coach Song", 
+    managerContact: "60142827907", 
     weight: "54-60 KG",
     height: "165 CM",
     age: "20",

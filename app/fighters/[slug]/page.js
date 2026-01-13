@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { fighters } from '../../data/fighters'; 
 
-// This tells Next.js which profiles to build
 export async function generateStaticParams() {
   return fighters.map((fighter) => ({
     slug: fighter.id,
@@ -27,33 +26,33 @@ export default async function FighterProfile({ params }) {
   return (
     <div className="min-h-screen bg-slate-950 text-gray-100 font-sans">
       
-      {/* --- NEW HEADER SECTION (Side-by-Side) --- */}
+      {/* HEADER SECTION */}
       <div className="relative pt-32 pb-12 px-6 md:px-12 max-w-7xl mx-auto">
-        
-        {/* Background Glow Effect */}
         <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-yellow-500/10 blur-[100px] rounded-full -z-10"></div>
 
         <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
           
-          {/* 1. IMAGE CONTAINER (Portrait Style) */}
+          {/* IMAGE CONTAINER */}
           <div className="relative w-full max-w-sm shrink-0">
             <div className="aspect-[3/4] rounded-3xl overflow-hidden border-4 border-slate-800 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900 relative group">
-              {/* The Image */}
               <img 
                 src={fighter.image} 
                 alt={fighter.name} 
                 className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
               />
-              {/* Category Badge on Image */}
               <div className="absolute top-4 right-4">
-                 <span className="bg-yellow-500 text-black font-black text-xs px-3 py-1 rounded uppercase tracking-widest shadow-lg">
+                 <span className={`text-xs font-black px-3 py-1 rounded-md uppercase tracking-widest shadow-lg ${
+                    fighter.category === 'Pro' ? 'bg-yellow-500 text-black' : 
+                    fighter.category === 'U17' ? 'bg-blue-500 text-white' : 
+                    'bg-white text-black'
+                  }`}>
                   {fighter.category}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* 2. TEXT INFO */}
+          {/* TEXT INFO */}
           <div className="flex-1 text-center md:text-left pt-4">
             {fighter.nickname && (
               <h2 className="text-2xl md:text-4xl text-yellow-500 font-black italic uppercase tracking-wider mb-2">
@@ -73,7 +72,6 @@ export default async function FighterProfile({ params }) {
               </span>
             </div>
 
-            {/* Quick Stats Row */}
             <div className="grid grid-cols-3 gap-4 border-y border-white/10 py-6 mb-8">
               <div className="text-center md:text-left">
                 <p className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-1">Record</p>
@@ -89,7 +87,6 @@ export default async function FighterProfile({ params }) {
               </div>
             </div>
 
-            {/* WhatsApp Button */}
             <a 
               href={`https://wa.me/${fighter.managerContact}?text=Hello, I am interested in booking ${fighter.name} for an event.`}
               target="_blank"
@@ -100,24 +97,43 @@ export default async function FighterProfile({ params }) {
               <span>Contact Manager</span>
             </a>
           </div>
-
         </div>
       </div>
 
-      {/* --- BIO & DETAILS SECTION --- */}
+      {/* --- DETAILS SECTION --- */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20 grid grid-cols-1 md:grid-cols-3 gap-12">
         
-        {/* Left: Bio */}
-        <div className="md:col-span-2">
-           <h3 className="text-2xl font-bold text-white uppercase tracking-wide border-l-4 border-yellow-500 pl-4 mb-6">
-              Fighter Bio
-            </h3>
-            <p className="text-gray-400 text-lg leading-relaxed bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-              {fighter.bio || "No biography available for this athlete yet."}
-            </p>
+        {/* Left Column: Bio & Video */}
+        <div className="md:col-span-2 space-y-10">
+           
+           {/* BIO */}
+           <div>
+              <h3 className="text-2xl font-bold text-white uppercase tracking-wide border-l-4 border-yellow-500 pl-4 mb-6">
+                Fighter Bio
+              </h3>
+              <p className="text-gray-400 text-lg leading-relaxed bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                {fighter.bio || "No biography available for this athlete yet."}
+              </p>
+           </div>
+
+           {/* 🎥 VIDEO PLAYER (This is the missing part!) */}
+           {fighter.video && (
+             <div>
+               <h3 className="text-2xl font-bold text-white uppercase tracking-wide border-l-4 border-red-500 pl-4 mb-6">
+                 Highlight Reel
+               </h3>
+               <div className="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-black">
+                 <video controls className="w-full h-auto aspect-video">
+                   <source src={fighter.video} type="video/mp4" />
+                   Your browser does not support the video tag.
+                 </video>
+               </div>
+             </div>
+           )}
+
         </div>
 
-        {/* Right: Full Stats */}
+        {/* Right Column: Stats */}
         <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl h-fit">
           <h3 className="text-xl font-bold text-gray-500 uppercase tracking-widest mb-6 text-center">
             Full Stats
