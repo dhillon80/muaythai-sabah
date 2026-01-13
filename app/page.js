@@ -60,7 +60,6 @@ export default function Home() {
       `}</style>
 
       {/* --- HERO SECTION --- */}
-      {/* 👇 FIXED: Changed 'py-20' to 'pt-40 pb-20'. This pushes the logo down safely. */}
       <section className="relative text-center pt-40 pb-20 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center">
         
         {/* Background Layer */}
@@ -144,19 +143,39 @@ export default function Home() {
                 <p className="text-red-400 text-sm font-bold uppercase">Important SOP Notice (Effective 2026)</p>
               </div>
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               {/* 1. BAHASA MELAYU COLUMN */}
                <div className="space-y-4">
                  <div className="inline-block bg-red-600/20 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-2">BAHASA MELAYU</div>
+                 
+                 {/* Item 1: Coach */}
                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
-                    <strong className="text-white block mb-1">Jurulatih Berlesen Sahaja</strong>
-                    <p className="text-gray-300 text-sm">Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK.</p>
+                    <strong className="text-white block mb-1">1. Jurulatih Berlesen Sahaja</strong>
+                    <p className="text-gray-300 text-sm">Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK (ISN/AKK) untuk membuat pengesahan rasmi bahawa atlet adalah cergas dan layak bertanding.</p>
+                 </div>
+
+                 {/* Item 2: Influencer/New Athletes */}
+                 <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-red-500">
+                    <strong className="text-white block mb-1">2. Syarat Atlet Baharu & Influencer</strong>
+                    <p className="text-gray-300 text-sm">Diwajibkan menjalani latihan di gym yang mempunyai jurulatih berlesen SPKK mulai tahun 2026 sebelum dibenarkan bertanding.</p>
                  </div>
                </div>
+
+               {/* 2. ENGLISH COLUMN */}
                <div className="space-y-4">
                  <div className="inline-block bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full mb-2">ENGLISH</div>
+                 
+                 {/* Item 1: Coach */}
                  <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
-                    <strong className="text-white block mb-1">Licensed Coaches Only</strong>
-                    <p className="text-gray-300 text-sm">Tournaments only allow SPKK licensed coaches to certify athletes.</p>
+                    <strong className="text-white block mb-1">1. Licensed Coaches Only</strong>
+                    <p className="text-gray-300 text-sm">Muaythai tournament organization only allows SPKK (ISN/AKK) licensed coaches to officially certify that athletes are fit and eligible to compete.</p>
+                 </div>
+
+                 {/* Item 2: Influencer/New Athletes */}
+                 <div className="bg-slate-900/40 p-4 rounded-xl border-l-4 border-blue-500">
+                    <strong className="text-white block mb-1">2. New Athletes & Influencers</strong>
+                    <p className="text-gray-300 text-sm">Mandatory training at a gym with an SPKK licensed coach starting 2026 before being allowed to compete.</p>
                  </div>
                </div>
             </div>
