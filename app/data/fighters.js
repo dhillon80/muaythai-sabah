@@ -90,7 +90,7 @@ export const fighters = [
     nickname: "D. Garagas",
     team: "Garagas Fight Team",
     coach: "Head Coach", 
-    managerContact: "601126695935", // ✅ Updated Number
+    managerContact: "601126695935", 
     weight: "55-57 KG",
     height: "162 CM",
     age: "32",
@@ -106,8 +106,8 @@ export const fighters = [
     name: "Rifhan Wazizi Bin Irwan",
     nickname: "Hemo",
     team: "Hemo Fight Camp Kudat",
-    coach: "Coach Neo", // ✅ Updated Coach
-    managerContact: "60102120870", // ✅ Updated Number
+    coach: "Coach Neo", 
+    managerContact: "60102120870", 
     weight: "51 KG",
     height: "160 CM",
     age: "18",
@@ -135,4 +135,39 @@ export const fighters = [
     image: "/shah.jpeg",
     bio: "The Killer Prince is one of the most promising prospects in Sabah, with a winning record and a hunger for championship gold."
   },
+  // 👇 NEW AMATEUR FIGHTERS
+  {
+    id: "johanizamsyah-johanis",
+    name: "Johanizamsyah Bin Johanis",
+    nickname: "The Phantom",
+    team: "Xmuayfitness",
+    coach: "Coach Song", // ✅ Updated Coach
+    managerContact: "60142827907", // ✅ Updated Number
+    weight: "67-73 KG",
+    height: "170 CM",
+    age: "18",
+    gender: "Male",
+    record: "Multiple Gold Medalist", 
+    category: "Amateur",
+    nationality: "Sabah",
+    image: "/johanizamsyah.jpeg", 
+    bio: "Known as 'The Phantom', Johanizamsyah is a disciplined counter-striker with precise timing and solid low kicks. A rising talent from Xmuayfitness, he has secured Gold medals at the 2025 D1 Championship, the National Championship Pra Sukma, and the Rookie Challenge."
+  },
+  {
+    id: "johanitasyah-johanis",
+    name: "Johanitasyah Binti Johanis",
+    nickname: "TasyahJohns",
+    team: "Xmuayfitness",
+    coach: "Coach Song", // ✅ Updated Coach
+    managerContact: "60142827907", // ✅ Updated Number
+    weight: "54-60 KG",
+    height: "165 CM",
+    age: "20",
+    gender: "Female",
+    record: "Multiple Gold Medalist",
+    category: "Amateur",
+    nationality: "Sabah",
+    image: "/johanitasyah.jpeg", 
+    bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work. 'TasyahJohns' has built an impressive resume with Gold medal victories at the 2025 National Championship Pra Sukma, Elopura Rise of Champion, and the Fight Fest 2024."
+  }
 ];
