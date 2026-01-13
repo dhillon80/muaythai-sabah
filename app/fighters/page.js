@@ -1,166 +1,179 @@
 "use client";
 
-import { useState } from "react";
+import { useState } from 'react';
 import Link from 'next/link';
-import { fighters } from "../data/fighters"; 
+import { fighters } from '../data/fighters';
 
 export default function FightersPage() {
-  const [filter, setFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterCategory, setFilterCategory] = useState("All");
 
-  const filteredFighters = filter === "All" 
-    ? fighters 
-    : fighters.filter(f => f.category === filter);
+  // --- THE SEARCH & FILTER ENGINE ---
+  const filteredFighters = fighters.filter((fighter) => {
+    
+    // 1. SEARCH LOGIC
+    // Checks Name, Nickname, Team, Weight, Nationality, and Bio
+    const searchLower = searchTerm.toLowerCase();
+    const matchesSearch = 
+      fighter.name.toLowerCase().includes(searchLower) ||
+      (fighter.nickname && fighter.nickname.toLowerCase().includes(searchLower)) ||
+      fighter.team.toLowerCase().includes(searchLower) ||
+      fighter.weight.toLowerCase().includes(searchLower) || 
+      fighter.nationality.toLowerCase().includes(searchLower) || 
+      fighter.bio.toLowerCase().includes(searchLower);
+
+    // 2. FILTER LOGIC
+    let matchesFilter = true;
+
+    if (filterCategory === "All") {
+      // Show everyone
+      matchesFilter = true;
+    
+    } else if (filterCategory === "Male" || filterCategory === "Female") {
+      // GENDER FILTER: Checks the 'gender' field, ignores 'category'
+      // This ensures 'Female' shows BOTH Pro and Amateur females
+      matchesFilter = fighter.gender === filterCategory;
+    
+    } else {
+      // CATEGORY FILTER: Checks 'Pro', 'Amateur', or 'U17'
+      matchesFilter = fighter.category === filterCategory;
+    }
+
+    return matchesSearch && matchesFilter;
+  });
+
+  // The Tabs Configuration
+  const tabs = ["All", "Pro", "Amateur", "U17", "Male", "Female"];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-gray-100 font-sans">
+    <div className="min-h-screen bg-slate-950 text-gray-100 font-sans pb-20">
       
-      {/* HEADER */}
-      <div className="relative bg-slate-900 pt-32 pb-12 text-center border-b border-white/10">
-        <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-2">
-          Sabah <span className="text-yellow-500">Athletes</span>
+      {/* HERO HEADER */}
+      <div className="relative py-20 px-6 text-center overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/20 blur-[120px] rounded-full -z-10"></div>
+        <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white mb-4">
+          Sabah <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Athletes</span>
         </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4">
-          The official roster of Muaythai athletes representing Sabah.
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          The official database of Muay Thai talent in Sabah. Search by name, weight, team, or location.
         </p>
       </div>
 
-      {/* FILTER BUTTONS */}
-      <div className="sticky top-16 z-40 bg-slate-950/95 backdrop-blur-sm border-b border-white/10 py-4">
-        <div className="max-w-7xl mx-auto px-4 flex justify-center gap-4 flex-wrap">
-          {["All", "Pro", "Amateur", "U17"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all ${
-                filter === cat 
-                  ? "bg-yellow-500 text-slate-900 shadow-[0_0_15px_rgba(234,179,8,0.4)]" 
-                  : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* --- SEARCH & FILTER CONTROLS --- */}
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row gap-6 items-center justify-between">
+          
+          {/* FILTER BUTTONS */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setFilterCategory(tab)}
+                className={`px-5 py-2 rounded-full font-bold text-sm uppercase tracking-wider transition-all ${
+                  filterCategory === tab 
+                    ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/20 scale-105" 
+                    : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
-      {/* GRID */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredFighters.map((fighter) => (
-            <Link href={`/fighters/${fighter.id}`} key={fighter.id}>
-              {/* Logic: If U17, use special card. If Pro/Amateur, use standard card. */}
-              {fighter.category === "U17" ? (
-                <U17Card data={fighter} />
-              ) : (
-                <StandardCard data={fighter} />
-              )}
-            </Link>
-          ))}
-        </div>
-      </div>
+          {/* SEARCH BAR */}
+          <div className="relative w-full md:w-80">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-slate-950 border border-slate-700 text-white px-5 py-3 rounded-xl focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition"
+            />
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">🔍</span>
+          </div>
 
-      {/* BACK BUTTON */}
-      <div className="text-center pb-10">
-        <Link href="/" className="text-gray-500 hover:text-white transition flex items-center justify-center gap-2">
-          <span>←</span> Back to Home
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-// --- 🟦 U17 CARD DESIGN (No Picture, Just Info) ---
-function U17Card({ data }) {
-  return (
-    <div className="h-full min-h-[180px] bg-slate-900 rounded-2xl border border-slate-800 p-6 flex flex-col justify-center items-start hover:border-blue-500 hover:bg-slate-800 transition-all duration-300 group">
-      {/* Category Badge */}
-      <span className="text-[10px] font-black bg-blue-600/20 text-blue-400 px-2 py-1 rounded uppercase tracking-widest mb-4">
-        U17 Junior
-      </span>
-
-      {/* Name */}
-      <h3 className="text-xl font-black text-white uppercase leading-tight mb-2 group-hover:text-blue-400 transition-colors">
-        {data.name}
-      </h3>
-
-      {/* Gym */}
-      <div className="flex items-center gap-2 mb-4 opacity-80">
-        <span className="h-1 w-4 bg-blue-500 rounded-full"></span>
-        <span className="text-xs font-bold text-gray-300 uppercase tracking-wider truncate">
-          {data.team}
-        </span>
-      </div>
-
-      {/* Age Badge */}
-      <div className="mt-auto pt-4 border-t border-white/10 w-full flex justify-between items-center text-xs font-bold text-gray-500 uppercase tracking-widest">
-        <span>Age: {data.age}</span>
-        <span>Sabah</span>
-      </div>
-    </div>
-  );
-}
-
-// --- 🏆 STANDARD CARD (Pro/Amateur with Photo) ---
-function StandardCard({ data }) {
-  return (
-    <div className="group relative bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-yellow-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)] h-full">
-      <div className="relative h-[450px] w-full bg-slate-800">
-        <img 
-          src={data.image} 
-          alt={data.name} 
-          onError={(e) => {
-            e.target.onerror = null; 
-            e.target.style.display = 'none'; 
-            e.target.nextSibling.style.display = 'flex'; 
-          }}
-          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
-        />
-        <div className="hidden absolute inset-0 w-full h-full bg-slate-800 flex-col items-center justify-center text-slate-700">
-           <span className="text-4xl">🥊</span>
-           <span className="text-xs mt-2 uppercase font-bold">No Image</span>
         </div>
         
-        <div className="absolute top-4 right-4 z-20">
-          <span className={`text-xs font-black px-3 py-1 rounded-md uppercase tracking-widest shadow-lg ${
-            data.category === 'Pro' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
-          }`}>
-            {data.category}
-          </span>
+        {/* RESULT COUNT */}
+        <div className="mt-4 text-gray-500 text-sm font-bold uppercase tracking-widest text-right">
+          Showing {filteredFighters.length} Fighters
         </div>
+      </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pt-20"></div>
-        <div className="absolute bottom-0 left-0 w-full p-6 z-20">
-          <div className="flex items-center gap-2 mb-2 opacity-80">
-            <span className="h-1 w-6 bg-yellow-500 rounded-full"></span>
-            <span className="text-xs font-bold text-gray-300 uppercase tracking-wider truncate">
-              {data.team}
-            </span>
+      {/* --- FIGHTER GRID --- */}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        {filteredFighters.length > 0 ? (
+          filteredFighters.map((fighter) => (
+            <Link 
+              key={fighter.id} 
+              href={`/fighters/${fighter.id}`}
+              className="group block bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2"
+            >
+              {/* Image Container */}
+              <div className="relative h-96 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 opacity-80" />
+                <img 
+                  src={fighter.image} 
+                  alt={fighter.name} 
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                />
+                
+                {/* Badge */}
+                <div className="absolute top-4 right-4 z-20">
+                  <span className={`text-xs font-black px-3 py-1 rounded-md uppercase tracking-widest shadow-lg ${
+                    fighter.category === 'Pro' ? 'bg-yellow-500 text-black' : 
+                    fighter.category === 'U17' ? 'bg-blue-500 text-white' : 
+                    'bg-white text-black'
+                  }`}>
+                    {fighter.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Info Card */}
+              <div className="p-6 relative z-20 -mt-20">
+                {fighter.nickname && (
+                  <p className="text-yellow-500 text-xs font-bold uppercase tracking-widest mb-1">
+                    "{fighter.nickname}"
+                  </p>
+                )}
+                <h2 className="text-2xl font-black text-white uppercase leading-none mb-2 group-hover:text-yellow-400 transition-colors">
+                  {fighter.name}
+                </h2>
+                <p className="text-gray-400 text-sm font-medium mb-4">{fighter.team}</p>
+                
+                <div className="flex justify-between items-center border-t border-slate-800 pt-4">
+                  <div className="text-center">
+                    <p className="text-[10px] text-gray-500 uppercase font-bold">Record</p>
+                    <p className="text-white font-bold">{fighter.record}</p>
+                  </div>
+                  <div className="text-center border-l border-slate-800 pl-4">
+                    <p className="text-[10px] text-gray-500 uppercase font-bold">Weight</p>
+                    <p className="text-white font-bold">{fighter.weight}</p>
+                  </div>
+                  <div className="text-center border-l border-slate-800 pl-4">
+                    <p className="text-[10px] text-gray-500 uppercase font-bold">Age</p>
+                    <p className="text-white font-bold">{fighter.age}</p>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          /* EMPTY STATE */
+          <div className="col-span-full py-20 text-center">
+            <h3 className="text-2xl font-bold text-gray-600 mb-2">No fighters found</h3>
+            <p className="text-gray-500">Try adjusting your search or filter.</p>
+            <button 
+              onClick={() => {setSearchTerm(""); setFilterCategory("All");}}
+              className="mt-6 text-yellow-500 hover:underline"
+            >
+              Clear all filters
+            </button>
           </div>
-          <div className="mb-4">
-             {data.nickname && (
-               <p className="text-yellow-500 text-sm font-black italic uppercase tracking-wider mb-1">
-                 "{data.nickname}"
-               </p>
-             )}
-             <h3 className="text-2xl font-black text-white uppercase leading-none">
-               {data.name}
-             </h3>
-          </div>
-          <div className="grid grid-cols-3 gap-2 border-t border-white/20 pt-4 text-center">
-            <div>
-               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Record</p>
-               <p className="text-white font-bold text-sm">{data.record}</p>
-            </div>
-            <div className="border-l border-white/10">
-               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Weight</p>
-               <p className="text-white font-bold text-sm">{data.weight}</p>
-            </div>
-            <div className="border-l border-white/10">
-               <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Age</p>
-               <p className="text-white font-bold text-sm">{data.age}</p>
-            </div>
-          </div>
-        </div>
+        )}
+
       </div>
     </div>
   );
