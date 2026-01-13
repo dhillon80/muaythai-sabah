@@ -73,7 +73,7 @@ export const fighters = [
     nickname: "Showtime",
     team: "Team Karabaw Tamparuli",
     coach: "Kenny Jafili",
-    managerContact: "60168013530",
+    managerContact: "601126237463", 
     weight: "60 KG",
     height: "173 CM",
     age: "24",
@@ -90,7 +90,7 @@ export const fighters = [
     nickname: "D. Garagas",
     team: "Garagas Fight Team",
     coach: "Head Coach", 
-    managerContact: "60168013530",
+    managerContact: "601126695935", // ✅ Updated Number
     weight: "55-57 KG",
     height: "162 CM",
     age: "32",
@@ -100,6 +100,23 @@ export const fighters = [
     nationality: "Sabah",
     image: "/hasbullah.jpeg",
     bio: "A veteran of the sport with an impressive 14-4 record, Hasbullah 'D. Garagas' brings experience and power to the ring."
+  },
+  {
+    id: "rifhan-wazizi",
+    name: "Rifhan Wazizi Bin Irwan",
+    nickname: "Hemo",
+    team: "Hemo Fight Camp Kudat",
+    coach: "Coach Neo", // ✅ Updated Coach
+    managerContact: "60102120870", // ✅ Updated Number
+    weight: "51 KG",
+    height: "160 CM",
+    age: "18",
+    gender: "Male",
+    record: "1W - 1L - 0D",
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/rifhan.jpeg", 
+    bio: "Representing Kudat, 'Hemo' is a young prodigy with extensive experience across Muaythai, Boxing, and Kickboxing. He is a multiple-time Gold Medalist (2024 Sabah Muay Thai C'ship, Cs5 C'ship) and holds a massive combined combat record of over 30 fights."
   },
   {
     id: "shah-aryan",
