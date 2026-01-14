@@ -4,14 +4,14 @@ export const fighters = [
     id: "muhammad-rahmad",
     name: "Muhammad Rahmad Bin Raman Ali Chanra",
     nickname: "Mad Kool",
-    team: "66 Unicorn (Sandakan)", // Shortened to fix the "messy" wrapping
+    team: "66 Unicorn (Sandakan)",
     coach: "Maman Ajmain",
     managerContact: "60109417666", 
     weight: "45-48 KG",
     height: "163 CM",
     age: "22",
     gender: "Male",
-    record: "4W - 0L - 0D (Pro) | 16W - 5L (Amateur)", 
+    record: "Pro: 4-0 | Amat: 16-5", // Shortened to fix the "messy" overlap
     category: "Pro",
     nationality: "Sabah",
     image: "/rahmad-madkool.jpeg",
@@ -28,7 +28,7 @@ export const fighters = [
     height: "157 CM",
     age: "20",
     gender: "Female",
-    record: "0W - 1L (Pro) | 8W - 4L (Amateur)", 
+    record: "Pro: 0-1 | Amat: 8-4", // Shortened to fix the "messy" overlap
     category: "Pro & Amateur",
     nationality: "Sabah",
     image: "/stacy-poong.jpeg",
