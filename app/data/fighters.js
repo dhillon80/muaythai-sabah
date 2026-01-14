@@ -18,7 +18,7 @@ export const fighters = [
     bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Adinata, he brings a perfect record and strong technical skills to the professional circuit."
   },
   {
-    id: "muhammad-rahmad",
+    id: "muhammad-rahmad-combat",
     name: "Muhammad Rahmad Bin Raman Ali Chanra",
     nickname: "Mad Kool",
     team: "66 Unicorn (Sandakan)",
@@ -35,7 +35,7 @@ export const fighters = [
     bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories. He is the 2025 VW Fighting Championship Professional Gold Medalist and 2024 SUKMA Silver Medalist."
   },
   {
-    id: "stacy-poong",
+    id: "stacy-poong-combat",
     name: "Stacy Poong Dai Hee",
     nickname: "Stacy",
     team: "AWP Martial Art Academy",
@@ -47,9 +47,9 @@ export const fighters = [
     gender: "Female",
     record: "Pro: 0-1 | Amat: 8-4", 
     category: "Pro & Amateur",
-    nationality: "Sabah",
+    nationality: "Kota Marudu",
     image: "/stacy-poong.jpeg",
-    bio: "Representing Kota Marudu, Stacy is a highly versatile fighter competing in both Professional and Amateur circuits. She is a 2024 SUKMA Sarawak Gold Medalist and a proven champion with multiple national-level gold medals."
+    bio: "Representing Kota Marudu and AWP Martial Art Academy, Stacy is a highly versatile fighter competing in both Professional and Amateur circuits. She is a 2024 SUKMA Sarawak Gold Medalist and a proven champion with multiple national-level gold medals."
   },
   {
     id: "areen-khan",
@@ -274,5 +274,29 @@ export const fighters = [
     nationality: "Sabah",
     image: "/johanitasyah.jpeg", 
     bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work. 'TasyahJohns' has built an impressive resume with Gold medal victories at the 2025 National Championship Pra Sukma, Elopura Rise of Champion, and the Fight Fest 2024."
+  },
+
+  // --- MUAYTHAI ARTS (MAI MUAY) ---
+  {
+    id: "stacy-poong-arts",
+    name: "Stacy Poong Dai Hee",
+    nickname: "Versatile Athlete",
+    team: "AWP Martial Art Academy",
+    coach: "Addyana June Adangku",
+    managerContact: "601152599024", 
+    weight: "N/A",
+    height: "157 CM",
+    age: "20",
+    gender: "Female",
+    record: "Mai Muay", 
+    category: "Arts",
+    nationality: "Kota Marudu",
+    image: "/stacy-arts.jpeg",
+    achievements: [
+      "2023 - Gold (SAGA)",
+      "2025 - Gold Culture Heritage",
+      "2025 - Silver SAGA Tawau"
+    ],
+    bio: "A versatile athlete with a deep passion for both combat and the traditional arts. Representing Kota Marudu and AWP Martial Art Academy, Stacy excels in Mai Muay technical performances alongside her competitive fighting career."
   }
 ];
