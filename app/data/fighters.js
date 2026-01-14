@@ -5,7 +5,7 @@ export const fighters = [
     name: "Milan Peneh",
     nickname: "Milan Peneh",
     team: "Stallone Fitness",
-    coach: "Adinata",
+    coach: "Mohd Fadzirllah", // Updated Coach Name
     managerContact: "60169774685", 
     weight: "65 KG",
     height: "167 CM",
@@ -15,7 +15,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/milan.jpeg",
-    bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Adinata, he brings a perfect record and strong technical skills to the professional circuit."
+    bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Mohd Fadzirllah, he brings a perfect record and strong technical skills to the professional circuit."
   },
   {
     id: "muhammad-rahmad-combat",
