@@ -443,5 +443,53 @@ export const fighters = [
       "2025 - Silver SAGA Tawau"
     ],
     bio: "A versatile athlete with a deep passion for both combat and the traditional arts. Representing Kota Marudu and AWP Martial Art Academy, Stacy excels in Mai Muay technical performances alongside her competitive fighting career."
+  },
+  // NEW MUAYTHAI ARTS PROFILES
+  {
+    id: "auryelle-xzandra",
+    name: "Auryelle Xzandra Bobby",
+    nickname: "",
+    team: "AWP Martial Art Academy",
+    coach: "Addyana June Adangku",
+    managerContact: "601152599024",
+    weight: "N/A",
+    height: "N/A",
+    age: "16",
+    gender: "Female",
+    record: "Waikru",
+    category: "Arts",
+    nationality: "Sabah",
+    image: "/auryelle.jpeg",
+    achievements: [
+      "2025 - Silver (Asian Youth Games Bahrain)",
+      "2025 - Gold (ASEAN 1st Game KL)",
+      "2025 - Gold (SAGA Games Tawau)",
+      "2025 - Gold (Sabah Open KB)",
+      "2025 - Silver (Kebangsaan)",
+      "2024 - Bronze (Kebangsaan)"
+    ],
+    bio: "Representing AWP Martial Art Academy, Auryelle Xzandra Bobby is a highly decorated Waikru specialist in the youth division. With a massive silver medal finish at the 2025 Asian Youth Games in Bahrain, she is recognized as one of the top emerging talents in Muaythai Arts at both national and international levels."
+  },
+  {
+    id: "addy-ardryqa",
+    name: "Addy Ardryqa Bin Arman",
+    nickname: "",
+    team: "AWP Martial Art Academy",
+    coach: "Addyana June Adangku",
+    managerContact: "601152599024",
+    weight: "N/A",
+    height: "N/A",
+    age: "14",
+    gender: "Male",
+    record: "Waikru",
+    category: "Arts",
+    nationality: "Sabah",
+    image: "/addy-ardryqa.jpeg",
+    achievements: [
+      "2025 - Gold (ASEAN 1st Game KL)",
+      "2025 - Gold (Culture Heritage)",
+      "2025 - Gold (Sabah Open KB)"
+    ],
+    bio: "A rising star in the Muaythai Arts world, Addy Ardryqa Bin Arman has already achieved significant gold medal success at the ASEAN level. Training under Coach Addyana June Adangku, he is establishing himself as a key figure for the future of Sabah's cultural Muaythai heritage."
   }
 ];
