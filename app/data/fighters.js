@@ -1,6 +1,23 @@
 export const fighters = [
   // --- PRO & MULTI-CLASS FIGHTERS ---
   {
+    id: "milan-peneh",
+    name: "Milan Peneh",
+    nickname: "Milan Peneh",
+    team: "Stallone Fitness",
+    coach: "Adinata",
+    managerContact: "60169774685", 
+    weight: "65 KG",
+    height: "167 CM",
+    age: "22",
+    gender: "Male",
+    record: "1W - 0L - 0D", 
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/milan.jpeg",
+    bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Adinata, he brings a perfect record and strong technical skills to the professional circuit."
+  },
+  {
     id: "muhammad-rahmad",
     name: "Muhammad Rahmad Bin Raman Ali Chanra",
     nickname: "Mad Kool",
@@ -11,7 +28,7 @@ export const fighters = [
     height: "163 CM",
     age: "22",
     gender: "Male",
-    record: "Pro: 4-0 | Amat: 16-5", // Shortened to fix the "messy" overlap
+    record: "Pro: 4-0 | Amat: 16-5", 
     category: "Pro",
     nationality: "Sabah",
     image: "/rahmad-madkool.jpeg",
@@ -28,7 +45,7 @@ export const fighters = [
     height: "157 CM",
     age: "20",
     gender: "Female",
-    record: "Pro: 0-1 | Amat: 8-4", // Shortened to fix the "messy" overlap
+    record: "Pro: 0-1 | Amat: 8-4", 
     category: "Pro & Amateur",
     nationality: "Sabah",
     image: "/stacy-poong.jpeg",
