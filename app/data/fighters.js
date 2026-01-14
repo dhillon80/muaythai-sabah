@@ -378,7 +378,7 @@ export const fighters = [
     height: "N/A",
     age: "17",
     gender: "Female",
-    record: "Wai Kru Specialist",
+    record: "Waikru",
     category: "Arts",
     nationality: "Malaysia",
     image: "/ariesya-dania.jpg",
