@@ -1,5 +1,39 @@
 export const fighters = [
-  // --- PRO FIGHTERS ---
+  // --- PRO & MULTI-CLASS FIGHTERS ---
+  {
+    id: "muhammad-rahmad",
+    name: "Muhammad Rahmad Bin Raman Ali Chanra",
+    nickname: "Mad Kool",
+    team: "66 Unicorn Muaythai Sandakan",
+    coach: "Club Coach", 
+    managerContact: "", 
+    weight: "45-48 KG",
+    height: "163 CM",
+    age: "22",
+    gender: "Male",
+    record: "4W - 0L - 0D (Pro) | 16W - 5L (Amateur)", 
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/rahmad-madkool.jpeg",
+    bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories. He is the 2025 VW Fighting Championship Professional Gold Medalist and 2024 SUKMA Silver Medalist."
+  },
+  {
+    id: "stacy-poong",
+    name: "Stacy Poong Dai Hee",
+    nickname: "Stacy",
+    team: "AWP Martial Art Academy",
+    coach: "Addyana June Adangku",
+    managerContact: "60189717559", 
+    weight: "50-55 KG",
+    height: "157 CM",
+    age: "20",
+    gender: "Female",
+    record: "0W - 1L (Pro) | 8W - 4L (Amateur)", 
+    category: "Pro & Amateur",
+    nationality: "Sabah",
+    image: "/stacy-poong.jpeg",
+    bio: "Representing Kota Marudu, Stacy is a highly versatile fighter competing in both Professional and Amateur circuits. She is a 2024 SUKMA Sarawak Gold Medalist and a proven champion with multiple national-level gold medals."
+  },
   {
     id: "areen-khan",
     name: "Areen Khan Shahzam",
@@ -140,7 +174,7 @@ export const fighters = [
     id: "jasper-lee",
     name: "Jasper Lee",
     nickname: "", 
-    team: "Uppercross Muay Thai Club",
+    team: "Uppercross Muay Thai",
     coach: "Sin Yee",
     managerContact: "601116043075", 
     weight: "54 KG",
@@ -157,7 +191,7 @@ export const fighters = [
     id: "johnathan-chung",
     name: "Johnathan Chung",
     nickname: "",
-    team: "Uppercross Muay Thai Club",
+    team: "Uppercross Muay Thai",
     coach: "Sin Yee", 
     managerContact: "601116043075", 
     weight: "54 KG",
@@ -174,7 +208,7 @@ export const fighters = [
     id: "tu-sim-bee",
     name: "Tu Sim Bee",
     nickname: "", 
-    team: "Uppercross Muay Thai Club",
+    team: "Uppercross Muay Thai",
     coach: "Sin Yee",
     managerContact: "601116043075", 
     weight: "43-46 KG",
@@ -185,7 +219,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/tusimbee.jpeg", 
-    video: "/tusimbee.mp4", // 📹 VIDEO ENABLED
+    video: "/tusimbee.mp4", 
     bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division. She holds a professional record of 3 Wins and 3 Losses, with a total combat experience of 12 fights."
   },
 
