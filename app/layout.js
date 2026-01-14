@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from 'next/link';
 import "./globals.css";
+import Navbar from "./components/Navbar"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,32 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Muaythai Sabah",
-  description: "Informasi Kejohanan dan pembangunan Muaythai di Sabah",
+  title: "Muaythai Sabah | Platform Rasmi",
+  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <nav className="bg-blue-600 p-4 shadow-md">
-          <div className="container mx-auto flex flex-col items-center">
-            <div className="text-white font-bold text-xl mb-2">
-              <Link href="/" className="hover:text-gray-200">Muaythai Sabah</Link>
-            </div>
-            <div className="flex flex-wrap justify-center gap-6 text-white text-base">
-              <Link href="/" className="hover:text-gray-200">Home</Link>
-              <Link href="/newsletter" className="hover:text-gray-200">Newsletter</Link>
-              <Link href="/fighter-profile" className="hover:text-gray-200">Fighter Profiles</Link>
-              <Link href="/events" className="hover:text-gray-200">Events</Link>
-              <Link href="/coaching" className="hover:text-gray-200">Coaching</Link>
-            </div>
-          </div>
-        </nav>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-gray-100 flex flex-col min-h-screen`}>
+        
+        {/* Navbar */}
+        <Navbar />
 
-        <main className="container mx-auto p-6">
+        {/* Main Content Area - flex-grow ensures footer stays at bottom */}
+        <main className="flex-grow">
           {children}
         </main>
+
+        {/* Footer with Professional Credit */}
+        <footer className="bg-slate-950 py-8 text-center text-gray-500 text-sm border-t border-white/10 mt-auto">
+          <div className="max-w-7xl mx-auto px-4">
+            <p>© {new Date().getFullYear()} Persatuan Muaythai Negeri Sabah. All rights reserved.</p>
+            <p className="mt-2">
+              Designed & Developed by{" "}
+              <a 
+                href="https://web.facebook.com/dhillon.tahing/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-yellow-500 font-bold hover:text-yellow-400 transition hover:underline"
+              >
+                Dhillon Tahing
+              </a>
+            </p>
+          </div>
+        </footer>
+
       </body>
     </html>
   );

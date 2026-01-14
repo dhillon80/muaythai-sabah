@@ -1,71 +1,188 @@
-import Image from 'next/image';
+"use client";
+
 import Link from 'next/link';
 
 export default function EventPage() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="text-center p-8 bg-white rounded-lg shadow-lg text-black overflow-x-auto">
+    <div className="min-h-screen bg-slate-950 text-gray-100 font-sans p-4 md:p-8">
+      
+      <div className="max-w-4xl mx-auto">
 
-        <h1 className="text-4xl font-bold text-black">Upcoming Muaythai Events</h1>
-        <p className="mt-4 text-lg">Register for our exciting events!</p>
+        {/* --- HEADER SECTION (Fixed Spacing) --- */}
+        {/* Changed 'pt-8' to 'pt-32' to push it down away from the Navbar */}
+        <div className="text-center mb-12 pt-32">
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
+            Upcoming Events <span className="text-yellow-500">2026</span>
+          </h1>
+          <p className="text-gray-400 text-lg">
+            Mark your calendars for an exciting year of Muaythai!
+          </p>
+        </div>
 
-        {/* Event List */}
-        <div className="mt-8">
+        {/* EVENTS TIMELINE */}
+        <div className="space-y-6">
 
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Cultural and Heritage Challenge 2025</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black mb-4">Wai Kru and MaiMuay: 24th–25th May 2025, PLN, Taman Delima, Penampang</p>
-            <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSefemmZ2L7WPpt437g4kXberrSEWHXoG2i3XIlda_mNuO_AqA/viewform"
-              target="_blank"
-              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg inline-block"
-            >
-              Register Now
-            </Link>
+          {/* 1. Young Guns U17 - POSTPONED */}
+          <EventCard 
+            month="FEB" 
+            year="2026"
+            title="Sabah Muaythai Expo - The Young Guns U17"
+            venue="Kota Kinabalu"
+            status="POSTPONED"
+          />
+
+          {/* 2. Cultural and Heritage */}
+          <EventCard 
+            month="APR" 
+            year="2026"
+            title="Sabah Muaythai Expo - Cultural and Heritage"
+            venue="Kota Kinabalu"
+            status="TBA SOON" 
+          />
+
+          {/* 3. Ladies Fight */}
+          <EventCard 
+            month="MAY" 
+            year="2026"
+            title="Sabah Muaythai Expo - Ladies Fight"
+            subtitle="(All Ladies Tournament)"
+            venue="Kota Kinabalu"
+            status="TBA SOON"
+          />
+
+          {/* 4. IFMA Senior World Championship */}
+          <EventCard 
+            month="MAY" 
+            year="2026"
+            title="IFMA Senior World Championship Malaysia"
+            venue="Kuala Lumpur"
+            status="INTERNATIONAL"
+            highlight={true} // Special highlight for World Championship
+          />
+
+          {/* 5. Rookie Challenge Vol 2 */}
+          <EventCard 
+            month="JUN" 
+            year="2026"
+            title="Sabah Muaythai Expo - The Rookie Challenge Vol 2"
+            venue="Kota Kinabalu"
+            status="TBA SOON"
+          />
+
+          {/* 6. Kejohanan Muaythai Kebangsaan */}
+          <EventCard 
+            month="JUL" 
+            year="2026"
+            title="Kejohanan Muaythai Kebangsaan 2026"
+            venue="Kuala Lumpur"
+            status="NATIONAL"
+          />
+
+          {/* 7. SUKMA Selangor */}
+          <EventCard 
+            month="AUG" 
+            year="2026"
+            title="Sukan Malaysia (SUKMA) Selangor"
+            venue="Selangor"
+            status="MAJOR EVENT"
+            highlight={true}
+          />
+
+        </div>
+
+        {/* COMING SOON SECTION */}
+        <div className="mt-16 border-t border-slate-800 pt-10">
+          <h2 className="text-3xl font-black text-white text-center mb-8 uppercase tracking-tighter">
+            Coming <span className="text-yellow-500">Soon</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-slate-900/50 border border-slate-700 p-6 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition">
+              <div className="bg-yellow-500/20 p-3 rounded-full text-yellow-500 text-2xl">★</div>
+              <div>
+                <h3 className="text-xl font-bold text-white">Debut Monthly Pro Fight</h3>
+                <p className="text-gray-400 text-sm">Professional Circuit</p>
+              </div>
+            </div>
+
+            <div className="bg-slate-900/50 border border-slate-700 p-6 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition">
+              <div className="bg-blue-500/20 p-3 rounded-full text-blue-500 text-2xl">★</div>
+              <div>
+                <h3 className="text-xl font-bold text-white">Debut Monthly Amateur Fight</h3>
+                <p className="text-gray-400 text-sm">Development Circuit</p>
+              </div>
+            </div>
           </div>
+          
+          <p className="text-center text-gray-500 mt-6 italic">
+            More details will be updated soon. Stay tuned!
+          </p>
+        </div>
 
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Rookie Challenge 2025</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">7th–8th June 2025, PLN, Taman Delima, Penampang</p>
-            <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeWj1ZsSscIt9lv7jsWoarlR1h4w9uyNUUrPPdl6ylH1M1i0w/viewform"
-              target="_blank"
-              className="text-white bg-black hover:bg-gray-900 px-4 py-2 rounded-lg inline-block"
-            >
-              Register Now
-            </Link>
-          </div>
+        {/* Back Button */}
+        <div className="mt-16 text-center pb-10">
+          <Link href="/" className="text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+            <span>←</span> Back to Home
+          </Link>
+        </div>
 
-          <h2 className="text-2xl font-semibold text-black">Sabah Muaythai Expo, Young Guns Rising</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">28th–29th June 2025, PLN, Taman Delima, Penampang</p>
-          </div>
+      </div>
+    </div>
+  );
+}
 
-          <h2 className="text-2xl font-semibold text-black">𝗠𝘂𝗮𝘆𝘁𝗵𝗮𝗶 𝗦𝘂𝗸𝗮𝗻 𝗧𝗲𝗺𝗽𝘂𝗿 𝗞𝗲𝗯𝗮𝗻𝗴𝘀𝗮𝗮𝗻</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">(𝗣𝗿𝗮 𝗦𝘂𝗸𝗺𝗮): 24th–27th July 2025, Axiata Stadium, Bukit Jalil</p>
-          </div>
+// Reusable Event Card Component
+function EventCard({ month, year, title, subtitle, venue, status, highlight }) {
+  const isPostponed = status === "POSTPONED";
 
-          <h2 className="text-2xl font-semibold text-black">D1 Championship, The Arena Has Risen</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">August 2025 (Tentative), Venue: TBA</p>
-          </div>
+  return (
+    <div className={`
+      relative overflow-hidden rounded-2xl p-1 transition-all duration-300 hover:-translate-y-1
+      ${highlight 
+        ? 'bg-gradient-to-r from-yellow-500 to-amber-600 shadow-[0_0_20px_rgba(234,179,8,0.3)]' 
+        : 'bg-slate-800 hover:bg-slate-700'}
+    `}>
+      <div className="bg-slate-900 h-full rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 relative z-10">
+        
+        {/* Date Badge */}
+        <div className={`
+          flex flex-col items-center justify-center min-w-[100px] h-[100px] rounded-2xl border-2
+          ${isPostponed ? 'bg-red-900/20 border-red-500' : 'bg-slate-800 border-slate-700'}
+        `}>
+          <span className={`text-3xl font-black ${isPostponed ? 'text-red-500' : 'text-white'}`}>{month}</span>
+          <span className="text-sm text-gray-400 font-bold">{year}</span>
+        </div>
 
-          <h2 className="text-2xl font-semibold text-black">JUANG FIGHT: CONQUER THE ARENA</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">6th–7th September 2025, Dewan Sri Putatan</p>
-          </div>
-
-          <h2 className="text-2xl font-semibold text-black">VW Fighting Championship</h2>
-          <div className="bg-blue-600 p-4 rounded-lg mb-6">
-            <p className="text-lg text-black">22nd–24th August 2025, Kompleks Sukan Sandakan</p>
-          </div>
-
-          <h2 className="text-2xl font-semibold text-black">Sabah Games (SAGA) Muaythai</h2>
-          <div className="bg-blue-600 p-4 rounded-lg">
-            <p className="text-lg text-black">11th–17th October 2025, Tawau, Sabah</p>
+        {/* Content */}
+        <div className="flex-grow text-center md:text-left">
+          {isPostponed && (
+            <span className="inline-block bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 animate-pulse">
+              ⚠️ POSTPONED TO A LATER DATE
+            </span>
+          )}
+          
+          <h3 className="text-2xl font-bold text-white leading-tight mb-1">{title}</h3>
+          {subtitle && <p className="text-gray-400 text-sm mb-1">{subtitle}</p>}
+          
+          <div className="flex items-center justify-center md:justify-start gap-2 text-gray-400 mt-2">
+            <span>📍</span>
+            <span className="font-medium">{venue}</span>
           </div>
         </div>
+
+        {/* Status Badge (Right Side) */}
+        {!isPostponed && (
+          <div className="min-w-[120px] text-center">
+             <span className={`
+               text-xs font-bold px-3 py-1 rounded-full border
+               ${highlight 
+                 ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500' 
+                 : 'bg-blue-500/10 text-blue-400 border-blue-500'}
+             `}>
+               {status}
+             </span>
+          </div>
+        )}
 
       </div>
     </div>
