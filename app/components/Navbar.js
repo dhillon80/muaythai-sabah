@@ -2,22 +2,37 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { supabase } from "../lib/supabase"; 
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState(null);
   const pathname = usePathname();
+  const router = useRouter();
 
-  // Detect scroll to change navbar style
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Check user session
+    supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
+    
+    // Watch auth state
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      authListener.subscription.unsubscribe();
+    };
   }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
+    { name: "Feed", href: "/feed" },
     { name: "Fighters", href: "/fighters" },
     { name: "Directory", href: "/directory" },
     { name: "Events", href: "/events" },
@@ -27,69 +42,91 @@ export default function Navbar() {
   ];
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-6"}`}>
-      <nav className={`max-w-7xl mx-auto px-6 transition-all duration-300 ${
+    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-6"}`}>
+      <nav className={`max-w-[95%] lg:max-w-7xl mx-auto px-6 transition-all duration-500 rounded-full border border-white/10 ${
         scrolled 
-          ? "bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-full mx-4" 
-          : "bg-transparent border-transparent"
+          ? "bg-zinc-950/95 backdrop-blur-xl shadow-2xl" 
+          : "bg-zinc-950/80 backdrop-blur-md" 
       }`}>
+        
         <div className="flex items-center justify-between h-16">
-          
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-black text-white italic tracking-tighter group-hover:scale-105 transition-transform">
-              MUAYTHAI <span className="text-yellow-500 drop-shadow-[0_0_10px_rgba(234,179,8,0.8)]">SABAH</span>
+          <Link href="/" className="group shrink-0">
+            <span className="text-xl lg:text-2xl font-black text-white italic tracking-tighter uppercase group-hover:scale-105 transition-all duration-300">
+              MUAYTHAI <span className="text-yellow-500 drop-shadow-[0_0_10px_rgba(234,179,8,0.4)]">SABAH</span>
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Desktop Links */}
+          <div className="hidden xl:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 overflow-hidden group ${
-                  pathname === link.href
-                    ? "text-slate-900 bg-yellow-500 shadow-[0_0_20px_rgba(234,179,8,0.6)]"
+                className={`relative px-3 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 group overflow-hidden ${
+                  pathname === link.href 
+                    ? "text-black bg-yellow-500 shadow-[0_0_20px_rgba(234,179,8,0.4)]" 
                     : "text-gray-300 hover:text-white"
                 }`}
               >
                 <span className="relative z-10">{link.name}</span>
-                {/* Cool hover slide effect */}
-                {pathname !== link.href && (
-                  <span className="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                )}
               </Link>
             ))}
+
+            {/* AUTH BUTTONS */}
+            {user ? (
+              <div className="flex items-center gap-2 ml-4 border-l border-white/20 pl-4">
+                <Link href="/profile/edit" className="text-white hover:text-yellow-500 text-[10px] font-black uppercase tracking-widest transition-colors">
+                    My Profile
+                </Link>
+                <button onClick={() => supabase.auth.signOut()} className="bg-red-500/10 border border-red-500/30 text-red-500 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all">
+                    Logout
+                </button>
+              </div>
+            ) : (
+              /* --- 🌟 UPDATED BUTTON HERE --- */
+              <Link href="/login" className="ml-4 bg-yellow-500 text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                Login / Sign Up
+              </Link>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu Icon */}
+          <div className="xl:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white p-2">
               <div className="space-y-1.5">
-                <span className={`block w-8 h-0.5 bg-yellow-500 transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-                <span className={`block w-8 h-0.5 bg-white transition-opacity ${isOpen ? "opacity-0" : ""}`}></span>
-                <span className={`block w-8 h-0.5 bg-yellow-500 transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+                <span className={`block w-8 h-0.5 bg-yellow-500 transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+                <span className={`block w-8 h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}></span>
+                <span className={`block w-8 h-0.5 bg-yellow-500 transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
               </div>
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Full Screen Mobile Menu */}
-      <div className={`fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 transform transition-transform duration-500 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+      {/* Fullscreen Mobile Menu */}
+      <div className={`fixed inset-0 bg-zinc-950/98 backdrop-blur-2xl z-40 transform transition-transform duration-700 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-3xl font-black text-white hover:text-yellow-500 transition-colors uppercase tracking-widest"
-            >
+            <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className={`text-3xl font-black uppercase italic tracking-widest transition-all ${pathname === link.href ? "text-yellow-500" : "text-white hover:text-yellow-500"}`}>
               {link.name}
             </Link>
           ))}
-          <button onClick={() => setIsOpen(false)} className="mt-8 text-gray-500 text-sm uppercase tracking-widest hover:text-white">Close Menu</button>
+          
+          {user ? (
+            <div className="flex flex-col items-center gap-6 mt-8">
+                <Link href="/profile/edit" onClick={() => setIsOpen(false)} className="text-yellow-500 font-black text-xl uppercase italic border-b border-yellow-500/30 pb-1">
+                    My Profile / Edit
+                </Link>
+                <button onClick={() => { supabase.auth.signOut(); setIsOpen(false); }} className="text-red-500 font-black text-xl uppercase italic">
+                    Logout
+                </button>
+            </div>
+          ) : (
+            /* --- 🌟 UPDATED MOBILE BUTTON HERE --- */
+            <Link href="/login" onClick={() => setIsOpen(false)} className="text-yellow-500 font-black text-xl uppercase italic">
+                Login / Sign Up
+            </Link>
+          )}
         </div>
       </div>
     </div>

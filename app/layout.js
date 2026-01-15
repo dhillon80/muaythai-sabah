@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// IMPORT YOUR COMPONENT BACK
 import Navbar from "./components/Navbar"; 
 
 const geistSans = Geist({
@@ -19,32 +20,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-gray-100 flex flex-col min-h-screen`}>
+    <html lang="en" className="scroll-smooth">
+      {/* Deepest Grey Theme */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0b] text-gray-100 flex flex-col min-h-screen`}>
         
-        {/* Navbar */}
+        {/* USE THE NAVBAR COMPONENT */}
         <Navbar />
 
-        {/* Main Content Area - flex-grow ensures footer stays at bottom */}
-        <main className="flex-grow">
+        {/* Padding-top (pt-32) pushes content down so it doesn't hide behind the Navbar */}
+        <main className="flex-grow pt-32">
           {children}
         </main>
 
-        {/* Footer with Professional Credit */}
-        <footer className="bg-slate-950 py-8 text-center text-gray-500 text-sm border-t border-white/10 mt-auto">
+        <footer className="bg-[#0a0a0b] py-12 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] border-t border-white/5 mt-auto">
           <div className="max-w-7xl mx-auto px-4">
-            <p>© {new Date().getFullYear()} Persatuan Muaythai Negeri Sabah. All rights reserved.</p>
-            <p className="mt-2">
-              Designed & Developed by{" "}
-              <a 
-                href="https://web.facebook.com/dhillon.tahing/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-yellow-500 font-bold hover:text-yellow-400 transition hover:underline"
-              >
-                Dhillon Tahing
-              </a>
-            </p>
+            <p>© {new Date().getFullYear()} Persatuan Muaythai Negeri Sabah</p>
+            <p className="mt-4">Developed by <span className="text-yellow-500 font-black uppercase italic">Dhillon Tahing</span></p>
           </div>
         </footer>
 

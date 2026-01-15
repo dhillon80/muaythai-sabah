@@ -28,7 +28,7 @@ export const fighters = [
     height: "163 CM",
     age: "22",
     gender: "Male",
-    record: "Pro: 4-0 | Amat: 16-5",
+    record: "Pro: 4-0 | Muaysports: 16-5",
     category: "Pro",
     nationality: "Sabah",
     image: "/rahmad-madkool.jpeg",
@@ -45,11 +45,11 @@ export const fighters = [
     height: "157 CM",
     age: "20",
     gender: "Female",
-    record: "Pro: 0-1 | Amat: 8-4",
-    category: "Pro & Amateur",
+    record: "Pro: 0-1 | Muaysports: 8-4",
+    category: "Pro & Muaysports",
     nationality: "Kota Marudu",
     image: "/stacy-poong.jpeg",
-    bio: "Representing Kota Marudu and AWP Martial Art Academy, Stacy is a highly versatile fighter competing in both Professional and Amateur circuits. She is a 2024 SUKMA Sarawak Gold Medalist and a proven champion with multiple national-level gold medals."
+    bio: "Representing Kota Marudu and AWP Martial Art Academy, Stacy is a highly versatile fighter competing in both Professional and Muaysports circuits. She is a 2024 SUKMA Sarawak Gold Medalist and a proven champion with multiple national-level gold medals."
   },
   {
     id: "asyraf-danial-combat",
@@ -62,8 +62,8 @@ export const fighters = [
     height: "178 CM",
     age: "20",
     gender: "Male",
-    record: "Pro: 1-2 | Amat: 11-5",
-    category: "Pro & Amateur",
+    record: "Pro: 1-2 | Muaysports: 11-5",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/asyraf-danial.jpeg",
     bio: "Representing Revolution Combat Gym, 'Acapski' is a powerful 67-73kg fighter with 5 stoppage victories (4 RSC, 1 TKO). A versatile powerhouse, he balances a competitive ring career with world-class technical mastery in traditional Muaythai."
@@ -79,11 +79,50 @@ export const fighters = [
     height: "170 CM",
     age: "19",
     gender: "Male",
-    record: "Pro: 0-1 | Amat: 5-4",
-    category: "Pro & Amateur",
+    record: "Pro: 0-1 | Muaysports: 5-4",
+    category: "Pro & Muaysports",
     nationality: "Malaysia",
     image: "/fazreen-ezra.jpeg",
     bio: "Known as 'Ezra,' Fazreen is a versatile fighter who recently transitioned into the professional circuit. With a strong amateur background of 5 wins, he brings technical height and reach to the 54kg division."
+  },
+  {
+    id: "muhammad-izack-dsha",
+    name: "Muhammad Izack Bin Devid",
+    nickname: "Izack",
+    team: "D'Sha Muayfit Tawau",
+    coach: "Sharon Andrea Gerald",
+    managerContact: "601XXXXXXXX", 
+    weight: "55 KG",
+    height: "168 CM",
+    age: "15",
+    gender: "Male",
+    record: "Pro: 1-0 | Muaysports: 24-3",
+    category: "Pro & Muaysports",
+    nationality: "Sabah",
+    image: "/izack.jpeg",
+    bio: "Muhammad Izack is a phenom from Tawau, dominating both professional and Muaysports circuits. A triple gold medalist in 2025 (National, ASEAN, and SAGA), he is an undefeated pro prospect at only 15 years old.",
+    achievements: [
+      "2025 - Gold Medalist National Muaythai",
+      "2025 - Gold Medalist ASEAN GAMES",
+      "2025 - Gold Medalist Sabah Games (SAGA)"
+    ]
+  },
+  {
+    id: "sammy-aaagaras",
+    name: "Yong Feng Yue",
+    nickname: "Sammy",
+    team: "Aaagaras Muay",
+    coach: "Ranjit Singh",
+    managerContact: "60168288773",
+    weight: "45 KG",
+    height: "N/A",
+    age: "17",
+    gender: "Male",
+    record: "Pro: 2-2 | Muaysports: 10-4",
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/sammy.jpeg",
+    bio: "Fighting out of Aaagaras Muay, Sammy is a seasoned competitor in the 45kg division with a strong balance of pro and Muaysports experience."
   },
   {
     id: "areen-khan",
@@ -202,7 +241,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/rifhan.jpeg",
-    bio: "Representing Kudat, 'Hemo' is a young prodigy with extensive experience across Muaythai, Boxing, and Kickboxing. He is a multiple-time Gold Medalist (2024 Sabah Muay Thai C'ship, Cs5 C'ship) and holds a massive combined combat record of over 30 fights."
+    bio: "Representing Kudat, 'Hemo' is a young prodigy with extensive experience across Muaythai, Boxing, and Kickboxing."
   },
   {
     id: "shah-aryan",
@@ -236,7 +275,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/jasper.jpeg",
-    bio: "Fighting out of Sandakan, Jasper Lee represents Uppercross Muay Thai Club. Competing in the 54kg division, he has transitioned to the professional circuit with a balanced record of experience."
+    bio: "Fighting out of Sandakan, Jasper Lee represents Uppercross Muay Thai Club."
   },
   {
     id: "johnathan-chung",
@@ -253,7 +292,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/johnathan.jpeg",
-    bio: "Johnathan Chung is a promising talent from Uppercross Muay Thai Club in Sandakan. With a strong winning record of 6-2, he is making his mark in the 54kg professional division."
+    bio: "Johnathan Chung is a promising talent from Uppercross Muay Thai Club in Sandakan."
   },
   {
     id: "tu-sim-bee",
@@ -271,10 +310,10 @@ export const fighters = [
     nationality: "Sabah",
     image: "/tusimbee.jpeg",
     video: "/tusimbee.mp4",
-    bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division. She holds a professional record of 3 Wins and 3 Losses, with a total combat experience of 12 fights."
+    bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division."
   },
 
-  // --- AMATEUR FIGHTERS ---
+  // --- MUAYSPORTS FIGHTERS ---
   {
     id: "adib-syazwan",
     name: "Adib Syazwan",
@@ -287,10 +326,27 @@ export const fighters = [
     age: "18",
     gender: "Male",
     record: "6W - 4L",
-    category: "Amateur",
+    category: "Muaysports",
     nationality: "Malaysia",
     image: "/adib-syazwan.jpeg",
-    bio: "Adib is a tall, technical fighter in the 63.5-67kg division. Representing Revolution Combat, he has built a solid amateur foundation with 6 wins and is a rising prospect in the Sabah Muaythai scene."
+    bio: "Adib is a tall, technical fighter in the 63.5-67kg division."
+  },
+  {
+    id: "zhi-hui-aaagaras",
+    name: "Lim Zhi Hui",
+    nickname: "Zhi Hui",
+    team: "Aaagaras Muay",
+    coach: "Ranjit Singh",
+    managerContact: "60168288773",
+    weight: "48-51 KG",
+    height: "N/A",
+    age: "18",
+    gender: "Female",
+    record: "6W - 3L",
+    category: "Muaysports",
+    nationality: "Sabah",
+    image: "/zhi-hui.jpeg",
+    bio: "Lim Zhi Hui is a technical Muaysports athlete from Aaagaras Muay."
   },
   {
     id: "johanizamsyah-johanis",
@@ -304,10 +360,10 @@ export const fighters = [
     age: "18",
     gender: "Male",
     record: "Multiple Gold Medalist",
-    category: "Amateur",
+    category: "Muaysports",
     nationality: "Sabah",
     image: "/johanizamsyah.jpeg",
-    bio: "Known as 'The Phantom', Johanizamsyah is a disciplined counter-striker with precise timing and solid low kicks. A rising talent from Xmuayfitness, he has secured Gold medals at the 2025 D1 Championship, the National Championship Pra Sukma, and the Rookie Challenge."
+    bio: "Known as 'The Phantom', Johanizamsyah is a disciplined counter-striker."
   },
   {
     id: "johanitasyah-johanis",
@@ -321,10 +377,10 @@ export const fighters = [
     age: "20",
     gender: "Female",
     record: "Multiple Gold Medalist",
-    category: "Amateur",
+    category: "Muaysports",
     nationality: "Sabah",
     image: "/johanitasyah.jpeg",
-    bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work. 'TasyahJohns' has built an impressive resume with Gold medal victories at the 2025 National Championship Pra Sukma, Elopura Rise of Champion, and the Fight Fest 2024."
+    bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work."
   },
 
   // --- U17 YOUTH DIVISION ---
@@ -343,7 +399,7 @@ export const fighters = [
     category: "U17",
     nationality: "Malaysia",
     image: "/noor-azmani.jpeg",
-    bio: "Competing in the U17 category, Noor Azmani is gaining valuable experience in the 57-60kg division. Under the guidance of Coach Dhillon Tahing, he is developing into a tough competitive athlete."
+    bio: "Competing in the U17 category, Noor Azmani is gaining valuable experience."
   },
   {
     id: "rozana-laila",
@@ -360,17 +416,15 @@ export const fighters = [
     category: "U17",
     nationality: "Kota Marudu",
     image: "/rozana-laila.jpeg",
-    achievements: [
-      "2025 - Silver (SAGA Tawau)"
-    ],
-    bio: "Representing Kota Marudu and AWP Martial Art Academy, Rozana Laila is a determined U17 female athlete. A 2025 SAGA Tawau Silver Medalist, she has already accumulated 11 fights of experience in the 45-48kg weight class."
+    achievements: ["2025 - Silver (SAGA Tawau)"],
+    bio: "Representing Kota Marudu and AWP Martial Art Academy."
   },
 
   // --- MUAYTHAI ARTS (MAI MUAY) ---
   {
     id: "ariesya-dania",
     name: "Ariesya Dania",
-    nickname: "Dania",
+    nickname: "Ari",
     team: "Revolution Combat Muaythai Gym",
     coach: "Dhillon Tahing",
     managerContact: "60168013530",
@@ -394,7 +448,7 @@ export const fighters = [
       "2024 - National Championship Silver",
       "2023 - Sabah Muaythai Expo Papar Gold"
     ],
-    bio: "Ariesya Dania is the definitive face of the generation of future champions. As a highly decorated Wai Kru athlete, her technical precision and cultural mastery have made her an unstoppable force on the international stage. Recently crowned the 'Best National Cultural Athlete 2025,' Dania has already secured major podium finishes at the IFMA World Championships and the Asian Youth Games. Combining traditional elegance with a fierce competitive spirit, she is not just a performer but an ambassador for Sabah's rich heritage, paving the way for the future of Muaythai Arts."
+    bio: "Ariesya Dania is the definitive face of the generation of future champions."
   },
   {
     id: "asyraf-danial-arts",
@@ -420,12 +474,12 @@ export const fighters = [
       "2025 - SEA Games Thailand Bronze",
       "2024 - SUKMA Sarawak Silver"
     ],
-    bio: "Asyraf Danial is one of Malaysia's most decorated Muaythai Arts athletes. A 3x IFMA World Champion, his technical precision in Waikru and Maimuay has earned him gold medals on the world stage in Greece, Thailand, and Turkey."
+    bio: "Asyraf Danial is one of Malaysia's most decorated Muaythai Arts athletes."
   },
   {
     id: "stacy-poong-arts",
     name: "Stacy Poong Dai Hee",
-    nickname: "Versatile Athlete",
+    nickname: "Stacy",
     team: "AWP Martial Art Academy",
     coach: "Addyana June Adangku",
     managerContact: "601152599024",
@@ -442,9 +496,8 @@ export const fighters = [
       "2025 - Gold Culture Heritage",
       "2025 - Silver SAGA Tawau"
     ],
-    bio: "A versatile athlete with a deep passion for both combat and the traditional arts. Representing Kota Marudu and AWP Martial Art Academy, Stacy excels in Mai Muay technical performances alongside her competitive fighting career."
+    bio: "A versatile athlete with a deep passion for both combat and the traditional arts."
   },
-  // NEW MUAYTHAI ARTS PROFILES
   {
     id: "auryelle-xzandra",
     name: "Auryelle Xzandra Bobby",
@@ -468,7 +521,7 @@ export const fighters = [
       "2025 - Silver (Kebangsaan)",
       "2024 - Bronze (Kebangsaan)"
     ],
-    bio: "Representing AWP Martial Art Academy, Auryelle Xzandra Bobby is a highly decorated Waikru specialist in the youth division. With a massive silver medal finish at the 2025 Asian Youth Games in Bahrain, she is recognized as one of the top emerging talents in Muaythai Arts at both national and international levels."
+    bio: "Auryelle Xzandra Bobby is a highly decorated Waikru specialist."
   },
   {
     id: "addy-ardryqa",
@@ -490,6 +543,6 @@ export const fighters = [
       "2025 - Gold (Culture Heritage)",
       "2025 - Gold (Sabah Open KB)"
     ],
-    bio: "A rising star in the Muaythai Arts world, Addy Ardryqa Bin Arman has already achieved significant gold medal success at the ASEAN level. Training under Coach Addyana June Adangku, he is establishing himself as a key figure for the future of Sabah's cultural Muaythai heritage."
+    bio: "A rising star in the Muaythai Arts world."
   }
 ];

@@ -1,179 +1,159 @@
 "use client";
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; 
+// Import your local data strictly
 import { fighters } from '../data/fighters'; 
 
 export default function FightersPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
-  const [isLoading, setIsLoading] = useState(true);
+  const [filterGender, setFilterGender] = useState("All");
 
-  useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => setIsLoading(false), 400); 
-    return () => clearTimeout(timer);
-  }, [filterCategory, searchTerm]);
+  const filteredFighters = fighters.filter((f) => {
+    const nameToSearch = (f.nickname || f.name).toLowerCase();
+    const matchesSearch = nameToSearch.includes(searchTerm.toLowerCase()) || 
+                          f.team.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // --- 🥊 FIXED MULTI-CATEGORY FILTERING ---
+    // Instead of ===, we use .includes() so "Pro & Muaysports" shows in both tabs
+    const matchesCategory = filterCategory === "All" || f.category.includes(filterCategory);
+    
+    const matchesGender = filterGender === "All" || f.gender === filterGender;
+    
+    return matchesSearch && matchesCategory && matchesGender;
+  });
 
-  // CATEGORY COLOR MAPPING
+  // Updated Categories list
+  const categories = ["All", "Pro", "Muaysports", "Arts", "U17"];
+  const genders = ["All", "Male", "Female"];
+
+  // --- 🎨 COLOR TAGGING LOGIC ---
   const getBadgeStyles = (category) => {
     switch (category) {
-      case 'Pro':
-      case 'Pro & Amateur':
-        return 'bg-yellow-500 border-yellow-400 text-black';
-      case 'Amateur':
-        return 'bg-blue-600 border-blue-400 text-white';
-      case 'Arts':
-        return 'bg-purple-600 border-purple-400 text-white';
-      case 'U17':
-        return 'bg-emerald-600 border-emerald-400 text-white';
-      default:
-        return 'bg-slate-700 border-slate-500 text-white';
+      case 'Pro': return 'bg-red-600 border-red-500 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]';
+      case 'Muaysports': return 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]';
+      case 'Arts': return 'bg-purple-600 border-purple-400 text-white shadow-[0_0_15px_rgba(147,51,234,0.5)]';
+      case 'Pro & Muaysports': return 'bg-gradient-to-r from-red-600 to-blue-600 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]';
+      case 'U17': return 'bg-emerald-600 border-emerald-500 text-white shadow-[0_0_15px_rgba(5,150,105,0.5)]';
+      default: return 'bg-zinc-800 border-zinc-700 text-white';
     }
   };
 
-  const filteredFighters = fighters.filter((fighter) => {
-    const searchLower = searchTerm.toLowerCase();
-    const matchesSearch = 
-      fighter.name.toLowerCase().includes(searchLower) ||
-      (fighter.nickname && fighter.nickname.toLowerCase().includes(searchLower)) ||
-      fighter.team.toLowerCase().includes(searchLower) ||
-      (fighter.bio && fighter.bio.toLowerCase().includes(searchLower));
-
-    let matchesFilter = true;
-    if (filterCategory === "All") {
-      matchesFilter = true;
-    } else if (filterCategory === "Male" || filterCategory === "Female") {
-      matchesFilter = fighter.gender === filterCategory;
-    } else if (filterCategory === "Arts") {
-      matchesFilter = fighter.category === "Arts";
-    } else if (filterCategory === "Pro") {
-      matchesFilter = fighter.category === "Pro" || fighter.category === "Pro & Amateur";
-    } else if (filterCategory === "Amateur") {
-      matchesFilter = fighter.category === "Amateur" || fighter.category === "Pro & Amateur";
-    } else {
-      matchesFilter = fighter.category === filterCategory;
-    }
-    return matchesSearch && matchesFilter;
-  });
-
-  const tabs = ["All", "Pro", "Amateur", "Arts", "U17", "Male", "Female"];
-
   return (
-    <div className="min-h-screen bg-slate-950 text-gray-100 font-sans pb-20">
+    <div className="min-h-screen bg-[#050506] text-white pt-32 pb-20 px-4 md:px-12 selection:bg-yellow-500">
       
-      {/* HEADER SECTION */}
-      <div className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full -z-10"></div>
-        <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white mb-4">
-          Sabah <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Athletes</span>
-        </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg uppercase tracking-widest font-bold">Official Muaythai Roster</p>
+      {/* BACKGROUND EFFECTS */}
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-500/5 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
       </div>
 
-      {/* SEARCH & FILTER CONTROLS */}
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-6 items-center justify-between">
-          <div className="flex flex-wrap justify-center gap-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setFilterCategory(tab)}
-                className={`px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest transition-all ${
-                  filterCategory === tab 
-                    ? "bg-yellow-500 text-black scale-105 shadow-lg shadow-yellow-500/20" 
-                    : "bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"
-                }`}
-              >
-                {tab === "Arts" ? "Muaythai Arts" : tab}
-              </button>
-            ))}
-          </div>
-          <div className="relative w-full md:w-80">
-            <input
-              type="text"
-              placeholder="Search name, gym, or bio..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-700 text-white px-5 py-3 rounded-xl focus:border-yellow-500 outline-none transition-all"
-            />
-          </div>
+      <div className="max-w-7xl mx-auto">
+        {/* HEADER */}
+        <div className="mb-16">
+          <h1 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">
+            Sabah <span className="text-yellow-500">Warriors</span>
+          </h1>
+          <p className="text-gray-400 text-sm md:text-base font-black uppercase tracking-[0.4em] mt-6 ml-1 border-l-4 border-yellow-500 pl-4">
+            Sabah Muaythai Athletes • Scout / Promoter Management System
+          </p>
         </div>
-      </div>
 
-      {/* ATHLETE GRID */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {isLoading ? (
-          [...Array(6)].map((_, i) => (
-            <div key={i} className="bg-slate-900 rounded-3xl h-[580px] animate-pulse border border-slate-800"></div>
-          ))
-        ) : filteredFighters.length > 0 ? (
-          filteredFighters.map((fighter, index) => (
-            <Link 
-              key={fighter.id} 
-              href={`/fighters/${fighter.id}`} 
-              className="group block bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-yellow-500/50 transition-all duration-500 shadow-xl"
-            >
-              <div className="relative h-[420px] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 opacity-90" />
-                <Image 
-                  src={fighter.image} 
-                  alt={fighter.name} 
-                  fill
-                  priority={index < 3}
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+        {/* CONTROLS BOX */}
+        <div className="bg-zinc-900/30 border border-white/5 p-6 rounded-[2rem] backdrop-blur-xl mb-12 space-y-6">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map((cat) => (
+                <button 
+                  key={cat}
+                  onClick={() => setFilterCategory(cat)}
+                  className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${
+                    filterCategory === cat 
+                    ? "bg-yellow-500 text-black border-yellow-500 shadow-[0_0_20px_rgba(234,179,8,0.2)]" 
+                    : "bg-white/5 text-gray-500 border-white/5 hover:border-white/20"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex bg-black/40 p-1 rounded-2xl border border-white/5">
+              {genders.map((g) => (
+                <button
+                  key={g}
+                  onClick={() => setFilterGender(g)}
+                  className={`px-8 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                    filterGender === g 
+                    ? "bg-white text-black shadow-lg" 
+                    : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
+          </div>
+          <input 
+            type="text" 
+            placeholder="SEARCH BY NICKNAME OR TEAM..." 
+            className="w-full bg-black/20 border border-white/10 px-8 py-5 rounded-2xl text-xs font-bold uppercase focus:border-yellow-500 outline-none transition-all"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        {/* FIGHTER GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {filteredFighters.map((fighter) => (
+            <Link key={fighter.id} href={`/fighters/${fighter.id}`} className="group relative">
+              <div className="relative aspect-[3/4.5] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 transition-all duration-500 group-hover:border-yellow-500/50 group-hover:shadow-[0_0_50px_rgba(234,179,8,0.1)]">
                 
-                {/* DYNAMIC COLORED CATEGORY BADGE */}
-                <div className="absolute top-6 right-6 z-20">
-                  <span className={`text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border shadow-xl ${getBadgeStyles(fighter.category)}`}>
-                    {fighter.category === 'Arts' ? 'Arts' : fighter.category}
+                <img 
+                  src={fighter.image} 
+                  alt={fighter.nickname || fighter.name} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90"></div>
+                
+                {/* 🏷️ COLORED SCOUT TAGS */}
+                <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
+                  <span className={`text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-tighter border ${getBadgeStyles(fighter.category)}`}>
+                    {fighter.category}
                   </span>
                 </div>
-              </div>
 
-              <div className="p-8 -mt-24 relative z-20">
-                {fighter.nickname && <p className="text-yellow-500 text-[10px] font-black uppercase mb-1 drop-shadow-lg">"{fighter.nickname}"</p>}
-                <h2 className="text-2xl font-black text-white uppercase mb-4 line-clamp-1 group-hover:text-yellow-400 transition-colors">{fighter.name}</h2>
-                
-                {/* THICK STYLISH GRADIENT LINE FOR GYM NAME */}
-                {fighter.category === 'Arts' && fighter.achievements ? (
-                  <div className="mb-6 bg-slate-950/90 p-4 rounded-2xl border border-yellow-500/30 backdrop-blur-sm">
-                    <ul className="space-y-2">
-                      {fighter.achievements.slice(0, 2).map((medal, i) => (
-                        <li key={i} className="text-white text-[11px] font-bold flex items-start"><span className="mr-3 text-sm">🏆</span> {medal}</li>
-                      ))}
-                    </ul>
+                {/* BOTTOM INFO */}
+                <div className="absolute bottom-0 left-0 w-full p-8 transition-all duration-500">
+                  
+                  {/* 🔥 HIGHLIGHTED RECORD & WEIGHT */}
+                  <div className="flex flex-col mb-4 bg-yellow-500/10 border-l-2 border-yellow-500 pl-3 py-1">
+                    <p className="text-yellow-500 text-3xl font-black italic uppercase leading-none mb-1">
+                      {fighter.record}
+                    </p>
+                    <p className="text-white text-sm font-black uppercase tracking-[0.1em]">
+                      {fighter.weight}
+                    </p>
                   </div>
-                ) : (
-                  <div className="mb-6 flex items-center group/line">
-                    <div className="h-[4px] w-14 bg-gradient-to-r from-yellow-500 to-transparent rounded-full shadow-[0_0_15px_rgba(234,179,8,0.6)] transition-all group-hover:w-24"></div>
-                    <p className="ml-4 text-gray-400 text-xs font-black uppercase tracking-widest">{fighter.team}</p>
-                  </div>
-                )}
 
-                <div className="flex justify-between items-center border-t border-slate-800 pt-5 text-center">
-                  <div>
-                    <p className="text-[9px] text-gray-500 uppercase font-black">{fighter.category === 'Arts' ? 'Achievement' : 'Record'}</p>
-                    <p className="text-white font-black text-sm">{fighter.record}</p>
-                  </div>
-                  <div className="border-l border-slate-800 pl-4">
-                    <p className="text-[9px] text-gray-500 uppercase font-black">Weight</p>
-                    <p className="text-white font-black text-sm">{fighter.weight}</p>
-                  </div>
-                  <div className="border-l border-slate-800 pl-4">
-                    <p className="text-[9px] text-gray-500 uppercase font-black">Age</p>
-                    <p className="text-white font-black text-sm">{fighter.age}</p>
+                  {/* 🎭 NICKNAME ONLY */}
+                  <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none mb-4 text-white group-hover:text-yellow-500 transition-colors">
+                    {fighter.nickname || fighter.name}
+                  </h3>
+
+                  {/* 🏢 GYM NAME (APPEARS ONLY ON HOVER) */}
+                  <div className="max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                    <div className="pt-3 border-t border-white/10">
+                      <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.3em]">
+                        {fighter.team}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </Link>
-          ))
-        ) : (
-          <div className="col-span-full py-32 text-center text-slate-500 font-bold uppercase tracking-widest">No athletes match your search.</div>
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );
