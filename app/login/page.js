@@ -12,15 +12,29 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
     
-    if (error) {
-      alert(error.message);
-    } else {
-      router.push('/feed'); // Redirect to feed on success
+    // --- 🛡️ SAFETY CHECK ---
+    if (!supabase) {
+      alert("System connection error. Please ensure Environment Variables are set in Vercel.");
+      return;
     }
-    setLoading(false);
+
+    setLoading(true);
+    
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      
+      if (error) {
+        alert(error.message);
+      } else {
+        router.push('/feed'); 
+      }
+    } catch (err) {
+      console.error("Auth Exception:", err);
+      alert("An unexpected error occurred during authentication.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,7 +60,7 @@ export default function LoginPage() {
               type="email" 
               placeholder="name@email.com" 
               required
-              className="w-full bg-slate-950 border border-white/10 p-4 rounded-xl outline-none focus:border-yellow-500 transition-all"
+              className="w-full bg-slate-950 border border-white/10 p-4 rounded-xl outline-none focus:border-yellow-500 transition-all text-white"
               onChange={(e) => setEmail(e.target.value)} 
             />
           </div>
@@ -57,12 +71,13 @@ export default function LoginPage() {
               type="password" 
               placeholder="••••••••" 
               required
-              className="w-full bg-slate-950 border border-white/10 p-4 rounded-xl outline-none focus:border-yellow-500 transition-all"
+              className="w-full bg-slate-950 border border-white/10 p-4 rounded-xl outline-none focus:border-yellow-500 transition-all text-white"
               onChange={(e) => setPassword(e.target.value)} 
             />
           </div>
 
           <button 
+            type="submit"
             disabled={loading}
             className="w-full bg-yellow-500 text-black font-black py-4 rounded-xl uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-yellow-500/20 disabled:opacity-50 mt-4"
           >
@@ -70,7 +85,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* --- 🔗 REGISTER LINK ADDED HERE --- */}
         <div className="mt-10 pt-8 border-t border-white/5 text-center">
           <p className="text-gray-500 text-[11px] font-bold uppercase tracking-widest mb-2">
             Not a member yet?
