@@ -3,8 +3,12 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-// This logic prevents the "supabaseUrl is required" error during the build process
-// It only creates the client if both the URL and Key are found.
+// 🕵️‍♂️ DEBUG LOGS (Check these in F12 Console)
+console.log("--- Supabase Connection Diagnostic ---");
+console.log("URL Status:", supabaseUrl ? "✅ DETECTED" : "❌ MISSING");
+console.log("Key Status:", supabaseAnonKey ? "✅ DETECTED" : "❌ MISSING");
+console.log("Environment:", process.env.NODE_ENV);
+
 export const supabase = (supabaseUrl && supabaseAnonKey) 
   ? createClient(supabaseUrl, supabaseAnonKey) 
   : null
