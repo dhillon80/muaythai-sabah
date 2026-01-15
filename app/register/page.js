@@ -29,45 +29,41 @@ export default function RegisterPage() {
     e.preventDefault();
     setLoading(true);
 
-    // 1. Create Login in Supabase Auth
+    // 1. Calculate Age-Based Category
+    const isU17 = parseInt(formData.age) <= 17;
+    const initialWeightClass = (formData.role === 'athlete' && isU17) ? 'U17' : 'Amateur';
+
+    // 2. Create Login & Pass Data to Trigger
+    // We send profile data inside "options.data" so the Database Trigger can save it.
     const { data: { user }, error: authError } = await supabase.auth.signUp({
       email: formData.email,
       password: formData.password,
+      options: {
+        data: {
+          full_name: formData.fullName,
+          role: formData.role,
+          gym_name: (formData.role === 'fan') ? null : formData.gymName,
+          age: formData.age,
+          address: formData.address,
+          district: formData.district,
+          state: formData.state,
+          nationality: formData.nationality,
+          weight_class: initialWeightClass,
+          fight_record: '0-0-0',
+          is_verified: false
+        }
+      }
     });
 
     if (authError) {
       alert("Registration Error: " + authError.message);
       setLoading(false);
-      return;
+    } else {
+      // 3. Success! The Trigger handled the database insertion.
+      alert("Registration Successful! Welcome to the Sabah Muaythai Network.");
+      router.push('/login');
     }
-
-    if (user) {
-      // 2. Save Full Profile Details in 'profiles' table
-      // SYNCED WITH YOUR DATABASE SCREENSHOT COLUMNS
-      const { error: profileError } = await supabase.from('profiles').insert({
-        id: user.id,
-        full_name: formData.fullName,
-        role: formData.role,
-        gym_name: (formData.role === 'fan') ? null : formData.gymName,
-        age: formData.age,
-        address: formData.address,
-        district: formData.district,
-        state: formData.state,
-        nationality: formData.nationality,
-        is_verified: false,
-        // --- SYNCED WITH DATABASE SCREENSHOT ---
-        // If athlete is 17 or under, they are auto-tagged U17, otherwise Amateur
-        weight_class: (formData.role === 'athlete' && parseInt(formData.age) <= 17) ? 'U17' : 'Amateur',
-        fight_record: '0-0-0' 
-      });
-
-      if (profileError) {
-        alert("Profile Setup Error: " + profileError.message);
-      } else {
-        alert("Registration Successful! Welcome to the Sabah Muaythai Network.");
-        router.push('/login');
-      }
-    }
+    
     setLoading(false);
   };
 
