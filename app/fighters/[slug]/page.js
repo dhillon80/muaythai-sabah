@@ -122,7 +122,13 @@ export default async function FighterProfile({ params }) {
               </div>
             </div>
 
-            <a href={`https://wa.me/${fighter.managerContact}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-5 bg-white text-black font-black uppercase tracking-widest px-12 py-5 rounded-2xl transition-all shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-yellow-500 hover:-translate-y-1 active:scale-95">
+            {/* ✅ UPDATED WHATSAPP BUTTON LOGIC */}
+            <a 
+              href={`https://wa.me/${fighter.managerContact}?text=${encodeURIComponent(`Hi, I am interested in booking ${fighter.name} for an event.`)}`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-5 bg-white text-black font-black uppercase tracking-widest px-12 py-5 rounded-2xl transition-all shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:bg-yellow-500 hover:-translate-y-1 active:scale-95"
+            >
               <span className="text-2xl">📱</span><span>Contact Manager</span>
             </a>
 
@@ -165,7 +171,7 @@ export default async function FighterProfile({ params }) {
             {fighter.achievements && (
              <section className="space-y-8 pt-10 border-t border-white/5">
                <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500 flex items-center gap-4">
-                  Major Accolades <span className="flex-1 h-[1px] bg-white/5"></span>
+                 Major Accolades <span className="flex-1 h-[1px] bg-white/5"></span>
                </h3>
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                  {fighter.achievements.map((medal, index) => (
