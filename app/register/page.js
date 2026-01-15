@@ -18,7 +18,7 @@ export default function RegisterPage() {
     district: '',
     state: 'Sabah',
     gymName: '',
-    role: 'fan' // default
+    role: 'fan'
   });
 
   const handleChange = (e) => {
@@ -29,49 +29,54 @@ export default function RegisterPage() {
     e.preventDefault();
     setLoading(true);
 
-    // 1. Calculate Age-Based Category
-    const isU17 = parseInt(formData.age) <= 17;
-    const initialWeightClass = (formData.role === 'athlete' && isU17) ? 'U17' : 'Amateur';
-
-    // 2. Create Login & Pass Data to Trigger
-    // We send profile data inside "options.data" so the Database Trigger can save it.
+    // 1. SIGN UP (Create Auth User)
     const { data: { user }, error: authError } = await supabase.auth.signUp({
       email: formData.email,
       password: formData.password,
-      options: {
-        data: {
-          full_name: formData.fullName,
-          role: formData.role,
-          gym_name: (formData.role === 'fan') ? null : formData.gymName,
-          age: formData.age,
-          address: formData.address,
-          district: formData.district,
-          state: formData.state,
-          nationality: formData.nationality,
-          weight_class: initialWeightClass,
-          fight_record: '0-0-0',
-          is_verified: false
-        }
-      }
     });
 
     if (authError) {
       alert("Registration Error: " + authError.message);
       setLoading(false);
-    } else {
-      // 3. Success! The Trigger handled the database insertion.
-      alert("Registration Successful! Welcome to the Sabah Muaythai Network.");
-      router.push('/login');
+      return;
     }
-    
+
+    if (user) {
+      // 2. CREATE PROFILE MANUALLY
+      // This will give us a specific error if it fails
+      const { error: profileError } = await supabase.from('profiles').insert({
+        id: user.id,
+        email: formData.email,
+        full_name: formData.fullName,
+        role: formData.role,
+        // Send NULL if empty (Clean Data)
+        gym_name: formData.gymName || null,
+        age: formData.age || null,
+        address: formData.address || null,
+        district: formData.district || null,
+        state: formData.state || null,
+        nationality: formData.nationality || null,
+        weight_class: (formData.role === 'athlete') ? 'Amateur' : null,
+        fight_record: '0-0-0',
+        is_verified: false
+      });
+
+      if (profileError) {
+        console.error("Profile Error:", profileError);
+        alert("Account created, but Profile failed: " + profileError.message);
+        // We still redirect because the account exists
+        router.push('/login');
+      } else {
+        alert("Registration Successful! Welcome to the Network.");
+        router.push('/login');
+      }
+    }
     setLoading(false);
   };
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] flex items-center justify-center p-6 text-white selection:bg-yellow-500 selection:text-black">
       <div className="w-full max-w-2xl bg-zinc-950 border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
-        
-        {/* Background Glow */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-yellow-500/10 blur-[100px] rounded-full"></div>
 
         <div className="text-center mb-10">
@@ -84,8 +89,7 @@ export default function RegisterPage() {
         </div>
 
         <form onSubmit={handleRegister} className="space-y-8">
-          
-          {/* SECTION 1: LOGIN CREDENTIALS */}
+          {/* SECTION 1: LOGIN */}
           <div className="space-y-4">
             <h3 className="text-[11px] font-black uppercase tracking-widest text-yellow-500 border-b border-white/5 pb-2">Account Access</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -159,28 +163,16 @@ export default function RegisterPage() {
                 <label className="text-[10px] font-black uppercase tracking-widest text-blue-400 ml-1">
                   {formData.role === 'gym_owner' ? 'Official Gym Name' : 'Associated Gym / Club'}
                 </label>
-                <input 
-                  name="gymName" 
-                  type="text" 
-                  placeholder="Legal Gym Name" 
-                  required 
-                  className="w-full bg-zinc-900 border border-blue-500/30 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none mt-1 transition-all" 
-                  onChange={handleChange} 
-                />
+                <input name="gymName" type="text" placeholder="Legal Gym Name" required className="w-full bg-zinc-900 border border-blue-500/30 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none mt-1 transition-all" onChange={handleChange} />
               </div>
             )}
           </div>
 
           <div className="pt-4">
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-white text-black py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:scale-[1.02] active:scale-95 transition-all shadow-xl disabled:opacity-50 disabled:cursor-wait"
-            >
+            <button type="submit" disabled={loading} className="w-full bg-white text-black py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:scale-[1.02] active:scale-95 transition-all shadow-xl disabled:opacity-50 disabled:cursor-wait">
               {loading ? 'Authenticating...' : 'Complete Registration'}
             </button>
           </div>
-
         </form>
         
         <div className="mt-10 text-center border-t border-white/5 pt-8">
@@ -188,7 +180,6 @@ export default function RegisterPage() {
             Existing Member? <span className="text-yellow-500 ml-1">Login Here</span>
           </Link>
         </div>
-
       </div>
     </div>
   );
