@@ -16,19 +16,33 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     
-    // Check user session
-    supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
-    
-    // Watch auth state
-    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
+    // --- 🛡️ SAFE AUTH CHECK ---
+    if (supabase) {
+      // Check user session
+      supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
+      
+      // Watch auth state
+      const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+      });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      authListener.subscription.unsubscribe();
-    };
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        if (authListener?.subscription) {
+          authListener.subscription.unsubscribe();
+        }
+      };
+    }
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSignOut = async () => {
+    if (supabase) {
+      await supabase.auth.signOut();
+      router.push("/");
+    }
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -78,12 +92,14 @@ export default function Navbar() {
                 <Link href="/profile/edit" className="text-white hover:text-yellow-500 text-[10px] font-black uppercase tracking-widest transition-colors">
                     My Profile
                 </Link>
-                <button onClick={() => supabase.auth.signOut()} className="bg-red-500/10 border border-red-500/30 text-red-500 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all">
+                <button 
+                  onClick={handleSignOut} 
+                  className="bg-red-500/10 border border-red-500/30 text-red-500 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all"
+                >
                     Logout
                 </button>
               </div>
             ) : (
-              /* --- 🌟 UPDATED BUTTON HERE --- */
               <Link href="/login" className="ml-4 bg-yellow-500 text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(234,179,8,0.3)]">
                 Login / Sign Up
               </Link>
@@ -117,12 +133,14 @@ export default function Navbar() {
                 <Link href="/profile/edit" onClick={() => setIsOpen(false)} className="text-yellow-500 font-black text-xl uppercase italic border-b border-yellow-500/30 pb-1">
                     My Profile / Edit
                 </Link>
-                <button onClick={() => { supabase.auth.signOut(); setIsOpen(false); }} className="text-red-500 font-black text-xl uppercase italic">
+                <button 
+                  onClick={() => { handleSignOut(); setIsOpen(false); }} 
+                  className="text-red-500 font-black text-xl uppercase italic"
+                >
                     Logout
                 </button>
             </div>
           ) : (
-            /* --- 🌟 UPDATED MOBILE BUTTON HERE --- */
             <Link href="/login" onClick={() => setIsOpen(false)} className="text-yellow-500 font-black text-xl uppercase italic">
                 Login / Sign Up
             </Link>
