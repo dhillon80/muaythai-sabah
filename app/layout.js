@@ -16,6 +16,22 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
   description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
+  openGraph: {
+    title: "Muaythai Sabah | Platform Rasmi",
+    description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
+    url: "https://www.muaythaisbh.my",
+    siteName: "Muaythai Sabah",
+    images: [
+      {
+        url: "https://www.muaythaisbh.my/directory.PNG", 
+        width: 1200,
+        height: 630,
+        alt: "Muaythai Sabah Official Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
