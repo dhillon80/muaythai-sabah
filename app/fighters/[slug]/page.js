@@ -1,8 +1,39 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { fighters } from '../../data/fighters'; 
+import { notFound } from "next/navigation";
 
-// 1. MATCHED TO YOUR FOLDER NAME [slug]
+// --- ADD THIS SECTION FOR FACEBOOK & SEO ---
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const fighter = fighters.find((f) => f.id === slug);
+
+  if (!fighter) {
+    return { title: "Fighter Not Found" };
+  }
+
+  return {
+    title: `${fighter.name} | Muaythai Sabah`,
+    description: fighter.bio,
+    openGraph: {
+      title: `${fighter.name} - Official Warrior Profile`,
+      description: fighter.bio,
+      url: `https://www.muaythaisbh.my/fighters/${slug}`,
+      siteName: "Muaythai Sabah",
+      images: [
+        {
+          url: fighter.image, // Pulls the fighter's specific photo
+          width: 1200,
+          height: 630,
+          alt: `Professional Muay Thai Fighter ${fighter.name}`,
+        },
+      ],
+      type: "website",
+    },
+  };
+}
+// --- END OF METADATA SECTION ---
+
 export async function generateStaticParams() {
   return fighters.map((fighter) => ({
     slug: fighter.id,
@@ -10,13 +41,9 @@ export async function generateStaticParams() {
 }
 
 export default async function FighterProfile({ params }) {
-  // 2. Destructure 'slug' to match your folder
   const { slug } = await params;
-  
-  // 3. FIND ATHLETE: Using your local data file strictly
   const fighter = fighters.find((f) => f.id === slug);
 
-  // 4. ERROR STATE
   if (!fighter) {
     return (
       <div className="min-h-screen bg-[#050506] text-white flex flex-col items-center justify-center p-6 text-center">
@@ -31,7 +58,6 @@ export default async function FighterProfile({ params }) {
     );
   }
 
-  // 5. STYLE SYNC: Updated Badge logic
   const getBadgeStyles = (category) => {
     switch (category) {
       case 'Pro': return 'bg-red-600 border-red-500 text-white shadow-[0_0_20px_rgba(220,38,38,0.3)]';
