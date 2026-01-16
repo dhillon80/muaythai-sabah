@@ -382,8 +382,6 @@ export const fighters = [
     image: "/johanitasyah.jpeg",
     bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work."
   },
-
-  // --- U17 YOUTH DIVISION ---
   {
     id: "noor-azmani",
     name: "Noor Azmani Bin Noorzain",
@@ -396,10 +394,10 @@ export const fighters = [
     age: "16",
     gender: "Male",
     record: "4W - 6L",
-    category: "U17",
+    category: "Muaysports & U17",
     nationality: "Malaysia",
     image: "/noor-azmani.jpeg",
-    bio: "Competing in the U17 category, Noor Azmani is gaining valuable experience."
+    bio: "Competing in the Muaysports category, Noor Azmani is gaining valuable experience."
   },
   {
     id: "rozana-laila",
@@ -413,11 +411,28 @@ export const fighters = [
     age: "16",
     gender: "Female",
     record: "5W - 6L",
-    category: "U17",
+    category: "Muaysports & U17",
     nationality: "Kota Marudu",
     image: "/rozana-laila.jpeg",
     achievements: ["2025 - Silver (SAGA Tawau)"],
     bio: "Representing Kota Marudu and AWP Martial Art Academy."
+  },
+  {
+    id: "nick-nynell-letto",
+    name: "Nick Nynell Arletto Kent Anddy",
+    nickname: "Letto",
+    team: "Revolution Muaythai Kota Marudu",
+    coach: "Mexron James",
+    managerContact: "60192588268",
+    weight: "42-45 KG",
+    height: "N/A",
+    age: "15",
+    gender: "Male",
+    record: "10W - 8L",
+    category: "Muaysports & U17",
+    nationality: "Kota Marudu",
+    image: "/nick-nynell.jpeg",
+    bio: "Fighting out of Revolution Muaythai Kota Marudu under Coach Mexron James, 'Letto' is a 15-year-old prospect competing in the 42-45kg division."
   },
 
   // --- MUAYTHAI ARTS (MAI MUAY) ---
