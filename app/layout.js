@@ -27,7 +27,7 @@ export const metadata = {
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "/directory.png", // Next.js will automatically use your metadataBase URL
+        url: "/feed-community.png", // Next.js will automatically use your metadataBase URL
         width: 1200,
         height: 630,
         alt: "Muaythai Sabah Official Preview Image",

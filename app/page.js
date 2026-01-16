@@ -3,12 +3,17 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { supabase } from "./lib/supabase"; 
 
 export default function Home() {
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
   const audioRef = useRef(null);
+
+  // Marketing State
+  const [email, setEmail] = useState('');
+  const [regStatus, setRegStatus] = useState(null);
 
   useEffect(() => {
     setMounted(true);
@@ -25,6 +30,23 @@ export default function Home() {
     if (audioRef.current) {
       audioRef.current.play();
       setIsPlaying(true);
+    }
+  };
+
+  // --- 📩 MARKETING DATABASE REGISTRATION ---
+  const handleMarketingRegister = async (e) => {
+    e.preventDefault();
+    setRegStatus('loading');
+    
+    const { error } = await supabase
+      .from('marketing_leads')
+      .insert([{ email, source: 'home_page' }]);
+
+    if (error) {
+      setRegStatus(error.code === '23505' ? 'already_exists' : 'error');
+    } else {
+      setRegStatus('success');
+      setEmail('');
     }
   };
 
@@ -57,14 +79,12 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="relative text-center pt-32 pb-20 px-4 overflow-hidden min-h-screen flex flex-col justify-center items-center">
-        
         <div className="absolute inset-0 z-0">
           <img src="/muaythai.jpeg" alt="Background" className="w-full h-full object-cover opacity-20 animate-slow-zoom" />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/40 to-slate-950"></div>
         </div>
 
         <div className={`relative z-10 flex flex-col items-center max-w-7xl mx-auto w-full transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
-          
           <div className="mb-6 animate-fade-in-up">
             <img src="/pmnslogo.png" alt="Logo" className="h-28 w-28 md:h-32 md:w-32 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
           </div>
@@ -83,7 +103,6 @@ export default function Home() {
             <div className="relative flex flex-col lg:flex-row items-center bg-slate-900/60 backdrop-blur-2xl rounded-[2.5rem] overflow-hidden border border-white/10">
               <div className="w-full lg:w-1/2 h-64 lg:h-[350px] overflow-hidden relative">
                 <img src="/seagames.jpeg" alt="SEA Games Highlights" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-950/80 hidden lg:block"></div>
               </div>
               <div className="p-10 lg:p-14 flex-1">
                 <div className="flex items-center gap-3 mb-6">
@@ -101,105 +120,139 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* 🌟 REFINED FEATURE GRID (Professional Icons & Unified Links) */}
+          {/* 🌟 FEATURE GRID - DIRECT ACCESS ENABLED */}
           <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 animate-fade-in-up delay-200 px-4">
             
             {/* COMMUNITY FEED */}
-            <Link href="/login" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-blue-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
-              <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+            <Link href="/feed" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-blue-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
+              <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
               </div>
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-3 italic">Community Feed</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">Post daily gym activities, share media and stay connected. Login to participate in the Sabah Muaythai community.</p>
-              <span className="text-[10px] font-black uppercase text-blue-500 tracking-widest italic">Login / Sign Up →</span>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">Explore daily gym activities, media and updates. Join the official SMA community to participate.</p>
+              <span className="text-[10px] font-black uppercase text-blue-500 tracking-widest italic">View Community Feed →</span>
             </Link>
 
             {/* ATHLETE ROSTER */}
-            <Link href="/login" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
-              <div className="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-500/20 transition-colors">
+            <Link href="/fighters" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
+              <div className="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
               </div>
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-3 italic">Athlete Roster</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">Official database for verified athletes. Register your fighter profile to track official records and rankings.</p>
-              <span className="text-[10px] font-black uppercase text-yellow-500 tracking-widest italic">Login / Sign Up →</span>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">Official database for verified athletes. Browse fighter profiles, records, and current rankings.</p>
+              <span className="text-[10px] font-black uppercase text-yellow-500 tracking-widest italic">Browse Roster →</span>
             </Link>
 
             {/* GYM REGISTRY */}
-            <Link href="/login" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
-              <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
+            <Link href="/directory" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
+              <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
               </div>
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-3 italic">Gym Registry</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">Official directory for Sabah Muaythai gyms. List your facility and coaching staff in the central registry.</p>
-              <span className="text-[10px] font-black uppercase text-green-500 tracking-widest italic">Login / Sign Up →</span>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">The central directory for Sabah Muaythai facilities. Locate official gyms and coaching staff.</p>
+              <span className="text-[10px] font-black uppercase text-green-500 tracking-widest italic">Open Directory →</span>
             </Link>
           </div>
 
           {/* 🔍 SCOUT PORTAL */}
           <Link href="/fighters" className="w-full max-w-6xl mb-12 animate-fade-in-up delay-300">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all shadow-xl shadow-blue-900/20">
                <div className="flex items-center gap-4 text-left">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                  </div>
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center font-bold text-white uppercase tracking-tighter italic shadow-inner">Scout</div>
                   <div>
                     <h4 className="text-lg font-black text-white uppercase italic tracking-tighter leading-none">Promoter & Matchmaker Portal</h4>
-                    <p className="text-blue-100 text-[10px] font-bold uppercase tracking-widest mt-1">Scout for athletes across the official Sabah network</p>
+                    <p className="text-blue-100 text-[10px] font-bold uppercase tracking-widest mt-1 italic">Official Sabah Network athlete database</p>
                   </div>
                </div>
-               <span className="bg-white text-blue-700 px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest">Browse Roster</span>
+               <span className="bg-white text-blue-700 px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">Browse Roster</span>
             </div>
           </Link>
 
           {/* Music Controls */}
           <div className="flex gap-4 animate-fade-in-up delay-300">
-            <button onClick={toggleMute} className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white/20 transition-all">
+            <button onClick={toggleMute} className="backdrop-blur-md bg-white/10 border border-white/20 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white/20">
               {isMuted ? "🔇 Unmute Anthem" : "🔊 Mute Anthem"}
             </button>
             {!isPlaying && (
-              <button onClick={playMusic} className="bg-red-600 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest animate-pulse hover:bg-red-500 transition-all">
+              <button onClick={playMusic} className="bg-red-600 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest animate-pulse hover:bg-red-500">
                 ▶ Play Anthem
               </button>
             )}
           </div>
-
         </div>
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
+      {/* 🔥 FRONT PAGE VIP ROSTER MARKETING SECTION (ABOVE SOP) */}
+      <section className="py-24 px-6 relative overflow-hidden bg-slate-950 border-t border-slate-900">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-blue-900/20 to-zinc-900 border border-blue-500/20 rounded-[3.5rem] p-10 md:p-20 text-center shadow-2xl relative z-10 backdrop-blur-sm">
+          <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-4 leading-none">
+            Join the <span className="text-blue-500 text-shadow-glow">VIP Roster</span>
+          </h2>
+          <p className="text-gray-400 uppercase tracking-[0.2em] text-[10px] md:text-xs mb-12 max-w-2xl mx-auto leading-relaxed font-bold">
+            Get early access to Tournament updates, New Muaythai merchandise & Gym promos
+          </p>
+
+          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="ENTER YOUR EMAIL" 
+              className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-blue-500 outline-none transition-all uppercase font-black placeholder:text-gray-800 text-sm"
+              required
+            />
+            <button 
+              disabled={regStatus === 'loading'}
+              className="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl uppercase italic tracking-tighter transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] active:scale-95 disabled:opacity-50 text-sm"
+            >
+              {regStatus === 'loading' ? 'Processing...' : 'Join Now'}
+            </button>
+          </form>
+
+          {regStatus === 'success' && (
+            <p className="text-green-500 text-[10px] mt-8 font-black uppercase tracking-[0.3em] animate-pulse">
+              Success! You are now part of the SMA inner circle.
+            </p>
+          )}
+          {regStatus === 'already_exists' && (
+            <p className="text-yellow-500 text-[10px] mt-8 font-black uppercase tracking-[0.3em]">
+              You are already on the official list.
+            </p>
+          )}
+          {regStatus === 'error' && (
+            <p className="text-red-500 text-[10px] mt-8 font-black uppercase tracking-[0.3em]">
+              Database connection error. Try again later.
+            </p>
+          )}
+        </div>
+      </section>
+
       {/* --- MAKUMAN PENTING SOP --- */}
-      <section className="px-6 py-20 bg-slate-950 relative border-t border-slate-900">
+      <section className="px-6 py-20 bg-slate-950 relative border-t border-slate-900/50">
         <div className="max-w-6xl mx-auto bg-red-900/10 border border-red-500/30 rounded-[2.5rem] p-10 backdrop-blur-sm shadow-2xl">
             <div className="flex items-center gap-4 mb-10 border-b border-red-500/30 pb-6 text-center md:text-left">
               <span className="text-5xl">⚠️</span>
               <div>
                 <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none italic">Makluman Penting SOP</h3>
-                <p className="text-red-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2">Important SOP Notice (Effective 2026)</p>
+                <p className="text-red-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2 italic">Important SOP Notice (Effective 2026)</p>
               </div>
             </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="space-y-6 text-justify">
-                  <div className="inline-block bg-red-600/20 text-red-400 text-[10px] font-black px-3 py-1 rounded-full mb-2 uppercase tracking-widest">Bahasa Melayu</div>
+              <div className="space-y-6">
+                  <div className="inline-block bg-red-600/20 text-red-400 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Bahasa Melayu</div>
                   <div className="bg-slate-900/40 p-6 rounded-2xl border-l-4 border-red-500 shadow-xl">
                     <strong className="text-white block mb-2 uppercase text-xs font-black tracking-widest">1. Jurulatih Berlesen Sahaja</strong>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK (ISN/AKK) untuk membuat pengesahan rasmi bahawa atlet adalah cergas dan layak bertanding.</p>
-                  </div>
-                  <div className="bg-slate-900/40 p-6 rounded-2xl border-l-4 border-red-500 shadow-xl">
-                    <strong className="text-white block mb-2 uppercase text-xs font-black tracking-widest">2. Syarat Atlet Baharu & Influencer</strong>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">Diwajibkan menjalani latihan di gym yang mempunyai jurulatih berlesen SPKK mulai tahun 2026 sebelum dibenarkan bertanding.</p>
+                    <p className="text-gray-400 text-sm leading-relaxed font-bold">Penganjuran kejohanan Muaythai hanya membenarkan jurulatih berlesen SPKK (ISN/AKK) untuk pengesahan rasmi.</p>
                   </div>
               </div>
-
-              <div className="space-y-6 text-justify">
-                  <div className="inline-block bg-blue-600/20 text-blue-400 text-[10px] font-black px-3 py-1 rounded-full mb-2 uppercase tracking-widest">English</div>
+              <div className="space-y-6">
+                  <div className="inline-block bg-blue-600/20 text-blue-400 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">English</div>
                   <div className="bg-slate-900/40 p-6 rounded-2xl border-l-4 border-blue-500 shadow-xl">
                     <strong className="text-white block mb-2 uppercase text-xs font-black tracking-widest">1. Licensed Coaches Only</strong>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">Muaythai tournament organization only allows SPKK (ISN/AKK) licensed coaches to officially certify that athletes are fit and eligible to compete.</p>
-                  </div>
-                  <div className="bg-slate-900/40 p-6 rounded-2xl border-l-4 border-blue-500 shadow-xl">
-                    <strong className="text-white block mb-2 uppercase text-xs font-black tracking-widest">2. New Athletes & Influencers</strong>
-                    <p className="text-gray-400 text-sm leading-relaxed font-medium">Mandatory training at a gym with an SPKK licensed coach starting 2026 before being allowed to compete.</p>
+                    <p className="text-gray-400 text-sm leading-relaxed font-bold">Only SPKK (ISN/AKK) licensed coaches are allowed to officially certify athlete fitness.</p>
                   </div>
               </div>
             </div>
@@ -207,13 +260,13 @@ export default function Home() {
       </section>
 
       {/* --- AFFILIATES LINKS --- */}
-      <section className="py-24 px-6 sm:px-12 bg-slate-900 border-t border-white/5">
+      <section className="py-24 px-6 bg-slate-900 border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-[10px] font-black mb-16 text-gray-500 uppercase tracking-[0.5em]">Affiliates Links</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {affiliates.map((affiliate, index) => (
-              <a key={index} href={affiliate.url} target="_blank" rel="noopener noreferrer" className="p-5 flex items-center justify-center rounded-xl bg-slate-950/50 border border-slate-800 hover:border-yellow-500 transition-all">
-                <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-tight">{affiliate.name}</span>
+              <a key={index} href={affiliate.url} target="_blank" rel="noopener noreferrer" className="p-5 flex items-center justify-center rounded-xl bg-slate-950/50 border border-slate-800 hover:border-yellow-500 transition-all group">
+                <span className="text-[9px] font-black text-gray-400 group-hover:text-yellow-500 transition-colors uppercase tracking-widest leading-tight">{affiliate.name}</span>
               </a>
             ))}
           </div>
@@ -223,51 +276,30 @@ export default function Home() {
       {/* --- CENTERED FOOTER --- */}
       <footer className="py-20 bg-slate-950 border-t border-white/5 text-center">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
-          
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mb-16">
             <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-               <div className="bg-blue-600 p-3 rounded-full group-hover:bg-blue-500 group-hover:scale-110 transition-all shadow-lg shadow-blue-600/20">
+               <div className="bg-blue-600 p-3 rounded-full group-hover:scale-110 transition-all shadow-lg shadow-blue-600/20">
                   <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" className="w-5 h-5 invert" alt="FB" />
                </div>
                <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Muaythai Sabah Official FB</span>
             </a>
             <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-               <div className="bg-red-600 p-3 rounded-full group-hover:bg-red-500 group-hover:scale-110 transition-all shadow-lg shadow-red-600/20">
+               <div className="bg-red-600 p-3 rounded-full group-hover:scale-110 transition-all shadow-lg shadow-red-600/20">
                   <img src="https://www.svgrepo.com/show/475691/youtube-color.svg" className="w-5 h-5 invert" alt="YT" />
                </div>
-               <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Muaythai Sabah Official Youtube</span>
+               <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Official Youtube Channel</span>
             </a>
           </div>
-
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-12"></div>
-
           <div className="space-y-6">
-            <p className="text-[10px] text-gray-400 uppercase tracking-[0.4em] font-black">© 2026 Persatuan Muaythai Negeri Sabah</p>
-            
+            <p className="text-[10px] text-gray-400 uppercase tracking-[0.4em] font-black italic">© 2026 Persatuan Muaythai Negeri Sabah</p>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-[11px] text-gray-500 uppercase tracking-widest font-bold">
-                Design and Developed by 
-                <a 
-                  href="https://www.facebook.com/dhillon.tahing" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-white hover:text-yellow-500 transition-colors ml-1"
-                >
-                  Dhillon Tahing
-                </a>
-              </p>
-              <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]">
-                Powered by <span className="text-yellow-500">Lonchai</span>
-              </p>
+              <p className="text-[11px] text-gray-500 uppercase tracking-widest font-bold italic">Design and Developed by <a href="https://www.facebook.com/dhillon.tahing" className="text-white hover:text-yellow-500 transition-colors">Dhillon Tahing</a></p>
+              <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]">Powered by <span className="text-yellow-500 font-black">Lonchai</span></p>
             </div>
-
-            <p className="text-lg md:text-xl font-black italic text-gray-500 tracking-tighter uppercase select-none opacity-40 pt-4">
-              Inspire the Uninspired
-            </p>
           </div>
         </div>
       </footer>
-
     </div>
   );
 }
