@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
   description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
+  metadataBase: new URL("https://www.muaythaisbh.my"), // Helps Next.js resolve image paths correctly
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Muaythai Sabah | Platform Rasmi",
     description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
@@ -23,14 +27,18 @@ export const metadata = {
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "https://www.muaythaisbh.my/directory.png", 
+        url: "/directory.png", // Next.js will automatically use your metadataBase URL
         width: 1200,
         height: 630,
-        alt: "Muaythai Sabah Official Preview",
+        alt: "Muaythai Sabah Official Preview Image",
       },
     ],
     locale: "en_US",
     type: "website",
+  },
+  // This section addresses the "fb:app_id" warning if you decide to create one later
+  other: {
+    "fb:app_id": "your-app-id-here", // Optional: replace with your ID if you have one
   },
 };
 

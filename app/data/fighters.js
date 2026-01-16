@@ -18,6 +18,24 @@ export const fighters = [
     bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Mohd Fadzirllah, he brings a perfect record and strong technical skills to the professional circuit."
   },
   {
+    id: "muhammad-hezric",
+    name: "Muhammad Hezric Bin Mohd Saiful",
+    nickname: "Sugar Boy",
+    team: "Naga Kinabalu",
+    coach: "Airudin",
+    managerContact: "60128188958",
+    weight: "60 KG",
+    height: "N/A",
+    age: "22",
+    gender: "Male",
+    record: "Semi Pro: 2-1 | Muaysports: 7-5",
+    category: "Pro & Muaysports",
+    nationality: "Sabah",
+    image: "/hezric.jpeg",
+    video: "/hezric-reel.mp4",
+    bio: "Representing Naga Kinabalu under Coach Airudin, 'Sugar Boy' is a versatile competitor active in both the Semi-Pro and Muaysports circuits. With a solid foundation in amateur competition, he is a rising force in the 60kg division."
+  },
+  {
     id: "muhammad-rahmad-combat",
     name: "Muhammad Rahmad Bin Raman Ali Chanra",
     nickname: "Mad Kool",
