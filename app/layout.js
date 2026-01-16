@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "https://www.muaythaisbh.my/directory.PNG", 
+        url: "https://www.muaythaisbh.my/directory.png", 
         width: 1200,
         height: 630,
         alt: "Muaythai Sabah Official Preview",
