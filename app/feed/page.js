@@ -84,9 +84,13 @@ export default function FeedPage() {
     e.preventDefault();
     setRegStatus('loading');
     
+    // Fixed: Added { count: 'minimal' } and lowercase email transformation
     const { error } = await supabase
       .from('marketing_leads')
-      .insert([{ email, source: 'community_feed' }]);
+      .insert(
+        [{ email: email.toLowerCase(), source: 'community_feed' }],
+        { count: 'minimal' }
+      );
 
     if (error) {
       if (error.code === '23505') {
@@ -183,23 +187,34 @@ export default function FeedPage() {
     return `${Math.floor(h/24)}d`;
   };
 
+  const isAdmin = user && ADMIN_EMAILS.includes(user.email);
+
   return (
     <div className="min-h-screen bg-[#18191a] text-gray-100 font-sans pb-32 selection:bg-blue-500/30">
       
+      {/* 🚀 ADMIN DASHBOARD SHORTCUT (ONLY VISIBLE TO YOU) */}
+      {isAdmin && (
+        <div className="fixed top-20 right-4 z-[60] animate-bounce">
+          <Link href="/admin/marketing" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-tighter italic flex items-center gap-2 shadow-2xl border border-white/20">
+            <span>📊</span> View VIP Leads
+          </Link>
+        </div>
+      )}
+
       {/* HEADER */}
       <div className="pt-28 pb-6 px-4 max-w-xl mx-auto text-center">
         <h1 className="text-3xl font-black uppercase tracking-tighter text-white italic">
           Sabah <span className="text-blue-500">Community Feed</span>
         </h1>
-        <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mt-2 font-bold">The Official SMA Digital Hub</p>
+        <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mt-2 font-bold font-sans">The Official SMA Digital Hub</p>
       </div>
 
       <div className="max-w-xl mx-auto px-4">
         
         {/* 🔥 MARKETING LEAD MAGNET */}
-        <section className="bg-gradient-to-br from-blue-900/40 to-black border border-blue-500/30 rounded-2xl p-6 mb-8 shadow-[0_0_25px_rgba(59,130,246,0.15)] text-center">
-            <h3 className="text-xl font-black text-white uppercase italic tracking-tighter mb-1">Join the VIP Roster</h3>
-            <p className="text-[11px] text-gray-400 uppercase tracking-widest mb-4 leading-relaxed font-bold">
+        <section className="bg-gradient-to-br from-blue-900/40 to-black border border-blue-500/30 rounded-2xl p-6 mb-8 shadow-2xl text-center">
+            <h3 className="text-xl font-black text-white uppercase italic tracking-tighter mb-1 font-sans">Join the VIP Roster</h3>
+            <p className="text-[11px] text-gray-400 uppercase tracking-widest mb-4 leading-relaxed font-bold font-sans">
               Get early access to Tournament updates, New Muaythai merchandise & Gym promos
             </p>
             
@@ -208,8 +223,9 @@ export default function FeedPage() {
                     type="email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="ENTER YOUR EMAIL" 
-                    className="flex-grow bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-500 transition-colors uppercase font-bold placeholder:text-gray-600"
+                    placeholder="Enter your email" 
+                    // FIXED: Removed 'uppercase' and 'font-bold' to allow normal typing
+                    className="flex-grow bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-500 transition-colors text-white placeholder:text-gray-600"
                     required
                 />
                 <button 
@@ -220,9 +236,9 @@ export default function FeedPage() {
                 </button>
             </form>
 
-            {regStatus === 'success' && <p className="text-green-500 text-[10px] mt-3 font-bold uppercase tracking-widest animate-pulse">Success! Welcome to the SMA Community.</p>}
-            {regStatus === 'already_exists' && <p className="text-yellow-500 text-[10px] mt-3 font-bold uppercase tracking-widest">You are already on the VIP list!</p>}
-            {regStatus === 'error' && <p className="text-red-500 text-[10px] mt-3 font-bold uppercase tracking-widest">Error. Please check your connection.</p>}
+            {regStatus === 'success' && <p className="text-green-500 text-[10px] mt-3 font-bold uppercase tracking-widest animate-pulse font-sans">Success! Welcome to the SMA Community.</p>}
+            {regStatus === 'already_exists' && <p className="text-yellow-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">You are already on the VIP list!</p>}
+            {regStatus === 'error' && <p className="text-red-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">Error. Please check your connection.</p>}
         </section>
 
         {/* CREATE POST */}
@@ -258,7 +274,7 @@ export default function FeedPage() {
           </div>
         ) : (
           <div className="bg-[#242526] p-8 rounded-xl text-center mb-6 border border-[#3a3b3c] shadow-xl">
-              <p className="text-gray-400 text-[10px] uppercase tracking-[0.3em] mb-4 font-bold">Official SMA Member Access Required</p>
+              <p className="text-gray-400 text-[10px] uppercase tracking-[0.3em] mb-4 font-bold font-sans">Official SMA Member Access Required</p>
               <Link href="/login" className="inline-block bg-white text-black px-12 py-3 rounded-xl font-black uppercase italic text-sm hover:bg-blue-600 hover:text-white transition-all shadow-lg active:scale-95">
                 Sign In to Post
               </Link>
@@ -275,7 +291,6 @@ export default function FeedPage() {
             {posts.map((post) => {
                 const author = post.profiles || {};
                 const authorName = author.full_name || "Unknown Warrior";
-                const isOwner = user && (user.id === post.user_id || ADMIN_EMAILS.includes(user.email));
                 const reactions = post.feed_reactions || [];
                 const myReaction = user ? reactions.find(r => r.user_id === user.id) : null;
                 const media = post.media_urls || [];
@@ -358,7 +373,7 @@ export default function FeedPage() {
                     {/* Simple Comment Indicator */}
                     {expandedComments[post.id] && (
                         <div className="p-6 bg-black/20 border-t border-[#3a3b3c] text-center">
-                            <p className="text-gray-500 text-[10px] uppercase font-black tracking-[0.4em] italic mb-3">Syncing Comment Database...</p>
+                            <p className="text-gray-500 text-[10px] uppercase font-black tracking-[0.4em] italic mb-3 font-sans">Syncing Comment Database...</p>
                             <div className="h-1 w-20 bg-blue-600/30 mx-auto rounded-full overflow-hidden">
                                 <div className="h-full bg-blue-500 w-1/2 animate-ping"></div>
                             </div>

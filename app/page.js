@@ -5,19 +5,33 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { supabase } from "./lib/supabase"; 
 
+// --- 🔒 ADMINS ---
+const ADMIN_EMAILS = [
+  "revolutioncombatgym@gmail.com",
+  "rcmuaythaiclub@gmail.com", 
+  "planetbubbles@gmail.com"
+];
+
 export default function Home() {
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
   const audioRef = useRef(null);
 
-  // Marketing State
+  // User & Marketing State
+  const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [regStatus, setRegStatus] = useState(null);
 
   useEffect(() => {
     setMounted(true);
+    checkUser();
   }, []);
+
+  const checkUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    setUser(user);
+  };
 
   const toggleMute = () => {
     if (audioRef.current) {
@@ -38,17 +52,24 @@ export default function Home() {
     e.preventDefault();
     setRegStatus('loading');
     
+    // CRITICAL FIX: email.toLowerCase() and { count: 'minimal' }
     const { error } = await supabase
       .from('marketing_leads')
-      .insert([{ email, source: 'home_page' }]);
+      .insert(
+        [{ email: email.toLowerCase(), source: 'home_page' }], 
+        { count: 'minimal' } 
+      );
 
     if (error) {
+      console.error("Supabase Error:", error.message);
       setRegStatus(error.code === '23505' ? 'already_exists' : 'error');
     } else {
       setRegStatus('success');
       setEmail('');
     }
   };
+
+  const isAdmin = user && ADMIN_EMAILS.includes(user.email);
 
   const affiliates = [
     { name: "KBS Sabah", url: "https://kbs.sabah.gov.my/" },
@@ -70,6 +91,15 @@ export default function Home() {
   return (
     <div className="flex flex-col font-sans text-gray-200 overflow-x-hidden bg-slate-950 selection:bg-yellow-500 selection:text-black">
       
+      {/* 🚀 ADMIN DASHBOARD SHORTCUT (Only visible to you) */}
+      {isAdmin && (
+        <div className="fixed top-24 right-6 z-[100] animate-bounce">
+          <Link href="/admin/marketing" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-tighter italic flex items-center gap-2 shadow-[0_0_30px_rgba(37,99,235,0.4)] border border-white/20">
+            <span>📊</span> Admin Database
+          </Link>
+        </div>
+      )}
+
       <style jsx>{`
         @keyframes fade-in-up { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes slow-zoom { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
@@ -120,30 +150,26 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* 🌟 FEATURE GRID - DIRECT ACCESS ENABLED */}
+          {/* 🌟 FEATURE GRID */}
           <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 animate-fade-in-up delay-200 px-4">
-            
-            {/* COMMUNITY FEED */}
             <Link href="/feed" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-blue-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
               <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
               </div>
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-3 italic">Community Feed</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">Explore daily gym activities, media and updates. Join the official SMA community to participate.</p>
-              <span className="text-[10px] font-black uppercase text-blue-500 tracking-widest italic">View Community Feed →</span>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">Explore daily gym activities and media. Join the official SMA community to participate.</p>
+              <span className="text-[10px] font-black uppercase text-blue-500 tracking-widest italic">View Feed →</span>
             </Link>
 
-            {/* ATHLETE ROSTER */}
             <Link href="/fighters" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-yellow-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
               <div className="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
               </div>
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-3 italic">Athlete Roster</h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">Official database for verified athletes. Browse fighter profiles, records, and current rankings.</p>
+              <p className="text-xs text-gray-400 leading-relaxed mb-4">Official database for verified athletes. Browse profiles, records, and current rankings.</p>
               <span className="text-[10px] font-black uppercase text-yellow-500 tracking-widest italic">Browse Roster →</span>
             </Link>
 
-            {/* GYM REGISTRY */}
             <Link href="/directory" className="group bg-slate-900/60 backdrop-blur-md border border-slate-700 hover:border-green-500 p-8 rounded-3xl transition-all hover:-translate-y-2">
               <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
@@ -156,7 +182,7 @@ export default function Home() {
 
           {/* 🔍 SCOUT PORTAL */}
           <Link href="/fighters" className="w-full max-w-6xl mb-12 animate-fade-in-up delay-300">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all shadow-xl shadow-blue-900/20">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all shadow-xl">
                <div className="flex items-center gap-4 text-left">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center font-bold text-white uppercase tracking-tighter italic shadow-inner">Scout</div>
                   <div>
@@ -183,7 +209,7 @@ export default function Home() {
         <audio ref={audioRef} src="/muaythai-theme.mp3" loop muted={isMuted} />
       </section>
 
-      {/* 🔥 FRONT PAGE VIP ROSTER MARKETING SECTION (ABOVE SOP) */}
+      {/* 🔥 FRONT PAGE VIP ROSTER MARKETING SECTION */}
       <section className="py-24 px-6 relative overflow-hidden bg-slate-950 border-t border-slate-900">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
         
@@ -196,15 +222,17 @@ export default function Home() {
           </p>
 
           <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            {/* FIXED: Removed visually forced 'uppercase' class to allow small letters */}
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="ENTER YOUR EMAIL" 
-              className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-blue-500 outline-none transition-all uppercase font-black placeholder:text-gray-800 text-sm"
+              placeholder="Enter your email" 
+              className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white focus:border-blue-500 outline-none transition-all placeholder:text-gray-800 text-sm"
               required
             />
             <button 
+              type="submit"
               disabled={regStatus === 'loading'}
               className="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl uppercase italic tracking-tighter transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] active:scale-95 disabled:opacity-50 text-sm"
             >
@@ -237,7 +265,7 @@ export default function Home() {
               <span className="text-5xl">⚠️</span>
               <div>
                 <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none italic">Makluman Penting SOP</h3>
-                <p className="text-red-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2 italic">Important SOP Notice (Effective 2026)</p>
+                <p className="text-red-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2 italic font-bold">Important SOP Notice (Effective 2026)</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -284,7 +312,7 @@ export default function Home() {
                <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Muaythai Sabah Official FB</span>
             </a>
             <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-               <div className="bg-red-600 p-3 rounded-full group-hover:scale-110 transition-all shadow-lg shadow-red-600/20">
+               <div className="bg-red-600 p-3 rounded-full group-hover:scale-110 transition-all shadow-lg">
                   <img src="https://www.svgrepo.com/show/475691/youtube-color.svg" className="w-5 h-5 invert" alt="YT" />
                </div>
                <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Official Youtube Channel</span>
