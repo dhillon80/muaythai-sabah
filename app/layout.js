@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// IMPORT YOUR COMPONENT BACK
 import Navbar from "./components/Navbar"; 
 
 const geistSans = Geist({
@@ -16,7 +15,18 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
   description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
-  metadataBase: new URL("https://www.muaythaisbh.my"), // Helps Next.js resolve image paths correctly
+  metadataBase: new URL("https://www.muaythaisbh.my"),
+  
+  // 🔥 APP / PWA SETTINGS
+  manifest: "/manifest.json",
+  themeColor: "#0a0a0b", // Matches your background
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Muaythai Sabah",
+    // startupImage: "/pmnslogo.png" (You can add splash screens here)
+  },
+
   alternates: {
     canonical: "/",
   },
@@ -27,7 +37,7 @@ export const metadata = {
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "/feed-community.png", // Next.js will automatically use your metadataBase URL
+        url: "/feed-community.png",
         width: 1200,
         height: 630,
         alt: "Muaythai Sabah Official Preview Image",
@@ -36,22 +46,21 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  // This section addresses the "fb:app_id" warning if you decide to create one later
   other: {
-    "fb:app_id": "your-app-id-here", // Optional: replace with your ID if you have one
+    "fb:app_id": "your-app-id-here", 
+    "mobile-web-app-capable": "yes",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      {/* Deepest Grey Theme */}
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0b] text-gray-100 flex flex-col min-h-screen`}>
         
         {/* USE THE NAVBAR COMPONENT */}
         <Navbar />
 
-        {/* Padding-top (pt-32) pushes content down so it doesn't hide behind the Navbar */}
+        {/* main content */}
         <main className="flex-grow pt-32">
           {children}
         </main>
