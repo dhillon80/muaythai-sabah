@@ -39,15 +39,10 @@ export default function FeedPage() {
   // UI State
   const [lightboxSrc, setLightboxSrc] = useState(null);
   const [expandedComments, setExpandedComments] = useState({}); 
-  const [activeMenuPostId, setActiveMenuPostId] = useState(null);
+  const [activeSharePost, setActiveSharePost] = useState(null); // 🔥 FB Share Sheet State
 
   useEffect(() => {
     fetchUserAndPosts();
-    const handleGlobalClick = (e) => {
-      if (!e.target.closest('.post-menu-btn')) setActiveMenuPostId(null);
-    };
-    window.addEventListener("click", handleGlobalClick);
-    return () => window.removeEventListener("click", handleGlobalClick);
   }, []);
 
   const fetchUserAndPosts = async () => {
@@ -79,25 +74,40 @@ export default function FeedPage() {
     setLoading(false);
   };
 
-  // --- 📩 MARKETING DATABASE REGISTRATION ---
+  // --- 🚀 DYNAMIC SHARE LOGIC (Restored Platform Support) ---
+  const handlePlatformShare = (platform, post) => {
+    const shareUrl = `https://www.muaythaisbh.my/feed`;
+    const shareText = encodeURIComponent(`Check out this post on Muaythai Sabah by ${post.profiles?.full_name || 'a warrior'}: "${post.content.substring(0, 60)}..."`);
+    
+    const links = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+      messenger: `fb-messenger://share/?link=${shareUrl}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`,
+      gmail: `mailto:?subject=Muaythai Sabah Feed&body=${shareText}%20${shareUrl}`,
+    };
+
+    if (platform === 'native' || platform === 'instagram' || platform === 'tiktok') {
+      if (navigator.share) {
+        navigator.share({ title: 'Muaythai Sabah', text: post.content, url: shareUrl });
+      } else {
+        navigator.clipboard.writeText(shareUrl);
+        alert("Link copied! Paste it in " + platform);
+      }
+    } else if (links[platform]) {
+      window.open(links[platform], '_blank');
+    }
+    setActiveSharePost(null);
+  };
+
   const handleMarketingRegister = async (e) => {
     e.preventDefault();
     setRegStatus('loading');
-    
-    // Fixed: Added { count: 'minimal' } and lowercase email transformation
     const { error } = await supabase
       .from('marketing_leads')
-      .insert(
-        [{ email: email.toLowerCase(), source: 'community_feed' }],
-        { count: 'minimal' }
-      );
+      .insert([{ email: email.toLowerCase(), source: 'community_feed' }], { count: 'minimal' });
 
     if (error) {
-      if (error.code === '23505') {
-        setRegStatus('already_exists');
-      } else {
-        setRegStatus('error');
-      }
+      setRegStatus(error.code === '23505' ? 'already_exists' : 'error');
     } else {
       setRegStatus('success');
       setEmail('');
@@ -190,9 +200,8 @@ export default function FeedPage() {
   const isAdmin = user && ADMIN_EMAILS.includes(user.email);
 
   return (
-    <div className="min-h-screen bg-[#18191a] text-gray-100 font-sans pb-32 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#18191a] text-gray-100 font-sans pb-32">
       
-      {/* 🚀 ADMIN DASHBOARD SHORTCUT (ONLY VISIBLE TO YOU) */}
       {isAdmin && (
         <div className="fixed top-20 right-4 z-[60] animate-bounce">
           <Link href="/admin/marketing" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-tighter italic flex items-center gap-2 shadow-2xl border border-white/20">
@@ -211,7 +220,7 @@ export default function FeedPage() {
 
       <div className="max-w-xl mx-auto px-4">
         
-        {/* 🔥 MARKETING LEAD MAGNET */}
+        {/* LEAD MAGNET */}
         <section className="bg-gradient-to-br from-blue-900/40 to-black border border-blue-500/30 rounded-2xl p-6 mb-8 shadow-2xl text-center">
             <h3 className="text-xl font-black text-white uppercase italic tracking-tighter mb-1 font-sans">Join the VIP Roster</h3>
             <p className="text-[11px] text-gray-400 uppercase tracking-widest mb-4 leading-relaxed font-bold font-sans">
@@ -224,7 +233,6 @@ export default function FeedPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email" 
-                    // FIXED: Removed 'uppercase' and 'font-bold' to allow normal typing
                     className="flex-grow bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-500 transition-colors text-white placeholder:text-gray-600"
                     required
                 />
@@ -235,26 +243,24 @@ export default function FeedPage() {
                     {regStatus === 'loading' ? 'Processing...' : 'Join Now'}
                 </button>
             </form>
-
-            {regStatus === 'success' && <p className="text-green-500 text-[10px] mt-3 font-bold uppercase tracking-widest animate-pulse font-sans">Success! Welcome to the SMA Community.</p>}
+            {regStatus === 'success' && <p className="text-green-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">Success! Welcome to the SMA Community.</p>}
             {regStatus === 'already_exists' && <p className="text-yellow-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">You are already on the VIP list!</p>}
-            {regStatus === 'error' && <p className="text-red-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">Error. Please check your connection.</p>}
         </section>
 
-        {/* CREATE POST */}
+        {/* CREATE POST (Restored Feature) */}
         {user ? (
           <div className="bg-[#242526] rounded-xl p-4 mb-6 shadow-md border border-[#3a3b3c]">
             <div className="flex gap-3 mb-4">
-               <img src={profile?.profile_image || `https://ui-avatars.com/api/?name=${user.email}`} className="w-10 h-10 rounded-full object-cover border border-white/5" />
-               <div className="flex-grow bg-[#3a3b3c] rounded-full px-4 py-2 hover:bg-[#4e4f50] transition-colors cursor-text" onClick={() => document.getElementById('main-input').focus()}>
-                 <input 
-                   id="main-input"
-                   value={content}
-                   onChange={(e) => setContent(e.target.value)}
-                   placeholder={`Update the community...`}
-                   className="w-full bg-transparent border-none text-white outline-none placeholder-gray-400 font-medium"
-                 />
-               </div>
+                <img src={profile?.profile_image || `https://ui-avatars.com/api/?name=${user.email}`} className="w-10 h-10 rounded-full object-cover border border-white/5" />
+                <div className="flex-grow bg-[#3a3b3c] rounded-full px-4 py-2 hover:bg-[#4e4f50] transition-colors cursor-text" onClick={() => document.getElementById('main-input').focus()}>
+                  <input 
+                    id="main-input"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    placeholder={`Update the community...`}
+                    className="w-full bg-transparent border-none text-white outline-none placeholder-gray-400 font-medium"
+                  />
+                </div>
             </div>
             {selectedFiles.length > 0 && (
               <div className="flex gap-2 overflow-x-auto pb-4 px-1">
@@ -267,9 +273,9 @@ export default function FeedPage() {
               </div>
             )}
             <div className="border-t border-[#3e4042] pt-3 flex justify-between items-center px-1">
-               <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 text-green-500 font-bold text-sm hover:bg-[#3a3b3c] px-4 py-2 rounded-lg transition-colors"><span>📷</span> Media</button>
-               <input type="file" ref={fileInputRef} onChange={e => e.target.files && setSelectedFiles(p => [...p, ...Array.from(e.target.files)])} multiple accept="image/*,video/*" className="hidden" />
-               <button onClick={handleCreatePost} disabled={uploading || (!content && selectedFiles.length === 0)} className={`px-8 py-2 rounded-lg font-black uppercase italic text-sm transition-all ${!content && !selectedFiles.length ? 'bg-[#3a3b3c] text-gray-500' : 'bg-blue-600 text-white hover:bg-blue-500 shadow-lg'}`}>{uploading ? 'Posting...' : 'Post'}</button>
+                <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 text-green-500 font-bold text-sm hover:bg-[#3a3b3c] px-4 py-2 rounded-lg transition-colors"><span>📷</span> Media</button>
+                <input type="file" ref={fileInputRef} onChange={e => e.target.files && setSelectedFiles(p => [...p, ...Array.from(e.target.files)])} multiple accept="image/*,video/*" className="hidden" />
+                <button onClick={handleCreatePost} disabled={uploading || (!content && selectedFiles.length === 0)} className={`px-8 py-2 rounded-lg font-black uppercase italic text-sm transition-all ${!content && !selectedFiles.length ? 'bg-[#3a3b3c] text-gray-500' : 'bg-blue-600 text-white hover:bg-blue-500 shadow-lg'}`}>{uploading ? 'Posting...' : 'Post'}</button>
             </div>
           </div>
         ) : (
@@ -297,7 +303,6 @@ export default function FeedPage() {
   
                 return (
                   <div key={post.id} className="bg-[#242526] rounded-xl shadow-sm border border-[#3a3b3c] overflow-hidden transition-all hover:border-[#4e4f50]">
-                    {/* Header */}
                     <div className="p-4 flex justify-between items-start">
                       <div className="flex gap-3">
                         <img src={author.profile_image || `https://ui-avatars.com/api/?name=${authorName}`} className="w-10 h-10 rounded-full object-cover border border-white/10" />
@@ -308,10 +313,8 @@ export default function FeedPage() {
                       </div>
                     </div>
   
-                    {/* Text Content */}
                     <div className="px-4 pb-4 text-[15px] text-gray-100 whitespace-pre-wrap leading-relaxed">{post.content}</div>
   
-                    {/* Media Display */}
                     {media.length > 0 && (
                       <div className={`grid gap-[2px] bg-[#3a3b3c] ${media.length===1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
                         {media.map((url, i) => (
@@ -326,7 +329,6 @@ export default function FeedPage() {
                       </div>
                     )}
   
-                    {/* Reaction Bar */}
                     {reactions.length > 0 && (
                       <div className="px-4 py-2 text-[12px] text-gray-400 border-b border-[#3e4042] flex items-center gap-2 font-bold">
                         <div className="flex -space-x-1">
@@ -340,10 +342,9 @@ export default function FeedPage() {
                       </div>
                     )}
   
-                    {/* Action Buttons */}
-                    <div className="flex px-2 py-1 relative">
+                    {/* ACTION BUTTONS (LIKE, COMMENT, SHARE) */}
+                    <div className="flex px-2 py-1 border-t border-[#3e4042] relative">
                           <div className="flex-1 group relative">
-                            {/* Hover Reactions Popup */}
                             <div className="absolute bottom-full left-0 pb-3 hidden group-hover:flex w-full items-end justify-center z-50">
                                 <div className="bg-[#3a3b3c] rounded-full p-1.5 shadow-2xl border border-[#4e4f50] flex gap-1.5 animate-in fade-in slide-in-from-bottom-2 duration-200">
                                   {REACTION_TYPES.map((type) => (
@@ -368,9 +369,16 @@ export default function FeedPage() {
                           <button onClick={() => setExpandedComments(p => ({...p, [post.id]: !p[post.id]}))} className="flex-1 py-2.5 hover:bg-[#3a3b3c] rounded-lg flex items-center justify-center gap-2 text-gray-400 font-bold text-sm uppercase tracking-tighter italic">
                             <span>💬</span> Comment
                           </button>
+
+                          {/* 🔥 FB STYLE POINTER SHARE BUTTON */}
+                          <button onClick={() => setActiveSharePost(post)} className="flex-1 py-2.5 hover:bg-[#3a3b3c] rounded-lg flex items-center justify-center gap-2 text-gray-400 font-bold text-sm uppercase tracking-tighter italic group transition-all">
+                             <svg className="w-5 h-5 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
+                             </svg>
+                             <span>Share</span>
+                          </button>
                     </div>
 
-                    {/* Simple Comment Indicator */}
                     {expandedComments[post.id] && (
                         <div className="p-6 bg-black/20 border-t border-[#3a3b3c] text-center">
                             <p className="text-gray-500 text-[10px] uppercase font-black tracking-[0.4em] italic mb-3 font-sans">Syncing Comment Database...</p>
@@ -386,7 +394,38 @@ export default function FeedPage() {
         )}
       </div>
 
-      {/* LIGHTBOX / FULLSCREEN MEDIA */}
+      {/* 📱 FB-STYLE SHARE SHEET OVERLAY (Restored & Refined) */}
+      {activeSharePost && (
+        <div className="fixed inset-0 z-[110] flex items-end justify-center sm:items-center animate-in fade-in duration-200 px-0 sm:px-4">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setActiveSharePost(null)} />
+          <div className="relative w-full max-w-sm bg-[#242526] rounded-t-3xl sm:rounded-3xl border-t border-white/10 overflow-hidden animate-in slide-in-from-bottom duration-300 pb-12 sm:pb-8">
+            <div className="p-4 border-b border-white/5 flex justify-between items-center">
+              <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Share to Community</span>
+              <button onClick={() => setActiveSharePost(null)} className="text-white text-2xl px-2">&times;</button>
+            </div>
+            <div className="grid grid-cols-4 gap-y-6 p-6">
+              {[
+                { id: 'facebook', label: 'Feed', color: 'bg-blue-600', icon: 'f' },
+                { id: 'messenger', label: 'Chats', color: 'bg-gradient-to-tr from-blue-400 to-purple-500', icon: '⚡' },
+                { id: 'whatsapp', label: 'WhatsApp', color: 'bg-green-500', icon: '📞' },
+                { id: 'instagram', label: 'Stories', color: 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', icon: '📸' },
+                { id: 'tiktok', label: 'TikTok', color: 'bg-black border border-white/20', icon: '🎵' },
+                { id: 'gmail', label: 'Gmail', color: 'bg-red-600', icon: 'M' },
+                { id: 'native', label: 'More', color: 'bg-gray-700', icon: '•••' }
+              ].map((item) => (
+                <button key={item.id} onClick={() => handlePlatformShare(item.id, activeSharePost)} className="flex flex-col items-center gap-2 active:scale-90 transition-transform">
+                  <div className={`${item.color} w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+                    {item.id === 'facebook' ? <span className="text-2xl lowercase -mt-1">f</span> : item.icon}
+                  </div>
+                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-tighter">{item.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* LIGHTBOX (Restored & Improved) */}
       {lightboxSrc && (
         <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightboxSrc(null)}>
           <button className="absolute top-6 right-6 text-white text-5xl font-thin hover:rotate-90 transition-transform">&times;</button>

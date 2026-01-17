@@ -1,11 +1,14 @@
 {
+  "id": "com.muaythaisbh.app",
   "name": "Muaythai Sabah Official",
-  "short_name": "SMA Feed",
-  "description": "Official Sabah Muaythai Community Hub",
+  "short_name": "MuaythaiSBH",
+  "description": "The official digital hub for the Sabah Muaythai community. Track fighters, events, and training.",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#020617",
   "theme_color": "#0a0a0b",
+  "categories": ["sports", "social", "health"],
   "icons": [
     {
       "src": "/pmnslogo.png",
@@ -18,6 +21,33 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/pmnslogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/feed-community.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sabah Muaythai Community Feed"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Community Feed",
+      "url": "/feed",
+      "icons": [{ "src": "/pmnslogo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Fighters",
+      "url": "/fighters",
+      "icons": [{ "src": "/pmnslogo.png", "sizes": "192x192" }]
     }
   ]
 }
