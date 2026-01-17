@@ -8,7 +8,8 @@ import { supabase } from '../lib/supabase';
 const ADMIN_EMAILS = [
   "revolutioncombatgym@gmail.com",
   "rcmuaythaiclub@gmail.com", 
-  "planetbubbles@gmail.com"
+  "planetbubbles@gmail.com",
+  "dhillon80@gmail.com"
 ];
 
 const REACTION_TYPES = [
@@ -36,13 +37,31 @@ export default function FeedPage() {
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
 
+  // --- 🛠️ EDIT & MENU STATES ---
+  const [activeMenuPostId, setActiveMenuPostId] = useState(null); // Which post menu is open?
+  const [editingPostId, setEditingPostId] = useState(null);
+  const [editContent, setEditContent] = useState("");
+
+  // Comment Edit States
+  const [activeMenuCommentId, setActiveMenuCommentId] = useState(null); // Which comment menu is open?
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [editCommentContent, setEditCommentContent] = useState("");
+
   // UI State
   const [lightboxSrc, setLightboxSrc] = useState(null);
   const [expandedComments, setExpandedComments] = useState({}); 
-  const [activeSharePost, setActiveSharePost] = useState(null); // 🔥 FB Share Sheet State
+  const [commentText, setCommentText] = useState({}); 
+  const [activeSharePost, setActiveSharePost] = useState(null);
 
   useEffect(() => {
     fetchUserAndPosts();
+    // Close menus when clicking outside
+    const handleClickOutside = () => {
+        setActiveMenuPostId(null);
+        setActiveMenuCommentId(null);
+    };
+    window.addEventListener('click', handleClickOutside);
+    return () => window.removeEventListener('click', handleClickOutside);
   }, []);
 
   const fetchUserAndPosts = async () => {
@@ -74,7 +93,72 @@ export default function FeedPage() {
     setLoading(false);
   };
 
-  // --- 🚀 DYNAMIC SHARE LOGIC (Restored Platform Support) ---
+  // --- 🗑️ POST ACTIONS ---
+
+  const handleDeletePost = async (postId) => {
+    if (!window.confirm("Delete this post permanently?")) return;
+    const { error } = await supabase.from('feed_posts').delete().eq('id', postId);
+    if (error) alert("Error deleting: " + error.message);
+    else fetchPosts();
+  };
+
+  const startEditingPost = (post, e) => {
+    e.stopPropagation(); // Stop menu closing immediately
+    setEditingPostId(post.id);
+    setEditContent(post.content);
+    setActiveMenuPostId(null);
+  };
+
+  const handleSavePostEdit = async (postId) => {
+    const { error } = await supabase.from('feed_posts').update({ content: editContent }).eq('id', postId);
+    if (error) {
+        alert("Error updating: " + error.message);
+    } else {
+        setEditingPostId(null);
+        fetchPosts();
+    }
+  };
+
+  // --- 💬 COMMENT ACTIONS ---
+
+  const handlePostComment = async (postId) => {
+    const text = commentText[postId];
+    if (!text || !user) return;
+
+    const { error } = await supabase.from('feed_comments').insert({
+        post_id: postId,
+        user_id: user.id,
+        content: text
+    });
+
+    if (!error) {
+        setCommentText(prev => ({ ...prev, [postId]: '' })); 
+        fetchPosts(); 
+    }
+  };
+
+  const startEditingComment = (comment, e) => {
+    e.stopPropagation();
+    setEditingCommentId(comment.id);
+    setEditCommentContent(comment.content);
+    setActiveMenuCommentId(null);
+  };
+
+  const handleSaveCommentEdit = async (commentId) => {
+    const { error } = await supabase.from('feed_comments').update({ content: editCommentContent }).eq('id', commentId);
+    if (!error) {
+        setEditingCommentId(null);
+        fetchPosts();
+    }
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    if (!confirm("Delete this comment?")) return;
+    const { error } = await supabase.from('feed_comments').delete().eq('id', commentId);
+    if (!error) fetchPosts();
+  };
+
+  // --- 🚀 SHARE LOGIC ---
   const handlePlatformShare = (platform, post) => {
     const shareUrl = `https://www.muaythaisbh.my/feed`;
     const shareText = encodeURIComponent(`Check out this post on Muaythai Sabah by ${post.profiles?.full_name || 'a warrior'}: "${post.content.substring(0, 60)}..."`);
@@ -247,7 +331,7 @@ export default function FeedPage() {
             {regStatus === 'already_exists' && <p className="text-yellow-500 text-[10px] mt-3 font-bold uppercase tracking-widest font-sans">You are already on the VIP list!</p>}
         </section>
 
-        {/* CREATE POST (Restored Feature) */}
+        {/* CREATE POST */}
         {user ? (
           <div className="bg-[#242526] rounded-xl p-4 mb-6 shadow-md border border-[#3a3b3c]">
             <div className="flex gap-3 mb-4">
@@ -266,8 +350,8 @@ export default function FeedPage() {
               <div className="flex gap-2 overflow-x-auto pb-4 px-1">
                 {selectedFiles.map((file, idx) => (
                   <div key={idx} className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-black border border-[#3e4042]">
-                     {file.type.startsWith('video') ? <video src={URL.createObjectURL(file)} className="w-full h-full object-cover"/> : <img src={URL.createObjectURL(file)} className="w-full h-full object-cover"/>}
-                     <button onClick={() => setSelectedFiles(p => p.filter((_,i)=>i!==idx))} className="absolute top-0 right-0 bg-black/70 text-white w-5 h-5 flex items-center justify-center text-xs">×</button>
+                      {file.type.startsWith('video') ? <video src={URL.createObjectURL(file)} className="w-full h-full object-cover"/> : <img src={URL.createObjectURL(file)} className="w-full h-full object-cover"/>}
+                      <button onClick={() => setSelectedFiles(p => p.filter((_,i)=>i!==idx))} className="absolute top-0 right-0 bg-black/70 text-white w-5 h-5 flex items-center justify-center text-xs">×</button>
                   </div>
                 ))}
               </div>
@@ -290,7 +374,7 @@ export default function FeedPage() {
         {/* FEED CONTENT */}
         {loading ? (
             <div className="text-center py-20">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
             </div>
         ) : (
             <div className="space-y-6">
@@ -298,12 +382,20 @@ export default function FeedPage() {
                 const author = post.profiles || {};
                 const authorName = author.full_name || "Unknown Warrior";
                 const reactions = post.feed_reactions || [];
+                const comments = post.feed_comments || [];
                 const myReaction = user ? reactions.find(r => r.user_id === user.id) : null;
                 const media = post.media_urls || [];
-  
+                
+                // 🔑 CHECK PERMISSIONS
+                const isMyPost = user && user.id === post.user_id;
+                const canEdit = isMyPost;
+                const canDelete = isAdmin || isMyPost;
+                const isEditing = editingPostId === post.id;
+                const isMenuOpen = activeMenuPostId === post.id;
+
                 return (
                   <div key={post.id} className="bg-[#242526] rounded-xl shadow-sm border border-[#3a3b3c] overflow-hidden transition-all hover:border-[#4e4f50]">
-                    <div className="p-4 flex justify-between items-start">
+                    <div className="p-4 flex justify-between items-start relative">
                       <div className="flex gap-3">
                         <img src={author.profile_image || `https://ui-avatars.com/api/?name=${authorName}`} className="w-10 h-10 rounded-full object-cover border border-white/10" />
                         <div>
@@ -311,9 +403,54 @@ export default function FeedPage() {
                           <p className="text-[11px] text-gray-500 mt-1 font-bold uppercase tracking-wider">{author.gym_name && `${author.gym_name} •`} {timeAgo(post.created_at)}</p>
                         </div>
                       </div>
+
+                      {/* 🛠️ 3-DOTS MENU (POST) */}
+                      {(canDelete || canEdit) && (
+                        <div className="relative">
+                            <button 
+                                onClick={(e) => { e.stopPropagation(); setActiveMenuPostId(isMenuOpen ? null : post.id); }} 
+                                className="text-gray-400 hover:bg-[#3a3b3c] p-2 rounded-full transition-colors"
+                            >
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                            </button>
+
+                            {isMenuOpen && (
+                                <div className="absolute right-0 top-full mt-2 w-32 bg-[#242526] border border-[#3a3b3c] rounded-xl shadow-2xl z-20 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                                    {canEdit && (
+                                        <button onClick={(e) => startEditingPost(post, e)} className="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#3a3b3c] text-white">
+                                            Edit Post
+                                        </button>
+                                    )}
+                                    {canDelete && (
+                                        <button onClick={() => handleDeletePost(post.id)} className="w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-wider hover:bg-red-500/20 text-red-500">
+                                            Delete
+                                        </button>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                      )}
                     </div>
   
-                    <div className="px-4 pb-4 text-[15px] text-gray-100 whitespace-pre-wrap leading-relaxed">{post.content}</div>
+                    {/* POST CONTENT (With Edit Mode) */}
+                    <div className="px-4 pb-4 text-[15px] text-gray-100 whitespace-pre-wrap leading-relaxed">
+                        {isEditing ? (
+                            <div className="space-y-3">
+                                <textarea 
+                                    value={editContent} 
+                                    onChange={(e) => setEditContent(e.target.value)}
+                                    className="w-full bg-black/30 text-white p-3 rounded-lg border border-white/10 outline-none focus:border-blue-500"
+                                    rows={3}
+                                />
+                                <div className="flex gap-2 justify-end">
+                                    <button onClick={() => setEditingPostId(null)} className="text-xs font-bold uppercase text-gray-400 hover:text-white px-3 py-1">Cancel</button>
+                                    <button onClick={() => handleSavePostEdit(post.id)} className="bg-blue-600 text-white text-xs font-black uppercase px-4 py-1.5 rounded-lg">Save</button>
+                                </div>
+                            </div>
+                        ) : (
+                            post.content
+                        )}
+                    </div>
   
                     {media.length > 0 && (
                       <div className={`grid gap-[2px] bg-[#3a3b3c] ${media.length===1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
@@ -339,6 +476,7 @@ export default function FeedPage() {
                             ))}
                         </div>
                         <span className="hover:underline cursor-pointer">{reactions.length} reactions</span>
+                        {comments.length > 0 && <span className="ml-auto hover:underline cursor-pointer" onClick={() => setExpandedComments(p => ({...p, [post.id]: !p[post.id]}))}>{comments.length} comments</span>}
                       </div>
                     )}
   
@@ -349,12 +487,12 @@ export default function FeedPage() {
                                 <div className="bg-[#3a3b3c] rounded-full p-1.5 shadow-2xl border border-[#4e4f50] flex gap-1.5 animate-in fade-in slide-in-from-bottom-2 duration-200">
                                   {REACTION_TYPES.map((type) => (
                                     <button 
-                                        key={type.id} 
-                                        onClick={() => handleReaction(post.id, type.id)} 
-                                        className="w-9 h-9 hover:scale-125 transition-transform text-xl flex items-center justify-center bg-[#242526] rounded-full border border-white/5"
-                                        title={type.label}
+                                            key={type.id} 
+                                            onClick={() => handleReaction(post.id, type.id)} 
+                                            className="w-9 h-9 hover:scale-125 transition-transform text-xl flex items-center justify-center bg-[#242526] rounded-full border border-white/5"
+                                            title={type.label}
                                     >
-                                        {type.icon}
+                                            {type.icon}
                                     </button>
                                   ))}
                                 </div>
@@ -370,7 +508,6 @@ export default function FeedPage() {
                             <span>💬</span> Comment
                           </button>
 
-                          {/* 🔥 FB STYLE POINTER SHARE BUTTON */}
                           <button onClick={() => setActiveSharePost(post)} className="flex-1 py-2.5 hover:bg-[#3a3b3c] rounded-lg flex items-center justify-center gap-2 text-gray-400 font-bold text-sm uppercase tracking-tighter italic group transition-all">
                              <svg className="w-5 h-5 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
@@ -379,22 +516,104 @@ export default function FeedPage() {
                           </button>
                     </div>
 
+                    {/* 💬 COMMENT SECTION (Real Data) */}
                     {expandedComments[post.id] && (
-                        <div className="p-6 bg-black/20 border-t border-[#3a3b3c] text-center">
-                            <p className="text-gray-500 text-[10px] uppercase font-black tracking-[0.4em] italic mb-3 font-sans">Syncing Comment Database...</p>
-                            <div className="h-1 w-20 bg-blue-600/30 mx-auto rounded-full overflow-hidden">
-                                <div className="h-full bg-blue-500 w-1/2 animate-ping"></div>
+                        <div className="bg-[#1c1d1e] border-t border-[#3a3b3c] p-4 animate-in fade-in duration-200">
+                            {/* Comment List */}
+                            <div className="space-y-4 mb-4 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                                {comments.length === 0 ? (
+                                    <p className="text-gray-500 text-xs italic text-center py-2">No comments yet. Be the first!</p>
+                                ) : (
+                                    comments.sort((a,b) => new Date(a.created_at) - new Date(b.created_at)).map(comment => {
+                                        const cAuthor = comment.profiles || {};
+                                        const canModify = isAdmin || (user && user.id === comment.user_id);
+                                        const isCommentMenuOpen = activeMenuCommentId === comment.id;
+                                        const isEditingComment = editingCommentId === comment.id;
+                                        
+                                        return (
+                                            <div key={comment.id} className="flex gap-3 group">
+                                                <img src={cAuthor.profile_image || `https://ui-avatars.com/api/?name=${cAuthor.full_name}`} className="w-8 h-8 rounded-full object-cover mt-1" />
+                                                <div className="flex-1 relative">
+                                                    {isEditingComment ? (
+                                                        // ✏️ EDIT COMMENT MODE
+                                                        <div className="bg-[#3a3b3c] rounded-2xl p-2">
+                                                            <input 
+                                                                value={editCommentContent}
+                                                                onChange={(e) => setEditCommentContent(e.target.value)}
+                                                                className="w-full bg-transparent text-white text-sm outline-none mb-2"
+                                                                autoFocus
+                                                            />
+                                                            <div className="flex justify-end gap-2">
+                                                                <button onClick={() => setEditingCommentId(null)} className="text-[10px] text-gray-400 uppercase font-bold hover:text-white">Cancel</button>
+                                                                <button onClick={() => handleSaveCommentEdit(comment.id)} className="text-[10px] text-blue-400 uppercase font-bold hover:text-blue-300">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                        // 👀 VIEW COMMENT MODE
+                                                        <div className="flex items-start gap-2">
+                                                            <div className="bg-[#3a3b3c] rounded-2xl px-3 py-2 inline-block max-w-[85%]">
+                                                                <p className="text-white text-xs font-bold">{cAuthor.full_name}</p>
+                                                                <p className="text-gray-200 text-sm">{comment.content}</p>
+                                                            </div>
+                                                            
+                                                            {/* 🛠️ 3-DOTS MENU (COMMENT) */}
+                                                            {canModify && (
+                                                                <div className="relative mt-2">
+                                                                    <button 
+                                                                        onClick={(e) => { e.stopPropagation(); setActiveMenuCommentId(isCommentMenuOpen ? null : comment.id); }}
+                                                                        className="text-gray-500 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                                                                    >
+                                                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                                                                    </button>
+                                                                    {isCommentMenuOpen && (
+                                                                        <div className="absolute left-0 top-full mt-1 w-24 bg-[#242526] border border-[#3a3b3c] rounded-lg shadow-xl z-30 overflow-hidden">
+                                                                            <button onClick={(e) => startEditingComment(comment, e)} className="w-full text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider hover:bg-[#3a3b3c] text-white">Edit</button>
+                                                                            <button onClick={() => handleDeleteComment(comment.id)} className="w-full text-left px-3 py-2 text-[10px] font-bold uppercase tracking-wider hover:bg-red-500/20 text-red-500">Delete</button>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                    
+                                                    {!isEditingComment && (
+                                                        <div className="flex items-center gap-3 mt-1 ml-2">
+                                                            <span className="text-[10px] text-gray-500">{timeAgo(comment.created_at)}</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                )}
+                            </div>
+
+                            {/* Comment Input */}
+                            <div className="flex gap-2">
+                                <img src={profile?.profile_image || `https://ui-avatars.com/api/?name=${user?.email}`} className="w-8 h-8 rounded-full object-cover" />
+                                <div className="flex-1 relative">
+                                    <input 
+                                        value={commentText[post.id] || ''}
+                                        onChange={(e) => setCommentText(prev => ({...prev, [post.id]: e.target.value}))}
+                                        onKeyDown={(e) => e.key === 'Enter' && handlePostComment(post.id)}
+                                        placeholder="Write a comment..."
+                                        className="w-full bg-[#3a3b3c] rounded-full px-4 py-2 text-sm text-white outline-none focus:bg-[#4e4f50] transition-colors"
+                                    />
+                                    <button onClick={() => handlePostComment(post.id)} className="absolute right-2 top-1.5 text-blue-500 hover:text-blue-400 p-1">
+                                        <svg className="w-4 h-4 transform rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
                   </div>
                 );
             })}
-          </div>
+            </div>
         )}
       </div>
 
-      {/* 📱 FB-STYLE SHARE SHEET OVERLAY (Restored & Refined) */}
+      {/* 📱 FB-STYLE SHARE SHEET OVERLAY */}
       {activeSharePost && (
         <div className="fixed inset-0 z-[110] flex items-end justify-center sm:items-center animate-in fade-in duration-200 px-0 sm:px-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setActiveSharePost(null)} />
@@ -425,7 +644,7 @@ export default function FeedPage() {
         </div>
       )}
 
-      {/* LIGHTBOX (Restored & Improved) */}
+      {/* LIGHTBOX */}
       {lightboxSrc && (
         <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightboxSrc(null)}>
           <button className="absolute top-6 right-6 text-white text-5xl font-thin hover:rotate-90 transition-transform">&times;</button>
