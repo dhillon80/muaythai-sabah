@@ -202,7 +202,7 @@ const localGyms = [
   },
   {
     id: "awp-kudat",
-    name: "AWP Muay Thai Training Centre",
+    name: "Hemo Training Camp",
     district: "Kudat",
     address: "801, 1st Floor, Jln Okk Haji Abdul Ghani",
     phone: "010-212 0870",
@@ -398,8 +398,8 @@ export default function Directory() {
 
         {/* --- 👑 FEATURED GYM SECTION (RESTORED) --- */}
         {featuredGym && (searchTerm === "" || 
-         featuredGym.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-         featuredGym.coach.toLowerCase().includes(searchTerm.toLowerCase())) && (
+          featuredGym.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          featuredGym.coach.toLowerCase().includes(searchTerm.toLowerCase())) && (
           <div className="flex justify-center mb-20">
             <div className="w-full max-w-lg relative">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-slate-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg z-10">
