@@ -38,12 +38,12 @@ export default function FeedPage() {
   const fileInputRef = useRef(null);
 
   // --- 🛠️ EDIT & MENU STATES ---
-  const [activeMenuPostId, setActiveMenuPostId] = useState(null); // Which post menu is open?
+  const [activeMenuPostId, setActiveMenuPostId] = useState(null); 
   const [editingPostId, setEditingPostId] = useState(null);
   const [editContent, setEditContent] = useState("");
 
   // Comment Edit States
-  const [activeMenuCommentId, setActiveMenuCommentId] = useState(null); // Which comment menu is open?
+  const [activeMenuCommentId, setActiveMenuCommentId] = useState(null); 
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editCommentContent, setEditCommentContent] = useState("");
 
@@ -53,25 +53,47 @@ export default function FeedPage() {
   const [commentText, setCommentText] = useState({}); 
   const [activeSharePost, setActiveSharePost] = useState(null);
 
+  // ✅ THE FIX: AUTH LISTENER ADDED HERE
   useEffect(() => {
-    fetchUserAndPosts();
-    // Close menus when clicking outside
+    // 1. Initial Load
+    fetchPosts();
+    
+    // 2. Check Session & Listen for Changes
+    const checkSession = async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+            setUser(session.user);
+            fetchProfile(session.user.id);
+        }
+    };
+    checkSession();
+
+    // 3. Real-time Listener (Fixes the "Guest" bug)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user ?? null);
+        if (session?.user) {
+            fetchProfile(session.user.id);
+        } else {
+            setProfile(null);
+        }
+    });
+
+    // 4. Click Outside Listener
     const handleClickOutside = () => {
         setActiveMenuPostId(null);
         setActiveMenuCommentId(null);
     };
     window.addEventListener('click', handleClickOutside);
-    return () => window.removeEventListener('click', handleClickOutside);
+
+    return () => {
+        subscription.unsubscribe();
+        window.removeEventListener('click', handleClickOutside);
+    };
   }, []);
 
-  const fetchUserAndPosts = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    setUser(user);
-    if (user) {
-      const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single();
-      setProfile(profile);
-    }
-    fetchPosts();
+  const fetchProfile = async (userId) => {
+    const { data } = await supabase.from('profiles').select('*').eq('id', userId).single();
+    if (data) setProfile(data);
   };
 
   const fetchPosts = async () => {
@@ -103,7 +125,7 @@ export default function FeedPage() {
   };
 
   const startEditingPost = (post, e) => {
-    e.stopPropagation(); // Stop menu closing immediately
+    e.stopPropagation(); 
     setEditingPostId(post.id);
     setEditContent(post.content);
     setActiveMenuPostId(null);
