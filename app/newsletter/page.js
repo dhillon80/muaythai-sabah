@@ -13,21 +13,59 @@ export default function Newsletter() {
           Muaythai Sabah <span className="text-yellow-500">Newsletter</span>
         </h1>
         <p className="text-gray-400 text-lg">
-          Cerita, gambar dan kemas kini tentang acara-acara Muaythai Sabah.
+          Stories, photos, and updates on Sabah Muaythai events.
         </p>
       </div>
 
       <div className="max-w-4xl mx-auto space-y-10">
 
-        {/* 🆕 NEWEST STORY: SUKMA Selection 2026 */}
-        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl border-l-4 border-l-yellow-500">
+        {/* 🆕 NEWEST STORY: Training Camp (Kru Rim) */}
+        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-red-500/50 transition-all duration-300 shadow-xl border-l-4 border-l-red-500">
           <div className="mb-2">
-             <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
-               Latest Feature · Jan 2026 · Penampang
+             <span className="text-red-500 text-xs font-bold uppercase tracking-widest">
+               Latest Feature · Jan 19, 2026 · Training Camp
              </span>
           </div>
           <h2 className="text-3xl font-black text-white mb-4">
-            🥊 SUKMA Selangor 2026: Sabah Muaythai Selection Concludes Successfully
+            🥊 The Proving Ground: Sabah Muaythai Kicks Off Road to SUKMA 2026
+          </h2>
+          
+          <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10"></div>
+            <Image
+              src="/training-camp-main.jpg" 
+              alt="Sabah Muaythai Training Camp"
+              width={800}
+              height={450}
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
+            <p>
+              The grind has officially begun. With guest head coach <strong>Thachtana "Kru Rim" Luangphon</strong> (Malaysian National SEA Games Coach) leading the charge, the Sabah Muaythai team starts their intensive preparation.
+            </p>
+          </div>
+          
+          <div className="mt-8 pt-6 border-t border-slate-800">
+            <Link
+              href="/newsletter/training-camp" 
+              className="inline-flex items-center text-red-500 font-bold hover:text-white transition-colors"
+            >
+              Read full story <span className="ml-2">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* 🆕 SUKMA Selection 2026 */}
+        <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-all duration-300 shadow-xl">
+          <div className="mb-2">
+             <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">
+               Jan 2026 · Penampang
+             </span>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            SUKMA Selangor 2026: Sabah Muaythai Selection Concludes Successfully
           </h2>
           
           <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
@@ -41,18 +79,18 @@ export default function Newsletter() {
             />
           </div>
           
-          <div className="space-y-4 text-gray-300 leading-relaxed text-lg">
+          <div className="space-y-4 text-gray-300 leading-relaxed">
             <p>
               The Sabah Muaythai selection trials for SUKMA Selangor 2026 concluded successfully following a two-day evaluation held on 3–4 January 2026. The closed-door selection brought together Sabah’s top emerging talents.
             </p>
           </div>
           
-          <div className="mt-8 pt-6 border-t border-slate-800">
+          <div className="mt-6 pt-6 border-t border-slate-800">
             <Link
               href="/newsletter/sukma-selection" 
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -90,7 +128,7 @@ export default function Newsletter() {
               href="/newsletter/seagames-2025" 
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -128,7 +166,7 @@ export default function Newsletter() {
               href="/newsletter/ayg-bahrain-2025" 
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -166,7 +204,7 @@ export default function Newsletter() {
               href="/newsletter/saga-2025" 
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -202,7 +240,7 @@ export default function Newsletter() {
               href="/newsletter/D1Championship"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -213,7 +251,7 @@ export default function Newsletter() {
              <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">28 July 2025 · Bukit Kiara</span>
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">
-            Sabah Juara Keseluruhan Kejohanan Muaythai Kebangsaan 2025
+            Sabah Overall Champion National Muaythai Championship 2025
           </h2>
           
           <div className="w-full relative h-auto rounded-xl overflow-hidden mb-6 group">
@@ -228,8 +266,8 @@ export default function Newsletter() {
           </div>
           
           <p className="text-gray-300 leading-relaxed">
-            Muaythai Sabah mengukuhkan dominasi dengan 24 emas, 10 perak dan 25 gangsa,
-            mengekalkan gelaran Juara Keseluruhan tiga tahun berturut-turut!
+            Muaythai Sabah cemented its dominance with 24 golds, 10 silvers, and 25 bronzes,
+            retaining the Overall Champion title for three consecutive years!
           </p>
           
           <div className="mt-6 pt-6 border-t border-slate-800">
@@ -237,7 +275,7 @@ export default function Newsletter() {
               href="/newsletter/national-championship-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -272,7 +310,7 @@ export default function Newsletter() {
               href="https://www.muaythaisbh.my/newsletter/sabah-coaching-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -307,7 +345,7 @@ export default function Newsletter() {
               href="https://www.muaythaisbh.my/newsletter/IFMA-Asian-Championship-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -342,7 +380,7 @@ export default function Newsletter() {
               href="/newsletter/Ranau-Fighting-Championship-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -377,7 +415,7 @@ export default function Newsletter() {
               href="/newsletter/sabah-muaythai-expo-rookie-challenge-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -412,7 +450,7 @@ export default function Newsletter() {
               href="https://www.muaythaisbh.my/newsletter/sabah-muaythai-cultural-heritage-2025"
               className="inline-flex items-center text-yellow-500 font-bold hover:text-white transition-colors"
             >
-              Baca cerita penuh <span className="ml-2">→</span>
+              Read full story <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
