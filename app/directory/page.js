@@ -11,7 +11,7 @@ const ADMIN_EMAILS = [
   "planetbubbles@gmail.com"
 ];
 
-// --- 1. ORIGINAL HARDCODED GYMS (Restored Exact List) ---
+// --- 1. ORIGINAL HARDCODED GYMS ---
 const localGyms = [
   // --- KOTA KINABALU ---
   {
@@ -27,6 +27,19 @@ const localGyms = [
       { label: "Google Maps", url: "https://goo.gl/maps/xyz", color: "green" }
     ],
     isFeatured: true 
+  },
+  {
+    id: "rs-muay",
+    name: "RS Muay Fight Team (Raden Studio Akademi)",
+    district: "Kota Kinabalu",
+    address: "D-3-2, Blok D, Tingkat 3, Plaza Tanjung Aru",
+    phone: "019-758 3854",
+    coach: "Coach Ponga",
+    links: [
+      { label: "Facebook", url: "https://www.facebook.com/share/1BC11MVvjs/", color: "blue" },
+      { label: "TikTok", url: "https://www.tiktok.com/@raden_studio_akademi?_r=1&_t=ZS-93Ci68hxjvx", color: "pink" },
+      { label: "Google Maps", url: "https://maps.app.goo.gl/paR6gHFa3bVVz12t8", color: "green" }
+    ]
   },
   {
     id: "m1",
