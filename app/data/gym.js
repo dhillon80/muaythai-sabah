@@ -1,6 +1,4 @@
-// app/data/gyms.js
-
-export const gyms = [
+export const localGyms = [
   // --- KOTA KINABALU ---
   {
     id: "revolution",
@@ -15,6 +13,19 @@ export const gyms = [
       { label: "Google Maps", url: "https://goo.gl/maps/xyz", color: "green" }
     ],
     isFeatured: true 
+  },
+  {
+    id: "rs-muay",
+    name: "RS Muay Fight Team (Raden Studio Akademi)",
+    district: "Kota Kinabalu",
+    address: "D-3-2, Blok D, Tingkat 3, Plaza Tanjung Aru",
+    phone: "019-758 3854",
+    coach: "Coach Ponga",
+    links: [
+      { label: "Facebook", url: "https://www.facebook.com/share/1BC11MVvjs/", color: "blue" },
+      { label: "TikTok", url: "https://www.tiktok.com/@raden_studio_akademi?_r=1&_t=ZS-93Ci68hxjvx", color: "pink" },
+      { label: "Google Maps", url: "https://maps.app.goo.gl/paR6gHFa3bVVz12t8", color: "green" }
+    ]
   },
   {
     id: "m1",
@@ -52,8 +63,6 @@ export const gyms = [
       { label: "Website", url: "https://rajanakmuay.my.canva.site/rnmfightclubwebsite", color: "purple" }
     ]
   },
-
-  // --- PENAMPANG ---
   {
     id: "cs5",
     name: "CS5Fitness Gym",
@@ -81,8 +90,6 @@ export const gyms = [
     coach: "Coach Greg Olsen Sipidi",
     links: [{ label: "Facebook", url: "https://www.facebook.com/share/19FL93W6qv/", color: "blue" }]
   },
-
-  // --- SANDAKAN ---
   {
     id: "uppercross",
     name: "Uppercross Muaythai and Fitness",
@@ -117,8 +124,6 @@ export const gyms = [
     coach: "Coach Mardiana",
     links: []
   },
-
-  // --- TAWAU ---
   {
     id: "dsha",
     name: "D'Sha Muayfit Tawau",
@@ -128,8 +133,6 @@ export const gyms = [
     coach: "Coach Sharon Andrea Gerald",
     links: [{ label: "Facebook", url: "https://web.facebook.com/DShaMuaythaiTawau", color: "blue" }]
   },
-
-  // --- PUTATAN ---
   {
     id: "66denakan",
     name: "66 Denakan Muaythai Gym",
@@ -142,8 +145,6 @@ export const gyms = [
       { label: "Apple Maps", url: "https://maps.apple.com/?address=88200%20Kota%20Kinabalu", color: "green" }
     ]
   },
-
-  // --- KENINGAU ---
   {
     id: "rocky-mma",
     name: "Rocky MMA Fight Team & Fitness",
@@ -177,8 +178,6 @@ export const gyms = [
       { label: "TikTok", url: "https://www.tiktok.com/@keningau.mma", color: "pink" }
     ]
   },
-
-  // --- KOTA MARUDU & KUDAT ---
   {
     id: "awp-marudu",
     name: "AWP Martial Art Academy (PLN PBU)",
@@ -202,15 +201,13 @@ export const gyms = [
   },
   {
     id: "awp-kudat",
-    name: "AWP Muay Thai Training Centre",
+    name: "Hemo Training Camp",
     district: "Kudat",
     address: "801, 1st Floor, Jln Okk Haji Abdul Ghani",
     phone: "010-212 0870",
     coach: "Coach Neo",
     links: [{ label: "Facebook", url: "https://www.facebook.com/awpmartialart", color: "blue" }]
   },
-
-  // --- LAHAD DATU ---
   {
     id: "borneo-aura",
     name: "Borneo Aura Serumpun",
@@ -229,8 +226,6 @@ export const gyms = [
     coach: "Sensei Jefri Adnan Agukal",
     links: [{ label: "Facebook", url: "https://web.facebook.com/profile.php?id=100082994329166", color: "blue" }]
   },
-
-  // --- OTHERS ---
   {
     id: "nak-muay",
     name: "Nak Muay Ranau Gym",
