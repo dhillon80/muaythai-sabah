@@ -514,6 +514,23 @@ export const fighters = [
     image: "/rahmad-madkool.jpeg",
     bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories. He is the 2025 VW Fighting Championship Professional Gold Medalist and 2024 SUKMA Silver Medalist."
   },
+  {
+    id: "riedzwan-norsyahmie",
+    name: "Riedzwan Norsyahmie Daud",
+    nickname: "The Golden Shin", 
+    team: "66 Unicorn x S Inn Malay",
+    coach: "Maman Ajmain",
+    managerContact: "60109417666",
+    weight: "135 LBS / 61 KG",
+    height: "172 CM",
+    age: "24",
+    gender: "Male",
+    record: "14W - 4L (10 KO/TKO)",
+    category: "Pro",
+    nationality: "Sabah",
+    image: "/syahmie.jpeg",
+    bio: "A seasoned pro and tactical 'Femur' fighter known for his high IQ in the ring. Riedzwan controls the pace with technical precision, devastating opponents with the renowned power of his 'Golden Shin'. Boasting 10 KO victories, he is a dangerous striker who dissects defenses systematically."
+  },
 
   // =======================================================
   // STALLONE FITNESS (Coach: Mohd Fadzirllah)
@@ -534,6 +551,23 @@ export const fighters = [
     nationality: "Sabah",
     image: "/milan.jpeg",
     bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division. Under the guidance of Coach Mohd Fadzirllah, he brings a perfect record and strong technical skills to the professional circuit."
+  },
+  {
+    id: "mb-khairul",
+    name: "Mb Mohd Khairul Ariffin Bin Masrun",
+    nickname: "MB",
+    team: "Stallone Fitness",
+    coach: "Mohd Fadzirllah",
+    managerContact: "60169774685",
+    weight: "65 KG",
+    height: "178 CM",
+    age: "20",
+    gender: "Male",
+    record: "9W - 1L - 0D",
+    category: "Muaysports",
+    nationality: "Sabah",
+    image: "/mbkhairul.jpeg",
+    bio: "Representing Stallone Fitness Gym."
   },
 
   // =======================================================
@@ -577,6 +611,23 @@ export const fighters = [
     nationality: "Sabah",
     image: "/kallens.jpeg",
     bio: "True to his nickname 'Showtime', Kallens is an entertainer in the ring, known for high-risk, high-reward techniques."
+  },
+  {
+    id: "kerry-dryan",
+    name: "Kerry Dryan Jafili",
+    nickname: "Dryan",
+    team: "Team Karabaw Tamparuli",
+    coach: "Kenny Jafili",
+    managerContact: "601126237463",
+    weight: "71 KG",
+    height: "178 CM",
+    age: "18",
+    gender: "Male",
+    record: "Pro: 0-1 | Muaysports: 23-5",
+    category: "Pro & Muaysports",
+    nationality: "Sabah",
+    image: "/kerry.jpeg", 
+    bio: "Fighting out of Team Karabaw Tamparuli."
   },
 
   // =======================================================
