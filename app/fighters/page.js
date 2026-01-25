@@ -135,7 +135,7 @@ const fighters = [
     weight: "45 KG",
     height: "N/A",
     age: "17",
-    gender: "Male",
+    gender: "Female",
     record: "2W - 2L",
     category: "Pro",
     nationality: "Sabah",
