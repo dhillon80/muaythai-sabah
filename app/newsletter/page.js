@@ -52,18 +52,41 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 2. Coaches Training Camp (Jan 25, 2026) */}
+        {/* 2. NEW FEATURE: Angie Yan Jia Chi Incentive (2025/2026 Milestone) */}
+        <div className="bg-slate-900 border border-blue-500/50 p-6 md:p-10 rounded-[2.5rem] shadow-[0_0_50px_rgba(59,130,246,0.1)] border-l-8 border-l-blue-500 group">
+          <div className="mb-4 flex justify-between items-center">
+             <span className="text-blue-500 text-[10px] font-black uppercase tracking-widest italic tracking-[0.2em]">Incentive Feature · 2025/2026</span>
+             <span className="bg-blue-500 text-white text-[9px] px-3 py-1 rounded font-black italic">ELITE</span>
+          </div>
+          <h2 className="text-3xl font-black text-white mb-6 uppercase italic group-hover:text-blue-500 transition-colors tracking-tighter leading-none">The Gold Standard: RM 92,000 Cash Reward</h2>
+          <Image src="/angie-1.jpg" alt="Angie Incentive" width={800} height={450} className="rounded-2xl mb-8 object-cover transform group-hover:scale-105 transition-transform duration-1000" />
+          <div className="space-y-4">
+             <p className="font-bold italic text-white text-xl border-l-4 border-yellow-500 pl-6 leading-tight uppercase tracking-tight">Angie Yan Jia Chi: Highest Incentive Earner</p>
+             <p className="text-gray-400 text-lg leading-relaxed italic">
+               &quot;The road to the podium is paved with sacrifice. Don&apos;t look for the easy way—look for the hard work, because that is where the rewards live.&quot;
+             </p>
+             <p className="text-gray-400 text-lg leading-relaxed">
+               Celebrating our World Champion, Angie Yan Jia Chi, for securing a historic RM 92,000 cash incentive following her dominant 2025 season. A massive win for Sabah and a blueprint for every aspiring athlete.
+             </p>
+          </div>
+          <div className="mt-8 pt-8 border-t border-slate-800 flex justify-between items-center">
+             <Link href="/newsletter/angie-incentive" className="text-blue-500 font-black uppercase tracking-[0.2em] text-xs hover:text-white transition-all italic underline underline-offset-4">Read Full Feature →</Link>
+             <span className="text-[10px] text-gray-600 uppercase font-black italic tracking-widest">SHAKAM / MSN / PMM</span>
+          </div>
+        </div>
+
+        {/* 3. Coaches Training Camp (Jan 25, 2026) */}
         <div className="bg-slate-900/50 border border-red-600/50 p-6 md:p-8 rounded-2xl shadow-xl border-l-4 border-l-red-600">
           <div className="mb-2 text-red-600 text-[10px] font-black uppercase tracking-widest italic">Jan 25, 2026</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">The Unseen Sacrifice: Coaches & Management Team</h2>
           <Image src="/team-group-main.jpg" alt="Coaches" width={800} height={450} className="rounded-xl mb-6 object-cover" />
           <p className="text-gray-300 leading-relaxed mb-6 text-lg">We pull back the curtain on the dedicated mentors and management team pushing the boundaries for Sabah&apos;s SUKMA 2026 squad.</p>
           <div className="pt-6 border-t border-slate-800">
-            <Link href="/newsletter/coaches-trainingcamp" className="text-red-600 font-bold uppercase text-xs tracking-widest italic">Full Feature →</Link>
+            <Link href="/newsletter/coaches-trainingcamp" className="text-red-600 font-bold uppercase text-xs tracking-widest italic underline">Full Feature Story →</Link>
           </div>
         </div>
 
-        {/* 3. Final Training Camp (Jan 24, 2026) */}
+        {/* 4. Final Training Camp (Jan 24, 2026) */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl shadow-lg">
           <div className="mb-2 text-red-500 text-[10px] font-black uppercase tracking-widest italic">Training Update</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🥊 Final Training Camp: Technical Sharpening</h2>
@@ -74,7 +97,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 4. Training Camp Kickoff (Jan 19, 2026) */}
+        {/* 5. Training Camp Kickoff (Jan 19, 2026) */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-red-500 text-[10px] font-black uppercase tracking-widest italic">Jan 19, 2026</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🥊 Road to SUKMA: Training Camp Kickoff</h2>
@@ -85,7 +108,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 5. SUKMA Selection (Jan 2026) */}
+        {/* 6. SUKMA Selection (Jan 2026) */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">Jan 2026</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">SUKMA Selangor 2026: Selection Concludes</h2>
@@ -96,7 +119,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 6. SEA Games (Late 2025) */}
+        {/* 7. SEA Games (Late 2025) */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl shadow-xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">International</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic leading-none">🥇 Sabah Shines at the SEA Games 2025</h2>
@@ -107,7 +130,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 7. AYG Bahrain (2025) */}
+        {/* 8. AYG Bahrain (2025) */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">2025 · Bahrain</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🌏 Asian Youth Games Bahrain: Medals for Sabah</h2>
@@ -118,7 +141,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 8. SAGA XI 2025 */}
+        {/* 9. SAGA XI 2025 */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl shadow-lg">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">Tawau · 2025</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🥊 Sabah Games XI (SAGA) 2025: Muaythai Finals</h2>
@@ -129,7 +152,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 9. D1 Championship */}
+        {/* 10. D1 Championship */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">Aug 2025</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">D1 Championship 2025: Behind the Glory</h2>
@@ -140,7 +163,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 10. IFMA Asian Championship */}
+        {/* 11. IFMA Asian Championship */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-red-500 text-[10px] font-black uppercase tracking-widest italic">International</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🌏 IFMA Asian Championship 2025</h2>
@@ -151,7 +174,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 11. National Championship */}
+        {/* 12. National Championship */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">July 2025</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic leading-none">Overall Champion: National Championship 2025</h2>
@@ -162,7 +185,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 12. Sabah Coaching Course */}
+        {/* 13. Sabah Coaching Course */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl shadow-md">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">Education Series</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">Muaythai Basic Coaching Course 2025</h2>
@@ -173,7 +196,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 13. Ranau Fighting Championship */}
+        {/* 14. Ranau Fighting Championship */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-green-500/40 shadow-xl transition-all">
           <div className="mb-2 text-green-500 text-[10px] font-black uppercase tracking-widest italic">District Series</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🏔️ Ranau Fighting Championship 2025</h2>
@@ -184,7 +207,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 14. Expo Rookie Challenge */}
+        {/* 15. Expo Rookie Challenge */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl hover:border-blue-500/40 shadow-xl transition-all">
           <div className="mb-2 text-blue-500 text-[10px] font-black uppercase tracking-widest italic tracking-widest">Grassroots · 2025</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">🥊 Expo Rookie Challenge: The Next Generation</h2>
@@ -195,7 +218,7 @@ export default function Newsletter() {
           </div>
         </div>
 
-        {/* 15. Cultural Heritage */}
+        {/* 16. Cultural Heritage */}
         <div className="bg-slate-900/40 border border-slate-800 p-6 md:p-8 rounded-2xl mb-12 shadow-2xl">
           <div className="mb-2 text-yellow-500 text-[10px] font-black uppercase tracking-widest italic">May 2025 · Penampang</div>
           <h2 className="text-2xl font-bold text-white mb-4 uppercase italic">Muaythai Cultural & Heritage Challenge 2025</h2>
