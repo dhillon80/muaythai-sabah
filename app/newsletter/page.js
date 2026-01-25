@@ -24,7 +24,7 @@ export default function NewsletterArchive() {
     { year: "2025", date: "2025", title: "Sabah Games XI (SAGA): Tawau Finals", img: "/saga2025.jpg", link: "/newsletter/saga-2025", tag: "State Games" },
     { year: "2025", date: "2025", title: "IFMA Asian Championship 2025", img: "/asian.jpeg", link: "/newsletter/IFMA-Asian-Championship-2025", tag: "International" },
     { year: "2025", date: "2025", title: "Basic Coaching Course: 54 Certified", img: "/coaching.jpeg", link: "/newsletter/sabah-coaching-2025", tag: "Education" },
-    { year: "2025", date: "2025", title: "Ranau Fighting Championship", img: "/ranau.jpeg", link: "/newsletter/Ranau-Fighting-Championship-2025", tag: "District" },
+    { year: "2025", date: "2025", title: "Ranau Fighting Championship", img: "/Ranau.jpeg", link: "/newsletter/Ranau-Fighting-Championship-2025", tag: "District" },
     { year: "2025", date: "2025", title: "Expo Rookie Challenge: New Talents", img: "/rookiechallenge.jpeg", link: "/newsletter/sabah-muaythai-expo-rookie-challenge-2025", tag: "Grassroots" },
     { year: "2025", date: "May", title: "Cultural & Heritage Challenge", img: "/everyone.jpg", link: "/newsletter/sabah-muaythai-cultural-heritage-2025", tag: "Culture" },
   ];
