@@ -1,121 +1,120 @@
-import React from 'react';
+/* eslint-disable @next/next/no-img-element */
+"use client";
+
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function SukmaSelectionNewsletter() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <main style={{ backgroundColor: '#f4f4f4', minHeight: '100vh', padding: '20px' }}>
-      <div style={{
-        maxWidth: '800px',
-        margin: '0 auto',
-        backgroundColor: '#ffffff',
-        padding: '40px',
-        borderRadius: '8px',
-        boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        color: '#333',
-        lineHeight: '1.6'
-      }}>
+    <main className="min-h-screen bg-slate-950 text-gray-200 font-sans selection:bg-red-600 selection:text-white">
+      
+      {/* --- MINIMALIST NAV --- */}
+      <nav className="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5 px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-red-500 transition-all italic">
+          ← BACK TO HUB
+        </Link>
+        <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest italic">OFFICIAL BULLETIN</span>
+      </nav>
+
+      <div className={`max-w-4xl mx-auto pt-32 pb-20 px-6 transition-all duration-1000 ${mounted ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
         
-        {/* Header */}
-        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ color: '#d32f2f', marginBottom: '10px', fontSize: '2.2em' }}>
-            🥊 SUKMA Selangor 2026
+        {/* --- MEGA HEADLINE --- */}
+        <header className="mb-16">
+          <h1 className="text-6xl md:text-[110px] font-black text-white uppercase italic tracking-tighter leading-[0.85] mb-6">
+            SUKMA<br/><span className="text-red-600">SELECTION</span>
           </h1>
-          <p style={{ fontSize: '1.3em', color: '#444', fontWeight: 'bold', marginTop: '0' }}>
+          <p className="text-gray-400 text-sm md:text-xl font-bold italic tracking-tight uppercase">
             Sabah Muaythai Selection Concludes Successfully
           </p>
-          
-          <img 
-            src="/sukma2025.jpeg" 
-            alt="SUKMA Sabah Muaythai Selection" 
-            style={{ width: '100%', height: 'auto', borderRadius: '8px', marginTop: '20px', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}
-          />
         </header>
 
-        {/* Content */}
-        <section>
-          <p style={{ fontSize: '1.1em' }}>
-            The Sabah Muaythai selection trials for SUKMA Selangor 2026 concluded successfully following a two-day evaluation held on 3–4 January 2026 at PLN Revolution Combat Gym, Taman Delima, Penampang.
-          </p>
-          <p>
-            The closed-door selection brought together Sabah’s top emerging Muaythai athletes, marking a crucial step in identifying the best talents to represent the state at Malaysia’s premier multi-sport event.
-          </p>
+        {/* --- MAIN PHOTO --- */}
+        <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl mb-16 bg-slate-900">
+          <img 
+            src="/sukma2025.jpeg" 
+            alt="SUKMA Selection Trials" 
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+        </div>
 
-          <h2 style={{ color: '#003366', borderBottom: '2px solid #eee', paddingBottom: '10px', marginTop: '40px' }}>
-            📍 Selection Overview
-          </h2>
-          <p>
-            The selection process was conducted in a controlled and professional environment to ensure fairness, athlete safety, and high-performance assessment.
-          </p>
-
-          {/* Event Details Box */}
-          <div style={{ backgroundColor: '#f0f4f8', padding: '20px', borderRadius: '8px', borderLeft: '5px solid #003366', marginBottom: '20px' }}>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              <li style={{ marginBottom: '10px' }}><strong>📅 Date:</strong> 3–4 January 2026</li>
-              <li style={{ marginBottom: '10px' }}><strong>🏟️ Venue:</strong> PLN Revolution Combat Gym, Taman Delima, Penampang</li>
-              <li><strong>🛡️ Event Type:</strong> Closed selection for Sabah SUKMA Selangor 2026 Muaythai team</li>
-            </ul>
-          </div>
+        {/* --- THE ACTUAL STORY --- */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-white/5 pt-12">
           
-          <p>Athletes were evaluated across multiple criteria including:</p>
-          <ul style={{ marginBottom: '30px' }}>
-            <li>Technical skill and execution</li>
-            <li>Physical conditioning and stamina</li>
-            <li>Ring intelligence and strategy</li>
-            <li>Discipline and competitive readiness</li>
-          </ul>
+          <div className="md:col-span-8 space-y-10 text-gray-300 text-lg leading-relaxed">
+            <p className="font-bold text-white text-xl md:text-2xl italic leading-snug">
+              The Sabah Muaythai selection trials for SUKMA Selangor 2026 concluded successfully following a two-day evaluation held on 3–4 January 2026 at PLN Revolution Combat Gym, Penampang.
+            </p>
+            
+            <p>
+              The closed-door selection brought together Sabah’s top emerging Muaythai athletes, marking a crucial step in identifying the best talents to represent the state at Malaysia’s premier multi-sport event.
+            </p>
 
-          <h2 style={{ color: '#003366', borderBottom: '2px solid #eee', paddingBottom: '10px', marginTop: '30px' }}>
-            🔍 High Standards & Intense Competition
-          </h2>
-          <p>
-            The selection trials featured a strong turnout of athletes from across Sabah, reflecting the depth and competitiveness of Muaythai development in the state. Throughout the two days, athletes demonstrated:
-          </p>
-          <ul style={{ backgroundColor: '#fffbf0', padding: '20px 20px 20px 40px', borderRadius: '8px', border: '1px solid #ffeeba' }}>
-            <li style={{ marginBottom: '5px' }}><strong>Technical proficiency</strong> and tactical awareness</li>
-            <li style={{ marginBottom: '5px' }}><strong>Mental resilience</strong> under pressure</li>
-            <li><strong>Respect</strong> for rules, officials, and fellow competitors</li>
-          </ul>
-          <p>
-            The closely contested sessions highlighted the narrowing gap between emerging talents and elite-level performance standards.
-          </p>
+            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 space-y-4">
+               <h3 className="text-white font-black uppercase text-xs tracking-widest mb-4">Selection Overview</h3>
+               <p className="text-sm">The process was conducted in a professional environment to ensure fairness, athlete safety, and high-performance assessment. Athletes were evaluated across multiple criteria:</p>
+               <ul className="grid grid-cols-1 gap-3 text-xs font-bold uppercase tracking-tight text-gray-400">
+                  <li><span className="text-red-600 mr-2">/</span> Technical skill and execution</li>
+                  <li><span className="text-red-600 mr-2">/</span> Physical conditioning and stamina</li>
+                  <li><span className="text-red-600 mr-2">/</span> Ring intelligence and strategy</li>
+                  <li><span className="text-red-600 mr-2">/</span> Discipline and competitive readiness</li>
+               </ul>
+            </div>
 
-          <h2 style={{ color: '#003366', borderBottom: '2px solid #eee', paddingBottom: '10px', marginTop: '30px' }}>
-            🏆 Building the Sabah SUKMA Squad
-          </h2>
-          <p>
-            The selection trials form part of a structured pathway toward assembling a strong, disciplined, and competitive Sabah contingent for SUKMA Selangor 2026. Selected athletes will proceed to the next phase, which includes:
-          </p>
-          <ol style={{ fontWeight: 'bold', color: '#555' }}>
-            <li style={{ marginBottom: '10px' }}>Centralised training programmes</li>
-            <li style={{ marginBottom: '10px' }}>Performance monitoring and evaluation</li>
-            <li>Exposure through preparatory competitions</li>
-          </ol>
-          <p>
-            This phased approach ensures athletes are not only competition-ready, but also physically and mentally prepared for the demands of SUKMA.
-          </p>
+            <p>
+              The trials featured a strong turnout from across Sabah, reflecting the depth and competitiveness of Muaythai development in the state. Throughout the two days, athletes demonstrated technical proficiency, tactical awareness, and mental resilience under pressure.
+            </p>
 
-          <h2 style={{ color: '#003366', borderBottom: '2px solid #eee', paddingBottom: '10px', marginTop: '30px' }}>
-            🤝 Collaboration & Commitment
-          </h2>
-          <p>
-            The successful execution of the selection trials reflects the strong collaboration between coaches, officials, clubs, and supporting bodies, all working toward a shared goal — elevating Sabah Muaythai at the national level.
-          </p>
-          <p>
-            PLN Revolution Combat Gym once again proved to be a suitable high-performance environment, supporting structured assessment and athlete development.
-          </p>
-        </section>
+            <blockquote className="py-10 border-y border-white/5 text-center">
+              <p className="text-2xl md:text-3xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+                "Success is born from consistency and fortitude of heart tested every day."
+              </p>
+            </blockquote>
 
-        {/* Footer */}
-        <footer style={{ marginTop: '50px', textAlign: 'center', borderTop: '2px solid #eee', paddingTop: '30px', color: '#666' }}>
-          <h3 style={{ color: '#333' }}>In Summary</h3>
-          <p>
-            The completion of the SUKMA Selangor 2026 Muaythai selection marks an important milestone in Sabah’s preparation journey. With a clear development pathway and rising athlete standards, Sabah continues to strengthen its position as a competitive force in Malaysian Muaythai.
-          </p>
-          <p style={{ fontStyle: 'italic', marginTop: '20px' }}>
-            Further updates on squad confirmation and training programmes will be announced in due course.
-          </p>
-          <br />
-          <p style={{ fontSize: '0.9em' }}>&copy; 2026 Muaythai Sabah. All Rights Reserved.</p>
+            <p>
+              The selection trials form part of a structured pathway toward assembling a strong, disciplined, and competitive Sabah contingent. Selected athletes will proceed to centralised training programmes, performance monitoring, and exposure through preparatory competitions.
+            </p>
+
+            <p>
+              The success of these trials reflects the strong collaboration between coaches, officials, clubs, and supporting bodies. PLN Revolution Combat Gym once again proved to be a suitable high-performance environment for athlete development.
+            </p>
+          </div>
+
+          {/* SIDE DATA */}
+          <aside className="md:col-span-4">
+            <div className="sticky top-24 space-y-6">
+               <div className="p-8 rounded-3xl bg-slate-900 border border-white/10 backdrop-blur-md text-center">
+                  <p className="text-white font-black uppercase text-[10px] tracking-widest mb-2">Venue</p>
+                  <p className="text-xs font-bold text-gray-400 uppercase italic mb-6">PLN Revolution Combat Gym</p>
+                  
+                  <p className="text-white font-black uppercase text-[10px] tracking-widest mb-2">Date</p>
+                  <p className="text-xs font-bold text-gray-400 uppercase italic">January 3–4, 2026</p>
+               </div>
+
+               <div className="p-8 rounded-3xl bg-red-600 text-white shadow-2xl shadow-red-600/20 text-center">
+                  <p className="font-black uppercase text-[10px] tracking-widest mb-2">Phase One</p>
+                  <p className="text-xl font-black uppercase leading-tight italic">SELECTION COMPLETE</p>
+               </div>
+            </div>
+          </aside>
+        </div>
+
+        {/* --- FOOTER --- */}
+        <footer className="pt-32 text-center">
+          <Link href="/" className="group inline-flex flex-col items-center gap-6">
+            <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all shadow-xl">
+              <span className="text-white font-bold text-xl">←</span>
+            </div>
+            <span className="text-gray-600 group-hover:text-white font-black uppercase text-[10px] tracking-[0.4em] transition-colors italic">
+              RETURN TO MAIN HUB
+            </span>
+          </Link>
         </footer>
 
       </div>
