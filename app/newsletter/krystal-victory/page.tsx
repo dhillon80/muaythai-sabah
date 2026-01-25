@@ -7,11 +7,11 @@ export const metadata = {
   openGraph: {
     title: "Angel Victory: Krystal Angel International Triumph",
     description: "Krystal Angel wins by Unanimous Decision. Read the full magazine feature on the legacy of the Jafili family champions.",
-    url: "https://muaythaisabah.com/newsletter/krystal-victory",
+    url: "https://muaythaisbh.my/newsletter/krystal-victory",
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "https://muaythaisabah.com/krystal-action-1.jpg", 
+        url: "https://muaythaisbh.my/krystal-action-1.jpg", 
         width: 1200,
         height: 630,
         alt: "Krystal Angel Victory Action Shot",
