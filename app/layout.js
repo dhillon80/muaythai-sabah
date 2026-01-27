@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar"; 
+// CHANGE 1: Import SmartHeader instead of Navbar
+import SmartHeader from "./components/SmartHeader"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,28 +13,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 🔥 NEW: Separate Viewport Export (Fixes the Vercel Build Warnings)
 export const viewport = {
   themeColor: "#0a0a0b",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  userScalable: false, // Prevents accidental zooming for a better "App" feel
+  userScalable: false,
 };
 
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
   description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
   metadataBase: new URL("https://www.muaythaisbh.my"),
-  
-  // 📱 PWA / HP APP SETTINGS
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Muaythai Sabah",
   },
-
   alternates: {
     canonical: "/",
   },
@@ -53,11 +50,6 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  other: {
-    "fb:app_id": "your-app-id-here", 
-    "mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-capable": "yes",
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -65,8 +57,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0b] text-gray-100 flex flex-col min-h-screen`}>
         
-        {/* TOP NAVIGATION */}
-        <Navbar />
+        {/* CHANGE 2: Use the SmartHeader Logic */}
+        <SmartHeader />
 
         {/* MAIN CONTENT AREA */}
         <main className="flex-grow pt-32">
