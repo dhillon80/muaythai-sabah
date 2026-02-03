@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NewsletterArchive() {
   const [activeYear, setActiveYear] = useState("2026");
@@ -9,24 +10,144 @@ export default function NewsletterArchive() {
   // --- COMPREHENSIVE STORY DATABASE ---
   const stories = [
     // --- 2026 ---
-    { year: "2026", date: "Jan 25", title: "The Gold Standard: RM 92,000 Cash Reward", img: "/angie-1.jpg", link: "/newsletter/angie-incentive", tag: "Elite Reward" },
-    { year: "2026", date: "Jan 24", title: "Krystal Angel Conquers Desaru Coast", img: "/krystal-action-1.jpg", link: "/newsletter/krystal-victory", tag: "Victory" },
-    { year: "2026", date: "Jan 25", title: "Unseen Sacrifice: Coaches & Management", img: "/team-group-main.jpg", link: "/newsletter/coaches-trainingcamp", tag: "Feature" },
-    { year: "2026", date: "Jan 24", title: "Final Training Camp: Technical Sharpening", img: "/camp1.jpg", link: "/newsletter/final-training-camp", tag: "Training" },
-    { year: "2026", date: "Jan 19", title: "Road to SUKMA: Training Camp Kickoff", img: "/training-camp-main.jpg", link: "/newsletter/training-camp", tag: "SUKMA" },
-    { year: "2026", date: "Jan", title: "SUKMA Selangor: Selection Concludes", img: "/sukma2025.jpeg", link: "/newsletter/sukma-selection", tag: "Selection" },
+    { 
+      year: "2026", 
+      date: "Feb 01", 
+      title: "Sabah Crowned Overall Champion: BAMC Vol.4", 
+      img: "/bamc2.jpeg", 
+      link: "/newsletter/bamc-champ", 
+      tag: "11 Golds" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan 25", 
+      title: "The Gold Standard: RM 92,000 Cash Reward", 
+      img: "/angie-1.jpg", 
+      link: "/newsletter/angie-incentive", 
+      tag: "Elite Reward" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan 24", 
+      title: "Krystal Angel Conquers Desaru Coast", 
+      img: "/krystal-action-1.jpg", 
+      link: "/newsletter/krystal-victory", 
+      tag: "Victory" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan 25", 
+      title: "Unseen Sacrifice: Coaches & Management", 
+      img: "/team-group-main.jpg", 
+      link: "/newsletter/coaches-trainingcamp", 
+      tag: "Feature" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan 24", 
+      title: "Final Training Camp: Technical Sharpening", 
+      img: "/camp1.jpg", 
+      link: "/newsletter/final-training-camp", 
+      tag: "Training" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan 19", 
+      title: "Road to SUKMA: Training Camp Kickoff", 
+      img: "/training-camp-main.jpg", 
+      link: "/newsletter/training-camp", 
+      tag: "SUKMA" 
+    },
+    { 
+      year: "2026", 
+      date: "Jan", 
+      title: "SUKMA Selangor: Selection Concludes", 
+      img: "/sukma2025.jpeg", 
+      link: "/newsletter/sukma-selection", 
+      tag: "Selection" 
+    },
 
     // --- 2025 ---
-    { year: "2025", date: "Late 2025", title: "SEA Games 2025: Sabah Shines", img: "/seagames.jpeg", link: "/newsletter/seagames-2025", tag: "International" },
-    { year: "2025", date: "July", title: "National Champion: 3rd Consecutive Year", img: "/kebangsaan.jpeg", link: "/newsletter/national-championship-2025", tag: "Major Win" },
-    { year: "2025", date: "Aug", title: "D1 Championship: Behind the Glory", img: "/d1championship.jpeg", link: "/newsletter/D1Championship", tag: "Event" },
-    { year: "2025", date: "2025", title: "Asian Youth Games: Medals in Bahrain", img: "/aygbahrain.jpeg", link: "/newsletter/ayg-bahrain-2025", tag: "Youth" },
-    { year: "2025", date: "2025", title: "Sabah Games XI (SAGA): Tawau Finals", img: "/saga2025.jpg", link: "/newsletter/saga-2025", tag: "State Games" },
-    { year: "2025", date: "2025", title: "IFMA Asian Championship 2025", img: "/asian.jpeg", link: "/newsletter/IFMA-Asian-Championship-2025", tag: "International" },
-    { year: "2025", date: "2025", title: "Basic Coaching Course: 54 Certified", img: "/coaching.jpeg", link: "/newsletter/sabah-coaching-2025", tag: "Education" },
-    { year: "2025", date: "2025", title: "Ranau Fighting Championship", img: "/Ranau.jpeg", link: "/newsletter/Ranau-Fighting-Championship-2025", tag: "District" },
-    { year: "2025", date: "2025", title: "Expo Rookie Challenge: New Talents", img: "/rookiechallenge.jpeg", link: "/newsletter/sabah-muaythai-expo-rookie-challenge-2025", tag: "Grassroots" },
-    { year: "2025", date: "May", title: "Cultural & Heritage Challenge", img: "/everyone.jpg", link: "/newsletter/sabah-muaythai-cultural-heritage-2025", tag: "Culture" },
+    { 
+      year: "2025", 
+      date: "Late 2025", 
+      title: "SEA Games 2025: Sabah Shines", 
+      img: "/seagames.jpeg", 
+      link: "/newsletter/seagames-2025", 
+      tag: "International" 
+    },
+    { 
+      year: "2025", 
+      date: "July", 
+      title: "National Champion: 3rd Consecutive Year", 
+      img: "/kebangsaan.jpeg", 
+      link: "/newsletter/national-championship-2025", 
+      tag: "Major Win" 
+    },
+    { 
+      year: "2025", 
+      date: "Aug", 
+      title: "D1 Championship: Behind the Glory", 
+      img: "/d1championship.jpeg", 
+      link: "/newsletter/D1Championship", 
+      tag: "Event" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "Asian Youth Games: Medals in Bahrain", 
+      img: "/aygbahrain.jpeg", 
+      link: "/newsletter/ayg-bahrain-2025", 
+      tag: "Youth" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "Sabah Games XI (SAGA): Tawau Finals", 
+      img: "/saga2025.jpg", 
+      link: "/newsletter/saga-2025", 
+      tag: "State Games" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "IFMA Asian Championship 2025", 
+      img: "/asian.jpeg", 
+      link: "/newsletter/IFMA-Asian-Championship-2025", 
+      tag: "International" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "Basic Coaching Course: 54 Certified", 
+      img: "/coaching.jpeg", 
+      link: "/newsletter/sabah-coaching-2025", 
+      tag: "Education" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "Ranau Fighting Championship", 
+      img: "/ranau.jpeg", 
+      link: "/newsletter/Ranau-Fighting-Championship-2025", 
+      tag: "District" 
+    },
+    { 
+      year: "2025", 
+      date: "2025", 
+      title: "Expo Rookie Challenge: New Talents", 
+      img: "/rookiechallenge.jpeg", 
+      link: "/newsletter/sabah-muaythai-expo-rookie-challenge-2025", 
+      tag: "Grassroots" 
+    },
+    { 
+      year: "2025", 
+      date: "May", 
+      title: "Cultural & Heritage Challenge", 
+      img: "/everyone.jpg", 
+      link: "/newsletter/sabah-muaythai-cultural-heritage-2025", 
+      tag: "Culture" 
+    },
   ];
 
   const filteredStories = stories.filter(s => s.year === activeYear);
@@ -88,6 +209,7 @@ export default function NewsletterArchive() {
             </Link>
           ))}
         </div>
+
       </div>
     </div>
   );
