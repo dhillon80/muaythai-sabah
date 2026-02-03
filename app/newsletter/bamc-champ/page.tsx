@@ -68,14 +68,14 @@ export default function BamcChampClient() {
                 </p>
             </section>
 
-            {/* --- JUNIOR SECTION (BAMC4.jpg) --- */}
+            {/* --- JUNIOR SECTION (bamc4.jpg) --- */}
             <section className="bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10">
                 <h3 className="text-yellow-500 font-black text-2xl uppercase italic mb-6">Junior Development Gold</h3>
                 <p className="mb-8 text-sm uppercase font-bold tracking-widest text-gray-400">Sandakan 66 Unicorn Team</p>
                 
                 {/* JUNIOR IMAGE */}
                 <figure className="mb-8">
-                    <img src="/BAMC4.jpg" alt="Junior Squad Sandakan 66 Unicorn" className="w-full rounded-3xl border border-white/5 shadow-xl" />
+                    <img src="/bamc4.jpg" alt="Junior Squad Sandakan 66 Unicorn" className="w-full rounded-3xl border border-white/5 shadow-xl" />
                     <figcaption className="text-center text-[10px] font-black uppercase tracking-widest text-gray-500 italic mt-3">
                         The Junior Development Team (Sandakan 66 Unicorn)
                     </figcaption>
@@ -113,10 +113,10 @@ export default function BamcChampClient() {
                 </ul>
             </section>
 
-            {/* --- TROPHY PRESENTATION (bamc3.jpeg) --- */}
+            {/* --- TROPHY PRESENTATION (bamc3.jpg) --- */}
             <section className="py-8">
                <div className="rounded-[2.5rem] overflow-hidden border border-yellow-500/30 shadow-2xl relative group">
-                  <img src="/bamc3.jpeg" alt="Trophy Presentation" className="w-full object-cover" />
+                  <img src="/bamc3.jpg" alt="Trophy Presentation" className="w-full object-cover" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8">
                      <p className="text-yellow-500 text-[10px] font-black uppercase tracking-widest italic mb-2">Victory Moment</p>
                      <p className="text-white text-lg font-bold italic leading-tight">
@@ -128,7 +128,6 @@ export default function BamcChampClient() {
 
             {/* --- QUOTES SECTION --- */}
             <section className="space-y-12 py-8">
-                {/* Coach Quote */}
                 <div className="border-l-4 border-yellow-500 pl-8 italic">
                     <p className="text-white text-2xl font-black uppercase mb-4 tracking-tighter leading-tight">
                         &quot;BAMC Vol.4 was an important platform to test both our junior development structure and our SUKMA 2026 preparation squad.&quot;
@@ -136,7 +135,6 @@ export default function BamcChampClient() {
                     <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">— Head Coach Cyrille Dhillon Tahing</p>
                 </div>
 
-                {/* PMS President Quote */}
                 <div className="border-l-4 border-white/20 pl-8 italic">
                     <p className="text-white text-xl font-bold mb-4 uppercase leading-tight">
                         &quot;Winning six gold medals at this championship confirms that the Sandakan junior development programme is producing results.&quot;
@@ -144,7 +142,6 @@ export default function BamcChampClient() {
                     <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">— En Mohd Ajman Ajmain (PMS President)</p>
                 </div>
 
-                {/* PMNS President Quote */}
                 <div className="bg-yellow-500 text-black p-10 rounded-[2.5rem] font-black italic shadow-xl">
                     <p className="text-2xl uppercase tracking-tighter mb-4 leading-tight">
                         &quot;The performance at BAMC Vol.4 demonstrates the depth of Sabah’s talent pipeline. PMNS will continue to support structured programmes.&quot;
@@ -163,16 +160,13 @@ export default function BamcChampClient() {
                 The strong showing at BAMC Vol.4 further cements Sabah’s reputation as one of Malaysia’s leading Muaythai states.
             </p>
 
-            {/* --- UPDATED CREDITS SECTION --- */}
             <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest pt-10 border-t border-white/10 text-center leading-relaxed">
                 Story Source: Sabah Head Coach Dhillon Tahing <br/> 
                 Photography: Random 66 Unicorn, DSHA, and Dhillon Tahing
             </p>
           </div>
 
-          {/* --- SIDEBAR --- */}
           <aside className="lg:col-span-4 space-y-8 sticky top-24">
-             {/* DSHA CLUB CARD */}
              <div className="bg-slate-900 border border-white/10 p-8 rounded-[2.5rem] shadow-2xl">
                 <h4 className="text-yellow-500 font-black uppercase text-xs tracking-[0.3em] mb-6 italic">Club Spotlight</h4>
                 <p className="text-gray-300 font-bold italic mb-4">
@@ -188,7 +182,6 @@ export default function BamcChampClient() {
                 </ul>
              </div>
 
-             {/* TOTAL TALLY CARD */}
              <div className="bg-blue-600 p-8 rounded-[2.5rem] shadow-2xl text-white">
                 <h4 className="font-black uppercase text-xs tracking-[0.3em] mb-4 opacity-80">Final Tally</h4>
                 <p className="text-6xl font-black italic tracking-tighter mb-2">11 GOLD</p>
@@ -197,7 +190,6 @@ export default function BamcChampClient() {
           </aside>
         </div>
 
-        {/* --- FOOTER NAV --- */}
         <footer className="text-center pt-20 border-t border-white/5 mt-20">
           <Link href="/newsletter" className="group inline-flex flex-col items-center gap-6">
             <div className="w-16 h-16 rounded-full border border-yellow-500/20 flex items-center justify-center group-hover:bg-yellow-500 transition-all shadow-2xl">

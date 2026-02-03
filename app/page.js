@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { supabase } from "./lib/supabase"; 
 
@@ -13,10 +13,8 @@ const ADMIN_EMAILS = [
 ];
 
 export default function Home() {
-  const [isMuted, setIsMuted] = useState(true); 
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const videoRef = useRef(null);
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [regStatus, setRegStatus] = useState(null);
@@ -46,13 +44,6 @@ export default function Home() {
   const checkUser = async () => {
     const { data: { user: activeUser } } = await supabase.auth.getUser();
     setUser(activeUser);
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
   };
 
   const handleMarketingRegister = async (e) => {
@@ -131,107 +122,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. CHAMPION HUB (SIDE-BY-SIDE) --- */}
+      {/* --- 2. HIGHLIGHT HUB (UPDATED) --- */}
       <section className="py-20 px-4 bg-slate-950">
-        <div className="max-w-[1600px] mx-auto space-y-20">
+        <div className="max-w-[1600px] mx-auto space-y-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            
-            {/* LEFT COLUMN: KRYSTAL ANGEL STORY */}
-            <div className="flex flex-col h-full">
-              <div className="flex justify-between items-end mb-6 px-4">
-                 <div>
-                    <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter leading-none">ANGEL <span className="text-red-600">VICTORY</span></h2>
-                    <p className="text-yellow-500 uppercase text-[9px] font-black tracking-widest mt-1 italic font-black">International Triumph</p>
-                 </div>
+          {/* HEADER LINK */}
+          <div className="flex justify-between items-end px-2">
+             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Latest <span className="text-yellow-500">Headlines</span></h2>
+             <Link href="/newsletter" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
+                View Archive →
+             </Link>
+          </div>
+
+          {/* --- TOP: MAIN FEATURE (BAMC) --- */}
+          <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-slate-900/40 shadow-2xl transition-all hover:border-yellow-500/60">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+              <div className="lg:col-span-8 relative h-[300px] lg:h-[500px] overflow-hidden">
+                <img src="/bamc2.jpeg" alt="Sabah Champion Team" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/90 lg:block hidden"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950 lg:hidden"></div>
               </div>
-              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
-                <div className="relative w-full aspect-video bg-black">
-                   <img src="/krystal-action-1.jpg" alt="Krystal Victory" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-6 left-6">
-                      <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">Coastal Combat JB</span>
-                   </div>
+              <div className="lg:col-span-4 p-10 md:p-14 flex flex-col justify-center relative">
+                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg animate-pulse">Breaking News</span>
+                <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
+                  TEAM SABAH <br/> <span className="text-yellow-500">DOMINATES</span>
+                </h2>
+                <div className="mb-8 border-l-4 border-white/20 pl-6">
+                   <p className="text-white text-2xl font-black italic">11 GOLD MEDALS</p>
+                   <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">BAMC Vol.4 Overall Champion</p>
                 </div>
-                <div className="p-8 md:p-12">
-                   <p className="text-gray-400 text-lg md:text-xl font-bold italic border-l-4 border-red-600 pl-4 uppercase tracking-tight leading-tight mb-4">
-                      &quot;JANGAN FIKIR SAYA SENANG JATUH... TAPI JANGAN TERKEJUT KALAU SAYA JATUHKAN KAMU DULU&quot;
-                   </p>
-                   <p className="text-gray-500 text-sm md:text-base leading-relaxed font-medium mb-8">
-                      Krystal Angel secures a Unanimous Decision win against Australia, continuing her brothers&apos; championship legacy for SUKMA 2026.
-                   </p>
-                   <div className="flex justify-start">
-                     <Link href="/newsletter/krystal-victory" className="bg-slate-800 text-white px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-yellow-500 hover:text-black transition-all italic border border-white/10">
-                        Read Magazine →
-                     </Link>
-                   </div>
-                </div>
+                <Link href="/newsletter/bamc-champ" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
+                    Read Full Report →
+                </Link>
               </div>
             </div>
+          </div>
 
-            {/* RIGHT COLUMN: ANGIE INCENTIVE STORY */}
+          {/* --- BOTTOM: SPLIT FEATURES (ANGIE & KRYSTAL) --- */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            {/* LEFT: ANGIE INCENTIVE */}
             <div className="flex flex-col h-full">
-              <div className="flex justify-between items-end mb-6 px-4">
-                 <div>
-                    <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter leading-none">THE <span className="text-yellow-500">GOLD</span> STANDARD</h2>
-                    <p className="text-blue-500 uppercase text-[9px] font-black tracking-widest mt-1 italic font-black">Elite Performance Reward</p>
-                 </div>
-                 <Link href="/newsletter" className="text-yellow-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-yellow-500 pb-1">Archive →</Link>
-              </div>
               <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-blue-500/40 transition-all">
                 <div className="relative w-full aspect-video bg-black">
                    <img src="/angie-1.jpg" alt="Angie Incentive" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-6 left-6">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">National Incentive</span>
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                   <div className="absolute bottom-8 left-8">
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">RM 92,000 Reward</span>
+                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">The Gold Standard</h3>
                    </div>
                 </div>
-                <div className="p-8 md:p-12">
-                   <p className="text-gray-400 text-lg md:text-xl font-bold italic border-l-4 border-yellow-500 pl-4 uppercase tracking-tight leading-tight mb-4">
-                      RM 92,000.00 CASH INCENTIVE ACHIEVED
+                <div className="p-8 flex justify-between items-center">
+                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
+                      Angie Yan Jia Chi sets the highest incentive record for 2025/2026.
                    </p>
-                   <p className="text-gray-500 text-sm md:text-base leading-relaxed font-medium mb-8">
-                      Angie Yan Jia Chi sets the highest incentive record for 2025, proving that elite discipline leads to life-changing rewards.
-                   </p>
-                   <div className="flex justify-start">
-                     <Link href="/newsletter/angie-incentive" className="bg-slate-800 text-white px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-500 hover:text-white transition-all italic border border-white/10">
-                        View Feature →
-                     </Link>
-                   </div>
+                   <Link href="/newsletter/angie-incentive" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-blue-500 transition-all border border-white/10">
+                      ↗
+                   </Link>
                 </div>
               </div>
             </div>
 
-          </div>
+            {/* RIGHT: KRYSTAL VICTORY */}
+            <div className="flex flex-col h-full">
+              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
+                <div className="relative w-full aspect-video bg-black">
+                   <img src="/krystal-action-1.jpg" alt="Krystal Victory" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                   <div className="absolute bottom-8 left-8">
+                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">International Win</span>
+                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Angel Victory</h3>
+                   </div>
+                </div>
+                <div className="p-8 flex justify-between items-center">
+                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
+                      Krystal Angel secures a unanimous win at Coastal Combat JB.
+                   </p>
+                   <Link href="/newsletter/krystal-victory" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-red-600 transition-all border border-white/10">
+                      ↗
+                   </Link>
+                </div>
+              </div>
+            </div>
 
-          {/* --- 3. FULL WIDTH VIDEO SPOTLIGHT --- */}
-          <div className="relative group rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col lg:flex-row items-stretch">
-            <div className="lg:w-2/3 relative aspect-video bg-black">
-              <video ref={videoRef} autoPlay muted={isMuted} loop playsInline className="w-full h-full object-cover opacity-80">
-                <source src="/hero-video.mp4" type="video/mp4" />
-              </video>
-              <button onClick={toggleMute} className="absolute bottom-6 right-6 z-20 bg-black/60 backdrop-blur-xl border border-white/20 text-white p-3 rounded-full hover:bg-white hover:text-black transition-all">
-                {isMuted ? "🔊" : "🔇"}
-              </button>
-            </div>
-            <div className="lg:w-1/3 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-slate-900/80 to-slate-950">
-              <span className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-500 italic mb-4 block leading-none">OFFICIAL VIDEO CREDIT: MR BADRI (MSN SABAH)</span>
-              <h2 className="text-2xl md:text-3xl font-black text-white uppercase mb-4 italic leading-none tracking-tighter">
-                <span className="text-red-600">BEHIND</span> THE RING
-              </h2>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 font-medium italic">
-                A cinematic tribute to the coaches who transform raw talent into the soul of a champion.
-              </p>
-              <Link href="/newsletter/coaches-trainingcamp" className="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all italic text-center">
-                Full Coaches Feature →
-              </Link>
-            </div>
           </div>
 
         </div>
       </section>
 
-      {/* --- 4. FEATURE GRID --- */}
+      {/* --- 3. FEATURE GRID --- */}
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -248,7 +227,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 5. COMPACT VIP & COUNTDOWN --- */}
+      {/* --- 4. COMPACT VIP & COUNTDOWN --- */}
       <section className="py-20 px-6 bg-slate-950 border-t border-white/5">
         <div className="max-w-3xl mx-auto bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] p-6 md:p-10 text-center shadow-xl backdrop-blur-sm">
           <h2 className="text-2xl md:text-4xl font-black text-white uppercase italic tracking-tighter mb-2 leading-none">Join the <span className="text-blue-500">VIP Roster</span></h2>
