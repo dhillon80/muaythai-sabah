@@ -21,6 +21,7 @@ export const fighters = [
       "2025 - Sukan Sabah (SAGA) Gold (Best Boxer)",
       "2025 - Asian Muaythai Championship Vietnam Silver",
       "2025 - 33rd SEA Games Thailand Silver",
+      "2025 - D1 Championship Silver",
       "2025 - National Sukan Tempur Bronze"
     ],
     bio: "SAGA 2025 Best Boxer and multi-international medalist. Eva is a highly decorated technician with podium finishes at the SEA Games and Asian Championships."
@@ -43,7 +44,8 @@ export const fighters = [
     achievements: [
       "2024 - Pra Sukma Kebangsaan Gold",
       "2023 - Sabah Games Gold",
-      "2022 - Malaysian SEA Games Athlete (Kickboxing)"
+      "2022 - Malaysian SEA Games Athlete (Kickboxing)",
+      "Sukma Sabah 2024 Athlete"
     ],
     bio: "A highly experienced 63.5kg specialist. Malaysian SEA Games representative in Kickboxing (2022). Known for explosive power and relentless pressure."
   },
@@ -96,7 +98,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/rahmad-madkool.jpeg",
-    bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories. He is the 2025 VW Fighting Championship Professional Gold Medalist."
+    bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories. He is the 2025 VW Fighting Championship Professional Gold Medalist and 2024 SUKMA Silver Medalist."
   },
   {
     id: "shah-aryan",
@@ -181,6 +183,7 @@ export const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/tusimbee.jpeg",
+    video: "/tusimbee.mp4",
     bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division."
   },
   {
@@ -257,15 +260,20 @@ export const fighters = [
     nickname: "Izack",
     team: "D'Sha Muayfit Tawau",
     coach: "Sharon Andrea Gerald",
-    managerContact: "601XXXXXXXX", 
+    managerContact: "601119020943", 
     weight: "55 KG",
     height: "168 CM",
     age: "15",
     gender: "Male",
     record: "1W-0L | BAMC GOLD",
-    category: "Pro",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/izack.jpeg",
+    achievements: [
+      "2025 - Gold Medalist National Muaythai",
+      "2025 - Gold Medalist ASEAN GAMES",
+      "2025 - Gold Medalist Sabah Games (SAGA)"
+    ],
     bio: "Muhammad Izack is a phenom from Tawau, dominating both professional and Muaysports circuits."
   },
   {
@@ -321,7 +329,7 @@ export const fighters = [
   },
 
   // =======================================================
-  // 2. MUAYSPORTS
+  // 2. MUAYSPORTS & HYBRIDS
   // =======================================================
   {
     id: "mb-khairul",
@@ -351,45 +359,11 @@ export const fighters = [
     height: "178 CM",
     age: "18",
     gender: "Male",
-    record: "23W-5L | BAMC GOLD",
-    category: "Muaysports",
+    record: "Pro: 0-1 | Am: 23-5 | BAMC GOLD",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/kerry.jpeg", 
     bio: "Fighting out of Team Karabaw Tamparuli with a massive amateur record."
-  },
-  {
-    id: "johanizamsyah-johanis",
-    name: "Johanizamsyah Bin Johanis",
-    nickname: "The Phantom",
-    team: "Xmuayfitness",
-    coach: "Coach Song",
-    managerContact: "60142827907",
-    weight: "67-73 KG",
-    height: "170 CM",
-    age: "18",
-    gender: "Male",
-    record: "Multiple Gold Medalist",
-    category: "Muaysports",
-    nationality: "Sabah",
-    image: "/johanizamsyah.jpeg",
-    bio: "Known as 'The Phantom', Johanizamsyah is a disciplined counter-striker."
-  },
-  {
-    id: "johanitasyah-johanis",
-    name: "Johanitasyah Binti Johanis",
-    nickname: "TasyahJohns",
-    team: "Xmuayfitness",
-    coach: "Coach Song",
-    managerContact: "60142827907",
-    weight: "54-60 KG",
-    height: "165 CM",
-    age: "20",
-    gender: "Female",
-    record: "Multiple Gold Medalist",
-    category: "Muaysports",
-    nationality: "Sabah",
-    image: "/johanitasyah.jpeg",
-    bio: "A Southpaw fighter known for her high roundhouse kicks and effective clinch work."
   },
   {
     id: "asyraf-danial-combat",
@@ -402,10 +376,16 @@ export const fighters = [
     height: "178 CM",
     age: "20",
     gender: "Male",
-    record: "Am: 11-5",
-    category: "Muaysports",
+    record: "Pro: 1-2 | Muaysports: 11-5",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/asyraf-danial.jpeg",
+    achievements: [
+      "3x IFMA World Champion (Waikru & Maimuay)",
+      "2024 - IFMA Greece Gold (Waikru)",
+      "2023 - IFMA Thailand Gold (Maimuay)",
+      "2025 - ASEAN Games Vietnam Silver"
+    ],
     bio: "Representing Revolution Combat Gym, 'Acapski' is a powerful fighter with 5 stoppage victories."
   },
   {
@@ -419,11 +399,46 @@ export const fighters = [
     height: "157 CM",
     age: "20",
     gender: "Female",
-    record: "Pro: 0-1 | Am: 8-4",
-    category: "Muaysports",
+    record: "Pro: 0-1 | Am: 8-4 | SUKMA GOLD",
+    category: "Pro & Muaysports",
     nationality: "Kota Marudu",
     image: "/stacy-poong.jpeg",
     bio: "Representing Kota Marudu and AWP Martial Art Academy, 2024 SUKMA Gold Medalist."
+  },
+  {
+    id: "fazreen-ezra",
+    name: "Fazreen",
+    nickname: "Ezra",
+    team: "Revolution Combat Muaythai Gym",
+    coach: "Dhillon Tahing",
+    managerContact: "60168013530",
+    weight: "54 KG",
+    height: "170 CM",
+    age: "19",
+    gender: "Male",
+    record: "Pro: 0-1 | Muaysports: 5-4",
+    category: "Pro & Muaysports",
+    nationality: "Malaysia",
+    image: "/fazreen-ezra.jpeg",
+    bio: "Known as 'Ezra,' Fazreen is a versatile hybrid fighter."
+  },
+  {
+    id: "muhammad-hezric",
+    name: "Muhammad Hezric",
+    nickname: "Sugar Boy",
+    team: "Naga Kinabalu",
+    coach: "Airudin",
+    managerContact: "60128188958",
+    weight: "60 KG",
+    height: "N/A",
+    age: "22",
+    gender: "Male",
+    record: "Semi Pro: 2-1 | Muaysports: 7-5",
+    category: "Pro & Muaysports",
+    nationality: "Sabah",
+    image: "/hezric.jpeg",
+    video: "/hezric-reel.mp4",
+    bio: "Representing Naga Kinabalu under Coach Airudin."
   },
 
   // =======================================================
@@ -461,6 +476,7 @@ export const fighters = [
     category: "U17",
     nationality: "Kota Marudu",
     image: "/rozana-laila.jpeg",
+    achievements: ["2025 - Silver (SAGA Tawau)"],
     bio: "Representing Kota Marudu and AWP Martial Art Academy."
   },
   {
@@ -495,10 +511,17 @@ export const fighters = [
     height: "N/A",
     age: "17",
     gender: "Female",
-    record: "Waikru Gold",
+    record: "Waikru",
     category: "Arts",
     nationality: "Malaysia",
     image: "/ariesya-dania.jpg",
+    achievements: [
+      "2025 - Best National Cultural Athlete",
+      "2025 - Asian Youth Games Bahrain Bronze",
+      "2025 - Sukan Tempur Kebangsaan Gold",
+      "2025 - Muaythai Grand Prix Gold",
+      "2024 - IFMA Youth World Thailand Silver"
+    ],
     bio: "Ariesya Dania is the definitive face of the generation of future champions."
   },
   {
@@ -516,6 +539,12 @@ export const fighters = [
     category: "Arts",
     nationality: "Sabah",
     image: "/asyraf-danial-arts.jpeg",
+    achievements: [
+      "3x IFMA World Champion (Waikru & Maimuay)",
+      "2024 - IFMA Greece Gold (Waikru)",
+      "2023 - IFMA Thailand Gold (Maimuay)",
+      "2025 - ASEAN Games Vietnam Silver"
+    ],
     bio: "Asyraf Danial is one of Malaysia's most decorated Muaythai Arts athletes."
   },
   {
@@ -533,6 +562,11 @@ export const fighters = [
     category: "Arts",
     nationality: "Kota Marudu",
     image: "/stacy-arts.jpeg",
+    achievements: [
+      "2023 - Gold (SAGA)",
+      "2025 - Gold Culture Heritage",
+      "2025 - Silver SAGA Tawau"
+    ],
     bio: "A versatile athlete with a deep passion for both combat and the traditional arts."
   },
   {
@@ -550,6 +584,11 @@ export const fighters = [
     category: "Arts",
     nationality: "Sabah",
     image: "/auryelle.jpeg",
+    achievements: [
+      "2025 - Silver Asian Youth Games Bahrain",
+      "2025 - Gold ASEAN Game KL",
+      "2025 - Gold SAGA Games Tawau"
+    ],
     bio: "Auryelle Xzandra Bobby is a highly decorated Waikru specialist."
   },
   {
@@ -567,6 +606,11 @@ export const fighters = [
     category: "Arts",
     nationality: "Sabah",
     image: "/addy-ardryqa.jpeg",
+    achievements: [
+      "2025 - Gold ASEAN Game KL",
+      "2025 - Gold Culture Heritage",
+      "2025 - Gold Sabah Open"
+    ],
     bio: "A rising star in the Muaythai Arts world."
   }
 ];

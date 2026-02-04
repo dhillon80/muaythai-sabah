@@ -2,10 +2,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-// --- 🥊 FIGHTERS DATA (Restored U17 & Original Muaysports) ---
+// --- 🥊 FIGHTERS DATA (Full Restoration: Pro, Hybrid, Muaysports, U17, Arts) ---
 const fighters = [
   // ==========================================
-  // 1. PRO FIGHTERS (Exact Sorting 1-18)
+  // 1. PRO & HYBRID (Exact Sorting 1-18)
   // ==========================================
   {
     id: "eva-anastasia-warren",
@@ -31,7 +31,7 @@ const fighters = [
     height: "169 CM",
     age: "22",
     gender: "Male",
-    record: "Pro: 0-1 | Am: 24-5",
+    record: "Pro: 0-1-0 | Am: 24-5",
     category: "Pro",
     nationality: "Sabah",
     image: "/montoi.jpeg",
@@ -80,7 +80,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/rahmad-madkool.jpeg",
-    bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and a knockout specialist with 6 TKO victories."
+    bio: "Hailing from Sandakan, 'Mad Kool' is an undefeated professional fighter and knockout specialist."
   },
   {
     id: "shah-aryan",
@@ -95,7 +95,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/shah.jpeg",
-    bio: "The Killer Prince is one of the most promising prospects in Sabah, with a winning record and a hunger for championship gold."
+    bio: "The Killer Prince is one of the most promising prospects in Sabah, hungry for championship gold."
   },
   {
     id: "areen-khan",
@@ -125,7 +125,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/kallens.jpeg",
-    bio: "True to his nickname 'Showtime', Kallens is an entertainer in the ring, known for high-risk techniques."
+    bio: "True to his nickname 'Showtime', Kallens is an entertainer in the ring."
   },
   {
     id: "iman-madley",
@@ -140,7 +140,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/iman.jpeg",
-    bio: "Known as Payakchai, Iman brings a traditional Thai style to his fights, utilizing strong clinching and knee strikes."
+    bio: "Known as Payakchai, Iman brings a traditional Thai style to his fights."
   },
   {
     id: "tu-sim-bee",
@@ -155,7 +155,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/tusimbee.jpeg",
-    bio: "Representing Uppercross Muay Thai Club in Sandakan, Tu Sim Bee is a seasoned competitor in the 43-46kg division."
+    bio: "Representing Uppercross Muay Thai Club in Sandakan."
   },
   {
     id: "sammy-aaagaras",
@@ -170,12 +170,12 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/sammy.jpeg",
-    bio: "Fighting out of Aaagaras Muay, Sammy is a seasoned competitor in the 45kg division with a strong balance of pro and Muaysports experience."
+    bio: "Seasoned competitor in the 45kg division with a strong balance of pro and Muaysports experience."
   },
   {
     id: "milan-peneh",
     name: "Milan Peneh",
-    nickname: "Milan Peneh",
+    nickname: "Milan",
     team: "Stallone Fitness",
     weight: "65 KG",
     height: "167 CM",
@@ -185,7 +185,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/milan.jpeg",
-    bio: "Representing Stallone Fitness Gym, Milan Peneh is an undefeated pro prospect in the 65kg division."
+    bio: "Undefeated pro prospect in the 65kg division."
   },
   {
     id: "jasper-lee",
@@ -200,7 +200,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/jasper.jpeg",
-    bio: "Fighting out of Sandakan, Jasper Lee represents Uppercross Muay Thai Club."
+    bio: "Fighting out of Sandakan, Jasper Lee represents Uppercross."
   },
   {
     id: "johnathan-chung",
@@ -215,7 +215,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/johnathan.jpeg",
-    bio: "Johnathan Chung is a promising talent from Uppercross Muay Thai Club in Sandakan."
+    bio: "Promising talent from Uppercross Muay Thai Club."
   },
   {
     id: "muhammad-izack-dsha",
@@ -227,10 +227,10 @@ const fighters = [
     age: "15",
     gender: "Male",
     record: "1W-0L | BAMC GOLD",
-    category: "Pro",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/izack.jpeg",
-    bio: "Muhammad Izack is a phenom from Tawau, dominating both professional and Muaysports circuits."
+    bio: "Muhammad Izack is a phenom from Tawau, dominating professional and Muaysports circuits."
   },
   {
     id: "rifhan-wazizi",
@@ -245,7 +245,7 @@ const fighters = [
     category: "Pro",
     nationality: "Sabah",
     image: "/rifhan.jpeg",
-    bio: "Representing Kudat, 'Hemo' is a young prodigy with extensive experience across Muaythai, Boxing, and Kickboxing."
+    bio: "Young prodigy with extensive experience across Muaythai and Boxing."
   },
   {
     id: "irick-richard",
@@ -260,7 +260,7 @@ const fighters = [
     category: "Pro",
     nationality: "Malaysia",
     image: "/irick.jpeg",
-    bio: "Irick represents the new generation of Malaysian Muaythai, training hard at Revolution Combat Gym."
+    bio: "Irick represents the new generation of Malaysian Muaythai."
   },
   {
     id: "efron-jaidin",
@@ -279,7 +279,7 @@ const fighters = [
   },
 
   // ==========================================
-  // 2. MUAYSPORTS (Restored)
+  // 2. MUAYSPORTS (Restored Original Profiles)
   // ==========================================
   {
     id: "mb-khairul",
@@ -306,70 +306,10 @@ const fighters = [
     age: "18",
     gender: "Male",
     record: "23W-5L | BAMC GOLD",
-    category: "Muaysports",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/kerry.jpeg", 
-    bio: "Fighting out of Team Karabaw Tamparuli with a massive amateur record."
-  },
-  {
-    id: "johanizamsyah-johanis",
-    name: "Johanizamsyah Bin Johanis",
-    nickname: "The Phantom",
-    team: "Xmuayfitness",
-    weight: "67-73 KG",
-    height: "170 CM",
-    age: "18",
-    gender: "Male",
-    record: "Gold Medalist",
-    category: "Muaysports",
-    nationality: "Sabah",
-    image: "/johanizamsyah.jpeg",
-    bio: "Known as 'The Phantom', Johanizamsyah is a disciplined counter-striker."
-  },
-  {
-    id: "johanitasyah-johanis",
-    name: "Johanitasyah Binti Johanis",
-    nickname: "TasyahJohns",
-    team: "Xmuayfitness",
-    weight: "54-60 KG",
-    height: "165 CM",
-    age: "20",
-    gender: "Female",
-    record: "Gold Medalist",
-    category: "Muaysports",
-    nationality: "Sabah",
-    image: "/johanitasyah.jpeg",
-    bio: "A Southpaw fighter known for her high roundhouse kicks."
-  },
-  {
-    id: "adib-syazwan",
-    name: "Adib Syazwan",
-    nickname: "Adib",
-    team: "Revolution Combat",
-    weight: "63.5-67 KG",
-    height: "178 CM",
-    age: "18",
-    gender: "Male",
-    record: "6W - 4L",
-    category: "Muaysports",
-    nationality: "Malaysia",
-    image: "/adib-syazwan.jpeg",
-    bio: "Adib is a tall, technical fighter in the 63.5-67kg division."
-  },
-  {
-    id: "zhi-hui-aaagaras",
-    name: "Lim Zhi Hui",
-    nickname: "Zhi Hui",
-    team: "Aaagaras Muay",
-    weight: "48-51 KG",
-    height: "N/A",
-    age: "18",
-    gender: "Female",
-    record: "6W - 3L",
-    category: "Muaysports",
-    nationality: "Sabah",
-    image: "/zhi-hui.jpeg",
-    bio: "Lim Zhi Hui is a technical Muaysports athlete."
+    bio: "Fighting out of Team Karabaw Tamparuli with a massive record."
   },
   {
     id: "asyraf-danial-combat",
@@ -380,11 +320,11 @@ const fighters = [
     height: "178 CM",
     age: "20",
     gender: "Male",
-    record: "Am: 11-5",
-    category: "Muaysports",
+    record: "Pro: 1-2 | Am: 11-5",
+    category: "Pro & Muaysports",
     nationality: "Sabah",
     image: "/asyraf-danial.jpeg",
-    bio: "Representing Revolution Combat Gym, 'Acapski' is a powerful fighter with 5 stoppage victories."
+    bio: "Powerful hybrid fighter with 5 stoppage victories."
   },
   {
     id: "stacy-poong-combat",
@@ -395,11 +335,41 @@ const fighters = [
     height: "157 CM",
     age: "20",
     gender: "Female",
-    record: "Pro: 0-1 | Am: 8-4",
-    category: "Muaysports",
+    record: "Pro: 0-1 | Am: 8-4 | SUKMA GOLD",
+    category: "Pro & Muaysports",
     nationality: "Kota Marudu",
     image: "/stacy-poong.jpeg",
-    bio: "Representing Kota Marudu and AWP Martial Art Academy, 2024 SUKMA Gold Medalist."
+    bio: "2024 SUKMA Gold Medalist representing AWP Martial Art Academy."
+  },
+  {
+    id: "fazreen-ezra",
+    name: "Fazreen",
+    nickname: "Ezra",
+    team: "Revolution Combat",
+    weight: "54 KG",
+    height: "170 CM",
+    age: "19",
+    gender: "Male",
+    record: "Pro: 0-1 | Muaysports: 5-4",
+    category: "Pro & Muaysports",
+    nationality: "Malaysia",
+    image: "/fazreen-ezra.jpeg",
+    bio: "Known as 'Ezra,' Fazreen is a versatile hybrid fighter."
+  },
+  {
+    id: "muhammad-hezric",
+    name: "Muhammad Hezric",
+    nickname: "Sugar Boy",
+    team: "Naga Kinabalu",
+    weight: "60 KG",
+    height: "N/A",
+    age: "22",
+    gender: "Male",
+    record: "Semi Pro: 2-1 | Muaysports: 7-5",
+    category: "Pro & Muaysports",
+    nationality: "Sabah",
+    image: "/hezric.jpeg",
+    bio: "Representing Naga Kinabalu under Coach Airudin."
   },
 
   // ==========================================
@@ -497,7 +467,7 @@ const fighters = [
     category: "Arts",
     nationality: "Kota Marudu",
     image: "/stacy-arts.jpeg",
-    bio: "A versatile athlete with a deep passion for both combat and the traditional arts."
+    bio: "A versatile athlete with a deep passion for traditional arts."
   },
   {
     id: "auryelle-xzandra",
@@ -540,7 +510,10 @@ export default function FightersPage() {
     const nameToSearch = (f.nickname || f.name).toLowerCase();
     const matchesSearch = nameToSearch.includes(searchTerm.toLowerCase()) || 
                           f.team.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // --- 🥊 HYBRID FILTERING LOGIC ---
     const matchesCategory = filterCategory === "All" || f.category.includes(filterCategory);
+    
     const matchesGender = filterGender === "All" || f.gender === filterGender;
     return matchesSearch && matchesCategory && matchesGender;
   });
@@ -550,22 +523,17 @@ export default function FightersPage() {
 
   const getBadgeStyles = (category) => {
     switch (category) {
-      case 'Pro': return 'bg-red-600 border-red-500 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]';
-      case 'Muaysports': return 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]';
-      case 'Arts': return 'bg-purple-600 border-purple-400 text-white shadow-[0_0_15px_rgba(147,51,234,0.5)]';
-      case 'U17': return 'bg-emerald-600 border-emerald-500 text-white shadow-[0_0_15px_rgba(5,150,105,0.5)]';
+      case 'Pro': return 'bg-red-600 border-red-500 text-white';
+      case 'Muaysports': return 'bg-blue-600 border-blue-500 text-white';
+      case 'Arts': return 'bg-purple-600 border-purple-400 text-white';
+      case 'Pro & Muaysports': return 'bg-gradient-to-r from-red-600 to-blue-600 border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)]';
+      case 'U17': return 'bg-emerald-600 border-emerald-500 text-white';
       default: return 'bg-zinc-800 border-zinc-700 text-white';
     }
   };
 
   return (
     <div className="min-h-screen bg-[#050506] text-white pt-32 pb-20 px-4 md:px-12 selection:bg-yellow-500">
-      
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-500/5 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full"></div>
-      </div>
-
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h1 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">
@@ -602,7 +570,7 @@ export default function FightersPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredFighters.map((fighter) => (
             <Link key={fighter.id} href={`/fighters/${fighter.id}`} className="group relative">
-              <div className="relative aspect-[3/4.5] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 transition-all duration-500 group-hover:border-yellow-500/50 group-hover:shadow-[0_0_50px_rgba(234,179,8,0.1)]">
+              <div className="relative aspect-[3/4.5] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 transition-all duration-500 group-hover:border-yellow-500/50">
                 <img src={fighter.image} alt={fighter.nickname || fighter.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90"></div>
                 <div className="absolute top-6 right-6">
