@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Muaythai Sabah',
     images: [
       {
-        url: 'https://muaythaisbh.my/asns1.jpeg', // Main team photo with cup/cheque
+        url: 'https://muaythaisbh.my/asns1.jpeg',
         width: 1200,
         height: 630,
         alt: 'Sabah Muaythai Team Victory at ASNS 2026',
@@ -29,7 +29,7 @@ export default function AnugerahSukanStory() {
   return (
     <main className="min-h-screen bg-[#050506] text-white selection:bg-yellow-500">
       
-      {/* 🏆 HERO SECTION - Smaller Headlines, Centered on Faces */}
+      {/* 🏆 HERO SECTION */}
       <section className="relative h-[80vh] flex items-end overflow-hidden">
         <Image 
           src="/asns.jpeg" 
@@ -45,10 +45,9 @@ export default function AnugerahSukanStory() {
             <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 inline-block italic shadow-[0_0_20px_rgba(234,179,8,0.3)]">
               Anugerah Sukan Negeri Sabah (ASNS)
             </span>
-            {/* Headlines made smaller to protect faces in the photo */}
             <h1 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter leading-tight mb-4">
-              State Sports <br/>
-              <span className="text-yellow-500">Recognition Night</span>
+              A Night of <br/>
+              <span className="text-yellow-500">Unprecedented Glory</span>
             </h1>
             <p className="text-gray-400 font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs border-l-2 border-yellow-500 pl-4">
               6 February 2026 • Grand Ballroom, Magellan Sutera Harbour
@@ -60,7 +59,7 @@ export default function AnugerahSukanStory() {
       {/* 📰 MAIN CONTENT */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         
-        {/* 📸 FEATURED TEAM PHOTO - Mock Cheque and Trophy Focus */}
+        {/* 📸 FEATURED TEAM PHOTO */}
         <div className="relative aspect-video w-full rounded-[3.5rem] overflow-hidden border border-white/10 mb-24 group shadow-2xl bg-zinc-900/50">
           <Image 
             src="/asns1.jpeg" 
@@ -77,20 +76,35 @@ export default function AnugerahSukanStory() {
           </div>
         </div>
 
-        {/* 🖋️ DETAILED GALA STORY */}
+        {/* 🖋️ EXPANDED GALA STORY */}
         <div className="max-w-4xl mx-auto font-sans">
           <div className="prose prose-invert prose-xl mb-24">
             <p className="text-2xl text-gray-200 leading-tight italic font-black uppercase mb-12 border-b border-white/10 pb-12">
               <span className="text-yellow-500 not-italic tracking-widest block text-xs mb-4">MAGELLAN SUTERA HARBOUR • KOTA KINABALU</span>
-              The Grand Ballroom was transformed into a bastion of sporting prestige as the 2026 Sabah State Sports Awards celebrated the athletic community.
+              The Grand Ballroom of Magellan Sutera Harbour Resort was transformed into a bastion of sporting prestige as the 2026 Sabah State Sports Awards celebrated the finest athletes in the region.
             </p>
             
             <div className="space-y-8 text-gray-400 leading-relaxed text-lg">
               <p>
-                Organized by **Majlis Sukan Negeri Sabah**, the gala was officiated by the Head of State, **TYT Tun Musa Aman**, alongside the **Chief Minister of Sabah** and the **Minister of Youth and Sports**.
+                Organized with excellence by **Majlis Sukan Negeri Sabah**, the gala was a high-stakes recognition of the discipline and sacrifice required to reach the pinnacle of sports. The event was officiated by the Head of State, **Tuan Yang Terutama Tun Datuk Seri Panglima Haji Musa Aman**, alongside the Chief Minister of Sabah, **Yang Amat Berhormat Datuk Seri Panglima Haji Hajiji bin Haji Noor**.
               </p>
+
               <p>
-                The Sabah Muaythai Association (PMNS) emerged as the centerpiece of the evening, receiving the ultimate validation by being crowned the **Best Sports Association** in the state.
+                Also in attendance to witness this historic milestone was the Minister of Youth Development, Sports Advancement and Creative Economy, **Yang Berhormat Datuk Haji Nizam bin Abu Bakar Titingan**, and senior state officials. Their presence underscored Muaythai's status as an elite pillar of the Sabah sporting landscape.
+              </p>
+              
+              <p>
+                The crowning achievement of the night was the **Sabah Muaythai Association (PMNS)** being named the **Best Sports Association**. This honor validates a multi-year strategy focused on professional administrative excellence and high-performance results.
+              </p>
+
+              <h3 className="text-white text-3xl font-black uppercase italic tracking-tighter mt-12">Muaythai Sabah: The New Standard of Excellence</h3>
+              
+              <p>
+                In a historic sweep, **Eva Anastasia Warren** was heralded as the **Female Promising Sportswoman**, while **Jaethan Quan** secured the **Male Promising Sportsman** award. Their victories represent the technical evolution of Sabah's warriors on the world stage.
+              </p>
+
+              <p>
+                However, the depth of Muaythai Sabah’s success was truly felt in the **Finalist** categories. Standing as a Top Finalist against all other sporting disciplines in Sabah—competing against athletes and leaders from every major sport—is a massive honor. To have our representatives shortlisted among the best in the state proves that Muaythai Sabah is setting the benchmark for performance and leadership in the Land Below the Wind.
               </p>
             </div>
           </div>
@@ -105,7 +119,7 @@ export default function AnugerahSukanStory() {
             <div className="absolute bottom-10 left-10 right-10">
               <span className="bg-yellow-500 text-black px-3 py-1 text-[10px] font-black uppercase italic mb-4 inline-block">BEST SPORTS ASSOCIATION</span>
               <h4 className="text-white font-black uppercase italic text-2xl leading-none mb-2">Ir. Hj. Nazri</h4>
-              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed">PMNS President receiving the evening's highest organizational honor.</p>
+              <p className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed">PMNS President accepting the evening's highest organizational honor.</p>
             </div>
           </div>
 
@@ -132,22 +146,24 @@ export default function AnugerahSukanStory() {
           </div>
         </div>
 
-        {/* 🎖️ ELITE HONORS ROLL (TEXT) */}
+        {/* 🎖️ ELITE HONORS ROLL */}
         <section className="mb-32 bg-zinc-900/30 border border-white/5 rounded-[4rem] p-12 shadow-inner">
-          <h3 className="text-yellow-500 font-black uppercase italic text-xs tracking-[0.5em] mb-16 text-center">OFFICIAL ASNS FROM MUAYTHAI FINALISTS</h3>
+          <h3 className="text-yellow-500 font-black uppercase italic text-xs tracking-[0.5em] mb-4 text-center">MUAYTHAI SABAH ELITE FINALISTS</h3>
+          <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest text-center mb-16 italic">Standing Among the Best Across All State Sports</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Angie Yan Jia Chi", role: "Female Sportswoman Finalist" },
-              { name: "Asyraf Danial", role: "Male Sportsman Finalist" },
-              { name: "Mardiana Mohd Maulana", role: "Best Female Coach Finalist" },
-              { name: "Cyrille Dhillon Tahing", role: "Sports Leadership Finalist" }
+              { name: "Angie Yan Jia Chi", role: "Finalist: Sportswoman of the Year" },
+              { name: "Asyraf Danial", role: "Finalist: Sportsman of the Year" },
+              { name: "Mardiana Mohd Maulana", role: "Finalist: Best Female Coach" },
+              { name: "Cyrille Dhillon Tahing", role: "Finalist: Sports Leadership Award" }
             ].map((nominee, i) => (
-              <div key={i} className="border-l border-yellow-500/20 pl-6">
+              <div key={i} className="border-l-2 border-yellow-500/40 pl-6 py-2 group hover:border-yellow-500 transition-colors">
                 <p className="text-white font-black uppercase italic text-xl mb-1">{nominee.name}</p>
-                <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest">{nominee.role}</p>
+                <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest group-hover:text-gray-300">{nominee.role}</p>
               </div>
             ))}
           </div>
+          <p className="mt-12 text-center text-zinc-600 text-[9px] font-bold uppercase tracking-[0.2em] italic">Being a finalist in these categories is a massive honor, recognizing our team members among the top tier of all sporting disciplines in Sabah.</p>
         </section>
 
         {/* 📰 STATEMENTS */}
@@ -155,7 +171,7 @@ export default function AnugerahSukanStory() {
           <div className="bg-zinc-900/80 p-12 md:p-20 rounded-[4rem] border border-white/5 shadow-2xl relative mb-24">
             <h2 className="text-yellow-500 font-black uppercase italic text-sm tracking-[0.4em] mb-10">PRESIDENT'S ADDRESS</h2>
             <p className="text-gray-200 text-2xl md:text-4xl italic leading-tight mb-10">
-              “This recognition belongs to the entire Muaythai Sabah ecosystem—coaches, management, and parents who support athlete development at every level.”
+              “To have our athletes and leadership recognized as finalists against the best of all sports in Sabah is a monumental honor. It proves that the Muaythai Sabah ecosystem is performing at a world-class level.”
             </p>
             <p className="text-white font-black uppercase tracking-widest text-sm">— Ir. Hj. Nazri bin Hj. Ab Razak</p>
           </div>
@@ -165,7 +181,7 @@ export default function AnugerahSukanStory() {
             <div className="prose prose-invert prose-xl max-w-none text-gray-400">
               <div className="my-16 p-12 bg-black/40 border-l-4 border-yellow-500 rounded-r-[3rem]">
                 <p className="text-white italic text-2xl leading-relaxed mb-8">
-                  “This nomination is a recognition of collective effort. Our priority is to build a sustainable system producing disciplined champions in and out of the ring.”
+                  “The honor of being a finalist in such competitive categories is proof that we are building more than just fighters—we are building leaders who stand among the best in the state.”
                 </p>
                 <p className="text-yellow-500 font-black uppercase text-sm tracking-widest">— Cyrille Dhillon Tahing</p>
               </div>
