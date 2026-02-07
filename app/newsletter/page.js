@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "Feb 06", 
+      title: "State Sports Awards: Muaythai Sweeps Top Honors", 
+      img: "/asns1.jpeg", 
+      link: "/newsletter/anugerah-sukan", 
+      tag: "Victory Night" 
+    },
+    { 
+      year: "2026", 
       date: "Feb 01", 
       title: "Sabah Crowned Overall Champion: BAMC Vol.4", 
       img: "/bamc2.jpeg", 

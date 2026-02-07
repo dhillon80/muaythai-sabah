@@ -14,7 +14,6 @@ const ADMIN_EMAILS = [
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [regStatus, setRegStatus] = useState(null);
@@ -22,23 +21,6 @@ export default function Home() {
   useEffect(() => {
     setMounted(true);
     checkUser();
-
-    const targetDate = new Date("January 31, 2026 09:00:00").getTime();
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance < 0) {
-        clearInterval(interval);
-      } else {
-        setTimeLeft({
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000),
-        });
-      }
-    }, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   const checkUser = async () => {
@@ -122,11 +104,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. HIGHLIGHT HUB (UPDATED) --- */}
+      {/* --- 2. HIGHLIGHT HUB --- */}
       <section className="py-20 px-4 bg-slate-950">
         <div className="max-w-[1600px] mx-auto space-y-10">
           
-          {/* HEADER LINK */}
           <div className="flex justify-between items-end px-2">
              <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Latest <span className="text-yellow-500">Headlines</span></h2>
              <Link href="/newsletter" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
@@ -134,34 +115,56 @@ export default function Home() {
              </Link>
           </div>
 
-          {/* --- TOP: MAIN FEATURE (BAMC) --- */}
+          {/* --- TOP: MAIN FEATURE (ANUGERAH SUKAN) --- */}
           <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-slate-900/40 shadow-2xl transition-all hover:border-yellow-500/60">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              <div className="lg:col-span-8 relative h-[300px] lg:h-[500px] overflow-hidden">
-                <img src="/bamc2.jpeg" alt="Sabah Champion Team" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
+              <div className="lg:col-span-8 relative h-[300px] lg:h-[550px] overflow-hidden">
+                <img src="/asns1.jpeg" alt="Anugerah Sukan Sabah" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/90 lg:block hidden"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950 lg:hidden"></div>
               </div>
               <div className="lg:col-span-4 p-10 md:p-14 flex flex-col justify-center relative">
-                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg animate-pulse">Breaking News</span>
+                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg">Victory Night</span>
                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
-                  TEAM SABAH <br/> <span className="text-yellow-500">DOMINATES</span>
+                  SABAH STATE <br/> <span className="text-yellow-500">SPORTS AWARDS</span>
                 </h2>
-                <div className="mb-8 border-l-4 border-white/20 pl-6">
-                   <p className="text-white text-2xl font-black italic">11 GOLD MEDALS</p>
-                   <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mt-1">BAMC Vol.4 Overall Champion</p>
+                <div className="mb-8 border-l-4 border-yellow-500 pl-6">
+                   <p className="text-white text-xl font-black italic">BEST SPORTS ASSOCIATION</p>
+                   <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1 italic">PMNS Sweeps Top Honors</p>
                 </div>
-                <Link href="/newsletter/bamc-champ" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
-                    Read Full Report →
+                <Link href="/newsletter/anugerah-sukan" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
+                   Read Full Story →
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* --- BOTTOM: SPLIT FEATURES (ANGIE & KRYSTAL) --- */}
+          {/* --- BOTTOM: SPLIT FEATURES (BAMC & ANGIE) --- */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             
-            {/* LEFT: ANGIE INCENTIVE */}
+            {/* LEFT: BAMC CHAMPIONS */}
+            <div className="flex flex-col h-full">
+              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
+                <div className="relative w-full aspect-video bg-black">
+                   <img src="/bamc2.jpeg" alt="BAMC Champions" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                   <div className="absolute bottom-8 left-8">
+                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">11 Gold Medals</span>
+                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Overall Champion</h3>
+                   </div>
+                </div>
+                <div className="p-8 flex justify-between items-center">
+                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
+                     Team Sabah dominates BAMC Vol.4 in Sarawak with a historic medal haul.
+                   </p>
+                   <Link href="/newsletter/bamc-champ" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-red-600 transition-all border border-white/10">
+                      ↗
+                   </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: ANGIE INCENTIVE */}
             <div className="flex flex-col h-full">
               <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-blue-500/40 transition-all">
                 <div className="relative w-full aspect-video bg-black">
@@ -174,31 +177,9 @@ export default function Home() {
                 </div>
                 <div className="p-8 flex justify-between items-center">
                    <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                      Angie Yan Jia Chi sets the highest incentive record for 2025/2026.
+                     Angie Yan Jia Chi sets the highest incentive record for 2025/2026.
                    </p>
                    <Link href="/newsletter/angie-incentive" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-blue-500 transition-all border border-white/10">
-                      ↗
-                   </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT: KRYSTAL VICTORY */}
-            <div className="flex flex-col h-full">
-              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
-                <div className="relative w-full aspect-video bg-black">
-                   <img src="/krystal-action-1.jpg" alt="Krystal Victory" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-8 left-8">
-                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">International Win</span>
-                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Angel Victory</h3>
-                   </div>
-                </div>
-                <div className="p-8 flex justify-between items-center">
-                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                      Krystal Angel secures a unanimous win at Coastal Combat JB.
-                   </p>
-                   <Link href="/newsletter/krystal-victory" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-red-600 transition-all border border-white/10">
                       ↗
                    </Link>
                 </div>
@@ -227,32 +208,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 4. COMPACT VIP & COUNTDOWN --- */}
+      {/* --- 4. COMPACT VIP SIGNUP --- */}
       <section className="py-20 px-6 bg-slate-950 border-t border-white/5">
-        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] p-6 md:p-10 text-center shadow-xl backdrop-blur-sm">
-          <h2 className="text-2xl md:text-4xl font-black text-white uppercase italic tracking-tighter mb-2 leading-none">Join the <span className="text-blue-500">VIP Roster</span></h2>
-          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto mb-10">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="flex-1 bg-black border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-600 text-xs shadow-inner" required />
-            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-6 py-3 rounded-xl uppercase italic tracking-widest hover:bg-blue-500 transition-all text-[9px] shadow-lg">Join</button>
+        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] p-10 text-center shadow-xl backdrop-blur-sm">
+          <h2 className="text-2xl md:text-4xl font-black text-white uppercase italic tracking-tighter mb-6 leading-none italic">Join the <span className="text-blue-500">VIP Roster</span></h2>
+          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 bg-black border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-600 text-xs shadow-inner" required />
+            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-6 py-3 rounded-xl uppercase italic tracking-widest hover:bg-blue-500 transition-all text-[9px] shadow-lg">Subscribe</button>
           </form>
-          <div className="pt-8 border-t border-white/5">
-            <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest italic mb-5 inline-block font-black">Bintulu Amateur Challenge</span>
-            <div className="flex justify-center gap-3 md:gap-4">
-              {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hrs', value: timeLeft.hours },
-                { label: 'Min', value: timeLeft.minutes },
-                { label: 'Sec', value: timeLeft.seconds }
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="bg-black/60 border border-white/10 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-xl backdrop-blur-md shadow-inner">
-                    <span className="text-lg md:text-xl font-black text-yellow-500 font-mono">{item.value.toString().padStart(2, '0')}</span>
-                  </div>
-                  <span className="text-[6px] uppercase mt-2 text-slate-500 font-black italic tracking-widest font-bold">{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="text-[9px] text-gray-600 mt-6 uppercase tracking-widest font-bold">Official Updates • Exclusive Scout Access • Event Intelligence</p>
         </div>
       </section>
 
