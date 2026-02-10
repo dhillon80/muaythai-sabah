@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "Feb 09", 
+      title: "26 Sabah Coaches Certified at MSN Bukit Jalil", 
+      img: "/coach1.jpeg", 
+      link: "/newsletter/spesific-coach", 
+      tag: "Education" 
+    },
+    { 
+      year: "2026", 
       date: "Feb 06", 
       title: "State Sports Awards: Muaythai Sweeps Top Honors", 
       img: "/asns1.jpeg", 

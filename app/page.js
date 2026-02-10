@@ -17,11 +17,26 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [regStatus, setRegStatus] = useState(null);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  const upliftingQuotes = [
+    "“A coach is the architect of a warrior's soul.”",
+    "“Leadership is not about being in charge, but taking care of those in your charge.”",
+    "“Success is where preparation and opportunity meet.”",
+    "“Train with heart, lead with integrity.”",
+    "“Champions are made when no one is watching.”"
+  ];
 
   useEffect(() => {
     setMounted(true);
     checkUser();
-  }, []);
+
+    // Fix: Ensure the interval only runs if the component is mounted
+    const quoteInterval = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % upliftingQuotes.length);
+    }, 4000);
+    return () => clearInterval(quoteInterval);
+  }, [upliftingQuotes.length]);
 
   const checkUser = async () => {
     const { data: { user: activeUser } } = await supabase.auth.getUser();
@@ -98,7 +113,15 @@ export default function Home() {
           <h1 className="text-5xl md:text-8xl font-black text-white mb-4 tracking-tighter uppercase leading-none italic animate-fade-in-up">
             Muaythai <span className="text-yellow-500">Sabah</span>
           </h1>
-          <p className="text-sm md:text-lg text-gray-300 font-bold uppercase tracking-[0.2em] mb-4 animate-fade-in-up delay-75 max-w-4xl px-4 text-center leading-relaxed italic">
+          
+          {/* ✨ DYNAMIC UPLIFTING QUOTE BAR ✨ */}
+          <div className="h-10 mb-4 flex items-center justify-center animate-fade-in-up delay-75">
+            <p key={quoteIndex} className="text-yellow-500 text-sm md:text-xl font-black italic uppercase tracking-widest transition-all duration-700 animate-fade-in-up">
+              {upliftingQuotes[quoteIndex]}
+            </p>
+          </div>
+
+          <p className="text-sm md:text-lg text-gray-400 font-bold uppercase tracking-[0.2em] mb-4 animate-fade-in-up delay-100 max-w-4xl px-4 text-center leading-relaxed italic opacity-60">
             The official and one-stop platform for Championships, Athletes, and Development in Sabah.
           </p>
         </div>
@@ -115,34 +138,55 @@ export default function Home() {
              </Link>
           </div>
 
-          {/* --- TOP: MAIN FEATURE (ANUGERAH SUKAN) --- */}
+          {/* --- TOP: MAIN FEATURE (COACHING COURSE) --- */}
           <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-slate-900/40 shadow-2xl transition-all hover:border-yellow-500/60">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
               <div className="lg:col-span-8 relative h-[300px] lg:h-[550px] overflow-hidden">
-                <img src="/asns1.jpeg" alt="Anugerah Sukan Sabah" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
+                <img src="/coach1.jpeg" alt="National Coaching Course" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/90 lg:block hidden"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950 lg:hidden"></div>
               </div>
               <div className="lg:col-span-4 p-10 md:p-14 flex flex-col justify-center relative">
-                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg">Victory Night</span>
+                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg">New Certification</span>
                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
-                  SABAH STATE <br/> <span className="text-yellow-500">SPORTS AWARDS</span>
+                  26 COACHES <br/> <span className="text-yellow-500">CERTIFIED</span>
                 </h2>
                 <div className="mb-8 border-l-4 border-yellow-500 pl-6">
-                   <p className="text-white text-xl font-black italic">BEST SPORTS ASSOCIATION</p>
-                   <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1 italic">PMNS Sweeps Top Honors</p>
+                   <p className="text-white text-xl font-black italic">NATIONAL MSN BUKIT JALIL</p>
+                   <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1 italic">Professional Standards Elevated</p>
                 </div>
-                <Link href="/newsletter/anugerah-sukan" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
+                <Link href="/newsletter/spesific-coach" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
                    Read Full Story →
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* --- BOTTOM: SPLIT FEATURES (BAMC & ANGIE) --- */}
+          {/* --- BOTTOM: SPLIT FEATURES --- */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            
-            {/* LEFT: BAMC CHAMPIONS */}
+            {/* ANUGERAH SUKAN */}
+            <div className="flex flex-col h-full">
+              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-yellow-500/40 transition-all">
+                <div className="relative w-full aspect-video bg-black">
+                   <img src="/asns1.jpeg" alt="State Sports Awards" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
+                   <div className="absolute bottom-8 left-8">
+                      <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">Victory Night</span>
+                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Sports Awards 2026</h3>
+                   </div>
+                </div>
+                <div className="p-8 flex justify-between items-center">
+                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
+                     PMNS crowned Best Sports Association at Magellan Sutera Harbour.
+                   </p>
+                   <Link href="/newsletter/anugerah-sukan" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-yellow-500 transition-all border border-white/10">
+                      ↗
+                   </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* BAMC CHAMPIONS */}
             <div className="flex flex-col h-full">
               <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
                 <div className="relative w-full aspect-video bg-black">
@@ -155,7 +199,7 @@ export default function Home() {
                 </div>
                 <div className="p-8 flex justify-between items-center">
                    <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                     Team Sabah dominates BAMC Vol.4 in Sarawak with a historic medal haul.
+                     Team Sabah dominates BAMC Vol.4 with a historic medal haul.
                    </p>
                    <Link href="/newsletter/bamc-champ" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-red-600 transition-all border border-white/10">
                       ↗
@@ -163,31 +207,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* RIGHT: ANGIE INCENTIVE */}
-            <div className="flex flex-col h-full">
-              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-blue-500/40 transition-all">
-                <div className="relative w-full aspect-video bg-black">
-                   <img src="/angie-1.jpg" alt="Angie Incentive" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-8 left-8">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">RM 92,000 Reward</span>
-                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">The Gold Standard</h3>
-                   </div>
-                </div>
-                <div className="p-8 flex justify-between items-center">
-                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                     Angie Yan Jia Chi sets the highest incentive record for 2025/2026.
-                   </p>
-                   <Link href="/newsletter/angie-incentive" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-blue-500 transition-all border border-white/10">
-                      ↗
-                   </Link>
-                </div>
-              </div>
-            </div>
-
           </div>
-
         </div>
       </section>
 
@@ -208,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 4. COMPACT VIP SIGNUP --- */}
+      {/* --- 4. VIP SIGNUP --- */}
       <section className="py-20 px-6 bg-slate-950 border-t border-white/5">
         <div className="max-w-3xl mx-auto bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] p-10 text-center shadow-xl backdrop-blur-sm">
           <h2 className="text-2xl md:text-4xl font-black text-white uppercase italic tracking-tighter mb-6 leading-none italic">Join the <span className="text-blue-500">VIP Roster</span></h2>
