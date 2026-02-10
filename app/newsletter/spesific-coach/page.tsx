@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from 'next';
 import Link from 'next/link';
-import ClientPage from './ClientPage'; // If you prefer keeping logic separate, or keep it all here:
 
 // --- 🌐 SEO & FACEBOOK METADATA ---
 export const metadata: Metadata = {
@@ -24,9 +23,6 @@ export const metadata: Metadata = {
     type: 'article',
   },
 };
-
-// Since Metadata must be in a Server Component, 
-// we keep the visual "use client" logic in a nested structure or use standard tags:
 
 export default function SpecificCoachReport() {
   return (
