@@ -1,6 +1,8 @@
 // File: app/fighters/data.js
 export const fighters = [
+  // ==========================
   // 1. PRO FIGHTERS
+  // ==========================
   { 
     id: "riedzwan-norsyahmie", 
     name: "Riedzwan Norsyahmie Daud", 
@@ -13,10 +15,11 @@ export const fighters = [
     age: "24",
     weight: "61 KG", 
     height: "172 CM",
+    stance: "Orthodox",
     image: "/syahmie.jpeg", 
     gender: "Male",
-    achievements: ["One Championship Fighter", "Multiple KO Artist"],
-    bio: "Known as 'The Golden Shin', Riedzwan is Sabah's most dangerous striker. With a terrifying 71% KO ratio (10 KOs), he brings devastating power and elite technical skills to the ring. A One Championship promising fighter."
+    achievements: ["One Championship promising fighter", "Multiple KO Artist", "SUKMA 2022 Bronze", "National Athlete", "Fury Redemption 2025 Champion", "Fought in One Championship 2025"],
+    bio: "Known as 'The Golden Shin', Riedzwan is Sabah's most dangerous striker. A One Championship contract winner with a terrifying 71% KO ratio, he combines elite technical skills with devastating power."
   },
   { 
     id: "mohammad-syahrizan", 
@@ -30,10 +33,11 @@ export const fighters = [
     age: "20",
     weight: "51-54 KG", 
     height: "162 CM",
+    stance: "Orthodox",
     image: "/syarizan.jpeg", 
     gender: "Male",
     achievements: ["Sukma 2024 Champion", "Sabah Games 2023 Gold", "Sabah Games 2025 Gold"],
-    bio: "Known as 'Sleeping Touch' for his deceptive finishing ability. An undefeated Pro (3-0) and seasoned Amateur Champion (Sukma 2024, SAGA 2023 & 2025 Gold), he is one of the top prospects in the state."
+    bio: "Known as 'Sleeping Touch' for his deceptive finishing ability. An undefeated Pro (3-0) and reigning Sukma 2024 Champion, Syahrizan is one of the most decorated young prospects in the state."
   },
   { 
     id: "mohammad-arizan", 
@@ -47,10 +51,11 @@ export const fighters = [
     age: "24",
     weight: "51 KG", 
     height: "157 CM",
+    stance: "Orthodox",
     image: "/arizan.jpeg", 
     gender: "Male",
-    achievements: ["Sabah Games 2019 Bronze"],
-    bio: "Arizan is a seasoned competitor with a solid 4-2 professional record. He brings experience, grit, and high-volume striking to the ring, representing Tawau with pride."
+    achievements: ["Sabah Games 2019 Bronze", "Sabah Pro Fighter"],
+    bio: "Arizan is a seasoned competitor from Tawau with a solid professional winning record. He is known for his grit and high-volume striking, consistently performing at the state level."
   },
   { 
     id: "hasbullah-sanmin", 
@@ -64,10 +69,11 @@ export const fighters = [
     age: "28",
     weight: "55-57 KG", 
     height: "162 CM",
+    stance: "Orthodox",
     image: "/hasbullah.jpeg", 
     gender: "Male",
     achievements: ["Veteran Pro Fighter", "Garagas Team Leader"],
-    bio: "A true veteran of the sport with 14 professional wins, Hasbullah 'D. Garagas' Sanmin is the heart of the Garagas Fight Team. Known for his warrior spirit and high fight IQ."
+    bio: "A true veteran of the sport with 14 professional wins, Hasbullah 'D. Garagas' Sanmin is the heart of the Garagas Fight Team. He brings years of ring experience and high fight IQ to every bout."
   },
   { 
     id: "eva-anastasia-warren", 
@@ -81,10 +87,11 @@ export const fighters = [
     age: "20",
     weight: "48 KG", 
     height: "159 CM",
+    stance: "Orthodox",
     image: "/eva.jpeg", 
     gender: "Female",
-    achievements: ["2025 SAGA Gold (Best Boxer)", "Asian Muaythai Silver", "33rd SEA Games Silver"],
-    bio: "Eva is Sabah's premier female fighter. A SEA Games Silver Medalist and Best Boxer award winner, she is an aggressive and highly skilled technician who competes at the international level."
+    achievements: ["33rd SEA Games Silver Medalist", "IFMA Asian 2025 Silver", "SUKMA 2024 Gold", "SAGA 2025 Best Boxer"],
+    bio: "Eva is Sabah's premier female fighter. A SEA Games Silver Medalist and SUKMA Champion, she is an aggressive technician who consistently performs on the international stage."
   },
   { 
     id: "muhammad-rahmad-combat", 
@@ -98,10 +105,11 @@ export const fighters = [
     age: "22",
     weight: "45-48 KG", 
     height: "163 CM",
+    stance: "Orthodox",
     image: "/rahmad-madkool.jpeg", 
     gender: "Male",
-    achievements: ["Undefeated Pro", "Sandakan Pride"],
-    bio: "An undefeated prospect from Sandakan, 'Mad Kool' Rahmad has a perfect 4-0 professional record. His speed and agility make him a nightmare matchup for anyone in the division."
+    achievements: ["Undefeated Pro", "SUKMA 2024 Silver Medalist", "Sandakan Pride"],
+    bio: "An undefeated prospect (4-0) and SUKMA Silver Medalist, 'Mad Kool' Rahmad is Sandakan's pride. His speed and agility make him a nightmare matchup for anyone in the division."
   },
   { 
     id: "shah-aryan", 
@@ -114,11 +122,12 @@ export const fighters = [
     category: "Pro", 
     age: "24",
     weight: "51 KG", 
-    height: "159",
+    height: "159 CM",
+    stance: "Southpaw",
     image: "/shah.jpeg", 
     gender: "Male",
-    achievements: ["Experienced Pro"],
-    bio: "Known as 'The Killer Prince', Shah Aryan is a seasoned pro from Revolution Combat Gym. With 4 professional wins, he brings excitement to every fight with his aggressive style."
+    achievements: ["National Champion", "Ex Sukma Sabah Fighter", "Experienced Pro", "SUKMA 2022 Silver Medalist", "2023 Max Muaythai, Thailand 1-0"],
+    bio: "Known as 'The Killer Prince', Shah Aryan is a dangerous Southpaw from Revolution Combat Gym. A former National Champion, he brings excitement to every fight with his aggressive style."
   },
   { 
     id: "kallens-barthez", 
@@ -132,10 +141,11 @@ export const fighters = [
     age: "23",
     weight: "60 KG", 
     height: "173 CM",
+    stance: "Orthodox",
     image: "/kallens.jpeg", 
     gender: "Male",
-    achievements: ["Fan Favorite"],
-    bio: "Kallens lives up to his nickname 'Showtime'. With a strong winning record, he is a crowd pleaser known for entertaining, high-energy fights."
+    achievements: ["Signed with Byon Indonesia", "Ex Sukma Sabah Fighter", "Fan Favorite"],
+    bio: "Kallens 'Showtime' lives up to his name. A crowd pleaser referring to himself as 'ORANG GILA SABAH', he recently signed with Byon Indonesia to take his high-energy style international."
   },
   { 
     id: "iman-madley", 
@@ -149,10 +159,11 @@ export const fighters = [
     age: "20",
     weight: "51 KG", 
     height: "166 CM",
+    stance: "Orthodox",
     image: "/iman.jpeg", 
     gender: "Male",
-    achievements: ["Clinch Specialist"],
-    bio: "Iman 'Payakchai' brings a traditional Thai style to his fights. A dangerous operator in the clinch with 3 professional wins."
+    achievements: ["SAGA 2023 Silver Medalist", "State Champion", "SAGA 2025 Fighter"],
+    bio: "Iman 'Payakchai' brings a traditional Thai style to his fights. A State Champion and SAGA Silver Medalist, he is a dangerous operator in the clinch."
   },
   { 
     id: "areen-khan", 
@@ -166,10 +177,11 @@ export const fighters = [
     age: "25",
     weight: "49 KG", 
     height: "159 CM",
+    stance: "Orthodox",
     image: "/areen.jpg", 
     gender: "Male",
-    achievements: ["Technical Fighter"],
-    bio: "Areen 'King Dede' Khan is a staple of the Revolution team. Fighting in the lighter weight classes, he is known for his speed and technical exchanges."
+    achievements: ["SAGA 2019 Gold Medalist", "State Champion", "Ex Sukma Fighter"],
+    bio: "Areen 'King Dede' Khan is a former SAGA Gold Medalist and State Champion. Fighting in the lighter weight classes, he is known for his speed and technical exchanges."
   },
   { 
     id: "tu-sim-bee", 
@@ -183,6 +195,7 @@ export const fighters = [
     age: "30",
     weight: "43-46 KG", 
     height: "155 CM",
+    stance: "Orthodox",
     image: "/tusimbee.jpeg", 
     video: "/tusimbee.mp4",
     gender: "Female",
@@ -201,10 +214,11 @@ export const fighters = [
     age: "18",
     weight: "45 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/sammy.jpeg", 
     gender: "Female",
-    achievements: ["BAMC Gold Medalist"],
-    bio: "Sammy is a Gold Medalist at the BAMC games with a balanced pro record. She is a technically sound fighter from the Aaagaras stable."
+    achievements: ["BAMC Gold Medalist", "SAGA 2025 Gold Medalist", "State Champion"],
+    bio: "Sammy is a standout young talent. A Gold Medalist at both BAMC and SAGA 2025, she has proven herself as a technically sound fighter from the Aaagaras stable."
   },
   { 
     id: "rifhan-wazizi", 
@@ -218,6 +232,7 @@ export const fighters = [
     age: "19",
     weight: "51 KG", 
     height: "160 CM",
+    stance: "Orthodox",
     image: "/rifhan.jpeg", 
     gender: "Male",
     achievements: ["Kudat Champion"],
@@ -235,6 +250,7 @@ export const fighters = [
     age: "23",
     weight: "54 KG", 
     height: "167 CM",
+    stance: "Orthodox",
     image: "/iqbal.jpeg", 
     gender: "Male",
     achievements: ["Pro Debut Winner"],
@@ -252,6 +268,7 @@ export const fighters = [
     age: "25",
     weight: "65 KG", 
     height: "167 CM",
+    stance: "Orthodox",
     image: "/milan.jpeg", 
     gender: "Male",
     achievements: ["Undefeated Debut"],
@@ -269,6 +286,7 @@ export const fighters = [
     age: "22",
     weight: "54 KG", 
     height: "168 CM",
+    stance: "Orthodox",
     image: "/jasper.jpeg", 
     gender: "Male",
     achievements: ["Debut Winner"],
@@ -286,6 +304,7 @@ export const fighters = [
     age: "21",
     weight: "54 KG", 
     height: "165 CM",
+    stance: "Orthodox",
     image: "/johnathan.jpeg", 
     gender: "Male",
     achievements: ["Debut Winner"],
@@ -303,6 +322,7 @@ export const fighters = [
     age: "22",
     weight: "63-64 KG", 
     height: "169 CM",
+    stance: "Orthodox",
     image: "/montoi.jpeg", 
     gender: "Male",
     achievements: ["2024 Pra Sukma Gold", "2023 SAGA Gold", "2022 SEA Games Athlete"],
@@ -320,10 +340,11 @@ export const fighters = [
     age: "23",
     weight: "51 KG", 
     height: "163 CM",
+    stance: "Orthodox",
     image: "/syafiq.jpeg", 
     gender: "Male",
-    achievements: ["Sabah Inter-Club Champion"],
-    bio: "Syafiq is a relentless pressure fighter from Tamparuli. With extensive amateur experience (18 wins), he is known for his cardio and inability to take a step backward."
+    achievements: ["Sabah Inter-Club Champion", "SAGA 2023 Gold Medalist", "Ex Sabah Sukma Fighter"],
+    bio: "Syafiq is a relentless pressure fighter from Tamparuli. With extensive amateur experience (18 wins) and a SAGA Gold medal, he is known for his cardio and inability to take a step backward."
   },
   { 
     id: "irick-richard", 
@@ -337,6 +358,7 @@ export const fighters = [
     age: "23",
     weight: "54 KG", 
     height: "168 CM",
+    stance: "Orthodox",
     image: "/irick.jpeg", 
     gender: "Male",
     achievements: ["Pro Fighter"],
@@ -354,13 +376,16 @@ export const fighters = [
     age: "21",
     weight: "57-60 KG", 
     height: "162 CM",
+    stance: "Orthodox",
     image: "/efron.jpeg", 
     gender: "Male",
-    achievements: ["Pro Fighter"],
-    bio: "Fighting out of AWP Martial Art Academy, Efron is a resilient fighter gaining valuable experience in the professional circuit."
+    achievements: ["SAGA 2025 Gold Medalist", "SAGA 2023 Gold Medalist", "SUKMA 2024 Bronze Medalist"],
+    bio: "Fighting out of AWP Martial Art Academy, Efron is a resilient fighter. A two-time SAGA Gold Medalist and SUKMA Bronze winner, he has a strong amateur pedigree."
   },
 
+  // ==========================
   // 2. PRO & MUAYSPORTS (HYBRIDS)
+  // ==========================
   { 
     id: "evyanka-qistina", 
     name: "Evyanka Qistina Ady", 
@@ -373,6 +398,7 @@ export const fighters = [
     age: "15",
     weight: "45-48 KG", 
     height: "157 CM",
+    stance: "Orthodox",
     image: "/pumpkin.jpeg", 
     gender: "Female",
     achievements: ["Young Pro Debutant", "Amateur Champion"],
@@ -390,9 +416,10 @@ export const fighters = [
     age: "20",
     weight: "67-73 KG", 
     height: "178 CM",
+    stance: "Orthodox",
     image: "/asyraf-danial.jpeg", 
     gender: "Male",
-    achievements: ["3x IFMA World Champion", "2024 IFMA Greece Gold", "2025 ASEAN Vietnam Silver"],
+    achievements: ["3x IFMA World Champion", "2024 IFMA Greece Gold", "2025 ASIAN Vietnam Silver"],
     bio: "Acapski is a world-class athlete. A 3x IFMA World Champion, he is equally dangerous in combat as he is skilled in the cultural arts of Muay Thai."
   },
   { 
@@ -407,9 +434,10 @@ export const fighters = [
     age: "18",
     weight: "71 KG", 
     height: "178 CM",
+    stance: "Orthodox",
     image: "/kerry.jpeg", 
     gender: "Male",
-    achievements: ["BAMC Gold Medalist"],
+    achievements: ["BAMC Gold Medalist", "Sabah SUKMA Fighter 2024"],
     bio: "Kerry 'Dryan' is a tall and rangy fighter with massive amateur experience (23 wins). He is a BAMC Gold Medalist and a key member of Team Karabaw."
   },
   { 
@@ -424,6 +452,7 @@ export const fighters = [
     age: "20",
     weight: "57 KG", 
     height: "165 CM",
+    stance: "Orthodox",
     image: "/eddli.jpeg", 
     gender: "Male",
     achievements: ["Undefeated Pro Record", "Rising Star"],
@@ -441,6 +470,7 @@ export const fighters = [
     age: "22",
     weight: "60 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/hezric.jpeg", 
     gender: "Male",
     achievements: ["Semi-Pro Winner"],
@@ -456,8 +486,9 @@ export const fighters = [
     record: "1W-0L | BAMC GOLD", 
     category: "Pro & Muaysports", 
     age: "16",
-    weight: "57 KG", 
+    weight: "55 KG", 
     height: "168 CM",
+    stance: "Orthodox",
     image: "/izack.jpeg", 
     gender: "Male",
     achievements: ["2025 National Gold", "2025 ASEAN Gold", "2025 SAGA Gold"],
@@ -475,6 +506,7 @@ export const fighters = [
     age: "20",
     weight: "50-55 KG", 
     height: "157 CM",
+    stance: "Orthodox",
     image: "/stacy-poong.jpeg", 
     gender: "Female",
     achievements: ["SUKMA Gold Medalist"],
@@ -492,13 +524,16 @@ export const fighters = [
     age: "19",
     weight: "54 KG", 
     height: "170 CM",
+    stance: "Orthodox",
     image: "/fazreen-ezra.jpeg", 
     gender: "Male",
-    achievements: ["Hybrid Athlete"],
-    bio: "Fazreen 'Ezra' is a versatile fighter from Revolution Combat Gym, competing in both professional bouts and muaysports tournaments."
+    achievements: ["Hybrid Athlete", "SAGA 2025 Silver Medalist"],
+    bio: "Fazreen 'Ezra' is a versatile fighter from Revolution Combat Gym, competing in both professional bouts and muaysports tournaments. He is a SAGA 2025 Silver Medalist."
   },
 
+  // ==========================
   // 3. MUAYSPORTS
+  // ==========================
   { 
     id: "mb-khairul", 
     name: "Mb Mohd Khairul Ariffin", 
@@ -511,6 +546,7 @@ export const fighters = [
     age: "20",
     weight: "65 KG", 
     height: "178 CM",
+    stance: "Orthodox",
     image: "/mbkhairul.jpeg", 
     gender: "Male",
     achievements: ["BAMC Gold Medalist", "Dominant Record"],
@@ -528,6 +564,7 @@ export const fighters = [
     age: "18",
     weight: "67 KG", 
     height: "178 CM",
+    stance: "Orthodox",
     image: "/adib.jpeg", 
     gender: "Male",
     achievements: ["Amateur Contender"],
@@ -545,10 +582,11 @@ export const fighters = [
     age: "19",
     weight: "54 KG", 
     height: "165 CM",
+    stance: "Orthodox",
     image: "/limzhihui.jpeg", 
     gender: "Female",
-    achievements: ["Active Competitor"],
-    bio: "Lim Zhi Hui is a dedicated active competitor from Aaagaras Muay, consistently participating in local tournaments."
+    achievements: ["Active Competitor", "SAGA 2025 Silver Medalist"],
+    bio: "Lim Zhi Hui is a dedicated active competitor from Aaagaras Muay. A SAGA 2025 Silver Medalist, she consistently participates in local tournaments."
   },
   { 
     id: "johanizamsyah-phantom", 
@@ -562,6 +600,7 @@ export const fighters = [
     age: "19",
     weight: "54-57 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/phantom.jpeg", 
     gender: "Male",
     achievements: ["Gold Medalist"],
@@ -579,6 +618,7 @@ export const fighters = [
     age: "21",
     weight: "48-51 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/tasyah.jpeg", 
     gender: "Female",
     achievements: ["Gold Medalist"],
@@ -596,13 +636,34 @@ export const fighters = [
     age: "19",
     weight: "57 KG", 
     height: "N/A", 
+    stance: "Orthodox",
     image: "/davien.jpeg", 
     gender: "Male",
     achievements: ["SMC KB 2025 Gold Combat"],
     bio: "Davien is a standout from Monster Muaythai. Winning Gold at SMC KB 2025, he has proven his combat capability."
   },
 
+  // ==========================
   // 4. U17
+  // ==========================
+  { 
+    id: "hectlyor-rawing", 
+    name: "Hectlyor Rawing", 
+    nickname: "Hector", 
+    team: "D'Sha Muayfit Tawau", 
+    coach: "Sharon Andrea Gerald", 
+    managerContact: "60142048368", 
+    record: "Muaysports: 10W - 4L", 
+    category: "U17", 
+    age: "15", 
+    weight: "45-48 KG", 
+    height: "164 CM", 
+    stance: "Orthodox",
+    image: "/hector.jpeg", 
+    gender: "Male",
+    achievements: ["Kebangsaan 2025 Athlete", "ASEAN Games 2025 Athlete"],
+    bio: "Fighting out of D'Sha Muayfit Tawau, Hectlyor 'Hector' Rawing is a rising teen prospect. With experience at the National and ASEAN levels in 2025, he is building a strong foundation for his future."
+  },
   { 
     id: "ersyahbbel-asharie", 
     name: "Ersyahbbel Asharie", 
@@ -615,6 +676,7 @@ export const fighters = [
     age: "16",
     weight: "60-63 KG", 
     height: "172 CM",
+    stance: "Orthodox",
     image: "/abel.jpeg", 
     gender: "Male",
     achievements: ["SabahGames 2025", "ASEAN 2025", "Kebangsaan 2025"],
@@ -632,6 +694,7 @@ export const fighters = [
     age: "16",
     weight: "42-45 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/nick-nynell.jpeg", 
     gender: "Male",
     achievements: ["Kota Marudu Young Gun"],
@@ -649,6 +712,7 @@ export const fighters = [
     age: "15",
     weight: "48-51 KG", 
     height: "N/A",
+    stance: "Orthodox",
     image: "/fizi.jpeg", 
     gender: "Male",
     achievements: ["SMC 2025 Silver", "Rookie Gold", "SAGA Tawau Silver"],
@@ -666,6 +730,7 @@ export const fighters = [
     age: "15",
     weight: "54-57 KG", 
     height: "160 CM",
+    stance: "Orthodox",
     image: "/jaethancombat.jpeg", 
     gender: "Male",
     achievements: ["SMC KB 2025 Gold", "D1 2025 Gold", "IFMA YWC Representative"],
@@ -683,6 +748,7 @@ export const fighters = [
     age: "16",
     weight: "45-48 KG", 
     height: "159 CM",
+    stance: "Orthodox",
     image: "/rozana-laila.jpeg", 
     gender: "Female",
     achievements: ["2025 Silver SAGA Tawau"],
@@ -697,16 +763,19 @@ export const fighters = [
     managerContact: "60168013530", 
     record: "4W - 6L", 
     category: "U17", 
-    age: "16",
+    age: "17",
     weight: "57-60 KG", 
     height: "171 CM",
+    stance: "Orthodox",
     image: "/noor-azmani.jpeg", 
     gender: "Male",
     achievements: ["Youth Prospect"],
     bio: "Azmani is a developing youth fighter from Revolution Combat Gym. He has good height for his weight and is improving with every fight."
   },
 
+  // ==========================
   // 5. ARTS (Gold Medals Prestige Sort)
+  // ==========================
   { 
     id: "asyraf-danial-arts", 
     name: "Asyraf Danial", 
@@ -715,7 +784,7 @@ export const fighters = [
     coach: "Dhillon Tahing", 
     managerContact: "60168013530", 
     record: "IFMA 3x Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "20", 
     weight: "N/A", 
     height: "178 CM",
@@ -732,7 +801,7 @@ export const fighters = [
     coach: "Jonathan Quan", 
     managerContact: "0178117118", 
     record: "IFMA World Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "16", 
     weight: "N/A", 
     height: "160 CM",
@@ -749,7 +818,7 @@ export const fighters = [
     coach: "Addyana June Adangku", 
     managerContact: "601152599024", 
     record: "Waikru Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "16", 
     weight: "N/A", 
     height: "N/A",
@@ -766,7 +835,7 @@ export const fighters = [
     coach: "Jonathan Quan", 
     managerContact: "0178117118", 
     record: "National Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "19", 
     weight: "N/A", 
     height: "N/A",
@@ -783,13 +852,13 @@ export const fighters = [
     coach: "Dhillon Tahing", 
     managerContact: "60168013530", 
     record: "Waikru Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "17", 
     weight: "N/A", 
     height: "N/A",
     image: "/ariesya-dania.jpg", 
     gender: "Female",
-    achievements: ["National Best Cultural Athlete", "Asian Youth Bronze"],
+    achievements: ["National Best Cultural Athlete 2025", "Asian Youth Game, Bahrain Bronze", "World IFMA  Youth 2024 Thailand Silver Medalist", "National Senior 2025 Gold Medalist", "SAGA 2025 Silver Medalist"],
     bio: "Ari is a specialist in Wai Kru. Recognized as a National Best Cultural Athlete, she preserves the beautiful traditions of Muay Thai."
   },
   { 
@@ -800,7 +869,7 @@ export const fighters = [
     coach: "Jonathan Quan", 
     managerContact: "0178117118", 
     record: "National Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "16", 
     weight: "N/A", 
     height: "N/A",
@@ -817,7 +886,7 @@ export const fighters = [
     coach: "Addyana June Adangku", 
     managerContact: "601152599024", 
     record: "Culture Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "20", 
     weight: "N/A", 
     height: "157 CM",
@@ -834,7 +903,7 @@ export const fighters = [
     coach: "Addyana June Adangku", 
     managerContact: "601152599024", 
     record: "Waikru Gold", 
-    category: "Arts",
+    category: "Arts", 
     age: "15", 
     weight: "N/A", 
     height: "N/A",
@@ -851,7 +920,7 @@ export const fighters = [
     coach: "Jonathan Quan", 
     managerContact: "0178117118", 
     record: "Asian Youth Bronze", 
-    category: "Arts",
+    category: "Arts", 
     age: "16", 
     weight: "N/A", 
     height: "N/A",
