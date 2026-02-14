@@ -144,7 +144,7 @@ export default function NewsletterArchive() {
       year: "2025", 
       date: "2025", 
       title: "Ranau Fighting Championship", 
-      img: "/ranau.jpeg", 
+      img: "/Ranau.jpeg", 
       link: "/newsletter/Ranau-Fighting-Championship-2025", 
       tag: "District" 
     },
