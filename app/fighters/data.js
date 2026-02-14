@@ -643,6 +643,23 @@ export const fighters = [
     achievements: ["SMC KB 2025 Gold Combat"],
     bio: "Davien is a standout from Monster Muaythai. Winning Gold at SMC KB 2025, he has proven his combat capability."
   },
+  // NEW ADDITION: Arsyiq
+  {
+    id: "muhammad-arsyiq",
+    name: "Muhammad Arsyiq Hidayat Bin Junudin",
+    nickname: "Arsyiq",
+    age: "19",
+    weight: "67 KG",
+    height: "175 CM",
+    record: "4W - 1L",
+    category: "Muaysports",
+    team: "D'Sha Muayfit Tawau",
+    managerContact: "0165525785",
+    image: "/arsyiq.jpeg",
+    gender: "Male",
+    achievements: ["Sabah Games 2025 Silver"],
+    bio: "Arsyiq is a strong prospect from D'Sha Muayfit. With an impressive 4-1 record and a Silver medal at the Sabah Games 2025, he is making his mark in the Muaysports division."
+  },
 
   // ==========================
   // 4. U17
@@ -773,6 +790,93 @@ export const fighters = [
     achievements: ["Youth Prospect", "State Champion", "SAGA 2025 Athlete", "D1 Championship Muaysport Gold Medalist", "National Bronze Medalist"],
     bio: "Azmani is a developing youth fighter from Revolution Combat Gym. He has good height for his weight and is improving with every fight."
   },
+  // NEW ADDITION: Bradley Manson
+  {
+    id: "bradley-manson",
+    name: "Bradley Manson",
+    nickname: "Bradley",
+    age: "15",
+    weight: "65 KG",
+    height: "153 CM",
+    record: "13W - 4L",
+    category: "U17",
+    team: "D'Sha Muayfit Tawau",
+    managerContact: "0168414611",
+    image: "/BRADLEY.jpeg",
+    gender: "Male",
+    achievements: ["Kebangsaan 2025 Gold", "ASEAN Games 2025 Gold"],
+    bio: "A powerhouse from D'Sha Muayfit Tawau, Bradley has dominated the 2025 season with Gold medals at both the National (Kebangsaan) and ASEAN levels. At just 15, his 13-4 record speaks volumes about his experience and skill."
+  },
+  // NEW ADDITION: Azeera
+  {
+    id: "nur-azeera",
+    name: "Nur Azeera Binti Shaqil",
+    nickname: "Azeera",
+    age: "17",
+    weight: "43 KG",
+    height: "155 CM",
+    record: "6W - 4L",
+    category: "U17",
+    team: "D'Sha Muayfit Tawau",
+    managerContact: "0165525785",
+    image: "/azeera.jpeg",
+    gender: "Female",
+    achievements: ["National Muay Thai 2025 Bronze"],
+    bio: "Azeera is a determined competitor from Tawau. Securing a Bronze medal at the National Muay Thai 2025 championships, she has proven her ability to compete among the country's best youth fighters."
+  },
+  // NEW ADDITION: Ameera
+  {
+    id: "nur-ameera",
+    name: "Nur Ameera Binti Shaqil",
+    nickname: "Ameera",
+    age: "17",
+    weight: "45 KG",
+    height: "156 CM",
+    record: "4W - 6L",
+    category: "U17",
+    team: "D'Sha Muayfit Tawau",
+    managerContact: "0165525785",
+    image: "/ameera.jpeg",
+    gender: "Female",
+    achievements: ["Sabah Games 2025 Silver"],
+    bio: "Ameera is a silver medalist from the Sabah Games 2025. Representing D'Sha Muayfit, she brings heart and resilience to the ring."
+  },
+  // NEW ADDITION: Deanverd Dominic
+  {
+    id: "deanverd-dominic",
+    name: "Deanverd Dominic",
+    nickname: "Dean 'The Dropdead'",
+    age: "15",
+    weight: "45 KG",
+    height: "N/A",
+    record: "14W - 5L",
+    category: "U17",
+    team: "Tavangkaz Muayfit",
+    managerContact: "N/A",
+    stance: "Orthodox",
+    image: "/Dean.jpeg",
+    gender: "Male",
+    achievements: ["Sabah Muaythai Champion 2024 Silver 40kg", "KK Muaythai Sport 2024 Gold 40kg", "Premier Cup Bintulu 2024 Gold 41kg", "Garagas Fight Tournament 2024 Gold 43kg", "Elopura Fight Sandakan 2025 Gold 46kg", "Sabah Muaythai Open KB 2025 Silver 45kg", "Muaythai Expo Gold 45kg", "D1 Muaythai Gold 45kg"],
+    bio: "Deanverd Dominic, known in the ring as Dean 'The Dropdead', is a rising young striker from Penampang, Sabah. Fighting out of an orthodox stance and adopting the Muay Femur style, Dean is a calculated and intelligent fighter who relies on sharp technique, timing, and ring IQ rather than brute force. At just 15 years old, he has already competed in 19 amateur bouts, showcasing composure beyond his age."
+  },
+  // NEW ADDITION: Denise Aleesya (SPECIAL CASE: UPRISING PRODIGY)
+  {
+    id: "denise-aleesya",
+    name: "Denise Aleesya",
+    nickname: "Mei Mei",
+    age: "13",
+    weight: "42 KG",
+    height: "147 CM",
+    record: "8W - 9L",
+    category: "Uprising Prodigy",
+    team: "D'Sha Muayfit Tawau",
+    managerContact: "0165525785",
+    image: "/meimei.jpeg",
+    gender: "Female",
+    achievements: ["Child Prodigy"],
+    bio: "Known as 'Mei Mei', Denise is a child prodigy fighting well beyond her years. At only 13 years old with 17 fights under her belt, she displays a fearlessness and technical ability that promises a bright future."
+  },
+
 
   // ==========================
   // 5. ARTS (Gold Medals Prestige Sort)
@@ -864,7 +968,7 @@ export const fighters = [
     height: "N/A",
     image: "/ariesya-dania.jpg", 
     gender: "Female",
-    achievements: ["National Best Cultural Athlete 2025", "Asian Youth Game, Bahrain Bronze", "World IFMA  Youth 2024 Thailand Silver Medalist", "National Senior 2025 Gold Medalist", "SAGA 2025 Silver Medalist"],
+    achievements: ["National Best Cultural Athlete 2025", "Asian Youth Game, Bahrain Bronze", "World IFMA  Youth 2024 Thailand Silver Medalist", "National Senior 2025 Gold Medalist", "SAGA 2025 Silver Medalist"],
     bio: "Ari is a specialist in Wai Kru. Recognized as a National Best Cultural Athlete, she preserves the beautiful traditions of Muay Thai."
   },
   { 

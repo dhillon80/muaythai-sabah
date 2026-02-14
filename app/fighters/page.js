@@ -13,25 +13,35 @@ export default function FightersPage() {
   // 🎨 COLOR LOGIC
   const getTagColor = (cat) => {
     const c = cat.toLowerCase();
-    if (c.includes('pro')) return 'text-red-500';
+    if (c.includes('pro') && !c.includes('uprising')) return 'text-red-500';
     if (c.includes('muaysport')) return 'text-blue-500';
     if (c.includes('arts')) return 'text-emerald-500';
     if (c.includes('hybrid')) return 'text-purple-500';
+    if (c.includes('u17')) return 'text-orange-500'; // ✅ Added U17 Color
+    if (c.includes('uprising')) return 'text-pink-500'; // ✅ Added Prodigy Color
     return 'text-yellow-500';
   };
 
   // 🔍 FILTERING
   const filteredFighters = fighters.filter(f => {
-    const catMatch = categoryFilter === 'ALL' ? true 
-      : categoryFilter === 'PRO' ? f.category.toLowerCase().includes('pro')
-      : categoryFilter === 'MUAYSPORTS' ? f.category.toLowerCase().includes('muaysport')
-      : categoryFilter === 'ARTS' ? f.category === 'Arts'
-      : categoryFilter === 'HYBRID' ? f.category.includes('Hybrid')
-      : true;
+    // CATEGORY LOGIC
+    let catMatch = true;
+    if (categoryFilter !== 'ALL') {
+      const fc = f.category.toLowerCase();
+      const filter = categoryFilter.toLowerCase();
+      
+      if (filter === 'pro') catMatch = fc.includes('pro') && !fc.includes('uprising'); // Exclude prodigy from generic Pro
+      else if (filter === 'muaysports') catMatch = fc.includes('muaysport');
+      else if (filter === 'arts') catMatch = fc.includes('arts');
+      else if (filter === 'hybrid') catMatch = fc.includes('hybrid');
+      else if (filter === 'u17') catMatch = fc.includes('u17');
+      else if (filter === 'uprising prodigy') catMatch = fc.includes('uprising');
+      else catMatch = fc.includes(filter);
+    }
 
     const q = searchQuery.toLowerCase();
     
-    // ✅ ADDED CATEGORY SEARCH HERE
+    // ✅ CATEGORY SEARCH INCLUDED
     const searchMatch = 
       f.name.toLowerCase().includes(q) || 
       (f.team && f.team.toLowerCase().includes(q)) || 
@@ -72,9 +82,11 @@ export default function FightersPage() {
               ))}
             </div>
           </div>
+          
+          {/* ✅ UPDATED CATEGORY BUTTONS: Added U17 & PRODIGY */}
           <div className="flex justify-center gap-2 overflow-x-auto no-scrollbar pt-1">
-            {['ALL', 'PRO', 'MUAYSPORTS', 'HYBRID', 'ARTS'].map((cat) => (
-              <button key={cat} onClick={() => setCategoryFilter(cat)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all border border-transparent ${categoryFilter === cat ? 'bg-zinc-800 text-white border-white/20' : 'bg-transparent text-zinc-600 hover:text-zinc-300'}`}>{cat}</button>
+            {['ALL', 'PRO', 'MUAYSPORTS', 'HYBRID', 'ARTS', 'U17', 'UPRISING PRODIGY'].map((cat) => (
+              <button key={cat} onClick={() => setCategoryFilter(cat)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all border border-transparent whitespace-nowrap ${categoryFilter === cat ? 'bg-zinc-800 text-white border-white/20' : 'bg-transparent text-zinc-600 hover:text-zinc-300'}`}>{cat}</button>
             ))}
           </div>
         </div>
