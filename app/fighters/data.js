@@ -697,7 +697,7 @@ export const fighters = [
     stance: "Orthodox",
     image: "/nick-nynell.jpeg", 
     gender: "Male",
-    achievements: ["Kota Marudu Young Gun"],
+    achievements: ["Kota Marudu Young Gun", "1st Asean youth Championship Bronze", "National Bronze Medalist"],
     bio: "Nick 'Letto' is a highly active youth fighter from Kota Marudu. With nearly 20 fights under his belt, he has experience beyond his years."
   },
   { 
@@ -769,7 +769,7 @@ export const fighters = [
     stance: "Orthodox",
     image: "/noor-azmani.jpeg", 
     gender: "Male",
-    achievements: ["Youth Prospect"],
+    achievements: ["Youth Prospect", "State Champion", "SAGA 2025 Athlete", "D1 Championship Muaysport Gold Medalist", "National Bronze Medalist"],
     bio: "Azmani is a developing youth fighter from Revolution Combat Gym. He has good height for his weight and is improving with every fight."
   },
 
