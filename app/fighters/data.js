@@ -469,11 +469,12 @@ export const fighters = [
     category: "Pro & Muaysports", 
     age: "22",
     weight: "60 KG", 
-    height: "N/A",
+    height: "169 CM",
     stance: "Orthodox",
-    image: "/hezric.jpeg", 
+    image: "/hezric.jpeg",
+    video: "/hezric-reel.mp4", 
     gender: "Male",
-    achievements: ["Semi-Pro Winner"],
+    achievements: ["Semi-Pro Winner", "SAGA 2023 Athlete", "State Fighter"],
     bio: "Hezric 'Sugar Boy' has a slick style. With a winning semi-pro record, he represents Naga Kinabalu with flair and technical prowess."
   },
   { 
