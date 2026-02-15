@@ -31,7 +31,6 @@ export default function Home() {
     setMounted(true);
     checkUser();
 
-    // Fix: Ensure the interval only runs if the component is mounted
     const quoteInterval = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % upliftingQuotes.length);
     }, 4000);
@@ -83,7 +82,7 @@ export default function Home() {
       <div className="fixed top-24 right-6 z-[100] flex flex-col gap-3 items-end">
         {!user && (
           <Link href="/login" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest italic border border-white/20 shadow-xl transition-all">
-             Login / Sign Up
+              Login / Sign Up
           </Link>
         )}
         {isAdmin && (
@@ -114,7 +113,6 @@ export default function Home() {
             Muaythai <span className="text-yellow-500">Sabah</span>
           </h1>
           
-          {/* ✨ DYNAMIC UPLIFTING QUOTE BAR ✨ */}
           <div className="h-10 mb-4 flex items-center justify-center animate-fade-in-up delay-75">
             <p key={quoteIndex} className="text-yellow-500 text-sm md:text-xl font-black italic uppercase tracking-widest transition-all duration-700 animate-fade-in-up">
               {upliftingQuotes[quoteIndex]}
@@ -127,116 +125,107 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. HIGHLIGHT HUB --- */}
+      {/* --- 2. HIGHLIGHT HUB (KALLEN VS KABILAN EXCLUSIVE) --- */}
       <section className="py-20 px-4 bg-slate-950">
         <div className="max-w-[1600px] mx-auto space-y-10">
           
           <div className="flex justify-between items-end px-2">
-             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Latest <span className="text-yellow-500">Headlines</span></h2>
+             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-red-600">Spotlight</span></h2>
              <Link href="/newsletter" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
-                View Archive →
+               View All News →
              </Link>
           </div>
 
-          {/* --- TOP: MAIN FEATURE (COACHING COURSE) --- */}
-          <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-slate-900/40 shadow-2xl transition-all hover:border-yellow-500/60">
+          {/* --- MAIN FEATURE: BORNEO SHOWDOWN III --- */}
+          <div className="relative group rounded-[3rem] overflow-hidden border border-red-600/30 bg-slate-900/40 shadow-2xl transition-all hover:border-red-600/60">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              <div className="lg:col-span-8 relative h-[300px] lg:h-[550px] overflow-hidden">
-                <img src="/coach1.jpeg" alt="National Coaching Course" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s]" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/90 lg:block hidden"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950 lg:hidden"></div>
-              </div>
-              <div className="lg:col-span-4 p-10 md:p-14 flex flex-col justify-center relative">
-                <span className="bg-yellow-500 text-black px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-6 self-start shadow-lg">New Certification</span>
-                <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
-                  26 COACHES <br/> <span className="text-yellow-500">CERTIFIED</span>
-                </h2>
-                <div className="mb-8 border-l-4 border-yellow-500 pl-6">
-                   <p className="text-white text-xl font-black italic">NATIONAL MSN BUKIT JALIL</p>
-                   <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mt-1 italic">Professional Standards Elevated</p>
+              
+              {/* LEFT: FIGHT CARD VISUAL */}
+              <div className="lg:col-span-7 relative min-h-[400px] lg:h-auto overflow-hidden bg-black">
+                <img src="/kabilanvskallen.png" alt="Kallen vs Kabilan III" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[3s]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 lg:opacity-40"></div>
+                <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 z-10">
+                   <span className="bg-red-600 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-4 inline-block shadow-lg animate-pulse">Live in Jakarta</span>
+                   <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
+                     THE PRIDE OF <br/> <span className="text-yellow-500">BORNEO</span>
+                   </h2>
+                   <p className="text-gray-300 text-sm md:text-lg font-bold uppercase tracking-widest italic">
+                     Showtime vs The Hunter • Trilogy
+                   </p>
                 </div>
-                <Link href="/newsletter/spesific-coach" className="bg-yellow-500 text-black px-8 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-white transition-all italic text-center shadow-xl">
-                   Read Full Story →
-                </Link>
+              </div>
+
+              {/* RIGHT: PROMO VIDEO (REEL SIZE FIX) */}
+              <div className="lg:col-span-5 bg-[#0a0a0c] p-8 md:p-12 flex flex-col justify-center border-l border-white/5 relative">
+                
+                {/* VIDEO CONTAINER (REEL SIZE 9:16) */}
+                <div className="relative mx-auto w-full max-w-[320px] aspect-[9/16] rounded-3xl overflow-hidden border border-white/10 shadow-2xl mb-8 group-hover:border-yellow-500/30 transition-all bg-black">
+                    <video controls className="w-full h-full object-cover" poster="/kallen.jpg">
+                        <source src="/kallen.mp4" type="video/mp4" />
+                    </video>
+                    <div className="absolute top-4 left-4 pointer-events-none">
+                        <span className="bg-black/60 backdrop-blur-md text-yellow-500 text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest italic border border-yellow-500/20">
+                            THE SHOWTIME
+                        </span>
+                    </div>
+                </div>
+
+                {/* TEXT & CTA */}
+                <div className="space-y-6 text-center">
+                    <div>
+                        <h3 className="text-2xl font-black text-white uppercase italic mb-2">February 28, 2026</h3>
+                        <p className="text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-widest">
+                            Two losses. One evolution. Sabah&apos;s Kallen Barthez Jaifili seeks redemption against Sarawak&apos;s Kabilan Jeleven.
+                        </p>
+                    </div>
+                    
+                    <Link href="/newsletter/kallenvskabilan" className="block w-full bg-white text-black py-5 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-500 transition-all shadow-xl hover:shadow-yellow-500/20 text-xs md:text-sm">
+                        Read Full Story →
+                    </Link>
+                </div>
+
               </div>
             </div>
           </div>
 
-          {/* --- BOTTOM: SPLIT FEATURES --- */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* ANUGERAH SUKAN */}
-            <div className="flex flex-col h-full">
-              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-yellow-500/40 transition-all">
-                <div className="relative w-full aspect-video bg-black">
-                   <img src="/asns1.jpeg" alt="State Sports Awards" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-8 left-8">
-                      <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">Victory Night</span>
-                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Sports Awards 2026</h3>
-                   </div>
-                </div>
-                <div className="p-8 flex justify-between items-center">
-                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                     PMNS crowned Best Sports Association at Magellan Sutera Harbour.
-                   </p>
-                   <Link href="/newsletter/anugerah-sukan" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-yellow-500 transition-all border border-white/10">
-                      ↗
-                   </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* BAMC CHAMPIONS */}
-            <div className="flex flex-col h-full">
-              <div className="flex-1 relative group rounded-[2.5rem] overflow-hidden border border-white/10 bg-slate-900/40 shadow-2xl flex flex-col hover:border-red-600/40 transition-all">
-                <div className="relative w-full aspect-video bg-black">
-                   <img src="/bamc2.jpeg" alt="BAMC Champions" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-[2s]" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
-                   <div className="absolute bottom-8 left-8">
-                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-[9px] font-black uppercase italic tracking-widest mb-3 inline-block font-black shadow-lg">11 Gold Medals</span>
-                      <h3 className="text-2xl font-black text-white uppercase italic leading-none tracking-tighter">Overall Champion</h3>
-                   </div>
-                </div>
-                <div className="p-8 flex justify-between items-center">
-                   <p className="text-gray-400 text-xs font-bold leading-relaxed max-w-xs">
-                     Team Sabah dominates BAMC Vol.4 with a historic medal haul.
-                   </p>
-                   <Link href="/newsletter/bamc-champ" className="bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full hover:bg-red-600 transition-all border border-white/10">
-                      ↗
-                   </Link>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* --- 3. FEATURE GRID --- */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* --- 3. BIGGER FEATURE GRID --- */}
+      <section className="py-24 px-4 border-t border-white/5 bg-slate-950">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
             { title: "Community Feed", desc: "Live media and updates.", link: "/feed", color: "text-blue-500" },
             { title: "Athlete Roster", desc: "Database and state rankings.", link: "/fighters", color: "text-yellow-500" },
-            { title: "Gym Registry", desc: "Licensed gyms and coaching directory.", link: "/directory", color: "text-green-500" }
+            { title: "Gym Registry", desc: "Licensed gyms directory.", link: "/directory", color: "text-green-500" }
           ].map((item, i) => (
-            <Link key={i} href={item.link} className="group bg-slate-900/40 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-slate-900 transition-all hover:-translate-y-2 shadow-xl">
-              <h3 className="text-xl font-black text-white uppercase tracking-tighter mb-2 italic leading-none">{item.title}</h3>
-              <p className="text-[11px] text-gray-500 leading-relaxed font-bold mb-4">{item.desc}</p>
-              <span className={`text-[9px] font-black ${item.color} uppercase tracking-widest italic font-black`}>Open →</span>
+            <Link key={i} href={item.link} className="group bg-slate-900/40 backdrop-blur-md border border-white/5 p-12 rounded-[2.5rem] hover:bg-slate-900 transition-all hover:-translate-y-2 shadow-2xl hover:border-white/20">
+              <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-4 italic leading-none">{item.title}</h3>
+              <p className="text-sm text-gray-400 leading-relaxed font-bold mb-8 uppercase tracking-wide">{item.desc}</p>
+              <span className={`text-xs font-black ${item.color} uppercase tracking-[0.2em] italic border-b-2 border-transparent group-hover:border-current transition-all`}>Open Database →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* --- 4. VIP SIGNUP --- */}
-      <section className="py-20 px-6 bg-slate-950 border-t border-white/5">
-        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-blue-500/10 rounded-[2.5rem] p-10 text-center shadow-xl backdrop-blur-sm">
-          <h2 className="text-2xl md:text-4xl font-black text-white uppercase italic tracking-tighter mb-6 leading-none italic">Join the <span className="text-blue-500">VIP Roster</span></h2>
-          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 bg-black border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-600 text-xs shadow-inner" required />
-            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-6 py-3 rounded-xl uppercase italic tracking-widest hover:bg-blue-500 transition-all text-[9px] shadow-lg">Subscribe</button>
+      {/* --- 4. BIGGER VIP SIGNUP --- */}
+      <section className="py-32 px-6 bg-[#050506]">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-950 border border-blue-500/20 rounded-[3.5rem] p-16 text-center shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
+          
+          <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-8 leading-none">
+            Join the <span className="text-blue-600">VIP Roster</span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base font-bold uppercase tracking-widest mb-12 max-w-2xl mx-auto">
+            Get official updates, exclusive scout access, and event intelligence before anyone else.
+          </p>
+
+          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white outline-none focus:border-blue-600 text-sm font-bold tracking-wider shadow-inner placeholder:text-gray-700" required />
+            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-sm shadow-xl hover:shadow-blue-600/50">
+              Subscribe
+            </button>
           </form>
-          <p className="text-[9px] text-gray-600 mt-6 uppercase tracking-widest font-bold">Official Updates • Exclusive Scout Access • Event Intelligence</p>
         </div>
       </section>
 
@@ -244,8 +233,8 @@ export default function Home() {
       <section className="py-24 px-6 bg-slate-900 border-t border-white/5 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-7xl mx-auto">
             {affiliates.map((aff, i) => (
-              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-slate-950/60 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center">
-                <span className="text-[7px] font-black text-gray-500 hover:text-yellow-500 uppercase tracking-widest text-center font-bold leading-tight">{aff.name}</span>
+              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-slate-950/60 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group">
+                <span className="text-[9px] font-black text-gray-500 group-hover:text-yellow-500 uppercase tracking-widest text-center font-bold leading-tight transition-colors">{aff.name}</span>
               </a>
             ))}
           </div>

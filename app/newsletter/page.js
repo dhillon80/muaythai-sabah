@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,6 +10,14 @@ export default function NewsletterArchive() {
   // --- COMPREHENSIVE STORY DATABASE ---
   const stories = [
     // --- 2026 ---
+    { 
+      year: "2026", 
+      date: "Feb 28", 
+      title: "The Pride of Borneo: The Showtime vs The Hunter", 
+      img: "/kabilanvskallen.png", 
+      link: "/newsletter/kallenvskabilan", 
+      tag: "Co-Main Event" 
+    },
     { 
       year: "2026", 
       date: "Feb 09", 
