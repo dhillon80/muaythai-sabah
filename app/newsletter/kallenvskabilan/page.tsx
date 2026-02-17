@@ -118,7 +118,7 @@ export default function KallenRedemptionReport() {
                   <div className="py-6">
                     <h4 className="text-white font-bold uppercase italic mb-2">Psychological Warfare</h4>
                     <p>
-                        The mental aspect of this trilogy cannot be overstated. Kabilan enters with the confidence of history on his side. Kallens enters with the hunger of a man who has nothing to lose and everything to prove. It is the classic clash of the "Hunter" versus the "Showman"—one seeks to trap, the other seeks to dazzle and destroy.
+                        The mental aspect of this trilogy cannot be overstated. Kabilan enters with the confidence of history on his side. Kallens enters with the hunger of a man who has nothing to lose and everything to prove. It is the classic clash of the "Hunter" versus the "Showtime"—one seeks to trap, the other seeks to dazzle and destroy.
                     </p>
                   </div>
 
@@ -182,8 +182,9 @@ export default function KallenRedemptionReport() {
                 {/* KABILAN */}
                 <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center opacity-80">
                     <img src="/kabilan.jpg" alt="Kabilan" className="w-full aspect-[4/5] object-contain rounded-2xl mb-6" />
-                    <span className="text-gray-500 font-black text-[9px] uppercase tracking-widest italic mb-2">SARAWAK</span>
+                    <span className="text-gray-500 font-black text-[9px] uppercase tracking-widest italic mb-2">SARAWAK PRIDE</span>
                     <h5 className="text-gray-300 text-xl font-black uppercase italic tracking-tighter leading-none">THE HUNTER.</h5>
+                    <p className="text-gray-500 text-[9px] font-bold mt-2 uppercase tracking-widest">Team Rentap Muaythai</p>
                 </div>
             </div>
 
