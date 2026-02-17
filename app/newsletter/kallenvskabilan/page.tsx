@@ -164,7 +164,7 @@ export default function KallenRedemptionReport() {
                     <img src="/kallensign.jpg" alt="Kallens" className="rounded-xl border border-white/10 shadow-lg grayscale hover:grayscale-0 transition-all" />
                     <img src="/kabilansign.jpg" alt="Kabilan" className="rounded-xl border border-white/10 shadow-lg grayscale hover:grayscale-0 transition-all" />
                 </div>
-                <p className="text-gray-500 text-[9px] font-bold uppercase text-center italic tracking-widest">Jakarta Co-Main Event Locked</p>
+                <p className="text-gray-500 text-[9px] font-bold uppercase text-center italic tracking-widest">Byon Madness Co-Main Event Locked</p>
             </div>
 
             {/* FIGHTER PROFILES */}
