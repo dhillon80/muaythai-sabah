@@ -13,12 +13,13 @@ export default function FightersPage() {
   // 🎨 COLOR LOGIC
   const getTagColor = (cat) => {
     const c = cat.toLowerCase();
+    // Hybrid logic: purple if it says hybrid OR both pro and muaysport
+    if (c.includes('hybrid') || (c.includes('pro') && c.includes('muaysport'))) return 'text-purple-500';
     if (c.includes('pro') && !c.includes('uprising')) return 'text-red-500';
     if (c.includes('muaysport')) return 'text-blue-500';
     if (c.includes('arts')) return 'text-emerald-500';
-    if (c.includes('hybrid')) return 'text-purple-500';
-    if (c.includes('u17')) return 'text-orange-500'; // ✅ Added U17 Color
-    if (c.includes('uprising')) return 'text-pink-500'; // ✅ Added Prodigy Color
+    if (c.includes('u17')) return 'text-orange-500';
+    if (c.includes('uprising')) return 'text-pink-500';
     return 'text-yellow-500';
   };
 
@@ -30,10 +31,19 @@ export default function FightersPage() {
       const fc = f.category.toLowerCase();
       const filter = categoryFilter.toLowerCase();
       
-      if (filter === 'pro') catMatch = fc.includes('pro') && !fc.includes('uprising'); // Exclude prodigy from generic Pro
-      else if (filter === 'muaysports') catMatch = fc.includes('muaysport');
+      if (filter === 'pro') {
+        // Only show pure Pros (exclude Hybrids and Prodigies)
+        catMatch = fc.includes('pro') && !fc.includes('muaysport') && !fc.includes('uprising');
+      } 
+      else if (filter === 'muaysports') {
+        // Show pure Muaysports (exclude Hybrids)
+        catMatch = fc.includes('muaysport') && !fc.includes('pro');
+      }
+      else if (filter === 'hybrid') {
+        // ✅ FIX: Match if it contains "hybrid" OR contains both "pro" and "muaysport"
+        catMatch = fc.includes('hybrid') || (fc.includes('pro') && fc.includes('muaysport'));
+      }
       else if (filter === 'arts') catMatch = fc.includes('arts');
-      else if (filter === 'hybrid') catMatch = fc.includes('hybrid');
       else if (filter === 'u17') catMatch = fc.includes('u17');
       else if (filter === 'uprising prodigy') catMatch = fc.includes('uprising');
       else catMatch = fc.includes(filter);
@@ -41,11 +51,12 @@ export default function FightersPage() {
 
     const q = searchQuery.toLowerCase();
     
-    // ✅ CATEGORY SEARCH INCLUDED
+    // CATEGORY SEARCH INCLUDED
     const searchMatch = 
       f.name.toLowerCase().includes(q) || 
       (f.team && f.team.toLowerCase().includes(q)) || 
-      (f.category && f.category.toLowerCase().includes(q)); 
+      (f.category && f.category.toLowerCase().includes(q)) ||
+      (f.nickname && f.nickname.toLowerCase().includes(q)); 
 
     const genderMatch = genderFilter === 'ALL' ? true : (f.gender && f.gender.toUpperCase() === genderFilter);
 
@@ -66,7 +77,6 @@ export default function FightersPage() {
         <div className="max-w-7xl mx-auto px-6 space-y-3">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <div className="relative w-full md:w-1/3">
-              {/* ✅ UPDATED PLACEHOLDER */}
               <input 
                 type="text" 
                 placeholder="Search name, gym, or category..." 
@@ -83,7 +93,6 @@ export default function FightersPage() {
             </div>
           </div>
           
-          {/* ✅ UPDATED CATEGORY BUTTONS: Added U17 & PRODIGY */}
           <div className="flex justify-center gap-2 overflow-x-auto no-scrollbar pt-1">
             {['ALL', 'PRO', 'MUAYSPORTS', 'HYBRID', 'ARTS', 'U17', 'UPRISING PRODIGY'].map((cat) => (
               <button key={cat} onClick={() => setCategoryFilter(cat)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all border border-transparent whitespace-nowrap ${categoryFilter === cat ? 'bg-zinc-800 text-white border-white/20' : 'bg-transparent text-zinc-600 hover:text-zinc-300'}`}>{cat}</button>
@@ -97,24 +106,20 @@ export default function FightersPage() {
         <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           <AnimatePresence mode='popLayout'>
             {filteredFighters.map((fighter) => {
-              const isArts = fighter.category.includes('Arts');
+              const isArts = fighter.category.toLowerCase().includes('arts');
               return (
                 <motion.div layout key={fighter.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="group">
                   <Link href={`/fighters/${fighter.id}`}>
                     <div className="relative h-[380px] md:h-[420px] rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 group-hover:border-yellow-500/50 transition-all duration-500 shadow-xl group-hover:shadow-yellow-500/20">
                       
-                      {/* Image - Zooms on Hover */}
                       <div className="absolute inset-0 z-0">
                          <Image src={fighter.image} alt={fighter.name} fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-out" />
                       </div>
                       
-                      {/* Gradient - Darkens on Hover */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500 z-10" />
 
-                      {/* Content Container - Slides Up on Hover */}
                       <div className="absolute bottom-0 left-0 right-0 p-5 z-20 transform translate-y-[130px] group-hover:translate-y-0 transition-transform duration-500 ease-out">
                         
-                        {/* Always Visible Header */}
                         <div className="mb-2">
                            <h2 className="text-xl md:text-2xl font-black italic uppercase text-white leading-none mb-1 group-hover:text-yellow-500 transition-colors truncate">
                              {fighter.name}
@@ -124,16 +129,13 @@ export default function FightersPage() {
                            </p>
                         </div>
 
-                        {/* Hidden Details - Reveals on Hover */}
                         <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
                           
-                          {/* Record */}
                           <div className="flex justify-between border-b border-white/10 pb-1">
                             <span className="text-[9px] uppercase font-bold text-zinc-500">Record</span>
                             <span className="text-xs font-black italic text-white">{fighter.record}</span>
                           </div>
 
-                          {/* Category */}
                           <div className="flex justify-between border-b border-white/10 pb-1">
                              <span className="text-[9px] uppercase font-bold text-zinc-500">Class</span>
                              <span className={`text-[9px] font-black uppercase tracking-wider ${getTagColor(fighter.category)}`}>
@@ -141,7 +143,6 @@ export default function FightersPage() {
                              </span>
                           </div>
 
-                          {/* Weight/Division */}
                           <div className="flex justify-between border-b border-white/10 pb-1">
                              <span className="text-[9px] uppercase font-bold text-zinc-500">{isArts ? "Division" : "Weight"}</span>
                              <span className="text-[9px] font-black uppercase text-zinc-300">
@@ -149,7 +150,6 @@ export default function FightersPage() {
                              </span>
                           </div>
                           
-                          {/* Team */}
                           <div className="pt-2">
                              <span className="block text-[8px] uppercase font-bold text-zinc-600 mb-0.5">Representing</span>
                              <span className="text-xs font-bold text-white truncate block">{fighter.team}</span>

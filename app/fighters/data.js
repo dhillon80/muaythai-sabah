@@ -531,6 +531,25 @@ export const fighters = [
     achievements: ["Hybrid Athlete", "SAGA 2025 Silver Medalist"],
     bio: "Fazreen 'Ezra' is a versatile fighter from Revolution Combat Gym, competing in both professional bouts and muaysports tournaments. He is a SAGA 2025 Silver Medalist."
   },
+     // NEW ADDITION: Edryan
+  {
+    id: "ed-ryan-jefferson", 
+    name: "Ed Ryan Jefferson", 
+    nickname: "The Sweet Dream (TSD)", 
+    team: "Revolution Combat Gym", 
+    coach: "Dhillon Tahing", 
+    managerContact: "60168013530", 
+    record: "14W - 5L", 
+    category: "Pro & Muaysports", 
+    age: "19",
+    weight: "54 KG", 
+    height: "169 CM",
+    stance: "Orthodox",
+    image: "/edryan.jpeg", 
+    gender: "Male",
+    achievements: ["SAGA 2023 Gold Medalist", "2x SMC Champion", "Piala Premier SRWK Gold", "KL Fight Gold", "Sukma Sabah 2024 and 2026 Fighter"],
+    bio: "Ed Ryan, fighting as 'The Sweet Dream', is an elite hybrid athlete from Revolution Combat Gym. A multi-time champion with a decorated record, he is one of the most explosive prospects in the 54kg division."
+  },
 
   // ==========================
   // 3. MUAYSPORTS
