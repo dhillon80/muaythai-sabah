@@ -484,7 +484,7 @@ export const fighters = [
     team: "D'Sha Muayfit Tawau", 
     coach: "Sharon Andrea Gerald", 
     managerContact: "601119020943", 
-    record: "1W-0L | BAMC GOLD", 
+    record: "Pro: 1W-0L | Muaysports: 25W-3L", 
     category: "Pro & Muaysports", 
     age: "16",
     weight: "55 KG", 
