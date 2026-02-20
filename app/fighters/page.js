@@ -13,7 +13,6 @@ export default function FightersPage() {
   // 🎨 COLOR LOGIC
   const getTagColor = (cat) => {
     const c = cat.toLowerCase();
-    // Hybrid logic: purple if it says hybrid OR both pro and muaysport
     if (c.includes('hybrid') || (c.includes('pro') && c.includes('muaysport'))) return 'text-purple-500';
     if (c.includes('pro') && !c.includes('uprising')) return 'text-red-500';
     if (c.includes('muaysport')) return 'text-blue-500';
@@ -25,22 +24,19 @@ export default function FightersPage() {
 
   // 🔍 FILTERING
   const filteredFighters = fighters.filter(f => {
-    // CATEGORY LOGIC
     let catMatch = true;
     if (categoryFilter !== 'ALL') {
       const fc = f.category.toLowerCase();
       const filter = categoryFilter.toLowerCase();
       
+      // ✅ MODIFIED LOGIC: Hybrids now show in both Pro and Muaysports filters
       if (filter === 'pro') {
-        // Only show pure Pros (exclude Hybrids and Prodigies)
-        catMatch = fc.includes('pro') && !fc.includes('muaysport') && !fc.includes('uprising');
+        catMatch = fc.includes('pro') && !fc.includes('uprising');
       } 
       else if (filter === 'muaysports') {
-        // Show pure Muaysports (exclude Hybrids)
-        catMatch = fc.includes('muaysport') && !fc.includes('pro');
+        catMatch = fc.includes('muaysport');
       }
       else if (filter === 'hybrid') {
-        // ✅ FIX: Match if it contains "hybrid" OR contains both "pro" and "muaysport"
         catMatch = fc.includes('hybrid') || (fc.includes('pro') && fc.includes('muaysport'));
       }
       else if (filter === 'arts') catMatch = fc.includes('arts');
@@ -50,8 +46,6 @@ export default function FightersPage() {
     }
 
     const q = searchQuery.toLowerCase();
-    
-    // CATEGORY SEARCH INCLUDED
     const searchMatch = 
       f.name.toLowerCase().includes(q) || 
       (f.team && f.team.toLowerCase().includes(q)) || 

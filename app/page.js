@@ -76,17 +76,17 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col font-sans text-gray-200 overflow-x-hidden bg-slate-950 selection:bg-yellow-500 selection:text-black">
+    <div className="flex flex-col font-sans text-gray-200 overflow-x-hidden bg-[#050506] selection:bg-yellow-500 selection:text-black">
       
-      {/* --- LOGIN & ADMIN NAV --- */}
+      {/* --- 🔒 LOGIN & ADMIN NAV --- */}
       <div className="fixed top-24 right-6 z-[100] flex flex-col gap-3 items-end">
         {!user && (
-          <Link href="/login" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest italic border border-white/20 shadow-xl transition-all">
+          <Link href="/login" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest italic border border-white/20 shadow-xl transition-all hover:scale-105">
               Login / Sign Up
           </Link>
         )}
         {isAdmin && (
-          <Link href="/admin/marketing" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-tighter italic flex items-center gap-2 shadow-xl border border-white/20">
+          <Link href="/admin/marketing" className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-tighter italic flex items-center gap-2 shadow-xl border border-white/20 hover:scale-105 transition-all">
             <span>📊</span> Admin Database
           </Link>
         )}
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="relative pt-32 pb-20 px-4 flex flex-col justify-center items-center text-center overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 z-0">
           <img src="/muaythai.jpeg" alt="Hero" className="w-full h-full object-cover opacity-20 scale-105 animate-slow-zoom" />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-transparent to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050506]/95 via-transparent to-[#050506]"></div>
         </div>
         <div className={`relative z-10 flex flex-col items-center transition-all duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
           <div className="mb-6 animate-fade-in-up">
@@ -126,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* --- 2. HIGHLIGHT HUB (KALLEN VS KABILAN EXCLUSIVE) --- */}
-      <section className="py-20 px-4 bg-slate-950">
+      <section className="py-20 px-4 bg-[#050506]">
         <div className="max-w-[1600px] mx-auto space-y-10">
           
           <div className="flex justify-between items-end px-2">
@@ -136,8 +136,8 @@ export default function Home() {
              </Link>
           </div>
 
-          {/* --- MAIN FEATURE: BORNEO SHOWDOWN III --- */}
-          <div className="relative group rounded-[3rem] overflow-hidden border border-red-600/30 bg-slate-900/40 shadow-2xl transition-all hover:border-red-600/60">
+          {/* MAIN FEATURE: BORNEO SHOWDOWN III */}
+          <div className="relative group rounded-[3rem] overflow-hidden border border-red-600/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-red-600/60">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
               
               {/* LEFT: FIGHT CARD VISUAL */}
@@ -155,7 +155,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* RIGHT: PROMO VIDEO (REEL SIZE FIX) */}
+              {/* RIGHT: PROMO VIDEO */}
               <div className="lg:col-span-5 bg-[#0a0a0c] p-8 md:p-12 flex flex-col justify-center border-l border-white/5 relative">
                 
                 {/* VIDEO CONTAINER (REEL SIZE 9:16) */}
@@ -191,70 +191,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 3. BIGGER FEATURE GRID --- */}
-      <section className="py-24 px-4 border-t border-white/5 bg-slate-950">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* --- 3. BIGGER FEATURE GRID (UPDATED WITH COMPANY PAGE) --- */}
+      <section className="py-24 px-4 border-t border-white/5 bg-[#050506]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "Community Feed", desc: "Live media and updates.", link: "/feed", color: "text-blue-500" },
-            { title: "Athlete Roster", desc: "Database and state rankings.", link: "/fighters", color: "text-yellow-500" },
-            { title: "Gym Registry", desc: "Licensed gyms directory.", link: "/directory", color: "text-green-500" }
+            { title: "Official Record", desc: "State Performance.", link: "/company", color: "text-yellow-500", border: "hover:border-yellow-500/50" },
+            { title: "Athlete Roster", desc: "Database & Rankings.", link: "/fighters", color: "text-red-500", border: "hover:border-red-500/50" },
+            { title: "Gym Registry", desc: "Licensed Directory.", link: "/directory", color: "text-blue-500", border: "hover:border-blue-500/50" },
+            { title: "Community", desc: "Live media & updates.", link: "/feed", color: "text-emerald-500", border: "hover:border-emerald-500/50" }
           ].map((item, i) => (
-            <Link key={i} href={item.link} className="group bg-slate-900/40 backdrop-blur-md border border-white/5 p-12 rounded-[2.5rem] hover:bg-slate-900 transition-all hover:-translate-y-2 shadow-2xl hover:border-white/20">
-              <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-4 italic leading-none">{item.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed font-bold mb-8 uppercase tracking-wide">{item.desc}</p>
-              <span className={`text-xs font-black ${item.color} uppercase tracking-[0.2em] italic border-b-2 border-transparent group-hover:border-current transition-all`}>Open Database →</span>
+            <Link key={i} href={item.link} className={`group bg-zinc-900/40 backdrop-blur-md border border-white/5 p-10 rounded-[2rem] transition-all duration-500 transform hover:-translate-y-2 shadow-2xl ${item.border}`}>
+              <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 italic leading-none">{item.title}</h3>
+              <p className="text-xs text-gray-400 leading-relaxed font-bold mb-8 uppercase tracking-widest">{item.desc}</p>
+              <span className={`text-[10px] font-black ${item.color} uppercase tracking-[0.2em] italic border-b-2 border-transparent group-hover:border-current transition-all block w-max`}>Open →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* --- 4. BIGGER VIP SIGNUP --- */}
+      {/* --- 4. VIP SIGNUP --- */}
       <section className="py-32 px-6 bg-[#050506]">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-950 border border-blue-500/20 rounded-[3.5rem] p-16 text-center shadow-2xl relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-[#050506] border border-blue-500/20 rounded-[3.5rem] p-12 md:p-16 text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
           
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-8 leading-none">
             Join the <span className="text-blue-600">VIP Roster</span>
           </h2>
-          <p className="text-gray-400 text-sm md:text-base font-bold uppercase tracking-widest mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest mb-12 max-w-2xl mx-auto">
             Get official updates, exclusive scout access, and event intelligence before anyone else.
           </p>
 
           <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white outline-none focus:border-blue-600 text-sm font-bold tracking-wider shadow-inner placeholder:text-gray-700" required />
-            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-sm shadow-xl hover:shadow-blue-600/50">
-              Subscribe
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white outline-none focus:border-blue-600 text-xs md:text-sm font-bold tracking-wider shadow-inner placeholder:text-zinc-600" required />
+            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-xs md:text-sm shadow-xl hover:shadow-blue-600/50 disabled:opacity-50">
+              {regStatus === 'loading' ? 'Sending...' : regStatus === 'success' ? 'Joined!' : 'Subscribe'}
             </button>
           </form>
         </div>
       </section>
 
       {/* --- AFFILIATES --- */}
-      <section className="py-24 px-6 bg-slate-900 border-t border-white/5 text-center">
+      <section className="py-24 px-6 bg-[#050506] border-t border-white/5 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-7xl mx-auto">
             {affiliates.map((aff, i) => (
-              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-slate-950/60 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group">
-                <span className="text-[9px] font-black text-gray-500 group-hover:text-yellow-500 uppercase tracking-widest text-center font-bold leading-tight transition-colors">{aff.name}</span>
+              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
+                <span className="text-[8px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
               </a>
             ))}
           </div>
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="py-20 bg-slate-950 border-t border-white/5 text-center px-6">
+      <footer className="py-20 bg-[#050506] border-t border-white/5 text-center px-6">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-12 mb-20">
-            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-               <div className="bg-blue-600 p-4 rounded-full group-hover:scale-110 shadow-2xl text-white font-black text-[11px]">FB</div>
-               <span className="text-[11px] font-black text-white uppercase tracking-[0.3em] italic">Muaythai Sabah FB</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-12 mb-16">
+            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 hover:scale-105 transition-transform">
+               <div className="bg-blue-600 w-12 h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[10px]">FB</div>
+               <span className="text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Muaythai Sabah FB</span>
             </a>
-            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-               <div className="bg-red-600 p-4 rounded-full group-hover:scale-110 shadow-2xl text-white font-black text-[11px]">YT</div>
-               <span className="text-[11px] font-black text-white uppercase tracking-[0.3em] italic">Official Youtube</span>
+            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 hover:scale-105 transition-transform">
+               <div className="bg-red-600 w-12 h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[10px]">YT</div>
+               <span className="text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Official Youtube</span>
             </a>
           </div>
-          <p className="text-[10px] text-gray-400 uppercase tracking-[0.5em] font-black italic">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
-          <p className="text-[8px] text-gray-600 mt-4 italic font-bold">Design by Dhillon Tahing | Powered by Lonchai</p>
+          <p className="text-[9px] text-zinc-500 uppercase tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
+          <p className="text-[7px] text-zinc-600 uppercase tracking-widest font-black italic">Design by Dhillon Tahing | Powered by Lonchai</p>
         </div>
       </footer>
     </div>

@@ -82,7 +82,7 @@ export const fighters = [
     team: "Tambuakar Martial Arts Papar", 
     coach: "Coach Rozaimy", 
     managerContact: "60198008093", 
-    record: "5W - 3L", 
+    record: "Pro: 5W-3L | Muaysport: 22W-4L", // ✅ Added Muaysports/Amateur history
     category: "Pro", 
     age: "20",
     weight: "48 KG", 
@@ -209,7 +209,7 @@ export const fighters = [
     team: "Aaagaras Muay", 
     coach: "Ranjit Singh", 
     managerContact: "60168288773", 
-    record: "2W - 2L | BAMC GOLD", 
+    record: "2W - 2L | Muaysport 13W-3L", 
     category: "Pro", 
     age: "18",
     weight: "45 KG", 
