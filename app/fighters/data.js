@@ -355,7 +355,7 @@ export const fighters = [
     managerContact: "60168013530", 
     record: "0W - 1L", 
     category: "Pro", 
-    age: "24",
+    age: "22",
     weight: "54 KG", 
     height: "168 CM",
     stance: "Orthodox",

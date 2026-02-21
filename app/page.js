@@ -191,11 +191,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 3. BIGGER FEATURE GRID (UPDATED WITH COMPANY PAGE) --- */}
+      {/* --- 3. BIGGER FEATURE GRID (UPDATED WITH ABOUT PAGE) --- */}
       <section className="py-24 px-4 border-t border-white/5 bg-[#050506]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "Official Record", desc: "State Performance.", link: "/company", color: "text-yellow-500", border: "hover:border-yellow-500/50" },
+            { title: "The Association", desc: "Meet the Board & History.", link: "/about", color: "text-yellow-500", border: "hover:border-yellow-500/50" },
             { title: "Athlete Roster", desc: "Database & Rankings.", link: "/fighters", color: "text-red-500", border: "hover:border-red-500/50" },
             { title: "Gym Registry", desc: "Licensed Directory.", link: "/directory", color: "text-blue-500", border: "hover:border-blue-500/50" },
             { title: "Community", desc: "Live media & updates.", link: "/feed", color: "text-emerald-500", border: "hover:border-emerald-500/50" }
