@@ -371,7 +371,7 @@ export const fighters = [
     team: "AWP Martial Art Academy", 
     coach: "Addyana June Adangku", 
     managerContact: "601152599024", 
-    record: "0W - 3L",  
+    record: "0W - 3L | Muaysport: 19W-8L",  
     category: "Pro", 
     age: "21",
     weight: "57-60 KG", 
@@ -502,7 +502,7 @@ export const fighters = [
     team: "AWP Martial Art Academy", 
     coach: "Addyana June Adangku", 
     managerContact: "601152599024", 
-    record: "Pro: 0-2 | Am: 8-4 | SUKMA GOLD", 
+    record: "Pro: 0-2 | Muaysport: 11-5 | SUKMA GOLD", 
     category: "Pro & Muaysports", 
     age: "20",
     weight: "50-55 KG", 
@@ -549,6 +549,24 @@ export const fighters = [
     gender: "Male",
     achievements: ["SAGA 2023 Gold Medalist", "2x SMC Champion", "Piala Premier SRWK Gold", "KL Fight Gold", "Sukma Sabah 2024 and 2026 Fighter"],
     bio: "Ed Ryan, fighting as 'The Sweet Dream', is an elite hybrid athlete from Revolution Combat Gym. A multi-time champion with a decorated record, he is one of the most explosive prospects in the 54kg division."
+  },
+  {
+    id: "stanly-poong", 
+    name: "Stanly Poong Chung Ann", 
+    nickname: "Stanly", 
+    team: "AWP Kota Marudu", 
+    coach: "Addyana June Adangku", 
+    managerContact: "601152599024", 
+    record: "8W - 5L", 
+    category: "Muaysport", 
+    age: "17",
+    weight: "51 KG", 
+    height: "162 CM",
+    stance: "Orthodox",
+    image: "/stanly.jpeg", 
+    gender: "Male",
+    achievements: [], 
+    bio: "At just 17 years old, Stanly Poong Chung Ann is a rapidly emerging talent out of AWP Kota Marudu. Competing in the highly active 51kg division, this orthodox fighter relies on a solid Muaysport foundation. Under the guidance of coach Addyana June Adangku, Stanly has accrued valuable ring experience with an 8W - 5L record, establishing himself as a dedicated prospect making a name on the Sabah Muaythai circuit."
   },
 
   // ==========================
