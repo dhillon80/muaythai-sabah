@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "Mar 05", 
+      title: "The Architects of Sabah's Legacy: Young Guns U17", 
+      img: "/smeu17.png", 
+      link: "/newsletter/smeu17-2026", 
+      tag: "Feature Story" 
+    },
+    { 
+      year: "2026", 
       date: "Feb 28", 
       title: "The Pride of Borneo: The Showtime vs The Hunter", 
       img: "/kabilanvskallen.png", 
