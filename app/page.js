@@ -125,66 +125,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. HIGHLIGHT HUB (KALLEN VS KABILAN EXCLUSIVE) --- */}
+      {/* --- 2. HIGHLIGHT HUB (YOUNG GUNS U17 EVENT) --- */}
       <section className="py-20 px-4 bg-[#050506]">
-        <div className="max-w-[1600px] mx-auto space-y-10">
+        <div className="max-w-[1400px] mx-auto space-y-10">
           
           <div className="flex justify-between items-end px-2">
-             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-red-600">Spotlight</span></h2>
-             <Link href="/newsletter" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
-               View All News →
+             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-cyan-500">Spotlight</span></h2>
+             <Link href="/events" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
+               View All Events →
              </Link>
           </div>
 
-          {/* MAIN FEATURE: BORNEO SHOWDOWN III */}
-          <div className="relative group rounded-[3rem] overflow-hidden border border-red-600/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-red-600/60">
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+          {/* MAIN FEATURE: YOUNG GUNS U17 (STACKED LAYOUT) */}
+          <div className="relative group rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
+            
+            {/* TOP: POSTER VISUAL (FULL WIDTH) */}
+            <div className="w-full relative min-h-[400px] md:min-h-[600px] lg:min-h-[800px] overflow-hidden bg-black flex items-center justify-center p-4 md:p-8">
+               {/* Ambient Glow */}
+               <div className="absolute inset-0 bg-cyan-900/20 blur-3xl scale-125 group-hover:bg-cyan-800/30 transition-colors duration-700"></div>
+               
+               <img 
+                 src="/smeu17.png" 
+                 alt="Young Guns U17 Poster" 
+                 className="relative z-10 w-full h-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/5 group-hover:scale-[1.02] transition-transform duration-700" 
+               />
+            </div>
+
+            {/* BOTTOM: DETAILS & CTA (CENTERED) */}
+            <div className="w-full bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
               
-              {/* LEFT: FIGHT CARD VISUAL */}
-              <div className="lg:col-span-7 relative min-h-[400px] lg:h-auto overflow-hidden bg-black">
-                <img src="/kabilanvskallen.png" alt="Kallen vs Kabilan III" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[3s]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 lg:opacity-40"></div>
-                <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 z-10">
-                   <span className="bg-red-600 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase italic tracking-[0.2em] mb-4 inline-block shadow-lg animate-pulse">Live in Jakarta</span>
-                   <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-4">
-                     THE PRIDE OF <br/> <span className="text-yellow-500">BORNEO</span>
-                   </h2>
-                   <p className="text-gray-300 text-sm md:text-lg font-bold uppercase tracking-widest italic">
-                     Showtime vs The Hunter • Trilogy
-                   </p>
-                </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                Grassroots Development
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
+                 Sabah Muaythai Expo <br/> 
+                 {/* FIX APPLIED HERE: Added pr-4 and a non-breaking space (&nbsp;) to prevent clipping */}
+                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 pr-4 pb-2">The Young Guns U17&nbsp;</span>
+              </h2>
+              
+              <p className="text-gray-300 text-sm md:text-lg font-bold uppercase tracking-widest italic mb-4 max-w-2xl">
+                 Nurturing the youth for future champions.
+              </p>
+              
+              <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-10 max-w-3xl">
+                 Join us in cultivating the next generation of elite Muaythai stars from the ground up. The journey to greatness starts here. Register your athletes today to secure their spot on the big stage!
+              </p>
+
+              {/* Event Info (Date & Location) */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                 <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
+                   <span className="text-cyan-500 text-xl">📅</span> 9 - 12 April 2026
+                 </div>
+                 <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
+                   <span className="text-cyan-500 text-xl">📍</span> 1 Borneo Hypermall
+                 </div>
               </div>
 
-              {/* RIGHT: PROMO VIDEO */}
-              <div className="lg:col-span-5 bg-[#0a0a0c] p-8 md:p-12 flex flex-col justify-center border-l border-white/5 relative">
-                
-                {/* VIDEO CONTAINER (REEL SIZE 9:16) */}
-                <div className="relative mx-auto w-full max-w-[320px] aspect-[9/16] rounded-3xl overflow-hidden border border-white/10 shadow-2xl mb-8 group-hover:border-yellow-500/30 transition-all bg-black">
-                    <video controls className="w-full h-full object-cover" poster="/kallen.jpg">
-                        <source src="/kallen.mp4" type="video/mp4" />
-                    </video>
-                    <div className="absolute top-4 left-4 pointer-events-none">
-                        <span className="bg-black/60 backdrop-blur-md text-yellow-500 text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest italic border border-yellow-500/20">
-                            THE SHOWTIME
-                        </span>
-                    </div>
-                </div>
-
-                {/* TEXT & CTA */}
-                <div className="space-y-6 text-center">
-                    <div>
-                        <h3 className="text-2xl font-black text-white uppercase italic mb-2">February 28, 2026</h3>
-                        <p className="text-gray-400 text-xs font-bold leading-relaxed uppercase tracking-widest">
-                            Two losses. One evolution. Sabah&apos;s Kallen Barthez Jaifili seeks redemption against Sarawak&apos;s Kabilan Jeleven.
-                        </p>
-                    </div>
-                    
-                    <Link href="/newsletter/kallenvskabilan" className="block w-full bg-white text-black py-5 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-500 transition-all shadow-xl hover:shadow-yellow-500/20 text-xs md:text-sm">
-                        Read Full Story →
-                    </Link>
-                </div>
-
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center gap-4 w-full max-w-lg mx-auto">
+                 <a href="https://forms.gle/YWsirFoc5FojSxxh6" target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-500 text-black py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-sm">
+                    Register Athletes Now
+                 </a>
+                 <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-sm">
+                    View Event Details
+                 </Link>
               </div>
+
             </div>
           </div>
 

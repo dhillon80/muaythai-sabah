@@ -9,7 +9,6 @@ export default function EventPage() {
       <div className="max-w-4xl mx-auto">
 
         {/* --- HEADER SECTION (Fixed Spacing) --- */}
-        {/* Changed 'pt-8' to 'pt-32' to push it down away from the Navbar */}
         <div className="text-center mb-12 pt-32">
           <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
             Upcoming Events <span className="text-yellow-500">2026</span>
@@ -22,25 +21,71 @@ export default function EventPage() {
         {/* EVENTS TIMELINE */}
         <div className="space-y-6">
 
-          {/* 1. Young Guns U17 - POSTPONED */}
-          <EventCard 
-            month="FEB" 
-            year="2026"
-            title="Sabah Muaythai Expo - The Young Guns U17"
-            venue="Kota Kinabalu"
-            status="POSTPONED"
-          />
+          {/* 1. APRIL - CONFIRMED & INTERACTIVE: Young Guns U17 */}
+          {/* Layout updated: Poster made bigger and centered vertically beside text */}
+          <div className="relative overflow-hidden rounded-2xl p-1 transition-all duration-300 bg-gradient-to-r from-blue-600 to-cyan-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-1">
+            <div className="bg-slate-900 h-full rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 relative z-10">
+              
+              {/* Event Poster - Made bigger (md:w-1/2) */}
+              <div className="w-full md:w-1/2 flex-shrink-0 flex items-center justify-center">
+                <img 
+                  src="/smeu17.png" 
+                  alt="Sabah Muaythai Expo - The Young Guns U17" 
+                  className="w-full max-w-sm h-auto rounded-lg shadow-2xl border-2 border-cyan-400 hover:scale-105 transition-transform duration-300 object-cover" 
+                />
+              </div>
 
-          {/* 2. Cultural and Heritage */}
-          <EventCard 
-            month="APR" 
-            year="2026"
-            title="Sabah Muaythai Expo - Cultural and Heritage"
-            venue="Kota Kinabalu"
-            status="TBA SOON" 
-          />
+              {/* Event Details & Actions */}
+              <div className="flex-grow text-center md:text-left flex flex-col justify-center h-full w-full">
+                <span className="inline-block bg-green-500 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4 w-max mx-auto md:mx-0 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]">
+                  🟢 NOW OPEN FOR REGISTRATION
+                </span>
+                
+                <h3 className="text-3xl md:text-4xl font-black text-white leading-tight mb-2 tracking-tight">
+                  Sabah Muaythai Expo - The Young Guns U17
+                </h3>
+                
+                <div className="space-y-3 mt-4 text-gray-300 bg-slate-800/50 p-5 rounded-lg border border-slate-700/50">
+                  <div className="flex items-center justify-center md:justify-start gap-3">
+                    <span className="text-2xl">📅</span>
+                    <span className="font-bold text-white text-lg">9 - 12 April 2026</span>
+                  </div>
+                  <div className="flex items-center justify-center md:justify-start gap-3">
+                    <span className="text-2xl">📍</span>
+                    <span className="font-medium text-lg">1 Borneo Hypermall, Kota Kinabalu</span>
+                  </div>
+                </div>
 
-          {/* 3. Ladies Fight */}
+                {/* Interactive Buttons */}
+                <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3">
+                  <a 
+                    href="https://forms.gle/YWsirFoc5FojSxxh6" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold py-3 px-6 rounded-lg transition transform hover:-translate-y-1 shadow-lg text-center flex-grow sm:flex-grow-0"
+                  >
+                    Register Now
+                  </a>
+                  <a 
+                    href="https://wa.me/60168013530" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-[#25D366] hover:bg-[#20b958] text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2 transform hover:-translate-y-1 shadow-lg flex-grow sm:flex-grow-0"
+                  >
+                    <span>💬</span> WhatsApp
+                  </a>
+                  <a 
+                    href="mailto:rcmuaythai@gmail.com" 
+                    className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2 transform hover:-translate-y-1 shadow-lg flex-grow sm:flex-grow-0"
+                  >
+                    <span>✉️</span> Email
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Ladies Fight */}
           <EventCard 
             month="MAY" 
             year="2026"
@@ -50,15 +95,79 @@ export default function EventPage() {
             status="TBA SOON"
           />
 
-          {/* 4. IFMA Senior World Championship */}
+          {/* 3. Cultural and Heritage */}
           <EventCard 
             month="MAY" 
             year="2026"
-            title="IFMA Senior World Championship Malaysia"
-            venue="Kuala Lumpur"
-            status="INTERNATIONAL"
-            highlight={true} // Special highlight for World Championship
+            title="Sabah Muaythai Expo - Cultural and Heritage"
+            venue="Kota Kinabalu"
+            status="TBA SOON" 
           />
+
+          {/* 4. IFMA MAJOR EVENT - CUSTOM SECTION WITH POSTERS */}
+          {/* Highlight gradient, date, titles, and two specific posters added */}
+          <div className="relative overflow-hidden rounded-2xl p-1 transition-all duration-300 bg-gradient-to-r from-yellow-500 to-amber-600 shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:-translate-y-1">
+            <div className="bg-slate-900 h-full rounded-xl p-6 flex flex-col items-center md:items-start gap-6 relative z-10">
+              
+              {/* Date Badge and Text Info */}
+              <div className="flex flex-col md:flex-row items-center gap-6 w-full border-b border-slate-800 pb-6">
+                {/* Date Badge */}
+                <div className="flex flex-col items-center justify-center min-w-[100px] h-[100px] rounded-2xl border-2 bg-slate-800 border-slate-700 flex-shrink-0">
+                  <span className="text-3xl font-black text-white">JUN</span>
+                  <span className="text-sm text-gray-400 font-bold">2026</span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-grow text-center md:text-left">
+                  <span className="inline-block bg-yellow-500/10 text-yellow-500 text-xs font-bold px-3 py-1 rounded-full border border-yellow-500 mb-2">
+                    INTERNATIONAL
+                  </span>
+                  <h3 className="text-3xl font-bold text-white leading-tight mb-1">
+                    IFMA World Interschool Championship & IFMA World Championship
+                  </h3>
+                  <p className="text-white font-semibold text-lg mb-1">16 - 26 June 2026</p>
+                  
+                  <div className="flex items-center justify-center md:justify-start gap-2 text-gray-300 mt-2">
+                    <span>📍</span>
+                    <span className="font-medium">Kuala Lumpur</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* POSTERS SECTION */}
+              <div className="w-full pt-4">
+                <h4 className="text-xl font-bold text-white mb-6 text-center md:text-left">Event Posters</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  
+                  {/* Poster 1 - Interschool */}
+                  <div className="flex flex-col items-center gap-3 bg-slate-800/40 p-4 rounded-xl border border-slate-700">
+                    <img 
+                      src="/ifma2.jpg" 
+                      alt="1st IFMA Muaythai School World Championship 2026" 
+                      className="w-full max-w-xs h-auto rounded-lg shadow-xl hover:scale-105 transition-transform" 
+                    />
+                    <p className="text-gray-200 text-sm font-semibold text-center mt-2 px-2">
+                      Poster for 1st IFMA Muaythai School World Championship 2026
+                    </p>
+                  </div>
+
+                  {/* Poster 2 - World Championship */}
+                  <div className="flex flex-col items-center gap-3 bg-slate-800/40 p-4 rounded-xl border border-slate-700">
+                    <img 
+                      src="/ifma1.jpg" 
+                      alt="IFMA Muaythai World Championship 2026" 
+                      className="w-full max-w-xs h-auto rounded-lg shadow-xl hover:scale-105 transition-transform" 
+                    />
+                    <p className="text-gray-200 text-sm font-semibold text-center mt-2 px-2">
+                      Poster for IFMA Muaythai World Championship 2026
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
 
           {/* 5. Rookie Challenge Vol 2 */}
           <EventCard 
