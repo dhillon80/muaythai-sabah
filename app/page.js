@@ -127,82 +127,130 @@ export default function Home() {
 
       {/* --- 2. HIGHLIGHT HUB (EVENT + NEWSLETTER PROMO) --- */}
       <section className="py-20 px-4 bg-[#050506]">
-        <div className="max-w-[1400px] mx-auto space-y-10">
+        <div className="max-w-[1400px] mx-auto space-y-16">
           
-          <div className="flex justify-between items-end px-2">
-             <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-cyan-500">Spotlight</span></h2>
-             <Link href="/events" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
-               View All Events →
-             </Link>
-          </div>
-
-          <div className="relative group rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
-            
-            {/* TOP: POSTER VISUAL (FULL WIDTH) */}
-            <div className="w-full relative min-h-[400px] md:min-h-[600px] lg:min-h-[800px] overflow-hidden bg-black flex items-center justify-center p-4 md:p-8">
-               <div className="absolute inset-0 bg-cyan-900/20 blur-3xl scale-125 group-hover:bg-cyan-800/30 transition-colors duration-700"></div>
-               <img 
-                 src="/smeu17.png" 
-                 alt="Young Guns U17 Poster" 
-                 className="relative z-10 w-full h-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/5 group-hover:scale-[1.02] transition-transform duration-700" 
-               />
+          {/* --- TOP SPOTLIGHT: EVENT --- */}
+          <div className="space-y-10">
+            <div className="flex justify-between items-end px-2">
+               <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-cyan-500">Spotlight</span></h2>
+               <Link href="/events" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
+                 View All Events →
+               </Link>
             </div>
 
-            {/* BOTTOM: MULTI-ACTION DETAILS */}
-            <div className="w-full bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
+            <div className="relative group rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
               
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                Grassroots Development
-              </div>
-              
-              <h2 className="text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
-                 Sabah Muaythai Expo <br/> 
-                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 pr-4 pb-2">The Young Guns U17&nbsp;</span>
-              </h2>
-              
-              <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-10 max-w-3xl">
-                 Join us in cultivating the next generation of elite Muaythai stars from the ground up. The journey to greatness starts here. Register your athletes today to secure their spot on the big stage!
-              </p>
-
-              {/* Event Info (Date & Location) */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-                 <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
-                   <span className="text-cyan-500 text-xl">📅</span> 9 - 12 April 2026
-                 </div>
-                 <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
-                   <span className="text-cyan-500 text-xl">📍</span> 1 Borneo Hypermall
-                 </div>
+              {/* TOP: POSTER VISUAL (FULL WIDTH) */}
+              <div className="w-full relative min-h-[400px] md:min-h-[600px] lg:min-h-[800px] overflow-hidden bg-black flex items-center justify-center p-4 md:p-8">
+                 <div className="absolute inset-0 bg-cyan-900/20 blur-3xl scale-125 group-hover:bg-cyan-800/30 transition-colors duration-700"></div>
+                 <img 
+                   src="/smeu17.png" 
+                   alt="Young Guns U17 Poster" 
+                   className="relative z-10 w-full h-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/5 group-hover:scale-[1.02] transition-transform duration-700" 
+                 />
               </div>
 
-              {/* Action Buttons & Newsletter Spotlight */}
-              <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                 
-                 {/* Primary Registration Action */}
-                 <div className="flex flex-col gap-4">
-                     <a href="https://forms.gle/YWsirFoc5FojSxxh6" target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-500 text-black py-5 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-sm h-full flex items-center justify-center">
-                        Register Athletes Now
-                     </a>
-                     <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-xs">
-                        View Event Page
-                     </Link>
-                 </div>
+              {/* BOTTOM: MULTI-ACTION DETAILS */}
+              <div className="w-full bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
+                
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  Grassroots Development
+                </div>
+                
+                <h2 className="text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
+                   Sabah Muaythai Expo <br/> 
+                   <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 pr-4 pb-2">The Young Guns U17&nbsp;</span>
+                </h2>
+                
+                <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-10 max-w-3xl">
+                   Join us in cultivating the next generation of elite Muaythai stars from the ground up. The journey to greatness starts here. Register your athletes today to secure their spot on the big stage!
+                </p>
 
-                 {/* Newsletter Feature Spotlight */}
-                 <Link href="/newsletter/smeu17-2026" className="group/news bg-gradient-to-br from-blue-900/40 to-cyan-900/10 border border-cyan-500/20 rounded-2xl p-6 flex flex-col justify-center hover:border-cyan-500/50 transition-all hover:-translate-y-1 text-left relative overflow-hidden">
-                    <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover/news:opacity-100 transition-opacity"></div>
-                    <span className="text-[9px] font-black text-cyan-500 uppercase tracking-widest mb-2 block">Newsletter Feature</span>
-                    <h3 className="text-lg font-black text-white uppercase italic tracking-tight mb-2 leading-tight">
-                        The Architects of <br/> Sabah's Legacy
-                    </h3>
-                    <p className="text-xs text-zinc-400 font-medium leading-relaxed mb-4">
-                        Discover the story behind the U17 Expo and meet the 5 Youth Prodigies rewriting Sabah's Muaythai history.
-                    </p>
-                    <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] italic border-b border-cyan-500 pb-0.5 w-max group-hover/news:text-cyan-400 transition-colors">Read Full Story →</span>
-                 </Link>
+                {/* Event Info (Date & Location) */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+                   <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
+                     <span className="text-cyan-500 text-xl">📅</span> 9 - 12 April 2026
+                   </div>
+                   <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
+                     <span className="text-cyan-500 text-xl">📍</span> 1 Borneo Hypermall
+                   </div>
+                </div>
+
+                {/* Action Buttons & Newsletter Spotlight */}
+                <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                   
+                   {/* Primary Registration Action */}
+                   <div className="flex flex-col gap-4">
+                       <a href="https://forms.gle/YWsirFoc5FojSxxh6" target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-500 text-black py-5 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-sm h-full flex items-center justify-center">
+                          Register Athletes Now
+                       </a>
+                       <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-xs">
+                          View Event Page
+                       </Link>
+                   </div>
+
+                   {/* Newsletter Feature Spotlight */}
+                   <Link href="/newsletter/smeu17-2026" className="group/news bg-gradient-to-br from-blue-900/40 to-cyan-900/10 border border-cyan-500/20 rounded-2xl p-6 flex flex-col justify-center hover:border-cyan-500/50 transition-all hover:-translate-y-1 text-left relative overflow-hidden">
+                      <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover/news:opacity-100 transition-opacity"></div>
+                      <span className="text-[9px] font-black text-cyan-500 uppercase tracking-widest mb-2 block">Newsletter Feature</span>
+                      <h3 className="text-lg font-black text-white uppercase italic tracking-tight mb-2 leading-tight">
+                          The Architects of <br/> Sabah's Legacy
+                      </h3>
+                      <p className="text-xs text-zinc-400 font-medium leading-relaxed mb-4">
+                          Discover the story behind the U17 Expo and meet the 5 Youth Prodigies rewriting Sabah's Muaythai history.
+                      </p>
+                      <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] italic border-b border-cyan-500 pb-0.5 w-max group-hover/news:text-cyan-400 transition-colors">Read Full Story →</span>
+                   </Link>
+
+                </div>
 
               </div>
+            </div>
+          </div>
 
+          {/* --- NEW BOTTOM SPOTLIGHT: NEWSLETTER (AGM 2026) --- */}
+          <div className="space-y-10 pt-10 border-t border-white/5">
+            <div className="flex justify-between items-end px-2">
+               <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Latest <span className="text-yellow-500">News</span></h2>
+               <Link href="/newsletter" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
+                 View All News →
+               </Link>
+            </div>
+
+            <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-yellow-500/60 flex flex-col md:flex-row">
+              
+              {/* IMAGE SIDE */}
+              <div className="w-full md:w-1/2 relative min-h-[350px] overflow-hidden bg-black flex items-center justify-center">
+                 <div className="absolute inset-0 bg-yellow-900/20 blur-3xl scale-125 group-hover:bg-yellow-800/30 transition-colors duration-700"></div>
+                 <img 
+                   src="/agm1.jpeg" 
+                   alt="Sabah Muaythai Association AGM 2026" 
+                   className="relative z-10 w-full h-full object-cover opacity-80 group-hover:scale-[1.05] transition-transform duration-700 group-hover:opacity-100" 
+                 />
+              </div>
+
+              {/* TEXT SIDE */}
+              <div className="w-full md:w-1/2 bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5 relative z-20">
+                
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+                  Leadership & Future
+                </div>
+                
+                <h3 className="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
+                   Forging the Future: <br/> 
+                   <span className="text-yellow-500">AGM 2026</span>
+                </h3>
+                
+                <p className="text-gray-400 text-xs md:text-sm font-semibold leading-relaxed tracking-wider mb-8">
+                   PMNS concludes a historic Annual General Meeting at Sutera Harbour Resort. Discover the strategic roadmap, upcoming expos, and the historic push for the Malaysia Book of Records in 2026.
+                </p>
+
+                <Link href="/newsletter/agm-2026" className="w-max bg-transparent border border-yellow-500/50 text-yellow-500 py-4 px-8 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-500 hover:text-black transition-all hover:-translate-y-1 text-xs shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                   Read Full Story →
+                </Link>
+
+              </div>
             </div>
           </div>
 

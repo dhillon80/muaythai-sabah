@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "Mar 14", 
+      title: "Sabah Muaythai AGM 2026: Forging the Future", 
+      img: "/agm1.jpeg", 
+      link: "/newsletter/agm-2026", 
+      tag: "Leadership" 
+    },
+    { 
+      year: "2026", 
       date: "Mar 05", 
       title: "The Architects of Sabah's Legacy: Young Guns U17", 
       img: "/smeu17.png", 
