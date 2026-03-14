@@ -138,42 +138,86 @@ export default function Home() {
                </Link>
             </div>
 
-            <div className="relative group rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
+            <div className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
               
-              {/* TOP: POSTER VISUAL (FULL WIDTH) */}
-              <div className="w-full relative min-h-[400px] md:min-h-[600px] lg:min-h-[800px] overflow-hidden bg-black flex items-center justify-center p-4 md:p-8">
+              {/* TOP: VISUALS (BANNER, VIDEO, & SCALED POSTER) */}
+              <div className="w-full relative overflow-hidden bg-black flex flex-col items-center justify-center p-4 sm:p-6 md:p-12 lg:p-16 gap-8 md:gap-12">
                  <div className="absolute inset-0 bg-cyan-900/20 blur-3xl scale-125 group-hover:bg-cyan-800/30 transition-colors duration-700"></div>
-                 <img 
-                   src="/smeu17.png" 
-                   alt="Young Guns U17 Poster" 
-                   className="relative z-10 w-full h-full max-h-[85vh] object-contain rounded-xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/5 group-hover:scale-[1.02] transition-transform duration-700" 
-                 />
+                 
+                 {/* HIGH VISIBILITY YOUTUBE SUBSCRIBE BANNER */}
+                 <div className="relative z-20 w-full max-w-5xl bg-red-900/40 border border-red-600/50 p-5 md:p-8 rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center justify-between text-center md:text-left shadow-[0_0_40px_rgba(220,38,38,0.2)] gap-6 backdrop-blur-md">
+                   <div>
+                     <p className="text-red-400 text-sm md:text-base font-black uppercase tracking-widest mb-2 flex items-center justify-center md:justify-start gap-2">
+                       <span className="text-xl md:text-2xl">📺</span> Subscribe For Live Broadcasts
+                     </p>
+                     <p className="text-gray-300 text-xs md:text-sm font-medium leading-relaxed max-w-2xl">
+                       Subscribe to our official YouTube channel for the latest video updates, athlete highlights, and <span className="text-white font-black underline decoration-red-500">LIVE STREAMS</span> of all upcoming fight events in Sabah!
+                     </p>
+                   </div>
+                   <a href="https://www.youtube.com/@muaythaisabah?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest transition-all shadow-xl hover:shadow-red-600/50 hover:-translate-y-1">
+                     Subscribe Now
+                   </a>
+                 </div>
+
+                 {/* MEDIA GRID: VIDEO (LEFT) AND SCALED POSTER (RIGHT) */}
+                 <div className="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-center">
+                   
+                   {/* YOUTUBE VIDEO PLAYER */}
+                   <div className="md:col-span-3 w-full aspect-video rounded-xl md:rounded-3xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/10 overflow-hidden bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-700">
+                     <iframe 
+                       src="https://www.youtube.com/embed/mWsU3Hux99k?autoplay=0&loop=1&playlist=mWsU3Hux99k&rel=0" 
+                       title="Sabah Muaythai Expo The Young Guns 2026 Promo" 
+                       className="w-full h-full border-0"
+                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                       allowFullScreen
+                     ></iframe>
+                   </div>
+
+                   {/* SCALED POSTER WITH HYPERLINK TO EVENTS PAGE */}
+                   <div className="md:col-span-2 w-full flex justify-center">
+                     <Link href="/events" className="relative group/poster block w-2/3 sm:w-1/2 md:w-full max-w-xs">
+                       <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover/poster:scale-105 group-hover/poster:border-cyan-500/50 transition-all duration-500">
+                         <img 
+                           src="/smeu17.png" 
+                           alt="Young Guns U17 Poster" 
+                           className="w-full h-full object-cover"
+                         />
+                         <div className="absolute inset-0 bg-cyan-900/0 group-hover/poster:bg-cyan-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span className="opacity-0 group-hover/poster:opacity-100 bg-black/90 text-cyan-400 px-4 py-3 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-md border border-cyan-500/50 transition-all duration-500 scale-90 group-hover/poster:scale-100 shadow-2xl">
+                              View Event Details ↗
+                            </span>
+                         </div>
+                       </div>
+                     </Link>
+                   </div>
+
+                 </div>
               </div>
 
               {/* BOTTOM: MULTI-ACTION DETAILS */}
-              <div className="w-full bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
+              <div className="w-full bg-[#0a0a0c] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
                 
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                   Grassroots Development
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
                    Sabah Muaythai Expo <br/> 
                    <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 pr-4 pb-2">The Young Guns U17&nbsp;</span>
                 </h2>
                 
-                <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-10 max-w-3xl">
+                <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-8 max-w-3xl">
                    Join us in cultivating the next generation of elite Muaythai stars from the ground up. The journey to greatness starts here. Register your athletes today to secure their spot on the big stage!
                 </p>
 
                 {/* Event Info (Date & Location) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-                   <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
-                     <span className="text-cyan-500 text-xl">📅</span> 9 - 12 April 2026
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-12 w-full">
+                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-xs md:text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl w-full sm:w-auto">
+                     <span className="text-cyan-500 text-lg md:text-xl">📅</span> 9 - 12 April 2026
                    </div>
-                   <div className="flex items-center gap-3 text-zinc-300 text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl">
-                     <span className="text-cyan-500 text-xl">📍</span> 1 Borneo Hypermall
+                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-xs md:text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl w-full sm:w-auto">
+                     <span className="text-cyan-500 text-lg md:text-xl">📍</span> 1 Borneo Hypermall
                    </div>
                 </div>
 
@@ -182,11 +226,11 @@ export default function Home() {
                    
                    {/* Primary Registration Action */}
                    <div className="flex flex-col gap-4">
-                       <a href="https://forms.gle/YWsirFoc5FojSxxh6" target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-500 text-black py-5 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-sm h-full flex items-center justify-center">
+                       <a href="https://forms.gle/YWsirFoc5FojSxxh6" target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-500 text-black py-5 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-xs md:text-sm h-full flex items-center justify-center">
                           Register Athletes Now
                        </a>
-                       <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-xs">
-                          View Event Page
+                       <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-xs flex items-center justify-center h-full">
+                          View Event Details
                        </Link>
                    </div>
 
@@ -194,10 +238,10 @@ export default function Home() {
                    <Link href="/newsletter/smeu17-2026" className="group/news bg-gradient-to-br from-blue-900/40 to-cyan-900/10 border border-cyan-500/20 rounded-2xl p-6 flex flex-col justify-center hover:border-cyan-500/50 transition-all hover:-translate-y-1 text-left relative overflow-hidden">
                       <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover/news:opacity-100 transition-opacity"></div>
                       <span className="text-[9px] font-black text-cyan-500 uppercase tracking-widest mb-2 block">Newsletter Feature</span>
-                      <h3 className="text-lg font-black text-white uppercase italic tracking-tight mb-2 leading-tight">
+                      <h3 className="text-base md:text-lg font-black text-white uppercase italic tracking-tight mb-2 leading-tight">
                           The Architects of <br/> Sabah's Legacy
                       </h3>
-                      <p className="text-xs text-zinc-400 font-medium leading-relaxed mb-4">
+                      <p className="text-[10px] md:text-xs text-zinc-400 font-medium leading-relaxed mb-4">
                           Discover the story behind the U17 Expo and meet the 5 Youth Prodigies rewriting Sabah's Muaythai history.
                       </p>
                       <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] italic border-b border-cyan-500 pb-0.5 w-max group-hover/news:text-cyan-400 transition-colors">Read Full Story →</span>
@@ -209,7 +253,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* --- NEW BOTTOM SPOTLIGHT: NEWSLETTER (AGM 2026) --- */}
+          {/* --- BOTTOM SPOTLIGHT: NEWSLETTER (AGM 2026) --- */}
           <div className="space-y-10 pt-10 border-t border-white/5">
             <div className="flex justify-between items-end px-2">
                <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Latest <span className="text-yellow-500">News</span></h2>
@@ -218,10 +262,10 @@ export default function Home() {
                </Link>
             </div>
 
-            <div className="relative group rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-yellow-500/60 flex flex-col md:flex-row">
+            <div className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-yellow-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-yellow-500/60 flex flex-col md:flex-row">
               
               {/* IMAGE SIDE */}
-              <div className="w-full md:w-1/2 relative min-h-[350px] overflow-hidden bg-black flex items-center justify-center">
+              <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-[350px] overflow-hidden bg-black flex items-center justify-center">
                  <div className="absolute inset-0 bg-yellow-900/20 blur-3xl scale-125 group-hover:bg-yellow-800/30 transition-colors duration-700"></div>
                  <img 
                    src="/agm1.jpeg" 
@@ -231,9 +275,9 @@ export default function Home() {
               </div>
 
               {/* TEXT SIDE */}
-              <div className="w-full md:w-1/2 bg-[#0a0a0c] p-8 md:p-12 lg:p-16 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5 relative z-20">
+              <div className="w-full md:w-1/2 bg-[#0a0a0c] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/5 relative z-20">
                 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(234,179,8,0.2)]">
                   Leadership & Future
                 </div>
                 
@@ -246,7 +290,7 @@ export default function Home() {
                    PMNS concludes a historic Annual General Meeting at Sutera Harbour Resort. Discover the strategic roadmap, upcoming expos, and the historic push for the Malaysia Book of Records in 2026.
                 </p>
 
-                <Link href="/newsletter/agm-2026" className="w-max bg-transparent border border-yellow-500/50 text-yellow-500 py-4 px-8 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-500 hover:text-black transition-all hover:-translate-y-1 text-xs shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                <Link href="/newsletter/agm-2026" className="w-max bg-transparent border border-yellow-500/50 text-yellow-500 py-4 px-8 rounded-xl md:rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-500 hover:text-black transition-all hover:-translate-y-1 text-[10px] md:text-xs shadow-[0_0_15px_rgba(234,179,8,0.1)]">
                    Read Full Story →
                 </Link>
 
@@ -266,30 +310,30 @@ export default function Home() {
             { title: "Gym Registry", desc: "Licensed Directory.", link: "/directory", color: "text-blue-500", border: "hover:border-blue-500/50" },
             { title: "Community", desc: "Live media & updates.", link: "/feed", color: "text-emerald-500", border: "hover:border-emerald-500/50" }
           ].map((item, i) => (
-            <Link key={i} href={item.link} className={`group bg-zinc-900/40 backdrop-blur-md border border-white/5 p-10 rounded-[2rem] transition-all duration-500 transform hover:-translate-y-2 shadow-2xl ${item.border}`}>
+            <Link key={i} href={item.link} className={`group bg-zinc-900/40 backdrop-blur-md border border-white/5 p-8 md:p-10 rounded-3xl md:rounded-[2rem] transition-all duration-500 transform hover:-translate-y-2 shadow-2xl ${item.border}`}>
               <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 italic leading-none">{item.title}</h3>
-              <p className="text-xs text-gray-400 leading-relaxed font-bold mb-8 uppercase tracking-widest">{item.desc}</p>
-              <span className={`text-[10px] font-black ${item.color} uppercase tracking-[0.2em] italic border-b-2 border-transparent group-hover:border-current transition-all block w-max`}>Open →</span>
+              <p className="text-[10px] md:text-xs text-gray-400 leading-relaxed font-bold mb-8 uppercase tracking-widest">{item.desc}</p>
+              <span className={`text-[9px] md:text-[10px] font-black ${item.color} uppercase tracking-[0.2em] italic border-b-2 border-transparent group-hover:border-current transition-all block w-max`}>Open →</span>
             </Link>
           ))}
         </div>
       </section>
 
       {/* --- 4. VIP SIGNUP --- */}
-      <section className="py-32 px-6 bg-[#050506]">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-[#050506] border border-blue-500/20 rounded-[3.5rem] p-12 md:p-16 text-center shadow-2xl relative overflow-hidden">
+      <section className="py-24 md:py-32 px-4 sm:px-6 bg-[#050506]">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-[#050506] border border-blue-500/20 rounded-3xl md:rounded-[3.5rem] p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
           
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-8 leading-none">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-6 md:mb-8 leading-none">
             Join the <span className="text-blue-600">VIP Roster</span>
           </h2>
-          <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-[10px] md:text-sm font-bold uppercase tracking-widest mb-10 md:mb-12 max-w-2xl mx-auto">
             Get official updates, exclusive scout access, and event intelligence before anyone else.
           </p>
 
-          <form onSubmit={handleMarketingRegister} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-8 py-5 text-white outline-none focus:border-blue-600 text-xs md:text-sm font-bold tracking-wider shadow-inner placeholder:text-zinc-600" required />
-            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-xs md:text-sm shadow-xl hover:shadow-blue-600/50 disabled:opacity-50">
+          <form onSubmit={handleMarketingRegister} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-6 md:px-8 py-4 md:py-5 text-white outline-none focus:border-blue-600 text-[10px] md:text-sm font-bold tracking-wider shadow-inner placeholder:text-zinc-600" required />
+            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-[10px] md:text-sm shadow-xl hover:shadow-blue-600/50 disabled:opacity-50">
               {regStatus === 'loading' ? 'Sending...' : regStatus === 'success' ? 'Joined!' : 'Subscribe'}
             </button>
           </form>
@@ -297,31 +341,31 @@ export default function Home() {
       </section>
 
       {/* --- AFFILIATES --- */}
-      <section className="py-24 px-6 bg-[#050506] border-t border-white/5 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-7xl mx-auto">
+      <section className="py-20 md:py-24 px-4 sm:px-6 bg-[#050506] border-t border-white/5 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 max-w-7xl mx-auto">
             {affiliates.map((aff, i) => (
-              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
-                <span className="text-[8px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
+              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
+                <span className="text-[7px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
               </a>
             ))}
           </div>
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="py-20 bg-[#050506] border-t border-white/5 text-center px-6">
+      <footer className="py-16 md:py-20 bg-[#050506] border-t border-white/5 text-center px-4 sm:px-6">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-12 mb-16">
-            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 hover:scale-105 transition-transform">
-               <div className="bg-blue-600 w-12 h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[10px]">FB</div>
-               <span className="text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Muaythai Sabah FB</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-12 mb-12 md:mb-16">
+            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 md:gap-4 hover:scale-105 transition-transform">
+               <div className="bg-blue-600 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px] md:text-[10px]">FB</div>
+               <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Muaythai Sabah FB</span>
             </a>
-            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 hover:scale-105 transition-transform">
-               <div className="bg-red-600 w-12 h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[10px]">YT</div>
-               <span className="text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Official Youtube</span>
+            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 md:gap-4 hover:scale-105 transition-transform">
+               <div className="bg-red-600 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px] md:text-[10px]">YT</div>
+               <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Official Youtube</span>
             </a>
           </div>
-          <p className="text-[9px] text-zinc-500 uppercase tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
-          <p className="text-[7px] text-zinc-600 uppercase tracking-widest font-black italic">Design by Dhillon Tahing | Powered by Lonchai</p>
+          <p className="text-[8px] md:text-[9px] text-zinc-500 uppercase tracking-[0.3em] md:tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
+          <p className="text-[6px] md:text-[7px] text-zinc-600 uppercase tracking-widest font-black italic">Design by Dhillon Tahing | Powered by Lonchai</p>
         </div>
       </footer>
     </div>

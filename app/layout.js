@@ -21,9 +21,10 @@ export const viewport = {
   userScalable: false,
 };
 
+// --- UPDATED METADATA FOR YOUTUBE & POSTER PREVIEWS ---
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
-  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
+  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Register for The Young Guns U17 Expo now!",
   metadataBase: new URL("https://www.muaythaisbh.my"),
   manifest: "/manifest.json",
   appleWebApp: {
@@ -35,17 +36,27 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Muaythai Sabah | Platform Rasmi",
-    description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah",
+    title: "Sabah Muaythai Expo: The Young Guns 2026",
+    description: "Watch the official promo and register your athletes for the ultimate U17 Muaythai showdown at 1 Borneo Hypermall.",
     url: "https://www.muaythaisbh.my",
     siteName: "Muaythai Sabah",
     images: [
       {
-        url: "/feed-community.png",
-        width: 1200,
-        height: 630,
-        alt: "Muaythai Sabah Official Preview Image",
+        // Facebook and WhatsApp require an absolute URL to fetch the image reliably
+        url: "https://www.muaythaisbh.my/smeu17.png",
+        width: 1080,
+        height: 1080,
+        alt: "The Young Guns U17 Official Poster",
       },
+    ],
+    // This triggers the video player preview on supported platforms
+    videos: [
+      {
+        url: "https://www.youtube.com/v/mWsU3Hux99k",
+        width: 1280,
+        height: 720,
+        type: "application/x-shockwave-flash",
+      }
     ],
     locale: "en_US",
     type: "website",
