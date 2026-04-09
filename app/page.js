@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import Link from "next/link"; 
 import { supabase } from "./lib/supabase"; 
 
 // --- 🔒 ADMINS ---
@@ -90,8 +90,10 @@ export default function Home() {
       <style jsx>{`
         @keyframes fade-in-up { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes slow-zoom { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @keyframes pulse-glow { 0% { box-shadow: 0 0 5px rgba(234, 179, 8, 0.2); } 50% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.5); } 100% { box-shadow: 0 0 5px rgba(234, 179, 8, 0.2); } }
         .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
         .animate-slow-zoom { animation: slow-zoom 20s infinite alternate ease-in-out; }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite ease-in-out; }
       `}</style>
 
       {/* --- 1. HERO --- */}
@@ -115,124 +117,109 @@ export default function Home() {
           </div>
 
           <p className="text-sm md:text-lg text-gray-400 font-bold uppercase tracking-[0.2em] mb-4 animate-fade-in-up delay-100 max-w-4xl px-4 text-center leading-relaxed italic opacity-60">
-            The official and one-stop platform for Championships, Athletes, and Development in Sabah.
+            The Young Guns U17: Official Live Broadcast Hub.
           </p>
         </div>
       </section>
 
-      {/* --- 2. HIGHLIGHT HUB (EVENT PROMOTION) --- */}
-      <section className="py-20 px-4 bg-[#050506]">
-        <div className="max-w-[1400px] mx-auto space-y-16">
+      {/* --- 2. LIVE BROADCAST HUB (THE YOUNG GUNS U17) --- */}
+      <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto space-y-8">
           
-          {/* --- TOP SPOTLIGHT: EVENT --- */}
-          <div className="space-y-10">
-            <div className="flex justify-between items-end px-2">
-               <h2 className="text-2xl font-black uppercase italic tracking-tighter leading-none text-white">Event <span className="text-cyan-500">Spotlight</span></h2>
-               <Link href="/events" className="text-gray-500 font-black uppercase text-[10px] tracking-widest hover:text-white transition-colors italic border-b border-gray-600 pb-1 hover:border-white">
-                 View All Events →
-               </Link>
+          {/* --- ⚡ DEVELOPER SUPPORT BAR --- */}
+          <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-500/20 rounded-3xl p-6 md:p-8 mb-10 shadow-2xl animate-pulse-glow flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="text-center lg:text-left">
+              <h3 className="text-xl md:text-3xl font-black text-white uppercase italic tracking-tighter">
+                Support the <span className="text-yellow-500">Vision</span>
+              </h3>
+              <p className="text-gray-400 text-[10px] md:text-xs font-black uppercase tracking-widest mt-1">
+                Subscribe to support the developer's cause in promoting <span className="text-white">Muaythai as a Sport & Professional Career.</span>
+              </p>
             </div>
-
-            <div className="relative group rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-cyan-500/30 bg-zinc-900/40 shadow-2xl transition-all hover:border-cyan-500/60 flex flex-col">
-              
-              {/* TOP: VISUALS (BANNER & PROMO VIDEO ONLY) */}
-              <div className="w-full relative overflow-hidden bg-black flex flex-col items-center justify-center p-4 sm:p-6 md:p-12 lg:p-16 gap-8 md:gap-12">
-                 <div className="absolute inset-0 bg-cyan-900/20 blur-3xl scale-125 group-hover:bg-cyan-800/30 transition-colors duration-700"></div>
-                 
-                 {/* HIGH VISIBILITY YOUTUBE SUBSCRIBE BANNER */}
-                 <div className="relative z-20 w-full max-w-5xl bg-red-900/40 border border-red-600/50 p-5 md:p-8 rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center justify-between text-center md:text-left shadow-[0_0_40px_rgba(220,38,38,0.2)] gap-6 backdrop-blur-md">
-                   <div>
-                     <p className="text-red-400 text-sm md:text-base font-black uppercase tracking-widest mb-2 flex items-center justify-center md:justify-start gap-2">
-                       <span className="text-xl md:text-2xl">📺</span> Subscribe For Live Broadcasts
-                     </p>
-                     <p className="text-gray-300 text-xs md:text-sm font-medium leading-relaxed max-w-2xl">
-                       Subscribe to our official YouTube channel for the latest video updates, athlete highlights, and <span className="text-white font-black underline decoration-red-500">LIVE STREAMS</span> of all upcoming fight events in Sabah!
-                     </p>
-                   </div>
-                   <a href="https://www.youtube.com/@muaythaisabah?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest transition-all shadow-xl hover:shadow-red-600/50 hover:-translate-y-1">
-                     Subscribe Now
-                   </a>
-                 </div>
-
-                 {/* MEDIA GRID: CENTERED VIDEO */}
-                 <div className="relative z-10 w-full max-w-5xl flex flex-col items-center justify-center">
-                   {/* YOUTUBE VIDEO PLAYER */}
-                   <div className="w-full aspect-video rounded-xl md:rounded-3xl shadow-[0_0_40px_rgba(6,182,212,0.25)] border border-white/10 overflow-hidden bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-700">
-                     <iframe 
-                       src="https://www.youtube.com/embed/mWsU3Hux99k?autoplay=0&loop=1&playlist=mWsU3Hux99k&rel=0" 
-                       title="Sabah Muaythai Expo The Young Guns 2026 Promo" 
-                       className="w-full h-full border-0"
-                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                       allowFullScreen
-                     ></iframe>
-                   </div>
-                 </div>
-              </div>
-
-              {/* BOTTOM: MULTI-ACTION DETAILS */}
-              <div className="w-full bg-[#0a0a0c] p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col items-center text-center border-t border-white/5 relative z-20">
-                
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-black uppercase tracking-widest mb-6 w-max shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                  Live Event Promo
-                </div>
-                
-                <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-black text-white uppercase italic tracking-tighter leading-[0.9] mb-6">
-                   Sabah Muaythai Expo <br/> 
-                   <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 pr-4 pb-2">The Young Guns U17&nbsp;</span>
-                </h2>
-                
-                <p className="text-gray-400 text-xs md:text-base font-semibold leading-relaxed tracking-wider mb-8 max-w-3xl">
-                   Witness the next generation of elite Muaythai stars from the ground up. The journey to greatness happens right here. Catch the explosive action live at 1 Borneo Hypermall!
-                </p>
-
-                {/* Event Info (Date & Location) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-12 w-full">
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-xs md:text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl w-full sm:w-auto shadow-md">
-                     <span className="text-cyan-500 text-lg md:text-xl">📅</span> 9 - 12 April 2026
-                   </div>
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-xs md:text-sm font-black uppercase tracking-widest bg-slate-900 border border-slate-700 py-3 px-6 rounded-xl w-full sm:w-auto shadow-md">
-                     <span className="text-cyan-500 text-lg md:text-xl">📍</span> 1 Borneo Hypermall
-                   </div>
-                </div>
-
-                {/* Action Buttons & Newsletter Spotlight */}
-                <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                   
-                   {/* Primary Event Action */}
-                   <div className="flex flex-col gap-4">
-                       <Link href="/events" className="block w-full bg-yellow-500 text-black py-5 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-yellow-400 transition-all shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:-translate-y-1 text-xs md:text-sm h-full flex items-center justify-center">
-                          Catch The Action Live
-                       </Link>
-                       <Link href="/events" className="block w-full bg-transparent border border-white/20 text-white py-4 px-6 rounded-2xl text-center font-black uppercase italic tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-all hover:-translate-y-1 text-xs flex items-center justify-center h-full">
-                          View Event Details
-                       </Link>
-                   </div>
-
-                   {/* Newsletter Feature Spotlight */}
-                   <Link href="/newsletter/smeu17-2026" className="group/news bg-gradient-to-br from-blue-900/40 to-cyan-900/10 border border-cyan-500/20 rounded-2xl p-6 flex flex-col justify-center hover:border-cyan-500/50 transition-all hover:-translate-y-1 text-left relative overflow-hidden">
-                      <div className="absolute inset-0 bg-cyan-500/5 opacity-0 group-hover/news:opacity-100 transition-opacity"></div>
-                      <span className="text-[9px] font-black text-cyan-500 uppercase tracking-widest mb-2 block">Newsletter Feature</span>
-                      <h3 className="text-base md:text-lg font-black text-white uppercase italic tracking-tight mb-2 leading-tight">
-                          The Architects of <br/> Sabah's Legacy
-                      </h3>
-                      <p className="text-[10px] md:text-xs text-zinc-400 font-medium leading-relaxed mb-4">
-                          Discover the story behind the U17 Expo and meet the 5 Youth Prodigies rewriting Sabah's Muaythai history.
-                      </p>
-                      <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] italic border-b border-cyan-500 pb-0.5 w-max group-hover/news:text-cyan-400 transition-colors">Read Full Story →</span>
-                   </Link>
-
-                </div>
-
-              </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="https://www.youtube.com/@muaythaisabah?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-white hover:text-red-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg shadow-red-600/20">
+                <span>YouTube</span> Subscribe
+              </a>
+              <a href="https://www.tiktok.com/@lon_chai" target="_blank" rel="noopener noreferrer" className="bg-black border border-white/20 hover:border-white text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1">
+                <span>TikTok</span> Follow Developer
+              </a>
+              <a href="https://www.instagram.com/lonchai/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg shadow-purple-600/20">
+                <span>Instagram</span> Follow
+              </a>
             </div>
           </div>
 
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 px-2">
+             <div className="text-center md:text-left">
+                <span className="inline-block bg-cyan-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-3">Now Streaming</span>
+                <h2 className="text-3xl md:text-6xl font-black uppercase italic tracking-tighter leading-none text-white">
+                  The <span className="text-cyan-400">Young Guns</span> U17
+                </h2>
+                <p className="text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mt-3 italic">Live from 1 Borneo Hypermall</p>
+             </div>
+             <div className="flex items-center gap-4 bg-red-600/10 border border-red-600/30 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-[0_0_20px_rgba(220,38,38,0.1)]">
+                <div className="relative">
+                  <span className="w-3 h-3 rounded-full bg-red-600 animate-ping absolute inset-0"></span>
+                  <span className="w-3 h-3 rounded-full bg-red-600 relative block"></span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-red-500 text-[11px] font-black uppercase tracking-widest leading-none">Live Arena</span>
+                  <span className="text-white text-[9px] font-bold uppercase opacity-50">Sabah Muaythai Expo</span>
+                </div>
+             </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            {/* RING A PLAYER */}
+            <div className="flex flex-col gap-6 group">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-yellow-500/20">A</div>
+                  <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring A <span className="text-yellow-500">Muaysport Young Guns</span></h3>
+                </div>
+              </div>
+              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-yellow-500/20 bg-black shadow-2xl group-hover:border-yellow-500/50 transition-all duration-500">
+                <iframe 
+                  src="https://www.youtube.com/embed/CcjafE-TGU4?si=z4lTkf8De2zGZmnP&autoplay=1&rel=0" 
+                  title="Ring A Live Stream" 
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="bg-zinc-900/40 p-6 rounded-[1.5rem] border border-white/5 backdrop-blur-sm">
+                <p className="text-white text-xs font-black uppercase italic mb-2 tracking-widest">Main Stage Broadcast</p>
+                <p className="text-zinc-500 text-[11px] font-bold leading-relaxed">Streaming the most anticipated elite matches of the U17 Expo.</p>
+              </div>
+            </div>
+
+            {/* RING B PLAYER */}
+            <div className="flex flex-col gap-6 group">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-cyan-500/20">B</div>
+                  <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring B <span className="text-cyan-500">Muaysport Uprising Young Guns</span></h3>
+                </div>
+              </div>
+              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-cyan-500/10 bg-zinc-950 shadow-2xl group-hover:border-cyan-500/40 transition-all duration-500 flex items-center justify-center">
+                <div className="text-center p-10">
+                   <div className="w-12 h-12 border-2 border-t-cyan-500 border-white/5 rounded-full animate-spin mx-auto mb-4"></div>
+                   <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.3em]">Ring B Feed Initializing...</p>
+                </div>
+              </div>
+              <div className="bg-zinc-900/40 p-6 rounded-[1.5rem] border border-white/5 backdrop-blur-sm">
+                <p className="text-white text-xs font-black uppercase italic mb-2 tracking-widest">Rising Stars Coverage</p>
+                <p className="text-zinc-500 text-[11px] font-bold leading-relaxed">Dedicated stream for youth development and scouting matches.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      {/* --- 3. BIGGER FEATURE GRID (UPDATED WITH ABOUT PAGE) --- */}
-      <section className="py-24 px-4 border-t border-white/5 bg-[#050506]">
+      {/* --- 3. FEATURE GRID --- */}
+      <section className="py-24 px-4 bg-[#050506]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { title: "The Association", desc: "Meet the Board & History.", link: "/about", color: "text-yellow-500", border: "hover:border-yellow-500/50" },
