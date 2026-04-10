@@ -109,43 +109,28 @@ export default function Home() {
           <h1 className="text-5xl md:text-8xl font-black text-white mb-4 tracking-tighter uppercase leading-none italic animate-fade-in-up">
             Muaythai <span className="text-yellow-500">Sabah</span>
           </h1>
-          
           <div className="h-10 mb-4 flex items-center justify-center animate-fade-in-up delay-75">
             <p key={quoteIndex} className="text-yellow-500 text-sm md:text-xl font-black italic uppercase tracking-widest transition-all duration-700 animate-fade-in-up">
               {upliftingQuotes[quoteIndex]}
             </p>
           </div>
-
-          <p className="text-sm md:text-lg text-gray-400 font-bold uppercase tracking-[0.2em] mb-4 animate-fade-in-up delay-100 max-w-4xl px-4 text-center leading-relaxed italic opacity-60">
-            The Young Guns U17: Official Live Broadcast Hub.
-          </p>
         </div>
       </section>
 
-      {/* --- 2. LIVE BROADCAST HUB (THE YOUNG GUNS U17) --- */}
+      {/* --- 2. LIVE BROADCAST HUB & DEV SUPPORT --- */}
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-8">
           
           {/* --- ⚡ DEVELOPER SUPPORT BAR --- */}
           <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-500/20 rounded-3xl p-6 md:p-8 mb-10 shadow-2xl animate-pulse-glow flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-center lg:text-left">
-              <h3 className="text-xl md:text-3xl font-black text-white uppercase italic tracking-tighter">
-                Support the <span className="text-yellow-500">Vision</span>
-              </h3>
-              <p className="text-gray-400 text-[10px] md:text-xs font-black uppercase tracking-widest mt-1">
-                Subscribe to support the developer's cause in promoting <span className="text-white">Muaythai as a Sport & Professional Career.</span>
-              </p>
+              <h3 className="text-xl md:text-3xl font-black text-white uppercase italic tracking-tighter">Support the <span className="text-yellow-500">Vision</span></h3>
+              <p className="text-gray-400 text-[10px] md:text-xs font-black uppercase tracking-widest mt-1">Subscribe to support the developer's cause in promoting <span className="text-white">Muaythai as a Sport & Professional Career.</span></p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://www.youtube.com/@muaythaisabah?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-white hover:text-red-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg shadow-red-600/20">
-                <span>YouTube</span> Subscribe
-              </a>
-              <a href="https://www.tiktok.com/@lon_chai" target="_blank" rel="noopener noreferrer" className="bg-black border border-white/20 hover:border-white text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1">
-                <span>TikTok</span> Follow Developer
-              </a>
-              <a href="https://www.instagram.com/lonchai/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg shadow-purple-600/20">
-                <span>Instagram</span> Follow
-              </a>
+              <a href="https://www.youtube.com/@muaythaisabah?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-white hover:text-red-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg">YouTube Subscribe</a>
+              <a href="https://www.tiktok.com/@lon_chai" target="_blank" rel="noopener noreferrer" className="bg-black border border-white/20 hover:border-white text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1">TikTok Follow Developer</a>
+              <a href="https://www.instagram.com/lonchai/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white px-6 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 hover:-translate-y-1 shadow-lg">Instagram Follow</a>
             </div>
           </div>
 
@@ -158,62 +143,45 @@ export default function Home() {
                 <p className="text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mt-3 italic">Live from 1 Borneo Hypermall</p>
              </div>
              <div className="flex items-center gap-4 bg-red-600/10 border border-red-600/30 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-[0_0_20px_rgba(220,38,38,0.1)]">
-                <div className="relative">
-                  <span className="w-3 h-3 rounded-full bg-red-600 animate-ping absolute inset-0"></span>
-                  <span className="w-3 h-3 rounded-full bg-red-600 relative block"></span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-red-500 text-[11px] font-black uppercase tracking-widest leading-none">Live Arena</span>
-                  <span className="text-white text-[9px] font-bold uppercase opacity-50">Sabah Muaythai Expo</span>
-                </div>
+                <div className="relative"><span className="w-3 h-3 rounded-full bg-red-600 animate-ping absolute inset-0"></span><span className="w-3 h-3 rounded-full bg-red-600 relative block"></span></div>
+                <div className="flex flex-col"><span className="text-red-500 text-[11px] font-black uppercase tracking-widest leading-none">Live Arena</span><span className="text-white text-[9px] font-bold uppercase opacity-50">Sabah Muaythai Expo</span></div>
              </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            
             {/* RING A PLAYER */}
             <div className="flex flex-col gap-6 group">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-yellow-500/20">A</div>
-                  <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring A <span className="text-yellow-500">Muaysport Young Guns</span></h3>
-                </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-yellow-500/20">A</div>
+                <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring A <span className="text-yellow-500">Muaysport Young Guns</span></h3>
               </div>
               <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-yellow-500/20 bg-black shadow-2xl group-hover:border-yellow-500/50 transition-all duration-500">
                 <iframe 
-                  src="https://www.youtube.com/embed/CcjafE-TGU4?si=z4lTkf8De2zGZmnP&autoplay=1&rel=0" 
-                  title="Ring A Live Stream" 
-                  className="absolute inset-0 w-full h-full border-0"
+                  src="https://www.youtube.com/embed/ZhD3ZInFPHY?si=MeElUmdtYOyuW1VW&autoplay=1&rel=0" 
+                  title="Ring A Live" 
+                  className="absolute inset-0 w-full h-full border-0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowFullScreen
                 ></iframe>
-              </div>
-              <div className="bg-zinc-900/40 p-6 rounded-[1.5rem] border border-white/5 backdrop-blur-sm">
-                <p className="text-white text-xs font-black uppercase italic mb-2 tracking-widest">Main Stage Broadcast</p>
-                <p className="text-zinc-500 text-[11px] font-bold leading-relaxed">Streaming the most anticipated elite matches of the U17 Expo.</p>
               </div>
             </div>
 
             {/* RING B PLAYER */}
             <div className="flex flex-col gap-6 group">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-cyan-500/20">B</div>
-                  <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring B <span className="text-cyan-500">Muaysport Uprising Young Guns</span></h3>
-                </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-cyan-500/20">B</div>
+                <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring B <span className="text-cyan-500">Muaysport Uprising Young Guns</span></h3>
               </div>
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-cyan-500/10 bg-zinc-950 shadow-2xl group-hover:border-cyan-500/40 transition-all duration-500 flex items-center justify-center">
-                <div className="text-center p-10">
-                   <div className="w-12 h-12 border-2 border-t-cyan-500 border-white/5 rounded-full animate-spin mx-auto mb-4"></div>
-                   <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.3em]">Ring B Feed Initializing...</p>
-                </div>
-              </div>
-              <div className="bg-zinc-900/40 p-6 rounded-[1.5rem] border border-white/5 backdrop-blur-sm">
-                <p className="text-white text-xs font-black uppercase italic mb-2 tracking-widest">Rising Stars Coverage</p>
-                <p className="text-zinc-500 text-[11px] font-bold leading-relaxed">Dedicated stream for youth development and scouting matches.</p>
+              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-cyan-500/10 bg-black shadow-2xl group-hover:border-cyan-500/40 transition-all duration-500">
+                <iframe 
+                  src="https://www.youtube.com/embed/tLHQBLZwQv0?si=UImc0Bcijbn3Gg_c&autoplay=1&rel=0" 
+                  title="Ring B Live" 
+                  className="absolute inset-0 w-full h-full border-0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -240,17 +208,10 @@ export default function Home() {
       <section className="py-24 md:py-32 px-4 sm:px-6 bg-[#050506]">
         <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-[#050506] border border-blue-500/20 rounded-3xl md:rounded-[3.5rem] p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
-          
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-6 md:mb-8 leading-none">
-            Join the <span className="text-blue-600">VIP Roster</span>
-          </h2>
-          <p className="text-gray-400 text-[10px] md:text-sm font-bold uppercase tracking-widest mb-10 md:mb-12 max-w-2xl mx-auto">
-            Get official updates, exclusive scout access, and event intelligence before anyone else.
-          </p>
-
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-6 md:mb-8 leading-none">Join the <span className="text-blue-600">VIP Roster</span></h2>
           <form onSubmit={handleMarketingRegister} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL ADDRESS" className="flex-1 bg-black border border-white/10 rounded-2xl px-6 md:px-8 py-4 md:py-5 text-white outline-none focus:border-blue-600 text-[10px] md:text-sm font-bold tracking-wider shadow-inner placeholder:text-zinc-600" required />
-            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-8 md:px-10 py-4 md:py-5 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-[10px] md:text-sm shadow-xl hover:shadow-blue-600/50 disabled:opacity-50">
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="ENTER YOUR EMAIL" className="flex-1 bg-black border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-blue-600 text-[10px] md:text-sm font-bold tracking-wider" required />
+            <button type="submit" disabled={regStatus === 'loading'} className="bg-blue-600 text-white font-black px-8 py-4 rounded-2xl uppercase italic tracking-[0.2em] hover:bg-white hover:text-blue-900 transition-all text-[10px] md:text-sm shadow-xl disabled:opacity-50">
               {regStatus === 'loading' ? 'Sending...' : regStatus === 'success' ? 'Joined!' : 'Subscribe'}
             </button>
           </form>
@@ -258,10 +219,10 @@ export default function Home() {
       </section>
 
       {/* --- AFFILIATES --- */}
-      <section className="py-20 md:py-24 px-4 sm:px-6 bg-[#050506] border-t border-white/5 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 max-w-7xl mx-auto">
+      <section className="py-20 px-4 bg-[#050506] border-t border-white/5 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-7xl mx-auto">
             {affiliates.map((aff, i) => (
-              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
+              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
                 <span className="text-[7px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
               </a>
             ))}
@@ -269,20 +230,20 @@ export default function Home() {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="py-16 md:py-20 bg-[#050506] border-t border-white/5 text-center px-4 sm:px-6">
+      <footer className="py-16 bg-[#050506] border-t border-white/5 text-center px-4">
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-12 mb-12 md:mb-16">
-            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 md:gap-4 hover:scale-105 transition-transform">
-               <div className="bg-blue-600 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px] md:text-[10px]">FB</div>
-               <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Muaythai Sabah FB</span>
+          <div className="flex justify-center items-center gap-8 mb-12">
+            <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 hover:scale-105 transition-transform">
+               <div className="bg-blue-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">FB</div>
+               <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">Facebook</span>
             </a>
-            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 md:gap-4 hover:scale-105 transition-transform">
-               <div className="bg-red-600 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px] md:text-[10px]">YT</div>
-               <span className="text-[9px] md:text-[10px] font-black text-white uppercase tracking-[0.3em] italic">Official Youtube</span>
+            <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 hover:scale-105 transition-transform">
+               <div className="bg-red-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">YT</div>
+               <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">YouTube</span>
             </a>
           </div>
-          <p className="text-[8px] md:text-[9px] text-zinc-500 uppercase tracking-[0.3em] md:tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
-          <p className="text-[6px] md:text-[7px] text-zinc-600 uppercase tracking-widest font-black italic">Design by Dhillon Tahing | Powered by Lonchai</p>
+          <p className="text-[8px] text-zinc-500 uppercase tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>
+          <p className="text-[6px] text-zinc-600 uppercase tracking-widest font-black italic">Design by Dhillon Tahing | Powered by Lonchai</p>
         </div>
       </footer>
     </div>
