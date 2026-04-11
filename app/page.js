@@ -136,7 +136,7 @@ export default function Home() {
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 px-2">
              <div className="text-center md:text-left">
-                <span className="inline-block bg-cyan-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-3">Now Streaming</span>
+                <span className="inline-block bg-cyan-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-3">Day 2 Live Stream</span>
                 <h2 className="text-3xl md:text-6xl font-black uppercase italic tracking-tighter leading-none text-white">
                   The <span className="text-cyan-400">Young Guns</span> U17
                 </h2>
@@ -149,7 +149,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* RING A PLAYER */}
+            {/* RING A PLAYER - DAY 2 */}
             <div className="flex flex-col gap-6 group">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-yellow-500/20">A</div>
@@ -157,8 +157,8 @@ export default function Home() {
               </div>
               <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-yellow-500/20 bg-black shadow-2xl group-hover:border-yellow-500/50 transition-all duration-500">
                 <iframe 
-                  src="https://www.youtube.com/embed/ZhD3ZInFPHY?si=MeElUmdtYOyuW1VW&autoplay=1&rel=0" 
-                  title="Ring A Live" 
+                  src="https://www.youtube.com/embed/jBMJ1MyYQ5E?si=aeNE2kV6FV2SCpdP&autoplay=1&rel=0" 
+                  title="Ring A Live - Day 2" 
                   className="absolute inset-0 w-full h-full border-0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowFullScreen
@@ -166,7 +166,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RING B PLAYER */}
+            {/* RING B PLAYER - DAY 2 */}
             <div className="flex flex-col gap-6 group">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-cyan-500/20">B</div>
@@ -174,8 +174,8 @@ export default function Home() {
               </div>
               <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-cyan-500/10 bg-black shadow-2xl group-hover:border-cyan-500/40 transition-all duration-500">
                 <iframe 
-                  src="https://www.youtube.com/embed/tLHQBLZwQv0?si=UImc0Bcijbn3Gg_c&autoplay=1&rel=0" 
-                  title="Ring B Live" 
+                  src="https://www.youtube.com/embed/_O6-Zor7s_8?si=9mOMebc1gksVXksn&autoplay=1&rel=0" 
+                  title="Ring B Live - Day 2" 
                   className="absolute inset-0 w-full h-full border-0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowFullScreen
