@@ -21,10 +21,10 @@ export const viewport = {
   userScalable: false,
 };
 
-// --- UPDATED METADATA FOR YOUTUBE & POSTER PREVIEWS ---
+// --- UPDATED METADATA FOR LADIES FIGHT POSTER PREVIEWS ---
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
-  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Register for The Young Guns U17 Expo now!",
+  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
   metadataBase: new URL("https://www.muaythaisbh.my"),
   manifest: "/manifest.json",
   appleWebApp: {
@@ -36,30 +36,27 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sabah Muaythai Expo: The Young Guns 2026",
-    description: "Watch the official promo and register your athletes for the ultimate U17 Muaythai showdown at 1 Borneo Hypermall.",
+    title: "Sabah Muaythai Expo: Ladies Fight",
+    description: "Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
     url: "https://www.muaythaisbh.my",
     siteName: "Muaythai Sabah",
     images: [
       {
         // Facebook and WhatsApp require an absolute URL to fetch the image reliably
-        url: "https://www.muaythaisbh.my/smeu17.png",
+        url: "https://www.muaythaisbh.my/ladies.jpeg",
         width: 1080,
         height: 1080,
-        alt: "The Young Guns U17 Official Poster",
+        alt: "Ladies Fight Official Poster",
       },
     ],
-    // This triggers the video player preview on supported platforms
-    videos: [
-      {
-        url: "https://www.youtube.com/v/mWsU3Hux99k",
-        width: 1280,
-        height: 720,
-        type: "application/x-shockwave-flash",
-      }
-    ],
-    locale: "en_US",
+    locale: "en_MY",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sabah Muaythai Expo: Ladies Fight",
+    description: "Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
+    images: ["https://www.muaythaisbh.my/ladies.jpeg"],
   },
 };
 
