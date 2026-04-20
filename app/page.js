@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link"; 
+import Head from "next/head"; // <-- Added this import
 import { supabase } from "./lib/supabase"; 
 
 // --- 🔒 ADMINS ---
@@ -78,6 +79,26 @@ export default function Home() {
   return (
     <div className="flex flex-col font-sans text-gray-200 overflow-x-hidden bg-[#050506] selection:bg-yellow-500 selection:text-black">
       
+      {/* --- META TAGS FOR LINK PREVIEW (FACEBOOK, WHATSAPP, ETC) --- */}
+      <Head>
+        <title>Muaythai Sabah | Ladies Fight</title>
+        <meta name="description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        
+        {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Muaythai Sabah | Ladies Fight" />
+        <meta property="og:description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        <meta property="og:image" content="https://muaythaisbh.my/ladies.jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Muaythai Sabah | Ladies Fight" />
+        <meta name="twitter:description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        <meta name="twitter:image" content="https://muaythaisbh.my/ladies.jpeg" />
+      </Head>
+
       {/* --- 🔒 ADMIN NAV ONLY --- */}
       <div className="fixed top-24 right-6 z-[100] flex flex-col gap-3 items-end">
         {isAdmin && (
@@ -117,12 +138,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. LIVE BROADCAST HUB & DEV SUPPORT --- */}
+      {/* --- 2. PROMOTIONS & DEV SUPPORT --- */}
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
-        <div className="max-w-[1400px] mx-auto space-y-8">
+        <div className="max-w-[1400px] mx-auto space-y-12">
           
+          {/* --- HIGHIGHTED LADIES FIGHT PROMOTION --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 shadow-[0_0_40px_rgba(219,39,119,0.3)] hover:shadow-[0_0_60px_rgba(219,39,119,0.5)] transition-shadow duration-500 mt-10 mb-10">
+            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-12 lg:p-16 flex flex-col items-center gap-10 lg:gap-12">
+              
+              {/* --- POSTER (Top, Wide for Visibility) --- */}
+              <div className="w-full max-w-6xl">
+                <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-pink-500/30 bg-black shadow-2xl group w-full">
+                  <img 
+                    src="/ladies.jpeg" 
+                    alt="Ladies Fight Promotion" 
+                    className="w-full h-auto object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050506]/80 via-transparent to-transparent pointer-events-none opacity-80"></div>
+                </div>
+              </div>
+
+              {/* --- WORDINGS & LINK (Below Poster, Centered) --- */}
+              <div className="w-full flex flex-col gap-6 text-center items-center">
+                <span className="inline-block bg-pink-600 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(219,39,119,0.5)] animate-pulse">
+                  Major Upcoming Event
+                </span>
+                
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
+                  Ladies <span className="text-pink-500">Fight</span>
+                </h2>
+                
+                <p className="text-zinc-300 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto">
+                  Empowering women in martial arts. Step into the ring, showcase your skills, and make history with us.
+                </p>
+
+                {/* --- RECORD ATTEMPT HIGHLIGHT BOX --- */}
+                <div className="bg-pink-500/10 border border-pink-500/30 p-5 md:p-6 rounded-3xl w-full max-w-3xl mx-auto relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                  <p className="text-white text-[10px] md:text-xs font-black uppercase tracking-widest leading-loose relative z-10Center">
+                    We are officially attempting to set a new <br/>
+                    <span className="inline-block my-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-lg md:text-2xl drop-shadow-md">
+                      Malaysia Book of Records
+                    </span>
+                    <br/> 
+                    for the most ladies' involvement in a Muaythai sport tournament, with absolutely <span className="text-pink-400">zero male involvement!</span> Be part of this historic, groundbreaking event.
+                  </p>
+                </div>
+
+                {/* Dates & Venue */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-4 w-full">
+                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                     <span className="text-pink-500 text-lg">📅</span> 22 May (Reg) | 23-24 May (Event)
+                   </div>
+                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                     <span className="text-pink-500 text-lg">📍</span> Palm Square Center Point Sabah
+                   </div>
+                </div>
+
+                <a 
+                  href="https://forms.gle/oaAfih85cByowtCF9" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="mt-2 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-white hover:to-white hover:text-pink-600 text-white px-12 py-5 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(219,39,119,0.4)] hover:-translate-y-1 inline-block mx-auto"
+                >
+                  Register Here
+                </a>
+              </div>
+              
+            </div>
+          </div>
+
           {/* --- ⚡ DEVELOPER SUPPORT BAR --- */}
-          <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-500/20 rounded-3xl p-6 md:p-8 mb-10 shadow-2xl animate-pulse-glow flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 border border-yellow-500/20 rounded-3xl p-6 md:p-8 shadow-2xl animate-pulse-glow flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-center lg:text-left">
               <h3 className="text-xl md:text-3xl font-black text-white uppercase italic tracking-tighter">Support the <span className="text-yellow-500">Vision</span></h3>
               <p className="text-gray-400 text-[10px] md:text-xs font-black uppercase tracking-widest mt-1">Subscribe to support the developer's cause in promoting <span className="text-white">Muaythai as a Sport & Professional Career.</span></p>
@@ -134,55 +221,6 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 px-2">
-             <div className="text-center md:text-left">
-                <span className="inline-block bg-cyan-500 text-black text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest mb-3">Day 2 Live Stream</span>
-                <h2 className="text-3xl md:text-6xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  The <span className="text-cyan-400">Young Guns</span> U17
-                </h2>
-                <p className="text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mt-3 italic">Live from 1 Borneo Hypermall</p>
-             </div>
-             <div className="flex items-center gap-4 bg-red-600/10 border border-red-600/30 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-[0_0_20px_rgba(220,38,38,0.1)]">
-                <div className="relative"><span className="w-3 h-3 rounded-full bg-red-600 animate-ping absolute inset-0"></span><span className="w-3 h-3 rounded-full bg-red-600 relative block"></span></div>
-                <div className="flex flex-col"><span className="text-red-500 text-[11px] font-black uppercase tracking-widest leading-none">Live Arena</span><span className="text-white text-[9px] font-bold uppercase opacity-50">Sabah Muaythai Expo</span></div>
-             </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* RING A PLAYER - DAY 2 */}
-            <div className="flex flex-col gap-6 group">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-yellow-500/20">A</div>
-                <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring A <span className="text-yellow-500">Muaysport Young Guns</span></h3>
-              </div>
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-yellow-500/20 bg-black shadow-2xl group-hover:border-yellow-500/50 transition-all duration-500">
-                <iframe 
-                  src="https://www.youtube.com/embed/jBMJ1MyYQ5E?si=aeNE2kV6FV2SCpdP&autoplay=1&rel=0" 
-                  title="Ring A Live - Day 2" 
-                  className="absolute inset-0 w-full h-full border-0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-
-            {/* RING B PLAYER - DAY 2 */}
-            <div className="flex flex-col gap-6 group">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-black font-black italic shadow-lg shadow-cyan-500/20">B</div>
-                <h3 className="text-xl font-black italic text-white uppercase tracking-tighter">Ring B <span className="text-cyan-500">Muaysport Uprising Young Guns</span></h3>
-              </div>
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border-2 border-cyan-500/10 bg-black shadow-2xl group-hover:border-cyan-500/40 transition-all duration-500">
-                <iframe 
-                  src="https://www.youtube.com/embed/_O6-Zor7s_8?si=9mOMebc1gksVXksn&autoplay=1&rel=0" 
-                  title="Ring B Live - Day 2" 
-                  className="absolute inset-0 w-full h-full border-0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
