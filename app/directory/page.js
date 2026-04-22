@@ -105,6 +105,20 @@ const localGyms = [
     links: [{ label: "Facebook", url: "https://www.facebook.com/share/19FL93W6qv/", color: "blue" }]
   },
   {
+    id: "tedung-muaythai",
+    name: "Tedung Muaythai",
+    district: "Beaufort",
+    address: "Lot 33, 1st Floor, Beaufort Square, 89808 Beaufort Sabah.",
+    phone: "010-8149659",
+    whatsappOverride: "011-10559464",
+    coach: "Md Fazuleh Salleh",
+    links: [
+      { label: "Facebook", url: "https://www.facebook.com/search/top?q=Tedung%20Muaythai", color: "blue" },
+      { label: "TikTok", url: "https://www.tiktok.com/@Tedung.muay", color: "pink" },
+      { label: "Google Maps", url: "https://www.google.com/maps/place/5%C2%B020'34.0%22N+115%C2%B044'25.1%22E/@5.3427838,115.7377417,886m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d5.3427838!4d115.7403166?hl=en&entry=ttu&g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D", color: "green" }
+    ]
+  },
+  {
     id: "uppercross",
     name: "Uppercross Muaythai and Fitness",
     district: "Sandakan",
@@ -137,6 +151,19 @@ const localGyms = [
     phone: "014-216 6008",
     coach: "Coach Mardiana",
     links: []
+  },
+  {
+    id: "66unicorn",
+    name: "66UNICORN MUAYTHAI SANDAKAN",
+    district: "Sandakan",
+    address: "Block 26, Bandar Indah, 90000 Sandakan, Sabah, V33F+82 Bandar Indah",
+    phone: "013-4470868",
+    whatsappOverride: "010-2531566",
+    coach: "Narul haizad/dazry",
+    links: [
+      { label: "Facebook", url: "https://www.facebook.com/search/top?q=66%20unicorn%20muaythai%20sandakan", color: "blue" },
+      { label: "TikTok", url: "https://www.tiktok.com/search?q=66unicorn%20muaythai", color: "pink" }
+    ]
   },
   {
     id: "dsha",
@@ -328,11 +355,9 @@ export default function Directory() {
   }, []);
 
   const fetchNewGyms = async () => {
-    // Check User
     const { data: { user } } = await supabase.auth.getUser();
     setCurrentUser(user);
 
-    // Fetch Gyms from DB
     const { data: dbGyms } = await supabase
       .from('profiles')
       .select('*')
@@ -354,14 +379,12 @@ export default function Directory() {
     }
   };
 
-  // --- 🗑️ GOD MODE DELETE GYM ---
   const handleDeleteGym = async (gymId, gymName) => {
     if (!confirm(`GOD MODE ACTION:\nDelete "${gymName}" from directory?`)) return;
 
-    // Delete from Supabase
     const { error } = await supabase
       .from('profiles')
-      .update({ role: 'member', gym_name: null }) // Soft delete
+      .update({ role: 'member', gym_name: null }) 
       .eq('id', gymId);
 
     if (error) {
@@ -372,18 +395,15 @@ export default function Directory() {
     }
   };
 
-  // --- SEPARATE FEATURED & OTHER GYMS ---
   const featuredGym = allGyms.find(gym => gym.isFeatured);
   const otherGyms = allGyms.filter(gym => !gym.isFeatured);
 
-  // --- FILTER ONLY "OTHER" GYMS (Featured stays visible at top) ---
   const filteredGyms = otherGyms.filter(gym => 
     (gym.name && gym.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
     (gym.district && gym.district.toLowerCase().includes(searchTerm.toLowerCase())) ||
     (gym.coach && gym.coach.toLowerCase().includes(searchTerm.toLowerCase()))
   );
   
-  // --- SORT DISTRICTS (KK First) ---
   const districts = [...new Set(filteredGyms.map(gym => gym.district).filter(Boolean))];
   districts.sort((a, b) => {
     if (a === "Kota Kinabalu") return -1;
@@ -395,7 +415,6 @@ export default function Directory() {
     <div className="min-h-screen bg-slate-950 text-gray-100 font-sans p-4 md:p-8">
       <div className="max-w-7xl mx-auto pt-32 pb-20">
         
-        {/* HEADER */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
             Muaythai <span className="text-yellow-500">Directory</span>
@@ -409,7 +428,6 @@ export default function Directory() {
           </div>
         </div>
 
-        {/* --- 👑 FEATURED GYM SECTION (RESTORED) --- */}
         {featuredGym && (searchTerm === "" || 
           featuredGym.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
           featuredGym.coach.toLowerCase().includes(searchTerm.toLowerCase())) && (
@@ -423,7 +441,6 @@ export default function Directory() {
           </div>
         )}
 
-        {/* LIST */}
         {districts.map(district => {
             const districtGyms = filteredGyms.filter(g => g.district === district);
             return (
@@ -439,9 +456,7 @@ export default function Directory() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {districtGyms.map(gym => (
                     <div key={gym.id} className="relative group">
-                      
-                      {/* --- 🛑 GOD MODE DELETE BUTTON (Only for Supabase Gyms) --- */}
-                      {currentUser && ADMIN_EMAILS.includes(currentUser.email) && gym.id.length > 10 && (
+                      {currentUser && ADMIN_EMAILS.includes(currentUser.email) && gym.id.length > 20 && (
                         <button 
                           onClick={() => handleDeleteGym(gym.id, gym.name)}
                           className="absolute top-2 right-2 z-50 bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-red-700 border border-white"
@@ -449,7 +464,6 @@ export default function Directory() {
                           Delete Gym
                         </button>
                       )}
-
                       <GymCard {...gym} />
                     </div>
                   ))}
@@ -469,19 +483,14 @@ export default function Directory() {
   );
 }
 
-// --- UPGRADED GYM CARD ---
-function GymCard({ name, district, address, phone, email, coach, links, isFeatured = false }) {
+function GymCard({ name, district, address, phone, email, coach, links, isFeatured = false, whatsappOverride }) {
   
-  // Helper to generate a Clean WhatsApp Link
   const getWhatsAppLink = (phoneString) => {
-    if (!phoneString) return null;
-    const digits = phoneString.replace(/\D/g, ''); 
-    if (!digits) return null;
-    let waNumber = digits;
-    if (waNumber.startsWith('01')) {
-        waNumber = '6' + waNumber;
-    }
-    const firstNum = phoneString.split('/')[0].replace(/\D/g, '');
+    // If a specific WhatsApp number was provided in the data, use that first
+    const targetNumber = whatsappOverride || phoneString;
+    if (!targetNumber) return null;
+
+    const firstNum = targetNumber.split('/')[0].replace(/\D/g, '');
     if (firstNum.startsWith('01')) {
         return `https://wa.me/6${firstNum}`;
     }
@@ -539,7 +548,6 @@ function GymCard({ name, district, address, phone, email, coach, links, isFeatur
       </div>
 
       <div className="flex flex-wrap gap-2 mt-auto">
-        
         {waLink && (
            <Link 
              href={waLink}
