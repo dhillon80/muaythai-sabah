@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "Apr 13", 
+      title: "Sabah Muaythai Expo: The Young Guns U17 Recap", 
+      img: "/smeu17.png", 
+      link: "/newsletter/young-guns-u17", 
+      tag: "Event Recap" 
+    },
+    { 
+      year: "2026", 
       date: "Mar 14", 
       title: "Sabah Muaythai AGM 2026: Forging the Future", 
       img: "/agm1.jpeg", 
@@ -243,7 +251,7 @@ export default function NewsletterArchive() {
                   </h2>
                 </div>
                 <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/5">
-                   <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] italic">Full Story →</span>
+                    <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] italic">Full Story →</span>
                 </div>
               </div>
             </Link>

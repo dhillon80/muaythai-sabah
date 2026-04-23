@@ -82,7 +82,7 @@ const YoungGunsU17Story = () => {
       {/* 📰 MAIN CONTENT */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-24">
         
-        {/* 🎬 FEATURED HIGHLIGHT VIDEO */}
+        {/* 🎬 YOUTUBE HIGHLIGHT VIDEO */}
         <div className="relative aspect-video w-full rounded-3xl md:rounded-[3.5rem] overflow-hidden border border-white/10 mb-8 md:mb-12 shadow-2xl bg-black flex flex-col justify-center">
           
           <div className="absolute top-0 left-0 right-0 p-6 md:p-12 bg-gradient-to-b from-black/80 to-transparent z-10 pointer-events-none">
@@ -92,14 +92,14 @@ const YoungGunsU17Story = () => {
             </p>
           </div>
 
-          <video 
-            key="fullday-video-player"
-            src="/fullday.mp4" 
-            controls 
-            playsInline
-            preload="auto"
-            className="relative z-20 w-full h-full object-contain"
-          />
+          <iframe 
+            className="relative z-0 w-full h-full"
+            src="https://www.youtube.com/embed/4WFRbYLdHCc?rel=0&modestbranding=1&controls=1"
+            title="Sabah Muaythai Expo U17 Highlights"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </div>
 
         {/* 📋 EVENT STATS BOX */}
@@ -134,7 +134,7 @@ const YoungGunsU17Story = () => {
               <h3 className="text-white text-2xl md:text-3xl font-black uppercase italic tracking-tighter mt-10 md:mt-12 mb-4 md:mb-6">A Grand Finale</h3>
               
               <p>
-                After four grueling and glorious days of combat, the event concluded on a high note with a highly prestigious closing ceremony <em>(Perasmian Penutupan)</em>. The hard work of the fighters, coaches, and organizers was officially recognized and celebrated by the state's top leadership, sealing the event as a monumental milestone for Sabah Muaythai.
+                After four grueling and glorious days of combat, the event concluded on a high note with a highly prestigious closing ceremony sealing the event as a monumental milestone for Sabah Muaythai.
               </p>
             </div>
           </div>
