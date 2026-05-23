@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link"; 
-import Head from "next/head"; // <-- Added this import
+import Head from "next/head"; 
 import { supabase } from "./lib/supabase"; 
 
 // --- 🔒 ADMINS ---
@@ -142,67 +142,73 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           
-          {/* --- HIGHIGHTED LADIES FIGHT PROMOTION --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 shadow-[0_0_40px_rgba(219,39,119,0.3)] hover:shadow-[0_0_60px_rgba(219,39,119,0.5)] transition-shadow duration-500 mt-10 mb-10">
-            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-12 lg:p-16 flex flex-col items-center gap-10 lg:gap-12">
-              
-              {/* --- POSTER (Top, Wide for Visibility) --- */}
-              <div className="w-full max-w-6xl">
-                <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-pink-500/30 bg-black shadow-2xl group w-full">
-                  <img 
-                    src="/ladies.jpeg" 
-                    alt="Ladies Fight Promotion" 
-                    className="w-full h-auto object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050506]/80 via-transparent to-transparent pointer-events-none opacity-80"></div>
+          {/* --- HIGHIGHTED LADIES FIGHT PROMOTION (Framed as Poster) --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 shadow-[0_0_40px_rgba(219,39,119,0.3)] hover:shadow-[0_0_60px_rgba(219,39,119,0.5)] transition-shadow duration-500 mt-10 mb-10 mx-auto max-w-7xl">
+            {/* Inner Poster Card with Black and Pink Theme */}
+            <div className="bg-[#0a0a0c] rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col items-center gap-10 md:gap-14 shadow-inner relative overflow-hidden">
+
+              {/* Poster Header: Name & Taglines */}
+              <div className="text-center w-full max-w-4xl flex flex-col gap-4">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
+                  Sabah Muaythai Expo <span className="text-pink-500">Ladies Fight</span>
+                </h2>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-pink-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">
+                  <span>Her Ring Her Rules</span>
+                  <span className="hidden md:inline text-pink-600">•</span>
+                  <span>Elegant In Battle</span>
                 </div>
               </div>
 
-              {/* --- WORDINGS & LINK (Below Poster, Centered) --- */}
-              <div className="w-full flex flex-col gap-6 text-center items-center">
-                <span className="inline-block bg-pink-600 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(219,39,119,0.5)] animate-pulse">
-                  Major Upcoming Event
-                </span>
-                
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  Ladies <span className="text-pink-500">Fight</span>
-                </h2>
-                
-                <p className="text-zinc-300 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed max-w-2xl mx-auto">
-                  Empowering women in martial arts. Step into the ring, showcase your skills, and make history with us.
+              {/* Logo Integration */}
+              <div className="w-full max-w-xs md:max-w-sm flex justify-center">
+                <img 
+                  src="/ladies-fight-logo.png" 
+                  alt="Ladies Fight Logo" 
+                  className="h-24 w-24 md:h-32 md:w-32 object-contain drop-shadow-[0_0_15px_rgba(219,39,119,0.5)]" 
+                />
+              </div>
+
+              {/* Video Frame */}
+              <div className="w-full max-w-6xl">
+                <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-pink-600/50 bg-black shadow-2xl group w-full aspect-video p-1 bg-gradient-to-b from-pink-950 to-black">
+                  <div className="absolute inset-0 rounded-[2.2rem] overflow-hidden border-2 border-black p-1 bg-[#0a0a0c]">
+                    <div className="w-full h-full rounded-[1.8rem] overflow-hidden relative shadow-inner">
+                      <iframe 
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/9NKEPoECR9s?si=ivs282UfgufhFUda" 
+                        title="Sabah Muaythai Expo Ladies Fight Live Feed" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
+                      ></iframe>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050506]/80 via-transparent to-transparent pointer-events-none opacity-80"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Record and Empowerment Information */}
+              <div className="bg-pink-500/10 border border-pink-500/30 p-8 rounded-3xl w-full max-w-4xl mx-auto relative overflow-hidden text-center shadow-xl">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-pink-500/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                <p className="text-white text-xs md:text-sm font-black uppercase tracking-widest leading-loose relative z-10Center">
+                  Empowering women through martial arts. Witness the history as we set a new <br/>
+                  <span className="inline-block my-3 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-xl md:text-3xl drop-shadow-md">
+                    Malaysia Book of Record
+                  </span>
+                  <br/> 
+                  for the most female participants in a Muaythai Tournament, with absolutely <span className="text-pink-400">zero male involvement!</span> Be part of this groundbreaking event.
                 </p>
+              </div>
 
-                {/* --- RECORD ATTEMPT HIGHLIGHT BOX --- */}
-                <div className="bg-pink-500/10 border border-pink-500/30 p-5 md:p-6 rounded-3xl w-full max-w-3xl mx-auto relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
-                  <p className="text-white text-[10px] md:text-xs font-black uppercase tracking-widest leading-loose relative z-10Center">
-                    We are officially attempting to set a new <br/>
-                    <span className="inline-block my-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-lg md:text-2xl drop-shadow-md">
-                      Malaysia Book of Records
-                    </span>
-                    <br/> 
-                    for the most ladies' involvement in a Muaythai sport tournament, with absolutely <span className="text-pink-400">zero male involvement!</span> Be part of this historic, groundbreaking event.
-                  </p>
+              {/* Dates & Venue */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-4 w-full max-w-3xl">
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-pink-500/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-pink-500 text-lg">📅</span> 22 May (Reg) | 23-24 May (Event)
                 </div>
-
-                {/* Dates & Venue */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-4 w-full">
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                     <span className="text-pink-500 text-lg">📅</span> 22 May (Reg) | 23-24 May (Event)
-                   </div>
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                     <span className="text-pink-500 text-lg">📍</span> Palm Square Center Point Sabah
-                   </div>
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-pink-500/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-pink-500 text-lg">📍</span> Palm Square Center Point Sabah
                 </div>
-
-                <a 
-                  href="https://forms.gle/oaAfih85cByowtCF9" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="mt-2 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-white hover:to-white hover:text-pink-600 text-white px-12 py-5 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(219,39,119,0.4)] hover:-translate-y-1 inline-block mx-auto"
-                >
-                  Register Here
-                </a>
               </div>
               
             </div>
