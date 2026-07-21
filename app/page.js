@@ -81,21 +81,21 @@ export default function Home() {
       
       {/* --- META TAGS FOR LINK PREVIEW (FACEBOOK, WHATSAPP, ETC) --- */}
       <Head>
-        <title>Muaythai Sabah | Ladies Fight</title>
-        <meta name="description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        <title>Muaythai Sabah | Ladies Fight & Updates</title>
+        <meta name="description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
         
         {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Muaythai Sabah | Ladies Fight" />
-        <meta property="og:description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        <meta property="og:title" content="Muaythai Sabah | Ladies Fight & Updates" />
+        <meta property="og:description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
         <meta property="og:image" content="https://muaythaisbh.my/ladies.jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Muaythai Sabah | Ladies Fight" />
-        <meta name="twitter:description" content="Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!" />
+        <meta name="twitter:title" content="Muaythai Sabah | Ladies Fight & Updates" />
+        <meta name="twitter:description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
         <meta name="twitter:image" content="https://muaythaisbh.my/ladies.jpeg" />
       </Head>
 
@@ -142,73 +142,78 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           
-          {/* --- HIGHIGHTED LADIES FIGHT PROMOTION (Framed as Poster) --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-pink-600 via-rose-500 to-pink-600 shadow-[0_0_40px_rgba(219,39,119,0.3)] hover:shadow-[0_0_60px_rgba(219,39,119,0.5)] transition-shadow duration-500 mt-10 mb-10 mx-auto max-w-7xl">
-            {/* Inner Poster Card with Black and Pink Theme */}
+          {/* --- KLINCH FIGHTWEAR PROMOTION --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-zinc-700 via-zinc-400 to-zinc-700 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-shadow duration-500 mt-10 mx-auto max-w-7xl">
+            <div className="bg-[#0a0a0c] rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col items-center justify-center gap-10 shadow-inner relative overflow-hidden text-center">
+                
+                {/* BIG LOGO IN THE MIDDLE */}
+                <div className="w-full flex justify-center mb-4">
+                    <img 
+                      src="/klinchlogo.png" 
+                      alt="Klinch Fightwear Logo" 
+                      className="w-full max-w-md md:max-w-2xl h-auto object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform duration-700" 
+                    />
+                </div>
+
+                {/* WORDING BELOW */}
+                <div className="flex flex-col items-center gap-6 max-w-3xl">
+                    <span className="inline-block bg-white text-black text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-pulse">
+                      Support Local
+                    </span>
+                    <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter leading-none text-white">
+                      Klinch <span className="text-zinc-500">Fightwear</span>
+                    </h2>
+                    <p className="text-zinc-300 text-xs md:text-sm font-bold uppercase tracking-widest leading-relaxed">
+                      Upcoming fightwear! Support our very own local brand. Stay tuned for premium equipment built for warriors. <br/><br/>
+                      <span className="text-yellow-500 text-sm md:text-base">📍 Pro Shop Coming Soon:</span> Kota Kinabalu.
+                    </p>
+                </div>
+
+            </div>
+          </div>
+
+          {/* --- MBOR AWARD PROMOTION --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] transition-shadow duration-500 mb-10 mx-auto max-w-7xl">
             <div className="bg-[#0a0a0c] rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col items-center gap-10 md:gap-14 shadow-inner relative overflow-hidden">
 
-              {/* Poster Header: Name & Taglines */}
+              {/* Header: Name & Taglines */}
               <div className="text-center w-full max-w-4xl flex flex-col gap-4">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  Sabah Muaythai Expo <span className="text-pink-500">Ladies Fight</span>
+                  Record <span className="text-yellow-500">Achieved</span>
                 </h2>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-pink-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">
-                  <span>Her Ring Her Rules</span>
-                  <span className="hidden md:inline text-pink-600">•</span>
-                  <span>Elegant In Battle</span>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-yellow-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">
+                  <span>Sabah Muaythai Expo</span>
+                  <span className="hidden md:inline text-yellow-600">•</span>
+                  <span>Ladies Fight</span>
                 </div>
               </div>
 
-              {/* Logo Integration */}
-              <div className="w-full max-w-xs md:max-w-sm flex justify-center">
+              {/* Logos Integration */}
+              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
                 <img 
                   src="/ladies-fight-logo.png" 
                   alt="Ladies Fight Logo" 
-                  className="h-24 w-24 md:h-32 md:w-32 object-contain drop-shadow-[0_0_15px_rgba(219,39,119,0.5)]" 
+                  className="h-28 w-28 md:h-40 md:w-40 object-contain drop-shadow-[0_0_15px_rgba(219,39,119,0.5)]" 
+                />
+                <span className="text-white/30 text-4xl font-black hidden md:block">+</span>
+                <img 
+                  src="/MBOR.png" 
+                  alt="Malaysia Book of Records Logo" 
+                  className="h-32 w-auto md:h-48 object-contain drop-shadow-[0_0_20px_rgba(234,179,8,0.5)]" 
                 />
               </div>
 
-              {/* Video Frame */}
-              <div className="w-full max-w-6xl">
-                <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-pink-600/50 bg-black shadow-2xl group w-full aspect-video p-1 bg-gradient-to-b from-pink-950 to-black">
-                  <div className="absolute inset-0 rounded-[2.2rem] overflow-hidden border-2 border-black p-1 bg-[#0a0a0c]">
-                    <div className="w-full h-full rounded-[1.8rem] overflow-hidden relative shadow-inner">
-                      <iframe 
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/9NKEPoECR9s?si=ivs282UfgufhFUda" 
-                        title="Sabah Muaythai Expo Ladies Fight Live Feed" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerPolicy="strict-origin-when-cross-origin" 
-                        allowFullScreen
-                      ></iframe>
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050506]/80 via-transparent to-transparent pointer-events-none opacity-80"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Record and Empowerment Information */}
-              <div className="bg-pink-500/10 border border-pink-500/30 p-8 rounded-3xl w-full max-w-4xl mx-auto relative overflow-hidden text-center shadow-xl">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-pink-500/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+              <div className="bg-yellow-500/10 border border-yellow-500/30 p-8 rounded-3xl w-full max-w-4xl mx-auto relative overflow-hidden text-center shadow-xl">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
                 <p className="text-white text-xs md:text-sm font-black uppercase tracking-widest leading-loose relative z-10Center">
-                  Empowering women through martial arts. Witness the history as we set a new <br/>
+                  We are incredibly proud to announce that Sabah Muaythai has officially been awarded the <br/>
                   <span className="inline-block my-3 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-xl md:text-3xl drop-shadow-md">
-                    Malaysia Book of Record
+                    Malaysia Book of Records
                   </span>
                   <br/> 
-                  for the most female participants in a Muaythai Tournament, with absolutely <span className="text-pink-400">zero male involvement!</span> Be part of this groundbreaking event.
+                  for the <span className="text-yellow-400">Most Female Participants in a Muaythai Tournament</span>. <br/> A historic milestone for women's empowerment in martial arts!
                 </p>
-              </div>
-
-              {/* Dates & Venue */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-4 w-full max-w-3xl">
-                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-pink-500/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                  <span className="text-pink-500 text-lg">📅</span> 22 May (Reg) | 23-24 May (Event)
-                </div>
-                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-pink-500/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                  <span className="text-pink-500 text-lg">📍</span> Palm Square Center Point Sabah
-                </div>
               </div>
               
             </div>
