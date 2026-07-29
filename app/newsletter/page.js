@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "May 24", 
+      title: "History Made: Ladies Fight 2026 Sets MBOR", 
+      img: "/ladiesfight.jpg", 
+      link: "/newsletter/ladies-fight", 
+      tag: "MBOR Record" 
+    },
+    { 
+      year: "2026", 
       date: "Apr 13", 
       title: "Sabah Muaythai Expo: The Young Guns U17 Recap", 
       img: "/smeu17.png", 

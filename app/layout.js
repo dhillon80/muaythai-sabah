@@ -21,10 +21,10 @@ export const viewport = {
   userScalable: false,
 };
 
-// --- UPDATED METADATA FOR LADIES FIGHT POSTER PREVIEWS ---
+// --- UPDATED METADATA FOR HISTORIC ACHIEVEMENT ---
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
-  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
+  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. History made: Sabah Muaythai officially sets the Malaysia Book of Records with 313 female athletes in the Ladies Fight 2026 tournament!",
   metadataBase: new URL("https://www.muaythaisbh.my"),
   manifest: "/manifest.json",
   appleWebApp: {
@@ -36,17 +36,17 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sabah Muaythai Expo: Ladies Fight",
-    description: "Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
+    title: "Sabah Muaythai: Malaysia Book of Records Achieved",
+    description: "History made! Sabah Muaythai officially sets the Malaysia Book of Records with an unprecedented 313 female athletes in a single tournament.",
     url: "https://www.muaythaisbh.my",
     siteName: "Muaythai Sabah",
     images: [
       {
         // Facebook and WhatsApp require an absolute URL to fetch the image reliably
-        url: "https://www.muaythaisbh.my/ladies.jpeg",
+        url: "https://www.muaythaisbh.my/ladiesfight.jpg",
         width: 1080,
         height: 1080,
-        alt: "Ladies Fight Official Poster",
+        alt: "Ladies Fight Official Record Breaker",
       },
     ],
     locale: "en_MY",
@@ -54,9 +54,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sabah Muaythai Expo: Ladies Fight",
-    description: "Join us as we attempt the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament with absolutely zero male involvement!",
-    images: ["https://www.muaythaisbh.my/ladies.jpeg"],
+    title: "Sabah Muaythai: Malaysia Book of Records Achieved",
+    description: "History made! Sabah Muaythai officially sets the Malaysia Book of Records with an unprecedented 313 female athletes.",
+    images: ["https://www.muaythaisbh.my/ladiesfight.jpg"],
   },
 };
 

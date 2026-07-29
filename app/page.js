@@ -142,8 +142,53 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           
-          {/* --- KLINCH FIGHTWEAR PROMOTION --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-zinc-700 via-zinc-400 to-zinc-700 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-shadow duration-500 mt-10 mx-auto max-w-7xl">
+          {/* --- LADIES FIGHT NEWSLETTER PROMOTION (MOVED TO TOP) --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-rose-600 via-rose-400 to-rose-600 shadow-[0_0_40px_rgba(225,29,72,0.3)] hover:shadow-[0_0_60px_rgba(225,29,72,0.5)] transition-shadow duration-500 mt-10 mx-auto max-w-7xl">
+            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
+              
+              {/* Glow Effect */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-rose-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+              {/* Text & CTA Left Side */}
+              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6 relative z-10">
+                <div className="inline-block bg-rose-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl animate-pulse">
+                  LATEST NEWSLETTER
+                </div>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
+                  HISTORY <br className="hidden lg:block"/> <span className="text-rose-500">MADE</span>
+                </h2>
+                <p className="text-gray-300 text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed max-w-xl">
+                  Sabah Muaythai sets the <span className="text-yellow-500">Malaysia Book of Records</span> with 313 female athletes. Witness the unprecedented celebration of courage, equality, and empowerment.
+                </p>
+                <div className="mt-4">
+                  <Link href="/newsletter/ladies-fight" className="inline-block bg-white text-black px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-rose-600 hover:text-white shadow-xl hover:-translate-y-1">
+                    Read Full Story →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Facebook Reel Right Side (UPDATED TO LANDSCAPE) */}
+              <div className="w-full lg:w-auto flex justify-center relative z-10">
+                <div className="overflow-hidden rounded-[2rem] border-2 border-white/10 shadow-[0_0_30px_rgba(225,29,72,0.2)] bg-black flex items-center justify-center">
+                  <iframe 
+                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F980594948278863&show_text=false&width=560" 
+                    width="560" 
+                    height="315" 
+                    style={{ border: "none", overflow: "hidden", maxWidth: "100%" }} 
+                    scrolling="no" 
+                    frameBorder="0" 
+                    allowFullScreen={true} 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    className="bg-black"
+                  ></iframe>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* --- KLINCH FIGHTWEAR PROMOTION (MOVED TO BOTTOM) --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-zinc-700 via-zinc-400 to-zinc-700 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] transition-shadow duration-500 mb-10 mx-auto max-w-7xl">
             <div className="bg-[#0a0a0c] rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col items-center justify-center gap-10 shadow-inner relative overflow-hidden text-center">
                 
                 {/* BIG LOGO IN THE MIDDLE */}
@@ -168,54 +213,6 @@ export default function Home() {
                       <span className="text-yellow-500 text-sm md:text-base">📍 Pro Shop Coming Soon:</span> Kota Kinabalu.
                     </p>
                 </div>
-
-            </div>
-          </div>
-
-          {/* --- MBOR AWARD PROMOTION --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] transition-shadow duration-500 mb-10 mx-auto max-w-7xl">
-            <div className="bg-[#0a0a0c] rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col items-center gap-10 md:gap-14 shadow-inner relative overflow-hidden">
-
-              {/* Header: Name & Taglines */}
-              <div className="text-center w-full max-w-4xl flex flex-col gap-4">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  Record <span className="text-yellow-500">Achieved</span>
-                </h2>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-yellow-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">
-                  <span>Sabah Muaythai Expo</span>
-                  <span className="hidden md:inline text-yellow-600">•</span>
-                  <span>Ladies Fight</span>
-                </div>
-              </div>
-
-              {/* Logos Integration */}
-              <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                <img 
-                  src="/ladies-fight-logo.png" 
-                  alt="Ladies Fight Logo" 
-                  className="h-28 w-28 md:h-40 md:w-40 object-contain drop-shadow-[0_0_15px_rgba(219,39,119,0.5)]" 
-                />
-                <span className="text-white/30 text-4xl font-black hidden md:block">+</span>
-                <img 
-                  src="/MBOR.png" 
-                  alt="Malaysia Book of Records Logo" 
-                  className="h-32 w-auto md:h-48 object-contain drop-shadow-[0_0_20px_rgba(234,179,8,0.5)]" 
-                />
-              </div>
-
-              {/* Record and Empowerment Information */}
-              <div className="bg-yellow-500/10 border border-yellow-500/30 p-8 rounded-3xl w-full max-w-4xl mx-auto relative overflow-hidden text-center shadow-xl">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                <p className="text-white text-xs md:text-sm font-black uppercase tracking-widest leading-loose relative z-10Center">
-                  We are incredibly proud to announce that Sabah Muaythai has officially been awarded the <br/>
-                  <span className="inline-block my-3 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-xl md:text-3xl drop-shadow-md">
-                    Malaysia Book of Records
-                  </span>
-                  <br/> 
-                  for the <span className="text-yellow-400">Most Female Participants in a Muaythai Tournament</span>. <br/> A historic milestone for women's empowerment in martial arts!
-                </p>
-              </div>
-              
             </div>
           </div>
 
