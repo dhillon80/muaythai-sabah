@@ -12,6 +12,14 @@ export default function NewsletterArchive() {
     // --- 2026 ---
     { 
       year: "2026", 
+      date: "May 28", 
+      title: "Thank You CPS: RM50,000 Sponsorship for SUKMA", 
+      img: "/mockchq.jpeg", 
+      link: "/newsletter/cps-sponsorship2026", 
+      tag: "Sponsorship" 
+    },
+    { 
+      year: "2026", 
       date: "May 24", 
       title: "History Made: Ladies Fight 2026 Sets MBOR", 
       img: "/ladiesfight.jpg", 

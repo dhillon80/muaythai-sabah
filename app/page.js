@@ -81,22 +81,22 @@ export default function Home() {
       
       {/* --- META TAGS FOR LINK PREVIEW (FACEBOOK, WHATSAPP, ETC) --- */}
       <Head>
-        <title>Muaythai Sabah | Ladies Fight & Updates</title>
-        <meta name="description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
+        <title>Muaythai Sabah | Latest News & Updates</title>
+        <meta name="description" content="Catch up on the latest from Muaythai Sabah, including SUKMA 2026 preparations, historic MBOR records, and more!" />
         
         {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Muaythai Sabah | Ladies Fight & Updates" />
-        <meta property="og:description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
-        <meta property="og:image" content="https://muaythaisbh.my/ladies.jpeg" />
+        <meta property="og:title" content="Muaythai Sabah | Latest News & Updates" />
+        <meta property="og:description" content="Catch up on the latest from Muaythai Sabah, including SUKMA 2026 preparations, historic MBOR records, and more!" />
+        <meta property="og:image" content="https://muaythaisbh.my/mockchq.jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Muaythai Sabah | Ladies Fight & Updates" />
-        <meta name="twitter:description" content="Sabah Muaythai sets the Malaysia Book of Records for the most ladies' involvement in a Muaythai tournament!" />
-        <meta name="twitter:image" content="https://muaythaisbh.my/ladies.jpeg" />
+        <meta name="twitter:title" content="Muaythai Sabah | Latest News & Updates" />
+        <meta name="twitter:description" content="Catch up on the latest from Muaythai Sabah, including SUKMA 2026 preparations, historic MBOR records, and more!" />
+        <meta name="twitter:image" content="https://muaythaisbh.my/mockchq.jpeg" />
       </Head>
 
       {/* --- 🔒 ADMIN NAV ONLY --- */}
@@ -142,8 +142,43 @@ export default function Home() {
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           
-          {/* --- LADIES FIGHT NEWSLETTER PROMOTION (MOVED TO TOP) --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-rose-600 via-rose-400 to-rose-600 shadow-[0_0_40px_rgba(225,29,72,0.3)] hover:shadow-[0_0_60px_rgba(225,29,72,0.5)] transition-shadow duration-500 mt-10 mx-auto max-w-7xl">
+          {/* --- CPS SPONSORSHIP NEWSLETTER PROMOTION (NEW LATEST) --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-600 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] transition-shadow duration-500 mt-10 mx-auto max-w-7xl">
+            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
+              
+              {/* Glow Effect */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+              {/* Text & CTA Left Side */}
+              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6 relative z-10">
+                <div className="inline-block bg-yellow-500 text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl animate-pulse">
+                  LATEST NEWSLETTER
+                </div>
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
+                  THANK YOU <br className="hidden lg:block"/> <span className="text-yellow-500">CENTRE POINT SABAH</span>
+                </h2>
+                <p className="text-gray-300 text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed max-w-xl">
+                  Centre Point Sabah empowers the Sabah Muaythai team with a generous <span className="text-yellow-500">RM50,000 Sponsorship</span> for SUKMA Selangor 2026.
+                </p>
+                <div className="mt-4">
+                  <Link href="/newsletter/cps-sponsorship2026" className="inline-block bg-white text-black px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-yellow-500 hover:text-black shadow-xl hover:-translate-y-1">
+                    Read Full Story →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Image Right Side */}
+              <div className="w-full lg:w-auto flex justify-center relative z-10 lg:max-w-md">
+                <div className="overflow-hidden rounded-[2rem] border-2 border-white/10 shadow-[0_0_30px_rgba(234,179,8,0.2)] bg-black flex items-center justify-center">
+                  <img src="/mockchq.jpeg" alt="CPS Mock Cheque" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* --- LADIES FIGHT NEWSLETTER PROMOTION (MOVED DOWN) --- */}
+          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-rose-600 via-rose-400 to-rose-600 shadow-[0_0_40px_rgba(225,29,72,0.2)] hover:shadow-[0_0_60px_rgba(225,29,72,0.4)] transition-shadow duration-500 mx-auto max-w-7xl">
             <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
               
               {/* Glow Effect */}
@@ -151,8 +186,8 @@ export default function Home() {
 
               {/* Text & CTA Left Side */}
               <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6 relative z-10">
-                <div className="inline-block bg-rose-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl animate-pulse">
-                  LATEST NEWSLETTER
+                <div className="inline-block bg-rose-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl">
+                  HISTORIC RECORD
                 </div>
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
                   HISTORY <br className="hidden lg:block"/> <span className="text-rose-500">MADE</span>
