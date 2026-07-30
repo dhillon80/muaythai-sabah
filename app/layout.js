@@ -21,10 +21,10 @@ export const viewport = {
   userScalable: false,
 };
 
-// --- UPDATED METADATA FOR HISTORIC ACHIEVEMENT ---
+// --- UPDATED METADATA FOR CPS SPONSORSHIP & SUKMA 2026 ---
 export const metadata = {
   title: "Muaythai Sabah | Platform Rasmi",
-  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. History made: Sabah Muaythai officially sets the Malaysia Book of Records with 313 female athletes in the Ladies Fight 2026 tournament!",
+  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Latest: Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026!",
   metadataBase: new URL("https://www.muaythaisbh.my"),
   manifest: "/manifest.json",
   appleWebApp: {
@@ -36,17 +36,19 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sabah Muaythai: Malaysia Book of Records Achieved",
-    description: "History made! Sabah Muaythai officially sets the Malaysia Book of Records with an unprecedented 313 female athletes in a single tournament.",
+    title: "Thank You CPS: RM50,000 Sponsorship for Sabah Muaythai",
+    description: "Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026.",
     url: "https://www.muaythaisbh.my",
     siteName: "Muaythai Sabah",
     images: [
       {
-        // Facebook and WhatsApp require an absolute URL to fetch the image reliably
-        url: "https://www.muaythaisbh.my/ladiesfight.jpg",
+        // Facebook and WhatsApp require an absolute URL to fetch the image reliably.
+        // 1080x1080 (Square) & type declaration ensures flawless WhatsApp Link Previews.
+        url: "https://www.muaythaisbh.my/mockchq.jpeg",
         width: 1080,
         height: 1080,
-        alt: "Ladies Fight Official Record Breaker",
+        alt: "Centre Point Sabah RM50,000 Sponsorship Mock Cheque",
+        type: "image/jpeg",
       },
     ],
     locale: "en_MY",
@@ -54,9 +56,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sabah Muaythai: Malaysia Book of Records Achieved",
-    description: "History made! Sabah Muaythai officially sets the Malaysia Book of Records with an unprecedented 313 female athletes.",
-    images: ["https://www.muaythaisbh.my/ladiesfight.jpg"],
+    title: "Thank You CPS: RM50,000 Sponsorship for Sabah Muaythai",
+    description: "Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026.",
+    images: ["https://www.muaythaisbh.my/mockchq.jpeg"],
   },
 };
 
