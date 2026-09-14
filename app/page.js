@@ -140,7 +140,7 @@ export default function Home() {
           {/* NEW: Partner & Record Logos below Quotes */}
           <div className="flex items-center justify-center gap-8 md:gap-12 mt-4 animate-fade-in-up delay-150">
             <img 
-              src="/mbor.png" 
+              src="/MBOR.png" 
               alt="Malaysia Book of Records" 
               className="h-20 md:h-24 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.15)] hover:scale-105 transition-transform" 
             />
