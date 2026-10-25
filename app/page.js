@@ -81,22 +81,22 @@ export default function Home() {
       
       {/* --- META TAGS FOR LINK PREVIEW (FACEBOOK, WHATSAPP, ETC) --- */}
       <Head>
-        <title>Muaythai Sabah | Sabah Muaythai Expo V2</title>
-        <meta name="description" content="Registrations are open for the Sabah Muaythai Expo V2: Rookie Challenge & Pro Debut. Join us at Palm Square, Centre Point Sabah!" />
+        <title>Muaythai Sabah | SMC MMXXVI & D1 Championship</title>
+        <meta name="description" content="Athlete registrations open for Sabah Muaythai Championship MMXXVI (20-24 Jan 2027 at 1 Borneo Hypermall) and fighter profile submissions for D1 Championship Tawau." />
         
         {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Muaythai Sabah | Sabah Muaythai Expo V2" />
-        <meta property="og:description" content="Registrations are open for the Sabah Muaythai Expo V2: Rookie Challenge & Pro Debut. Join us at Palm Square, Centre Point Sabah!" />
-        <meta property="og:image" content="https://muaythaisbh.my/smerookie.png" />
+        <meta property="og:title" content="Muaythai Sabah | SMC MMXXVI & D1 Championship" />
+        <meta property="og:description" content="Step into the ring! Athlete registrations open for Sabah Muaythai Championship MMXXVI and profile submissions open for D1 Championship Tawau." />
+        <meta property="og:image" content="https://muaythaisbh.my/d1championship.png" />
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Muaythai Sabah | Sabah Muaythai Expo V2" />
-        <meta name="twitter:description" content="Registrations are open for the Sabah Muaythai Expo V2: Rookie Challenge & Pro Debut. Join us at Palm Square, Centre Point Sabah!" />
-        <meta name="twitter:image" content="https://muaythaisbh.my/smerookie.png" />
+        <meta name="twitter:title" content="Muaythai Sabah | SMC MMXXVI & D1 Championship" />
+        <meta name="twitter:description" content="Athlete registrations open for Sabah Muaythai Championship MMXXVI and fighter submissions open for D1 Championship Tawau." />
+        <meta name="twitter:image" content="https://muaythaisbh.my/d1championship.png" />
       </Head>
 
       {/* --- 🔒 ADMIN NAV ONLY --- */}
@@ -137,7 +137,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* NEW: Partner & Record Logos below Quotes */}
+          {/* Partner & Record Logos below Quotes */}
           <div className="flex items-center justify-center gap-8 md:gap-12 mt-4 animate-fade-in-up delay-150">
             <img 
               src="/MBOR.png" 
@@ -155,73 +155,141 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 2. PROMOTIONS & DEV SUPPORT --- */}
+      {/* --- 2. PROMOTIONS & MAJOR UPCOMING EVENTS --- */}
       <section className="py-20 px-4 bg-[#050506] border-b border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           
-          {/* --- NEW LATEST: SABAH MUAYTHAI EXPO V2 & PRO DEBUT --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] transition-shadow duration-500 mt-4 mx-auto max-w-7xl group">
-            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
+          {/* =========================================================================
+              FEATURED 1 (TOP): SABAH MUAYTHAI CHAMPIONSHIP MMXXVI
+             ========================================================================= */}
+          <div className="relative p-[2px] rounded-[2rem] sm:rounded-[3.2rem] bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-600 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] transition-shadow duration-500 mx-auto max-w-7xl group">
+            <div className="bg-[#0a0a0c] rounded-[1.8rem] sm:rounded-[3rem] p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
               
-              {/* Glow Effect */}
+              {/* Glow Accent */}
               <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/15 rounded-full blur-[100px] pointer-events-none"></div>
 
-              {/* Text & CTA Left Side */}
-              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6 relative z-10">
-                <div className="inline-block bg-yellow-500 text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl animate-pulse">
-                  UPCOMING MAJOR EVENT
+              {/* Text & Details Left Side */}
+              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-4 sm:gap-6 relative z-10 w-full">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                  <span className="inline-block bg-yellow-500 text-black text-[9px] md:text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl">
+                    🏆 STATE CHAMPIONSHIP
+                  </span>
+                  
+                  {/* Blinking Urgent Closing Date Tag */}
+                  <span className="inline-block bg-red-600/20 border-2 border-red-500 text-red-400 text-[9px] md:text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-[0_0_20px_rgba(239,68,68,0.5)] animate-pulse">
+                    ⚠️ REGISTRATION CLOSED: 15 DECEMBER 2026
+                  </span>
                 </div>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  THE NEXT <br className="hidden lg:block"/> <span className="text-yellow-500">GENERATION</span>
+
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-tight text-white">
+                  Sabah Muaythai <br className="hidden lg:block"/>
+                  <span className="text-yellow-500">Championship MMXXVI</span>
                 </h2>
-                <p className="text-gray-300 text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed max-w-xl">
-                  The Sabah Muaythai Expo is back! <span className="text-yellow-500">SME V2</span> delivers the ultimate platform for grassroot development with the Rookie Challenge, paving the way for newcomers, alongside highly anticipated Professional Debuts. 
-                  <br/><br/>
-                  A massive thank you to our official venue sponsor, <span className="text-white">Centre Point Sabah (Palm Square)</span>, for their continued dedication to empowering local athletes and elevating combat sports in Sabah.
+
+                <p className="text-gray-300 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider leading-relaxed max-w-xl">
+                  Full categories open. Athlete registration is officially open to gym clubs and contingents across the whole of Malaysia!
                 </p>
-                <div className="mt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                  <Link href="/events" className="inline-block bg-yellow-500 text-black px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-white hover:text-black shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-1 text-center">
-                    Register Now →
+
+                {/* Date & Location Badges */}
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full">
+                  <div className="flex items-center justify-center gap-2 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-5 rounded-xl w-full sm:w-auto">
+                    <span className="text-yellow-500 text-base">📅</span> 20 - 24 January 2027
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-5 rounded-xl w-full sm:w-auto">
+                    <span className="text-yellow-500 text-base">📍</span> 1 Borneo Hypermall, Kota Kinabalu
+                  </div>
+                </div>
+
+                <div className="mt-2 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <a 
+                    href="https://forms.gle/6EzdLYuJ42bbNmsp8" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block bg-yellow-500 text-black px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-white hover:text-black shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-1 text-center"
+                  >
+                    Register Athletes Now →
+                  </a>
+                  <Link 
+                    href="/events" 
+                    className="inline-block bg-zinc-900 border border-white/10 text-white px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-white/10 text-center"
+                  >
+                    View All Events
                   </Link>
                 </div>
               </div>
 
-              {/* Image Right Side */}
-              <div className="w-full lg:w-auto flex justify-center relative z-10 lg:max-w-md">
-                <div className="overflow-hidden rounded-[2rem] border-2 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.2)] bg-black flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-                  <img src="/smerookie.png" alt="Sabah Muaythai Expo V2 Rookie Challenge & Pro Debut" className="w-full h-auto object-cover" />
+              {/* Poster Right Side */}
+              <div className="w-full lg:w-auto flex justify-center relative z-10 lg:max-w-md flex-shrink-0">
+                <div className="overflow-hidden rounded-[2rem] border-2 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.2)] bg-black flex items-center justify-center max-w-[280px] sm:max-w-[340px] md:max-w-full group-hover:scale-105 transition-transform duration-700">
+                  <img 
+                    src="/SMC.png" 
+                    alt="Sabah Muaythai Championship MMXXVI" 
+                    className="w-full h-auto object-cover" 
+                  />
                 </div>
               </div>
 
             </div>
           </div>
 
-          {/* --- CPS SPONSORSHIP NEWSLETTER PROMOTION --- */}
-          <div className="relative p-[2px] rounded-[3.2rem] bg-gradient-to-r from-zinc-700 via-zinc-500 to-zinc-700 shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-shadow duration-500 mx-auto max-w-7xl">
-            <div className="bg-[#0a0a0c] rounded-[3rem] p-8 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
+          {/* =========================================================================
+              FEATURED 2 (BELOW SMC): D1 CHAMPIONSHIP (PROFESSIONAL FIGHT EVENT)
+             ========================================================================= */}
+          <div className="relative p-[2px] rounded-[2rem] sm:rounded-[3.2rem] bg-gradient-to-r from-red-600 via-amber-500 to-red-600 shadow-[0_0_40px_rgba(220,38,38,0.35)] hover:shadow-[0_0_60px_rgba(220,38,38,0.55)] transition-shadow duration-500 mx-auto max-w-7xl group">
+            <div className="bg-[#0a0a0c] rounded-[1.8rem] sm:rounded-[3rem] p-6 sm:p-10 md:p-14 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 lg:gap-16 shadow-inner relative overflow-hidden">
               
-              {/* Text & CTA Left Side */}
-              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6 relative z-10">
-                <div className="inline-block bg-zinc-800 border border-zinc-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl">
-                  LATEST NEWSLETTER
-                </div>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
-                  THANK YOU <br className="hidden lg:block"/> <span className="text-zinc-500">CENTRE POINT SABAH</span>
+              {/* Glow Accent */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+              {/* Text & Details Left Side */}
+              <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-4 sm:gap-6 relative z-10 w-full">
+                <span className="inline-block bg-red-500/10 border border-red-500/50 text-red-400 text-[9px] md:text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest italic shadow-xl animate-pulse">
+                  ⚡ PROFESSIONAL FIGHT EVENT
+                </span>
+                
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter leading-tight text-white">
+                  D1 Championship <br className="hidden lg:block"/>
+                  <span className="text-red-500 text-2xl sm:text-4xl md:text-5xl lg:text-6xl">Tawau Showcase</span>
                 </h2>
-                <p className="text-gray-300 text-sm md:text-base font-bold uppercase tracking-widest leading-relaxed max-w-xl">
-                  Centre Point Sabah empowers the Sabah Muaythai team with a generous <span className="text-yellow-500">RM50,000 Sponsorship</span> for SUKMA Selangor 2026.
+
+                <p className="text-gray-300 text-xs sm:text-sm md:text-base font-bold uppercase tracking-wider leading-relaxed max-w-xl">
+                  Step into the professional circuit. Submission is now open for matchmaker review and matchmaking selection.
                 </p>
-                <div className="mt-4">
-                  <Link href="/newsletter/cps-sponsorship2026" className="inline-block bg-white text-black px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all hover:bg-yellow-500 hover:text-black shadow-xl hover:-translate-y-1">
-                    Read Full Story →
-                  </Link>
+
+                {/* Date & Location Badges */}
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full">
+                  <div className="flex items-center justify-center gap-2 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-5 rounded-xl w-full sm:w-auto">
+                    <span className="text-red-500 text-base">📅</span> 5th December 2026 (Tentative)
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-5 rounded-xl w-full sm:w-auto">
+                    <span className="text-red-500 text-base">📍</span> Tawau, Sabah
+                  </div>
+                </div>
+
+                <div className="bg-red-950/40 border border-red-500/30 text-red-300 text-[10px] md:text-xs font-black uppercase tracking-widest px-4 py-2.5 rounded-xl text-center lg:text-left w-full sm:w-auto">
+                  ⚠️ Profile Submissions Close: 10 November 2026
+                </div>
+
+                <div className="mt-2 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <a 
+                    href="https://forms.gle/pnStbfEyGt3XRNFQ7" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block bg-gradient-to-r from-red-600 to-amber-600 hover:from-white hover:to-white hover:text-zinc-950 text-white px-8 py-4 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:-translate-y-1 text-center"
+                  >
+                    Submit Fighter Profile →
+                  </a>
                 </div>
               </div>
 
-              {/* Image Right Side */}
-              <div className="w-full lg:w-auto flex justify-center relative z-10 lg:max-w-md">
-                <div className="overflow-hidden rounded-[2rem] border-2 border-white/10 shadow-2xl bg-black flex items-center justify-center">
-                  <img src="/mockchq.jpeg" alt="CPS Mock Cheque" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              {/* Poster Right Side */}
+              <div className="w-full lg:w-auto flex justify-center relative z-10 lg:max-w-md flex-shrink-0">
+                <div className="overflow-hidden rounded-[2rem] border-2 border-red-500/30 shadow-[0_0_30px_rgba(220,38,38,0.3)] bg-black flex items-center justify-center max-w-[280px] sm:max-w-[340px] md:max-w-full group-hover:scale-105 transition-transform duration-700">
+                  <img 
+                    src="/d1championship.png" 
+                    alt="D1 Championship Tawau" 
+                    className="w-full h-auto object-cover" 
+                  />
                 </div>
               </div>
 
@@ -278,13 +346,13 @@ export default function Home() {
 
       {/* --- AFFILIATES --- */}
       <section className="py-20 px-4 bg-[#050506] border-t border-white/5 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-7xl mx-auto">
-            {affiliates.map((aff, i) => (
-              <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
-                <span className="text-[7px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
-              </a>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-7xl mx-auto">
+          {affiliates.map((aff, i) => (
+            <a key={i} href={aff.url} target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl bg-zinc-900/40 border border-white/5 hover:border-yellow-500 transition-all flex items-center justify-center group hover:-translate-y-1">
+              <span className="text-[7px] md:text-[9px] font-black text-zinc-500 group-hover:text-yellow-500 uppercase tracking-widest text-center leading-tight transition-colors">{aff.name}</span>
+            </a>
+          ))}
+        </div>
       </section>
 
       {/* --- FOOTER --- */}
@@ -292,12 +360,12 @@ export default function Home() {
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <div className="flex justify-center items-center gap-8 mb-12">
             <a href="https://www.facebook.com/muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 hover:scale-105 transition-transform">
-               <div className="bg-blue-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">FB</div>
-               <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">Facebook</span>
+              <div className="bg-blue-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">FB</div>
+              <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">Facebook</span>
             </a>
             <a href="https://www.youtube.com/@muaythaisabah" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 hover:scale-105 transition-transform">
-               <div className="bg-red-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">YT</div>
-               <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">YouTube</span>
+              <div className="bg-red-600 w-10 h-10 flex items-center justify-center rounded-full shadow-2xl text-white font-black text-[9px]">YT</div>
+              <span className="text-[9px] font-black text-white uppercase tracking-[0.3em] italic">YouTube</span>
             </a>
           </div>
           <p className="text-[8px] text-zinc-500 uppercase tracking-[0.4em] font-black italic mb-2">© 2026 PERSATUAN MUAYTHAI NEGERI SABAH</p>

@@ -2,19 +2,19 @@ import Link from 'next/link';
 
 // SEO & Facebook Open Graph Meta Tags
 export const metadata = {
-  title: 'Sabah Muaythai Events 2026 | SME V2',
-  description: 'Registrations are now open for the Sabah Muaythai Expo V2: Rookie Challenge and Pro Debut. October 9-11, 2026 at Palm Square, Centre Point Sabah.',
+  title: 'Sabah Muaythai Events | D1 Championship & SMC MMXXVI',
+  description: 'Fighter submissions are now open for D1 Championship Tawau (5 Dec 2026) and athlete registrations for Sabah Muaythai Championship MMXXVI (20-24 Jan 2027 at 1 Borneo Hypermall).',
   openGraph: {
-    title: 'Sabah Muaythai Expo V2 | Rookie & Pro Debut',
-    description: 'Step into the ring! Registrations are now open for the Sabah Muaythai Expo V2: Rookie Challenge and Pro Debut. October 9-11, 2026 at Palm Square, Centre Point Sabah.',
+    title: 'D1 Championship & Sabah Muaythai Championship MMXXVI',
+    description: 'Step into the ring! Submissions open for D1 Championship Tawau and athlete registrations open for Sabah Muaythai Championship MMXXVI.',
     url: 'https://yourwebsite.com/events', // Update this with your actual domain
     siteName: 'Sabah Muaythai',
     images: [
       {
-        url: '/smerookie.png', 
+        url: '/d1championship.png',
         width: 1080,
         height: 1080,
-        alt: 'Sabah Muaythai Expo V2 - Rookie Challenge & Pro Debut',
+        alt: 'D1 Championship Tawau',
       },
     ],
     locale: 'en_MY',
@@ -22,9 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sabah Muaythai Expo V2 | Rookie & Pro Debut',
-    description: 'Registrations are now open for the Sabah Muaythai Expo V2: Rookie Challenge and Pro Debut.',
-    images: ['/smerookie.png'],
+    title: 'D1 Championship & Sabah Muaythai Championship MMXXVI',
+    description: 'Fighter profile submissions and tournament registrations are now officially open.',
+    images: ['/d1championship.png'],
   },
 };
 
@@ -35,76 +35,138 @@ export default function EventPage() {
       <div className="max-w-5xl mx-auto">
 
         {/* --- HEADER SECTION --- */}
-        <div className="text-center mb-12 md:mb-20 pt-24 md:pt-32">
+        <div className="text-center mb-12 md:mb-16 pt-24 md:pt-32">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase italic tracking-tighter mb-4 leading-none">
-            Upcoming Events <span className="text-yellow-500">2026</span>
+            Upcoming Events <span className="text-yellow-500">2026 / 2027</span>
           </h1>
           <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em] md:tracking-[0.3em]">
-            Mark your calendars for an exciting year of Muaythai!
+            Mark your calendars for an exciting season of Muaythai!
           </p>
         </div>
 
-        {/* EVENTS TIMELINE */}
-        <div className="space-y-6 md:space-y-8">
+        {/* =========================================================================
+            MAJOR HIGHLIGHT 1 (TOP): D1 CHAMPIONSHIP (PROFESSIONAL FIGHT EVENT)
+           ========================================================================= */}
+        <div className="relative overflow-hidden rounded-[2rem] md:rounded-[3rem] p-[2px] transition-all duration-300 bg-gradient-to-r from-red-600 via-amber-500 to-red-600 shadow-[0_0_40px_rgba(220,38,38,0.35)] hover:shadow-[0_0_60px_rgba(220,38,38,0.55)] group mt-4 mb-8">
+          <div className="bg-[#0a0a0c] h-full rounded-[30px] md:rounded-[46px] p-6 sm:p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 relative z-10">
+            
+            {/* Poster */}
+            <div className="w-full lg:w-5/12 flex-shrink-0 flex items-center justify-center">
+              <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.6)] border border-red-500/30 transition-all duration-500 max-w-[300px] md:max-w-full group-hover:scale-[1.02]">
+                <img 
+                  src="/d1championship.png" 
+                  alt="D1 Championship Tawau" 
+                  className="w-full h-auto object-cover" 
+                />
+              </div>
+            </div>
 
-          {/* 1. HIGHLIGHTED PROMOTION: Sabah Muaythai Expo V2 & Pro Debut */}
-          <div className="relative overflow-hidden rounded-[2rem] md:rounded-[3rem] p-[2px] transition-all duration-300 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] group mt-4 mb-10">
-            <div className="bg-[#0a0a0c] h-full rounded-[30px] md:rounded-[46px] p-6 sm:p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 relative z-10">
+            {/* Details & Actions */}
+            <div className="flex-grow text-center lg:text-left flex flex-col justify-center h-full w-full">
+              <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/50 text-red-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6 w-max mx-auto lg:mx-0 shadow-[0_0_15px_rgba(239,68,68,0.25)] animate-pulse">
+                ⚡ PROFESSIONAL FIGHT EVENT
+              </span>
               
-              {/* Poster */}
-              <div className="w-full lg:w-5/12 flex-shrink-0 flex items-center justify-center">
-                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-yellow-500/30 transition-all duration-500 max-w-[300px] md:max-w-full group-hover:scale-[1.02]">
-                  <img 
-                    src="/smerookie.png" 
-                    alt="Sabah Muaythai Expo V2 Rookie Challenge & Pro Debut" 
-                    className="w-full h-auto object-cover" 
-                  />
+              <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-3">
+                D1 Championship <br className="hidden md:block"/>
+                <span className="text-red-500 text-2xl md:text-4xl lg:text-5xl">Tawau Showcase</span>
+              </h3>
+
+              <p className="text-zinc-400 text-xs md:text-sm font-semibold uppercase tracking-wider mb-6">
+                Send in your fighter profile • Submission closes 10 November 2026
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 mb-8 w-full">
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-red-500 text-lg">📅</span> 5th December 2026 (Tentative)
+                </div>
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-red-500 text-lg">📍</span> Tawau, Sabah
                 </div>
               </div>
 
-              {/* Details & Actions */}
-              <div className="flex-grow text-center lg:text-left flex flex-col justify-center h-full w-full">
-                <span className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/50 text-yellow-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6 w-max mx-auto lg:mx-0 shadow-[0_0_15px_rgba(234,179,8,0.2)] animate-pulse">
-                  UPCOMING MAJOR EVENT
-                </span>
-                
-                <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-4">
-                  Sabah Muaythai Expo V2 <br className="hidden md:block"/>
-                  <span className="text-yellow-500 text-2xl md:text-4xl lg:text-5xl">The Rookie Challenge & Pro Debut</span>
-                </h3>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 mb-8 w-full">
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                     <span className="text-yellow-500 text-lg">📅</span> 9 - 11 October 2026
-                   </div>
-                   <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
-                     <span className="text-yellow-500 text-lg">📍</span> Palm Square, Centre Point Sabah, KK
-                   </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
-                  <a 
-                    href="https://forms.gle/ajoeFoez6qGjuRpT8" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="bg-gradient-to-r from-zinc-700 to-zinc-600 hover:from-white hover:to-white hover:text-zinc-900 text-white px-8 py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(0,0,0,0.4)] hover:-translate-y-1 text-center"
-                  >
-                    Register Rookie Challenge
-                  </a>
-                  <a 
-                    href="https://forms.gle/x1GYAbbya7iUViPz6" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-white hover:to-white hover:text-yellow-600 text-white px-8 py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-1 text-center"
-                  >
-                    Register Pro Debut
-                  </a>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                <a 
+                  href="https://forms.gle/pnStbfEyGt3XRNFQ7" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-white hover:to-white hover:text-zinc-900 text-white px-8 py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:-translate-y-1 text-center"
+                >
+                  Submit Fighter Profile
+                </a>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* 2. APR - Young Guns U17 (Concluded) */}
+        {/* =========================================================================
+            MAJOR HIGHLIGHT 2 (SECOND TOP): SABAH MUAYTHAI CHAMPIONSHIP MMXXVI
+           ========================================================================= */}
+        <div className="relative overflow-hidden rounded-[2rem] md:rounded-[3rem] p-[2px] transition-all duration-300 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 shadow-[0_0_40px_rgba(234,179,8,0.3)] hover:shadow-[0_0_60px_rgba(234,179,8,0.5)] group mb-12">
+          <div className="bg-[#0a0a0c] h-full rounded-[30px] md:rounded-[46px] p-6 sm:p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8 md:gap-12 relative z-10">
+            
+            {/* Poster */}
+            <div className="w-full lg:w-5/12 flex-shrink-0 flex items-center justify-center">
+              <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-yellow-500/30 transition-all duration-500 max-w-[300px] md:max-w-full group-hover:scale-[1.02]">
+                <img 
+                  src="/SMC.png" 
+                  alt="Sabah Muaythai Championship MMXXVI" 
+                  className="w-full h-auto object-cover" 
+                />
+              </div>
+            </div>
+
+            {/* Details & Actions */}
+            <div className="flex-grow text-center lg:text-left flex flex-col justify-center h-full w-full">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/50 text-yellow-500 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+                  🏆 UPCOMING MAJOR CHAMPIONSHIP
+                </span>
+
+                {/* Blinking Urgent Closing Date Tag */}
+                <span className="inline-flex items-center gap-2 bg-red-600/20 border-2 border-red-500 text-red-400 text-[10px] md:text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-[0_0_25px_rgba(239,68,68,0.6)] animate-pulse">
+                  ⚠️ REGISTRATION CLOSED: 15 DECEMBER 2026
+                </span>
+              </div>
+              
+              <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight mb-3">
+                Sabah Muaythai Championship <br className="hidden md:block"/>
+                <span className="text-yellow-500 text-2xl md:text-4xl lg:text-5xl">MMXXVI</span>
+              </h3>
+
+              <p className="text-zinc-400 text-xs md:text-sm font-semibold uppercase tracking-wider mb-6">
+                Participation open to whole Malaysia • Full categories open
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 mb-8 w-full">
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-yellow-500 text-lg">📅</span> 20 - 24 January 2027
+                </div>
+                <div className="flex items-center justify-center gap-3 text-zinc-300 text-[10px] md:text-xs font-black uppercase tracking-widest bg-zinc-900/80 border border-white/10 py-3 px-6 rounded-xl w-full sm:w-auto">
+                  <span className="text-yellow-500 text-lg">📍</span> 1 Borneo Hypermall, Kota Kinabalu
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
+                <a 
+                  href="https://forms.gle/6EzdLYuJ42bbNmsp8" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-white hover:to-white hover:text-yellow-600 text-white px-8 py-4 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-1 text-center"
+                >
+                  Register Athletes Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            EVENTS TIMELINE & ARCHIVE
+           ========================================================================= */}
+        <div className="space-y-6 md:space-y-8">
+
+          {/* APR - Young Guns U17 (Concluded) */}
           <EventCard 
             month="APR" 
             year="2026"
@@ -115,7 +177,7 @@ export default function EventPage() {
             image="/smeu17.png"
           />
 
-          {/* 3. MAY - Ladies Fight (Concluded) */}
+          {/* MAY - Ladies Fight (Concluded) */}
           <EventCard 
             month="MAY" 
             year="2026"
@@ -126,7 +188,7 @@ export default function EventPage() {
             image="/ladies.jpeg"
           />
 
-          {/* 4. JUN - IFMA World Championship (Concluded) */}
+          {/* JUN - IFMA World Championship (Concluded) */}
           <EventCard 
             month="JUN" 
             year="2026"
@@ -137,7 +199,7 @@ export default function EventPage() {
             images={['/ifma2.jpg', '/ifma1.jpg']}
           />
 
-          {/* 5. JUL - Kejohanan Muaythai Kebangsaan (Concluded) */}
+          {/* JUL - Kejohanan Muaythai Kebangsaan (Concluded) */}
           <EventCard 
             month="JUL" 
             year="2026"
@@ -146,72 +208,68 @@ export default function EventPage() {
             status="CONCLUDED" 
           />
 
-          {/* 6. AUG - SUKMA Selangor (Concluded) */}
+          {/* AUG - SUKMA Selangor (Concluded) */}
           <EventCard 
             month="AUG" 
             year="2026"
             title="Sukan Malaysia (SUKMA) Selangor"
             venue="Selangor"
-            status="CONCLUDED"
+            status="CONCLUDED" 
           />
 
-          {/* 7. NOV/DEC - Sabah Muaythai Championship (SMC) */}
+          {/* OCT - Sabah Muaythai Expo V2 (Concluded) */}
           <EventCard 
-            month="NOV/DEC" 
+            month="OCT" 
             year="2026"
-            title="Sabah Muaythai Championship (SMC) 2026"
-            venue="Kota Kinabalu"
-            status="STATE CHAMPIONSHIP"
-          />
-
-          {/* 8. Cultural & Heritage (Coming Soon - No Date) */}
-          <EventCard 
-            month="TBA" 
-            title="Sabah Muaythai Expo - Cultural and Heritage"
-            venue="Kota Kinabalu"
-            status="COMING SOON" 
+            title="Sabah Muaythai Expo V2 - The Rookie Challenge & Pro Debut"
+            subtitle="9 - 11 October 2026 • Registration Closed"
+            venue="Palm Square, Centre Point Sabah, KK"
+            status="CONCLUDED"
+            image="/smerookie.png"
           />
 
         </div>
 
-        {/* REGISTRATION CTA SECTION */}
+        {/* =========================================================================
+            REGISTRATION CTA SECTION
+           ========================================================================= */}
         <div className="mt-20 md:mt-32 border-t border-white/5 pt-16 md:pt-20">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-4">
               Step Into The <span className="text-yellow-500">Ring</span>
             </h2>
             <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-              Registrations are now open for Sabah Muaythai Expo V2
+              Registrations & Fighter Submissions Are Now Open
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             
-            {/* Rookie Challenge Registration Link */}
+            {/* D1 Championship Fighter Profile Submission Link */}
             <a 
-              href="https://forms.gle/ajoeFoez6qGjuRpT8" 
+              href="https://forms.gle/pnStbfEyGt3XRNFQ7" 
               target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2rem] flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6 hover:bg-zinc-900/80 hover:border-blue-500/30 transition-all group cursor-pointer"
+              rel="noopener noreferrer" 
+              className="bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2rem] flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6 hover:bg-zinc-900/80 hover:border-red-500/30 transition-all group cursor-pointer"
             >
-              <div className="bg-blue-500/10 p-4 rounded-2xl text-blue-500 text-2xl md:text-3xl border border-blue-500/20 group-hover:scale-110 transition-transform">★</div>
+              <div className="bg-red-500/10 p-4 rounded-2xl text-red-500 text-2xl md:text-3xl border border-red-500/20 group-hover:scale-110 transition-transform">★</div>
               <div>
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight mb-2 group-hover:text-blue-400 transition-colors">Register Rookie Challenge</h3>
-                <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">Amateur Development Circuit</p>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight mb-2 group-hover:text-red-400 transition-colors">Submit Fighter Profile: D1 Championship</h3>
+                <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">Professional Fight Circuit • Closes 10 Nov 2026</p>
               </div>
             </a>
 
-            {/* Pro Debut Registration Link */}
+            {/* Sabah Muaythai Championship MMXXVI Registration Link */}
             <a 
-              href="https://forms.gle/x1GYAbbya7iUViPz6" 
+              href="https://forms.gle/6EzdLYuJ42bbNmsp8" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" 
               className="bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2rem] flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 md:gap-6 hover:bg-zinc-900/80 hover:border-yellow-500/30 transition-all group cursor-pointer"
             >
               <div className="bg-yellow-500/10 p-4 rounded-2xl text-yellow-500 text-2xl md:text-3xl border border-yellow-500/20 group-hover:scale-110 transition-transform">★</div>
               <div>
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight mb-2 group-hover:text-yellow-400 transition-colors">Register Pro Debut</h3>
-                <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">Professional Circuit</p>
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tight mb-2 group-hover:text-yellow-400 transition-colors">Register Athletes: SMC MMXXVI</h3>
+                <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">Full Categories Open • Closing 15 Dec 2026</p>
               </div>
             </a>
 
@@ -302,16 +360,16 @@ function EventCard({ month, year, title, subtitle, venue, status, highlight, ima
         {/* Status Badge - Full width block on mobile */}
         {!isPostponed && (
           <div className="min-w-[120px] text-center mt-4 md:mt-0 w-full md:w-auto">
-             <span className={`
-               text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-3 md:py-2 rounded-full border block w-full
-               ${highlight 
-                 ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/30' 
-                 : isConcluded
-                 ? 'bg-red-500/10 text-red-400 border-red-500/30'
-                 : 'bg-white/5 text-gray-400 border-white/10 group-hover:bg-white/10 group-hover:text-white transition-colors'}
-             `}>
-               {status}
-             </span>
+            <span className={`
+              text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-3 md:py-2 rounded-full border block w-full
+              ${highlight 
+                ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/30' 
+                : isConcluded
+                ? 'bg-red-500/10 text-red-400 border-red-500/30'
+                : 'bg-white/5 text-gray-400 border-white/10 group-hover:bg-white/10 group-hover:text-white transition-colors'}
+            `}>
+              {status}
+            </span>
           </div>
         )}
 
