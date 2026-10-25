@@ -21,11 +21,11 @@ export const viewport = {
   userScalable: false,
 };
 
-// --- UPDATED METADATA FOR CPS SPONSORSHIP & SUKMA 2026 ---
+// --- UPDATED METADATA: OFFICIAL PMNS PORTAL ---
 export const metadata = {
-  title: "Muaythai Sabah | Platform Rasmi",
-  description: "Platform Rasmi Kejohanan, Atlet & Pembangunan Muaythai di Sabah. Latest: Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026!",
   metadataBase: new URL("https://www.muaythaisbh.my"),
+  title: "Persatuan Muaythai Negeri Sabah | Official Portal",
+  description: "Official digital portal of Persatuan Muaythai Negeri Sabah (PMNS). Athlete rosters, tournament updates, gym registry, and championships.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -36,29 +36,31 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Thank You CPS: RM50,000 Sponsorship for Sabah Muaythai",
-    description: "Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026.",
+    title: "Persatuan Muaythai Negeri Sabah | Official Portal",
+    description: "Official digital portal of Persatuan Muaythai Negeri Sabah (PMNS). Athlete rosters, tournament updates, gym registry, and state championship registration.",
     url: "https://www.muaythaisbh.my",
-    siteName: "Muaythai Sabah",
+    siteName: "Persatuan Muaythai Negeri Sabah",
     images: [
       {
-        // Facebook and WhatsApp require an absolute URL to fetch the image reliably.
-        // 1080x1080 (Square) & type declaration ensures flawless WhatsApp Link Previews.
-        url: "https://www.muaythaisbh.my/mockchq.jpeg",
-        width: 1080,
-        height: 1080,
-        alt: "Centre Point Sabah RM50,000 Sponsorship Mock Cheque",
-        type: "image/jpeg",
+        url: "https://www.muaythaisbh.my/pmnslogo.png",
+        width: 512,
+        height: 512,
+        alt: "Persatuan Muaythai Negeri Sabah Official Crest",
+        type: "image/png",
       },
     ],
     locale: "en_MY",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Thank You CPS: RM50,000 Sponsorship for Sabah Muaythai",
-    description: "Centre Point Sabah empowers the Sabah Muaythai team with a generous RM50,000 Sponsorship for SUKMA Selangor 2026.",
-    images: ["https://www.muaythaisbh.my/mockchq.jpeg"],
+    card: "summary",
+    title: "Persatuan Muaythai Negeri Sabah | Official Portal",
+    description: "Official digital portal of Persatuan Muaythai Negeri Sabah (PMNS). Athlete rosters, tournament updates, gym registry, and state championship registration.",
+    images: ["https://www.muaythaisbh.my/pmnslogo.png"],
+  },
+  other: {
+    "fb:app_id": "966242223397117",
+    "fb:pages": "muaythaisabah",
   },
 };
 
